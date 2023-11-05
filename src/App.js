@@ -7,14 +7,14 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Heeader from './components/Header'
-import SignupLogin from '../pages/SignupLogin';
-import AllEvents from '../pages/AllEvents';
-import CurrentEvent from '../pages/CurrentEvent';
-import Gallery from '../pages/Gallery';
-import Profile from '../pages/Profile';
-import Account from '../pages/Account';
-import PageNotFound from "../pages/PageNotFound"; 
+import Header from './components/Header'
+import SignupLogin from './pages/SignupLogin';
+import AllEvents from './pages/AllEvents';
+import CurrentEvent from './pages/CurrentEvent';
+import Gallery from './pages/Gallery';
+import Profile from './pages/Profile';
+import Account from './pages/Account';
+import PageNotFound from "./pages/PageNotFound"; 
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
       <Router>
         <Navbar />
         <main>
+          <Header/>
           <Routes>
             <Route path="/" element={ <Home />} />
             <Route path="/about" element = { <About /> } />
@@ -37,6 +38,7 @@ function App() {
             <Route path="*" element = { <PageNotFound /> } />
           </Routes>
         </main>
+        <Footer/>
       </Router>
 
     </div>
