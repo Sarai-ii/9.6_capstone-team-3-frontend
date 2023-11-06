@@ -84,14 +84,14 @@ text-decoration: none;
   margin-bottom: 20px;
 }
 .footer-call-to-action-button:hover {
-  background-color: #fffff2;
-  color: #00bef0;
+  background-color: #fffaeb;
+  color: #545454;
 }
 .button:last-of-type {
   margin-right: 0;
 }
 .footer-call-to-action-button {
-  background-color: #027b9a;
+  background-color: #ffaf28;
   border-radius: 21px;
   color: #fffff2;
   display: inline-block;
