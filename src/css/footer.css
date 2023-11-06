@@ -135,7 +135,7 @@ text-decoration: none;
 
 
 
-.footer-social-links {
+/* .footer-social-links {
   bottom: 0;
   height: 54px;
   position: absolute;
@@ -150,7 +150,7 @@ text-decoration: none;
   position: absolute;
   top: 0;
   width: 236px;
-}
+} 
 
 .footer-social-amoeba-path {
   fill: #027b9a;
@@ -167,7 +167,7 @@ text-decoration: none;
   display: block;
   padding: 10px;
   position: absolute;
-}
+} */
 
 .hidden-link-text {
   position: absolute;
@@ -192,22 +192,19 @@ text-decoration: none;
   transition: fill .2s;
 }
 
-.footer-social-link.twitter {
+/* .footer-social-link.twitter {
   height: 28px;
   left: 62px;
   top: 3px;
   width: 28px;
 }
 
-
-
 .footer-social-link.github {
   height: 34px;
   left: 172px;
   top: 7px;
   width: 34px;
-}
-
+} */
 
 /* Media Query For different screens */
 @media (min-width:320px) and (max-width:479px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
@@ -215,7 +212,7 @@ text-decoration: none;
   margin-left: auto;
   margin-right: auto;
   max-width: 1230px;
-  padding: 40px 15px 1050px;
+  padding: 40px 15px 550px;
   position: relative;
 }
 }
@@ -224,7 +221,7 @@ text-decoration: none;
   margin-left: auto;
   margin-right: auto;
   max-width: 1230px;
-  padding: 40px 15px 1050px;
+  padding: 40px 15px 550px;
   position: relative;
 }
 }
@@ -233,7 +230,7 @@ text-decoration: none;
   margin-left: auto;
   margin-right: auto;
   max-width: 1230px;
-  padding: 40px 15px 1050px;
+  padding: 40px 15px 550px;
   position: relative;
 }
 }
@@ -252,7 +249,7 @@ text-decoration: none;
     margin-left: auto;
     margin-right: auto;
     max-width: 1230px;
-    padding: 40px 15px 450px;
+    padding: 40px 15px 300px;
     position: relative;
 }
 
@@ -269,9 +266,6 @@ text-decoration: none;
     width: 49.99%;
 } */
 }
-
-
-
 
 /* Code not being used:
 
@@ -338,5 +332,3 @@ img {
       offset-distance: 100%;
     }
   } */
-
-  

@@ -16,7 +16,7 @@ function Footer() {
                 <h1>LOGO</h1>
               </a>
             </div>
-            <div className='footer-menu'>
+            {/* <div className='footer-menu'>
               <h2 className='footer-menu-name'>Get Started</h2>
               <ul id="menu-get-started" className='footer-menu-list'>
                 <li className="menu-item menu-item-type-post_type menu-item-object-product">
@@ -29,20 +29,10 @@ function Footer() {
                   <a href="#">Installation</a>
                 </li>
               </ul>
-            </div>
+            </div> */}
             </div>
           <div className="footer-content-column">
-            <div className="footer-menu">
-              <h2 className="footer-menu-name"> Company</h2>
-              <ul id="menu-company" className="footer-menu-list">
-                <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                  <a href="#">Contact</a>
-                </li>
-                <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                  <a href="#">Careers</a>
-                </li>
-              </ul>
-            </div>
+
             <div className='footer-menu'>
             <h2 class="footer-menu-name"> Legal</h2>
             <ul id="menu-legal" class="footer-menu-list">
@@ -73,7 +63,7 @@ function Footer() {
           <div className="footer-content-column">
             <div className="footer-call-to-action">
               <h2 className="footer-call-to-action-title"> Let's Chat</h2>
-              <p className="footer-call-to-action-description"> Have a support question?</p>
+              <p className="footer-call-to-action-description"></p>
               <a className="footer-call-to-action-button button" href="#" target="_self"> Get in Touch </a>
             </div>            
           </div>
