@@ -1,0 +1,48 @@
+.navbar {
+    background-color: #FFAF28; 
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-height: 75px;
+  }
+  
+  .navbar-logo img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .navbar-links {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-end; 
+  }
+  
+  .navbar-links a {
+    color: #FFFAEB; 
+    text-decoration: none;
+    margin: 0 10px 8px ; 
+  }
+  
+  .navbar-links a:hover {
+    color: #FFAF28; 
+  }
+
+  .navbar-login-link{
+    font-size: 1rem;
+    padding-bottom: 0.4rem;
+    padding: 7px 25px; 
+    border: 2px solid #FFFAEB; /* Add border with a different color */
+    border-radius: 5px; /* Round the corners of the buttons */
+    background-color: #FF5757;; /* Set the button background color */
+    transition: background-color 0.2s, color 0.2s; 
+  }
+  
+  .navbar-events-link{
+    font-size: 1rem;
+    padding: 7px 20px; 
+    border: 2px solid #FFFAEB; /* Add border with a different color */
+    border-radius: 5px; /* Round the corners of the buttons */
+    background-color: #FF5757;; /* Set the button background color */
+    transition: background-color 0.2s, color 0.2s;
+  }
