@@ -14,7 +14,7 @@ import CurrentEvent from './pages/CurrentEvent';
 import Gallery from './pages/Gallery';
 import Profile from './pages/Profile';
 import Account from './pages/Account';
-import Users from './pages/Users';
+import Users from './pages/usersIndex';
 import PageNotFound from "./pages/PageNotFound"; 
 
 function App() {
