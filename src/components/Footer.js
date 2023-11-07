@@ -16,30 +16,16 @@ function Footer() {
                 <h1>LOGO</h1>
               </a>
             </div>
-            {/* <div className='footer-menu'>
-              <h2 className='footer-menu-name'>Get Started</h2>
-              <ul id="menu-get-started" className='footer-menu-list'>
-                <li className="menu-item menu-item-type-post_type menu-item-object-product">
-                  <a href="#">Start</a>
-                </li>
-                <li className="menu-item menu-item-type-post_type menu-item-object-product">
-                  <a href="#">Documentation</a>
-                </li>
-                <li className="menu-item menu-item-type-post_type menu-item-object-product">
-                  <a href="#">Installation</a>
-                </li>
-              </ul>
-            </div> */}
-            </div>
+          </div>
           <div className="footer-content-column">
 
             <div className='footer-menu'>
-            <h2 class="footer-menu-name"> Legal</h2>
-            <ul id="menu-legal" class="footer-menu-list">
-              <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-170434">
+            <h2 className="footer-menu-name"> Legal</h2>
+            <ul id="menu-legal" className="footer-menu-list">
+              <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-170434">
                 <a href="#">Privacy Notice</a>
               </li>
-              <li class="menu-item menu-item-type-post_type menu-item-object-page">
+              <li className="menu-item menu-item-type-post_type menu-item-object-page">
                 <a href="#">Terms of Use</a>
               </li>
             </ul>
@@ -48,7 +34,7 @@ function Footer() {
           <div className="footer-content-column">
             <div className="footer-menu">
               <h2 className="footer-menu-name"> Quick Links</h2>
-              <ul id="menu-quick-links" class="footer-menu-list">
+              <ul id="menu-quick-links" className="footer-menu-list">
                 <li className="menu-item menu-item-type-custom menu-item-object-custom">
                   <a target="_blank" rel="noopener noreferrer" href="#">Service Status</a>
                 </li>

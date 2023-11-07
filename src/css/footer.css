@@ -131,10 +131,6 @@ text-decoration: none;
   text-decoration: none;
 }
 
-
-
-
-
 /* .footer-social-links {
   bottom: 0;
   height: 54px;
@@ -212,7 +208,7 @@ text-decoration: none;
   margin-left: auto;
   margin-right: auto;
   max-width: 1230px;
-  padding: 40px 15px 550px;
+  padding: 40px 15px 500px;
   position: relative;
 }
 }
@@ -221,7 +217,7 @@ text-decoration: none;
   margin-left: auto;
   margin-right: auto;
   max-width: 1230px;
-  padding: 40px 15px 550px;
+  padding: 40px 15px 500px;
   position: relative;
 }
 }
@@ -230,7 +226,7 @@ text-decoration: none;
   margin-left: auto;
   margin-right: auto;
   max-width: 1230px;
-  padding: 40px 15px 550px;
+  padding: 40px 15px 500px;
   position: relative;
 }
 }
@@ -249,7 +245,7 @@ text-decoration: none;
     margin-left: auto;
     margin-right: auto;
     max-width: 1230px;
-    padding: 40px 15px 300px;
+    padding: 40px 15px 190px;
     position: relative;
 }
 
