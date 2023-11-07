@@ -14,6 +14,7 @@ import CurrentEvent from './pages/CurrentEvent';
 import Gallery from './pages/Gallery';
 import Profile from './pages/Profile';
 import Account from './pages/Account';
+import Users from './pages/Users';
 import PageNotFound from "./pages/PageNotFound"; 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
             <Route path="/gallery" element = { <Gallery /> } />
             <Route path="/allevents" element = { <AllEvents /> } />
             <Route path="/profile" element = { <Profile /> } />
+            <Route path="/users" element = {<Users/>} />
             <Route path="/account" element = { <Account /> } />
             <Route path="*" element = { <PageNotFound /> } />
           </Routes>

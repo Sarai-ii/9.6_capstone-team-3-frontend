@@ -1,48 +1,56 @@
 .navbar {
-    background-color: #FFAF28; 
+    background: linear-gradient(135deg, #F4D03F,#F4D03F,#F4D03F,#FFAF28,#FFAF28,#D35400,#E66000 );
     display: flex;
     justify-content: space-between;
-    padding: 10px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
     min-height: 75px;
+    align-items: center;
   }
   
   .navbar-logo img {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
+    padding: 5px;
+    background-color: #FFAF28;
   }
   
   .navbar-links {
     display: flex;
-    flex-direction: column; 
-    align-items: flex-end; 
+    align-items: center;
   }
   
   .navbar-links a {
-    color: #FFFAEB; 
+    color: #FFFAEB;
     text-decoration: none;
-    margin: 0 10px 8px ; 
+    margin: 0 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: color 0.3s, background-color 0.3s, transform 0.3s;
+    position: relative;
   }
   
   .navbar-links a:hover {
-    color: #FFAF28; 
-  }
-
-  .navbar-login-link{
-    font-size: 1rem;
-    padding-bottom: 0.4rem;
-    padding: 7px 25px; 
-    border: 2px solid #FFFAEB; /* Add border with a different color */
-    border-radius: 5px; /* Round the corners of the buttons */
-    background-color: #FF5757;; /* Set the button background color */
-    transition: background-color 0.2s, color 0.2s; 
+    color: #E66000;
+    background: #FFFAEB;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
   
-  .navbar-events-link{
-    font-size: 1rem;
-    padding: 7px 20px; 
-    border: 2px solid #FFFAEB; /* Add border with a different color */
-    border-radius: 5px; /* Round the corners of the buttons */
-    background-color: #FF5757;; /* Set the button background color */
-    transition: background-color 0.2s, color 0.2s;
+  .navbar-login-link, .navbar-events-link {
+    padding: 10px 20px;
+    border: 2px solid #FFFAEB;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
   }
+  
+  .navbar-login-link {
+    background: #E66000;
+  }
+  
+  .navbar-events-link {
+    background: #FFAF28;
+  }
+  
+
