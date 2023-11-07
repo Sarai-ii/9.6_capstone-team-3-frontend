@@ -7,7 +7,7 @@ function NavBar() {
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-logo">
-        <img src="/Logo.jpg" alt="ToFromLogo" />
+        <img src="public/OrangeLogo.jpg" alt="ToFromLogo" />
       </Link>
       <div className="navbar-links">
         <Link className="navbar-login-link" to="/signup">
