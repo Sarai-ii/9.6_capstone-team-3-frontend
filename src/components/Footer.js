@@ -23,10 +23,10 @@ function Footer() {
             <div className='footer-menu'>
             <h2 className="footer-menu-name"> Legal</h2>
             <ul id="menu-legal" className="footer-menu-list">
-              <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-170434">
+              <li className="menu-item menu-item-privacy-policy">
                 <Link to="#">Privacy Notice</Link>
               </li>
-              <li className="menu-item menu-item-type-post_type menu-item-object-page">
+              <li className="menu-item">
                 <Link to="#">Terms of Use</Link>
               </li>
             </ul>
@@ -36,12 +36,12 @@ function Footer() {
             <div className="footer-menu">
               <h2 className="footer-menu-name"> Quick Links</h2>
               <ul id="menu-quick-links" className="footer-menu-list">
-                <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                  <Link to="#" target="_blank" rel="noopener noreferrer" >Service Status</Link>
+                <li className="menu-item ">
+                  <Link to="#" >About Us</Link>
                 </li>
-                <li className="menu-item menu-item-type-post_type_archive menu-item-object-customer">
-                  <Link to="#">Customers</Link></li>
-                <li className="menu-item menu-item-type-post_type menu-item-object-page">
+                <li className="menu-item ">
+                  <Link to="#">FAQ</Link></li>
+                <li className="menu-item">
                   <Link to="#">Reviews</Link>
                 </li>
               </ul>
@@ -49,9 +49,8 @@ function Footer() {
           </div>
           <div className="footer-content-column">
             <div className="footer-call-to-action">
-              <h2 className="footer-call-to-action-title"> Let's Chat</h2>
               <p className="footer-call-to-action-description"></p>
-              <Link to="#"  className="footer-call-to-action-button button" target="_self"> Get in Touch </Link>
+              <Link to="/"  className="footer-call-to-action-button button"> Join Now! </Link>
             </div>            
           </div>
 

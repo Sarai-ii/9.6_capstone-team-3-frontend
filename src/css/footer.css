@@ -16,7 +16,7 @@
   width: 100%;
 }
 .footer-wave-path {
-  fill: #fffff2;
+  fill: #FFFAEB;
 }
 .footer-content {
   margin-left: auto;
@@ -82,33 +82,25 @@ text-decoration: none;
 .footer-call-to-action-button {
   background-color: #ffaf28;
   border-radius: 21px;
+  border: 2px solid #FFFAEB;
   color: #FFFAEB;
   font-weight: bold;
   display: inline-block;
-  font-size: 11px;
+  font-size: 1rem;
   font-weight: 900;
+  font-weight: bold;
   letter-spacing: .1em;
   line-height: 18px;
-  padding: 12px 30px;
+  padding: 10px 20px;
   margin: 0 10px 10px 0;
   text-decoration: none;
-  transition: background-color .3s, transform 0.3s;
+  transition: color 0.3s, background-color .3s, transform 0.3s;
   cursor: pointer;
   position: relative;
 }
 
 
-.footer-call-to-action-button a {
-  color: #FFFAEB;
-  text-decoration: none;
-  margin: 0 20px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  transition: color 0.3s, background-color 0.3s, transform 0.3s;
-  position: relative;
-}
-
-.footer-call-to-action-button a:hover {
+.footer-call-to-action-button:hover {
   color: #E66000;
   background: #FFFAEB;
   transform: translateY(-2px);
@@ -119,7 +111,7 @@ text-decoration: none;
   margin-top: 30px;
 }
 .footer-call-to-action-title {
-  color: #fffff2;
+  color: #FFFAEB;
   font-size: 14px;
   font-weight: 900;
   letter-spacing: .1em;
@@ -131,11 +123,11 @@ text-decoration: none;
 .footer-call-to-action-link-wrapper {
   margin-bottom: 0;
   margin-top: 10px;
-  color: #fff;
+  color: #FFFAEB;
   text-decoration: none;
 }
 .footer-call-to-action-link-wrapper a {
-  color: #fff;
+  color: #FFFAEB;
   text-decoration: none;
 }
 
@@ -192,7 +184,7 @@ text-decoration: none;
 }
 
 .footer-social-icon-path {
-  fill: #fffff2;
+  fill: #FFFAEB;
   transition: fill .2s;
 }
 
