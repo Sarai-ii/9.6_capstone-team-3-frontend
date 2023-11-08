@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../css/footer.css';
 
 function Footer() {
@@ -11,10 +12,10 @@ function Footer() {
           <div className='footer-content'>
             <div className='footer-content-column'>
             <div className='footer-logo'>
-              <a className='footer-logo-link' href="#">
+              <Link to="/"  className='footer-logo-link'>
                 <span className='hidden-link-text'>LOGO</span>
                 <h1>LOGO</h1>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="footer-content-column">
@@ -23,10 +24,10 @@ function Footer() {
             <h2 className="footer-menu-name"> Legal</h2>
             <ul id="menu-legal" className="footer-menu-list">
               <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-170434">
-                <a href="#">Privacy Notice</a>
+                <Link to="#">Privacy Notice</Link>
               </li>
               <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="#">Terms of Use</a>
+                <Link to="#">Terms of Use</Link>
               </li>
             </ul>
           </div>
@@ -36,12 +37,12 @@ function Footer() {
               <h2 className="footer-menu-name"> Quick Links</h2>
               <ul id="menu-quick-links" className="footer-menu-list">
                 <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                  <a target="_blank" rel="noopener noreferrer" href="#">Service Status</a>
+                  <Link to="#" target="_blank" rel="noopener noreferrer" >Service Status</Link>
                 </li>
                 <li className="menu-item menu-item-type-post_type_archive menu-item-object-customer">
-                  <a href="#">Customers</a></li>
+                  <Link to="#">Customers</Link></li>
                 <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                  <a href="#">Reviews</a>
+                  <Link to="#">Reviews</Link>
                 </li>
               </ul>
             </div>
@@ -50,7 +51,7 @@ function Footer() {
             <div className="footer-call-to-action">
               <h2 className="footer-call-to-action-title"> Let's Chat</h2>
               <p className="footer-call-to-action-description"></p>
-              <a className="footer-call-to-action-button button" href="#" target="_self"> Get in Touch </a>
+              <Link to="#"  className="footer-call-to-action-button button" target="_self"> Get in Touch </Link>
             </div>            
           </div>
 
