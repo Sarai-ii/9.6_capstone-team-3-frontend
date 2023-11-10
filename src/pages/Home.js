@@ -10,7 +10,8 @@ function Home() {
         <h1 className='to-title'>To:</h1> 
         <h1 className='from-title'>From:</h1>
       </div>
-      <h2 className='slogan'>Your Slogan Goes Here</h2>
+      <h2 className='slogan'>Bringing People Together Through Thoughtful Gestures</h2>
+      <h3 className='slogan-2'>Join the Exchange of Happiness</h3>
     </div>
   );
 }
