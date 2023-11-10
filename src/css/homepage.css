@@ -1,0 +1,16 @@
+.homepage-header {
+    text-align: center;
+    padding: 20px; 
+  }
+  
+  .h1-container {
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+  }
+  
+  .to-title, .from-title {
+    font-size: 24px; 
+    font-weight: bold; 
+  }
+  

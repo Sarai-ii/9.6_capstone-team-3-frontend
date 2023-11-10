@@ -2,17 +2,16 @@
     background: linear-gradient(135deg, #F4D03F,#F4D03F,#F4D03F,#FFAF28,#FFAF28,#D35400,#E66000 );
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
     min-height: 75px;
     align-items: center;
   }
   
   .navbar-logo img {
-    width: 60px;
-    height: 60px;
-    padding: 5px;
-    background-color: #FFAF28;
+    width: 120px;
+    height: 80px; 
+    background: none;
   }
   
   .navbar-links {
