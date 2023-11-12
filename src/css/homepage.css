@@ -4,7 +4,7 @@
 }
 
 .title-slogan-container{
-  
+
 }
 
 .h1-container {
@@ -56,6 +56,7 @@
   width: 200px;
   margin: 20px;
   padding: 10px; 
+  min-height: 200px;
   background-color: #FFFAEB;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
@@ -69,9 +70,13 @@
   height: auto;
 }
 
+.step-container-title{
+  text-align: center;
+  padding-bottom: 1rem;
+}
 
 .how-it-works {
-  text-align: left;
+  text-align: center;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
