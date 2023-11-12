@@ -7,6 +7,8 @@ import matchingImage from '../images/matching-image.png'
 import sendingGiftImage from '../images/send-a-gift-image.png'
 import receiveGiftImage from '../images/receiving-gift-image.png'
 
+import sloganImage from '../images/solgan-image.png'
+
 import '../css/homepage.css';
 
 function Home() {

@@ -1,10 +1,16 @@
 .homepage-container {
   text-align: center;
-  padding: 20px;
+  
 }
 
-.title-slogan-container{
-
+.title-slogan-container {
+  background-image: url('../images/solgan-image.png'); /* Replace 'path/to/sloganImage.jpg' with the actual path to your image */
+  background-size: cover;
+  background-position: center;
+  color: white; /* Set text color to white or any color that contrasts well with the background */
+  text-align: center;
+  padding: 50px; /* Adjust padding as needed */
+  width: 100%;
 }
 
 .h1-container {
@@ -86,6 +92,7 @@
 .how-it-works-title{
   text-align: center;
   padding-top: 10rem;
+  padding-bottom: 4rem;
 }
 
 
@@ -149,6 +156,9 @@
 
 @media (max-width: 768px) {
   .how-it-works-container {
+    flex-direction: column;
+  }
+  .how-it-works{
     flex-direction: column;
   }
 }
