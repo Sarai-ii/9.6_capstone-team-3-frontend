@@ -1,12 +1,14 @@
 .navbar {
-    background: linear-gradient(135deg, #F4D03F,#F4D03F,#F4D03F,#FFAF28,#FFAF28,#D35400,#E66000 );
-    display: flex;
-    justify-content: space-between;
-    padding: 15px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-    min-height: 75px;
-    align-items: center;
-  }
+  background: linear-gradient(135deg, #F4D03F,#F4D03F,#F4D03F,#FFAF28,#FFAF28,#D35400,#E66000 );
+  display: flex;
+  justify-content: space-between;
+  padding: 9px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.225);
+  min-height: 75px;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+}
+
   
   .navbar-logo img {
     width: 120px;
