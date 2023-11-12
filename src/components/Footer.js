@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../css/footer.css';
 
 function Footer() {
@@ -11,36 +12,22 @@ function Footer() {
           <div className='footer-content'>
             <div className='footer-content-column'>
             <div className='footer-logo'>
-              <a className='footer-logo-link' href="#">
+              <Link to="/"  className='footer-logo-link'>
                 <span className='hidden-link-text'>LOGO</span>
                 <h1>LOGO</h1>
-              </a>
+              </Link>
             </div>
-            {/* <div className='footer-menu'>
-              <h2 className='footer-menu-name'>Get Started</h2>
-              <ul id="menu-get-started" className='footer-menu-list'>
-                <li className="menu-item menu-item-type-post_type menu-item-object-product">
-                  <a href="#">Start</a>
-                </li>
-                <li className="menu-item menu-item-type-post_type menu-item-object-product">
-                  <a href="#">Documentation</a>
-                </li>
-                <li className="menu-item menu-item-type-post_type menu-item-object-product">
-                  <a href="#">Installation</a>
-                </li>
-              </ul>
-            </div> */}
-            </div>
+          </div>
           <div className="footer-content-column">
 
             <div className='footer-menu'>
-            <h2 class="footer-menu-name"> Legal</h2>
-            <ul id="menu-legal" class="footer-menu-list">
-              <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-170434">
-                <a href="#">Privacy Notice</a>
+            <h2 className="footer-menu-name"> Legal</h2>
+            <ul id="menu-legal" className="footer-menu-list">
+              <li className="menu-item menu-item-privacy-policy">
+                <Link to="#">Privacy Notice</Link>
               </li>
-              <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                <a href="#">Terms of Use</a>
+              <li className="menu-item">
+                <Link to="#">Terms of Use</Link>
               </li>
             </ul>
           </div>
@@ -48,23 +35,22 @@ function Footer() {
           <div className="footer-content-column">
             <div className="footer-menu">
               <h2 className="footer-menu-name"> Quick Links</h2>
-              <ul id="menu-quick-links" class="footer-menu-list">
-                <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                  <a target="_blank" rel="noopener noreferrer" href="#">Service Status</a>
+              <ul id="menu-quick-links" className="footer-menu-list">
+                <li className="menu-item ">
+                  <Link to="#" >About Us</Link>
                 </li>
-                <li className="menu-item menu-item-type-post_type_archive menu-item-object-customer">
-                  <a href="#">Customers</a></li>
-                <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                  <a href="#">Reviews</a>
+                <li className="menu-item ">
+                  <Link to="#">FAQ</Link></li>
+                <li className="menu-item">
+                  <Link to="#">Reviews</Link>
                 </li>
               </ul>
             </div>
           </div>
           <div className="footer-content-column">
             <div className="footer-call-to-action">
-              <h2 className="footer-call-to-action-title"> Let's Chat</h2>
               <p className="footer-call-to-action-description"></p>
-              <a className="footer-call-to-action-button button" href="#" target="_self"> Get in Touch </a>
+              <Link to="/"  className="footer-call-to-action-button button"> Join Now! </Link>
             </div>            
           </div>
 
