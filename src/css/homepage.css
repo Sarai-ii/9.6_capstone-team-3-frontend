@@ -3,21 +3,25 @@
   padding: 20px;
 }
 
+.title-slogan-container{
+  
+}
+
 .h1-container {
   display: flex;
   justify-content: center;
   gap: 20px;
-  padding-top: 10rem;
+  padding-top: 7rem;
 }
 
 .to-title, .from-title {
-  font-size: 24px;
+  font-size: 48px;
   font-weight: bold;
 }
 
 
 .slogan{
-  padding-top: 2rem;
+  padding-top: 5rem;
 }
 
 
