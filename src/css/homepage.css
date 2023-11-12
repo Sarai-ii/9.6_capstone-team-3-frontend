@@ -7,6 +7,7 @@
   display: flex;
   justify-content: center;
   gap: 20px;
+  padding-top: 10rem;
 }
 
 .to-title, .from-title {
@@ -30,6 +31,7 @@
   text-align: center;
   align-items: center;
   padding: 3rem;
+  padding-top: 10rem;
   margin: auto;
 }
 
@@ -53,7 +55,7 @@
   background-color: #FFFAEB;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  border-color: #545454 !important;
+  border-color: #545454;
   border-width: 1.5px;
   border-style: solid;
 }
@@ -69,10 +71,12 @@
   display: flex;
   justify-content: space-around;
   flex-direction: row;
+  padding-bottom: 15rem;
 }
 
 .how-it-works-title{
   text-align: center;
+  padding-top: 10rem;
 }
 
 
