@@ -10,6 +10,7 @@ const API = process.env.REACT_APP_API_URL;
 export default function Event({event}) {
     
     return (
+        
         <div className="card ">
             <p className="d-inline-flex gap-1">
                 <a 
@@ -18,8 +19,10 @@ export default function Event({event}) {
                 href="#collapseExample" 
                 role="button" 
                 aria-expanded="false" 
-                aria-controls="collapseExample">
-                    {event.title}</a>
+                aria-controls="collapseExample"
+                >
+                    {event.title}
+                </a>
             </p>
             <img className="card-img" src={event.image_url} alt={event.title}/>
             <div className="collapse" id="collapseExample">
