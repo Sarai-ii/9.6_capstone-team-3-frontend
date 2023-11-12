@@ -25,6 +25,37 @@ function Home() {
       <h3 className="slogan-2">Join the Exchange of Happiness</h3>
       </div>
 
+      <h1 className='how-it-works-title'>How it Works</h1>
+
+      <div className="how-it-works-container">
+        <section className="how-it-works">
+  
+
+          <div className="step-container">
+            <h2 className='step-container-title'>Register</h2>
+            <img src={registrationImage} alt="Register" />
+            <p className='step-container-text'>Register for an account to join our community.</p>
+          </div>
+
+          <div className="step-container">
+          <h2 className='step-container-title'>Get Matched</h2>
+            <img src={matchingImage} alt="Get Matched" />
+            <p className='step-container-text'>Get matched with someone in our community.</p>
+          </div>
+
+          <div className="step-container">
+          <h2 className='step-container-title'>Send a Gift</h2>
+            <img src={sendingGiftImage} alt="Send a Gift" />
+            <p className='step-container-text'>Send a thoughtful gift to your match.</p>
+          </div>
+
+          <div className="step-container">
+          <h2 className='step-container-title'>Receive a Gift</h2>
+            <img src={receiveGiftImage} alt="Receive a Gift" />
+            <p className='step-container-text'>Receive a thoughtful gift from your match.</p>
+          </div>
+        </section>
+      </div>
       <div className="signup-container">
         <section className="signup">
           <h2 className='signup-h2-title'>Sign Up Today!</h2>
@@ -36,38 +67,6 @@ function Home() {
             <Link className="homepage-signup-link" to="/signup">
               Sign Up
             </Link>
-          </div>
-        </section>
-      </div>
-
-      <h1 className='how-it-works-title'>How it Works</h1>
-
-      <div className="how-it-works-container">
-        <section className="how-it-works">
-  
-
-          <div className="step-container">
-            <h2 className='step-container-title'>Register</h2>
-            <img src={registrationImage} alt="Register" />
-            <p>Register for an account to join our community.</p>
-          </div>
-
-          <div className="step-container">
-          <h2 className='step-container-title'>Get Matched</h2>
-            <img src={matchingImage} alt="Get Matched" />
-            <p>Get matched with someone in our community.</p>
-          </div>
-
-          <div className="step-container">
-          <h2 className='step-container-title'>Send a Gift</h2>
-            <img src={sendingGiftImage} alt="Send a Gift" />
-            <p>Send a thoughtful gift to your match.</p>
-          </div>
-
-          <div className="step-container">
-          <h2 className='step-container-title'>Receive a Gift</h2>
-            <img src={receiveGiftImage} alt="Receive a Gift" />
-            <p>Receive a thoughtful gift from your match.</p>
           </div>
         </section>
       </div>
