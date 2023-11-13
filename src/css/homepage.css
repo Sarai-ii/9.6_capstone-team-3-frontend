@@ -70,7 +70,7 @@ h1{
   margin: 20px;
   padding: 20px;
   background-color: #fffaeb;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   border: 1.5px solid #545454;
   display: flex;
@@ -110,6 +110,7 @@ h1{
   color: #545454;
   position: relative;
   border: 1.5px solid #545454;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 .homepage-link-container{
   display: flex;
