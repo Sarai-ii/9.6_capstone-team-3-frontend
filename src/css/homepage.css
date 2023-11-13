@@ -31,10 +31,12 @@ h1{
 .slogan {
   padding-top: 1.5rem;
   font-size: 32px;
+  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
 }
 
 .slogan-2 {
   font-size: 24px;
+  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
 }
 
 .how-it-works-title {
@@ -44,8 +46,8 @@ h1{
 
 .how-it-works-container {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  justify-content: center;
+
 }
 
 .how-it-works{
@@ -109,7 +111,7 @@ h1{
     background-color: #FFAF28;
     text-decoration: none;
     padding: 10px 20px;
-    border: 2px solid #FFFAEB;
+    border: 2px solid #fffaeb;
     border-radius: 30px;
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;  
@@ -121,4 +123,19 @@ h1{
   transform: translateY(-2px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   border-color: #FFAF28;
+}
+
+
+@media (max-width: 768px) {
+  .how-it-works-container {
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+  }
+  
+  .how-it-works {
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+  }
 }
