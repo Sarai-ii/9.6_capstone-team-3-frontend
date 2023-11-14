@@ -2,14 +2,17 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 // COMPONENTS
-import Event from "./Event";
+import UpcomingEvents from "./UpcomingEvents";
+import CurrentEvent from "./CurrentEvent";
 // STYLING
-// import ""
+import "../css/Events.css"
 // API
 const API = process.env.REACT_APP_API_URL;
 
 export default function AllEvents() {
   const [events, setEvents] = useState([])
+  const [filteredEvents, setFilteredEvents] = useState([]);
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
 
 
   useEffect(() => {
@@ -19,15 +22,42 @@ export default function AllEvents() {
       .catch((c) => console.warn("catch", c));
   }, []);
 
-  return (
-    <div>
+
+  useEffect(() => {
+      // Get today's date
+      const today = new Date().toISOString().split('T')[0];
+  
+      // Filter events based on today's date
+      const todayEvents = events.filter((event) => event.open_date <= today && today <= event.close_date);
+      const futureEvents = events.filter((event)=> event.open_date > today)
       
-      {events.map((event) => {
-          return <Event 
-          key={event.id} 
-          event={event} 
-          />;
-        })}
-    </div>
-  )
+      setUpcomingEvents(futureEvents);
+      setFilteredEvents(todayEvents);
+
+    }, [events]);
+
+return (
+  <div>
+    <h2>Current Event</h2>
+    <ul className="current-container">
+      {
+      filteredEvents.map((event) => (
+        <div className="card">
+          <li key={event.id}>{event.title}</li>
+          <CurrentEvent key={event.id} event = {event}/>
+        </div>
+      ))}
+    </ul>
+    <h2 className="">Upcoming Events</h2>
+    <ul className="upcoming-container">
+    {
+      upcomingEvents.map((event) => (
+        <div className="card">
+          <li key={event.id}>{event.title}</li>
+          <UpcomingEvents key={event.id} event = {event}/>
+        </div>
+      ))}
+    </ul>
+  </div>
+);
 };
