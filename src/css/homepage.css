@@ -1,164 +1,152 @@
 .homepage-container {
   text-align: center;
-  
+  color: #545454;
 }
 
 .title-slogan-container {
-  background-image: url('../images/solgan-image.png'); /* Replace 'path/to/sloganImage.jpg' with the actual path to your image */
-  background-size: cover;
+  background-image: url('../images/solgan-image.png');
+  background-size: 100% 100%;
   background-position: center;
-  color: white; /* Set text color to white or any color that contrasts well with the background */
-  text-align: center;
-  padding: 50px; /* Adjust padding as needed */
-  width: 100%;
+  background-repeat: no-repeat;
+  padding: 80px 0;
+  color: white;
+  min-height: 100vh;
 }
+
+
 
 .h1-container {
   display: flex;
   justify-content: center;
   gap: 20px;
-  padding-top: 7rem;
+
+  padding-top: 11rem;
+}
+
+h1{
+  font-size: 68px;
 }
 
 .to-title, .from-title {
   font-size: 48px;
   font-weight: bold;
+  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
 }
 
 
-.slogan{
-  padding-top: 5rem;
-}
-
-
-.slogan-2{
+.slogan {
   padding-top: 1.5rem;
+  font-size: 32px;
+  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
 }
 
-.signup-container {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  padding: 3rem;
-  padding-top: 10rem;
-  margin: auto;
+.slogan-2 {
+  font-size: 24px;
+  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
 }
 
-
-
-
-
-
-
+.how-it-works-title {
+  font-size: 46px;
+  margin-top: 40px;
+  padding-top: 15rem;
+  padding-bottom: 5rem;
+}
 
 .how-it-works-container {
   display: flex;
+  justify-content: center;
+
+}
+
+.how-it-works{
+  display: flex;
   justify-content: space-around;
-  flex-direction: row;
+  flex-direction: row ;
 }
 
 .step-container {
-  width: 200px;
+  width: 250px;
+  min-height: 300px;
   margin: 20px;
-  padding: 10px; 
-  min-height: 200px;
-  background-color: #FFFAEB;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  background-color: #fffaeb;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  border-color: #545454;
-  border-width: 1.5px;
-  border-style: solid;
+  border: 1.5px solid #545454;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .step-container img {
   width: 100%;
-  height: auto;
+  height: 100px;
+  margin-bottom: 20px;
 }
 
-.step-container-title{
-  text-align: center;
-  padding-bottom: 1rem;
+.step-container-title {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-.how-it-works {
-  text-align: center;
+.step-container-text {
+  font-size: 18px;
+}
+
+.signup-container {
   display: flex;
-  justify-content: space-around;
-  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 3rem;
+  padding-top: 15rem;
   padding-bottom: 15rem;
 }
 
-.how-it-works-title{
-  text-align: center;
-  padding-top: 10rem;
-  padding-bottom: 4rem;
-}
-
-
 .signup {
-  background-color: #FFFAEB;
+  background-color: #fffaeb;
   padding: 20px;
   margin: 20px;
   border-radius: 10px;
-  border-color: #545454 !important;
-  border-width: 1.5px;
-  border-style: solid;
-  color: black;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  color: #545454;
   position: relative;
+  border: 1.5px solid #545454;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-
-
-.signup-text{
-  padding-top: 2rem;
-}
-
-.signup a {
-  color: #FFFAEB;
-  text-decoration: none;
-  border-color: white;
-}
-
-.signup a:hover {
-  color: #E66000;
-  background: #FFFAEB;
-  transform: translateY(-2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
 .homepage-link-container{
-  padding-top: 2rem ;
   display: flex;
   flex-direction: row-reverse;
   align-items: flex-end;
-
+}
+.homepage-signup-link {
+    color: #FFFAEB;
+    background-color: #FFAF28;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid #fffaeb;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;  
 }
 
- .homepage-signup-link{
-  padding: 10px 20px;
-  border: 2px solid #FFFAEB;
-  border-radius: 30px;
-  font-weight: bold;
-  background-color: #FFAF28;
-  transition: background-color 0.3s, color 0.3s;
+.homepage-signup-link:hover {
+  color: #e66000;
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-color: #FFAF28;
 }
-
-
-
-
-
-
-
-
-
 
 
 @media (max-width: 768px) {
   .how-it-works-container {
     flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
   }
-  .how-it-works{
+  
+  .how-it-works {
     flex-direction: column;
+    align-items: center;
+    justify-content: center; 
   }
 }
