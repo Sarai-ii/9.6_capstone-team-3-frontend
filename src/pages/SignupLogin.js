@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Users from '../components/Users';
 
-
-
-
-import '../css/login.css'
-
+import '../css/login.css';
 
 const SignupLogin = () => {
   const [username, setUsername] = useState('');
@@ -15,13 +11,13 @@ const SignupLogin = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/users/login`, {
         username,
         password,
       });
 
       // Assuming the backend sends user data upon successful login
-      setLoggedInUser(response.data);
+      setLoggedInUser(response.data.user);
 
       // You may want to redirect the user or perform other actions after login
     } catch (error) {
@@ -49,7 +45,7 @@ const SignupLogin = () => {
 
   return (
     <div className="login-container">
-        <div className="login-h1-container">
+      <div className="login-h1-container">
         <h1 className="to-title">To:</h1>
         <h1 className="from-title">From:</h1>
       </div>
@@ -68,7 +64,8 @@ const SignupLogin = () => {
           <form className="form-container">
             <label className="username-label">
               Username:
-              <input className="username-input"
+              <input
+                className="username-input"
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
@@ -76,19 +73,20 @@ const SignupLogin = () => {
             </label>
             <label className="password-login">
               Password:
-              <input className ="password-input"
+              <input
+                className="password-input"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </label>
             <div className="button-container">
-            <button className="button" type="button" onClick={handleLogin}>
-              Login
-            </button>
-            <button className="button" type="button" onClick={handleSignup}>
-              Signup
-            </button>
+              <button className="button" type="button" onClick={handleLogin}>
+                Login
+              </button>
+              <button className="button" type="button" onClick={handleSignup}>
+                Signup
+              </button>
             </div>
           </form>
         </div>
