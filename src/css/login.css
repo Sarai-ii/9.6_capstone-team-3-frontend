@@ -9,7 +9,7 @@
 .login-h1-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     padding-top: 5rem;
 }
 
@@ -37,13 +37,19 @@
 }
 
 .password-input{
-    padding-bottom: 1rem;
-    border-radius: 30px;
+    padding-bottom: .3rem;
+    padding-top: .3rem;
+    padding-left: 8px;
+    border-radius: 10px;
+
 }
 
 .username-input{
-    padding-bottom: 1rem;
-    border-radius: 30px;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+    border-radius: 10px;
+    padding-left: 8px;
+    margin: 10px;
 }
 
 .button-container{
