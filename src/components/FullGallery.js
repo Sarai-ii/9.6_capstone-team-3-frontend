@@ -22,7 +22,7 @@ function FullGallery() {
       <h1>Full Gallery</h1>
       {picturePosts.map((picturePost) => (
         <div key={picturePost.id} className="picture-card">
-          <img src={picturePost.pictures_post_URL} alt={picturePost.pictures_post_title} />
+          <img src={picturePost.pictures_post_url} alt={picturePost.pictures_post_title} />
           <h3>{picturePost.pictures_post_title}</h3>
           <p>{picturePost.pictures_post_blurb}</p>
           <p>Likes: {picturePost.likes_count}</p>
