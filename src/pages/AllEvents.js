@@ -38,7 +38,7 @@ export default function AllEvents() {
 
 return (
   <div>
-    <h2>Current Event</h2>
+    <h2 className="events-h2">Current Event</h2>
     <ul className="current-container">
       {
       filteredEvents.map((event) => (
@@ -48,7 +48,7 @@ return (
         </div>
       ))}
     </ul>
-    <h2 className="">Upcoming Events</h2>
+    <h2 className="events-h2">Upcoming Events</h2>
     <ul className="upcoming-container">
     {
       upcomingEvents.map((event) => (

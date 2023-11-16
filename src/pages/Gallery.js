@@ -1,8 +1,9 @@
 import React from 'react'
+import FullGallery from '../components/FullGallery'
 
 function Gallery() {
   return (
-    <div>Gallery</div>
+    <div><FullGallery/></div>
   )
 }
 
