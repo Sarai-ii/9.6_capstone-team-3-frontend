@@ -1,0 +1,43 @@
+.picture-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background-color: #e8effc;
+  }
+  
+  .picture-card-h1-container {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .picture-card-h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: #545454;
+  }
+  
+  .picture-card {
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 0px;
+    color: #545454;
+    position: relative;
+    border: 1.5px solid #545454;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    max-width: 400px; 
+    min-height: 800px;
+  }
+  
+  .picture-card-img {
+    width: 100%;
+    height: auto;
+    border-radius: 0px;
+  }
+  
+  .picture-card-h3 {
+    margin-top: 10px;
+  }
+  
