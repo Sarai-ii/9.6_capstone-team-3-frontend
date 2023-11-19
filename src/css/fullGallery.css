@@ -1,3 +1,5 @@
+/* fullGallery.css */
+
 .picture-card-container {
     display: flex;
     flex-wrap: wrap;
@@ -27,17 +29,24 @@
     position: relative;
     border: 1.5px solid #545454;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    max-width: 400px; 
-    min-height: 800px;
+    max-width: 400px;
+    min-height: 400px;
   }
   
   .picture-card-img {
     width: 100%;
-    height: auto;
+    height: 200px;
+    object-fit: cover;
     border-radius: 0px;
   }
   
   .picture-card-h3 {
     margin-top: 10px;
+    font-size: 16px; 
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-height: 50px; /* Set a fixed height for the h3 */
   }
   

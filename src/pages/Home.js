@@ -9,6 +9,7 @@ import receiveGiftImage from '../images/receiving-gift-image.png'
 
 
 import '../css/homepage.css';
+import Gallery from './Gallery';
 
 function Home() {
   return (
@@ -69,6 +70,9 @@ function Home() {
           </div>
         </section>
       </div>
+      <div className='gallery-container'>
+          <Gallery/>
+        </div>
     </div>
   );
 }
