@@ -24,7 +24,7 @@ function FullGallery() {
   return (
     <div className='picture-card-container'>
         <div className='picture-card-h1-container'>
-            <Link className='picture-card-h1' to="/gallery">
+            <Link className='picture-card-link' to="/gallery">
       <h1 className='picture-card-h1'>Check Out Previous Exchanges</h1>
             </Link>
         </div>
