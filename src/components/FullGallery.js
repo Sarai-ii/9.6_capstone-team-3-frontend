@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -23,7 +24,9 @@ function FullGallery() {
   return (
     <div className='picture-card-container'>
         <div className='picture-card-h1-container'>
-      <h1 className='picture-card-h1'>Current Gifts!!</h1>
+            <Link className='picture-card-h1' to="/gallery">
+      <h1 className='picture-card-h1'>Check Out Previous Exchanges</h1>
+            </Link>
         </div>
       {picturePosts.map((picturePost) => (
         <div key={picturePost.id} className="picture-card">

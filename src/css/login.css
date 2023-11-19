@@ -41,14 +41,14 @@
     padding-bottom: .3rem;
     padding-top: .3rem;
     padding-left: 8px;
-    border-radius: 10px;
+    border-radius: 0px;
 
 }
 
 .username-input{
     padding-top: .3rem;
     padding-bottom: .3rem;
-    border-radius: 10px;
+    border-radius: 0px;
     padding-left: 8px;
     margin: 10px;
 }

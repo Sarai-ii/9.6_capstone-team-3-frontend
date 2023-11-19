@@ -140,6 +140,11 @@ h1{
   border-color: #6474ed;;
 }
 
+.gallery-container{
+  padding-top: 15px;
+}
+
+
 
 @media (max-width: 768px) {
   .how-it-works-container {
