@@ -60,7 +60,7 @@ const SignupLogin = () => {
         </div>
       ) : (
         <div className="login-forum-container">
-          <h3>Login / Signup</h3>
+          <div className='login-h3-contianer'><h3 className='login-h3' >Login / Signup</h3></div>
           <form className="form-container">
             <label className="username-label">
               Username:

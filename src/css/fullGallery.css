@@ -14,6 +14,7 @@
   }
   
   .picture-card-h1 {
+    padding-top: 5rem;
     font-size: 4rem;
     margin-bottom: 20px;
     color: #545454;
@@ -22,9 +23,20 @@
   }
   
   .picture-card-h1:hover {
-    text-decoration: none; 
+    color: #276be5;
+    transform: translateY(-2px);
+
+ 
+  }
+
+  .picture-card-link {
+    text-decoration: none;
   }
   
+.picture-card-link:hover{
+    text-decoration: none;
+}
+
   .picture-card {
     background-color: white;
     padding: 20px;
