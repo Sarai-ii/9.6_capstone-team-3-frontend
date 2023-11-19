@@ -5,6 +5,7 @@
     align-items: center;
     padding: 20px;
     background-color: #e8effc;
+    padding-bottom: 15rem;
   }
   
   .picture-card-h1-container {
@@ -16,6 +17,12 @@
     font-size: 4rem;
     margin-bottom: 20px;
     color: #545454;
+    text-decoration: none;
+    padding-bottom: 10rem;
+  }
+  
+  .picture-card-h1:hover {
+    text-decoration: none; 
   }
   
   .picture-card {
@@ -27,17 +34,24 @@
     position: relative;
     border: 1.5px solid #545454;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    max-width: 400px; 
-    min-height: 800px;
+    max-width: 400px;
+    min-height: 400px;
   }
   
   .picture-card-img {
     width: 100%;
-    height: auto;
+    height: 200px;
+    object-fit: cover;
     border-radius: 0px;
   }
   
   .picture-card-h3 {
     margin-top: 10px;
+    font-size: 16px; 
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-height: 50px; 
   }
   

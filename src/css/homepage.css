@@ -1,4 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400&display=swap');
+
+
 .homepage-container {
+  font-family: 'Noto Sans', sans-serif;
   text-align: center;
   color: #545454;
   background-color: #e8effc;
@@ -139,6 +143,11 @@ h1{
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   border-color: #6474ed;;
 }
+
+.gallery-container{
+  padding-top: 15px;
+}
+
 
 
 @media (max-width: 768px) {
