@@ -1,5 +1,5 @@
 .navbar {
-  background: linear-gradient(135deg, #F4D03F,#F4D03F,#F4D03F,#FFAF28,#FFAF28,#D35400,#E66000 );
+  background: linear-gradient(135deg, #6495ED, #7aa4ef, #90b3f2, #a6c2f4, #bcd1f7, #d2e0f9, #7aa4ef, #6495ED);
   display: flex;
   justify-content: space-between;
   padding: 9px;
@@ -32,10 +32,11 @@
   }
   
   .navbar-links a:hover {
-    color: #E66000;
-    background: #FFFAEB;
+    color: #6474ed;
+    background: white;
     transform: translateY(-2px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border: 2px solid #6474ed;
   }
   
   .navbar-login-link, .navbar-events-link {
@@ -47,11 +48,13 @@
   }
   
   .navbar-login-link {
-    background: #E66000;
+    background: #6474ed;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
   
   .navbar-events-link {
-    background: #FFAF28;
+    background: #6474ed;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
   
 

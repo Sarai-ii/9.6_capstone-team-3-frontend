@@ -1,6 +1,7 @@
 .homepage-container {
   text-align: center;
   color: #545454;
+  background-color: #e8effc;
 }
 
 .title-slogan-container {
@@ -50,6 +51,7 @@ h1{
   margin-top: 40px;
   padding-top: 15rem;
   padding-bottom: 5rem;
+  background-color: #e8effc;
 }
 
 .how-it-works-container {
@@ -69,10 +71,10 @@ h1{
   min-height: 300px;
   margin: 20px;
   padding: 20px;
-  background-color: #fffaeb;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  border: 1.5px solid #545454;
+  background-color: white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-radius: 0px;
+  border: 1px solid #545454;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -103,14 +105,14 @@ h1{
 }
 
 .signup {
-  background-color: #fffaeb;
+  background-color: white;
   padding: 20px;
   margin: 20px;
-  border-radius: 10px;
+  border-radius: 0px;
   color: #545454;
   position: relative;
   border: 1.5px solid #545454;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 .homepage-link-container{
   display: flex;
@@ -118,22 +120,23 @@ h1{
   align-items: flex-end;
 }
 .homepage-signup-link {
-    color: #FFFAEB;
-    background-color: #FFAF28;
+    color: white;;
+    background-color: #6474ed;;
     text-decoration: none;
     padding: 10px 20px;
-    border: 2px solid #fffaeb;
+    border: 2px solid white;;
     border-radius: 30px;
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .homepage-signup-link:hover {
-  color: #e66000;
+  color: #6474ed;;
   background: white;
   transform: translateY(-2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  border-color: #FFAF28;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  border-color: #6474ed;;
 }
 
 
