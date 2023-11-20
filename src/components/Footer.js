@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/footer.css';
+import LogoImage from '../images/LOGO OVER WHITE.png';
 
 function Footer() {
   return (
@@ -14,7 +15,7 @@ function Footer() {
             <div className='footer-logo'>
               <Link to="/"  className='footer-logo-link'>
                 <span className='hidden-link-text'>LOGO</span>
-                <h1>LOGO</h1>
+                <img src={LogoImage} alt="Logo" className="logo-image" />
               </Link>
             </div>
           </div>
@@ -37,12 +38,12 @@ function Footer() {
               <h2 className="footer-menu-name"> Quick Links</h2>
               <ul id="menu-quick-links" className="footer-menu-list">
                 <li className="menu-item ">
-                  <Link to="#" >About Us</Link>
+                  <Link to="/about" >About Us</Link>
                 </li>
                 <li className="menu-item ">
-                  <Link to="#">FAQ</Link></li>
+                  <Link to="/faq">FAQ</Link></li>
                 <li className="menu-item">
-                  <Link to="#">Reviews</Link>
+                  <Link to="/events">Event</Link>
                 </li>
               </ul>
             </div>
@@ -64,7 +65,7 @@ export default Footer
 
 /* 
         <div className='logo'>
-          <p className=''>To:From:</p>
+          <p>Happiness Exchange</p>
         </div> 
         <p>About</p>
         <p>Terms of Use</p>

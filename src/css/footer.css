@@ -4,8 +4,8 @@
 }
 
 .footer {
-  background-color: #e66000;
-  color: #FFFAEB;
+  background-color: #6495ED;
+  color: black;
 }
 .footer-wave-svg {
   background-color: transparent;
@@ -32,23 +32,31 @@
   padding-left: 15px;
   padding-right: 15px;
   width: 100%;
-  color: #FFFAEB;
+  /* color: #FFFAEB; */
 }
 
 .footer-content-column ul li a {
-color: #FFFAEB;
+color: black;
 text-decoration: none;
 }
 
 .footer-logo-link {
   display: inline-block;
+  width: 100px; /* Adjust the width as needed */
+  height: auto; /* Maintain the aspect ratio */
 }
+
+.logo-img {
+  width: 100px; /* Adjust the width as needed */
+  height: auto; /* Maintain the aspect ratio */
+}
+
 .footer-menu {
   margin-top: 30px;
 }
 
 .footer-menu-name {
-  color: #FFFAEB;
+  /* color: #FFFAEB; */
   font-size: 15px;
   font-weight: 900;
   letter-spacing: .1em;
