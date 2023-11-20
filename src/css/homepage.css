@@ -35,19 +35,19 @@ h1{
 .to-title, .from-title {
   font-size: 48px;
   font-weight: bold;
-  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+  text-shadow: 4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
 }
 
 
 .slogan {
   padding-top: 1.5rem;
   font-size: 32px;
-  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+  text-shadow: 4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
 }
 
 .slogan-2 {
   font-size: 24px;
-  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+  text-shadow: 4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
 }
 
 .how-it-works-title {
@@ -60,22 +60,24 @@ h1{
 
 .how-it-works-container {
   display: flex;
-  justify-content: center;
- 
-
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .how-it-works{
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
-  flex-direction: row ;
+  align-items: center;
 }
 
 .step-container {
   width: 250px;
-  min-height: 300px;
+  min-height: 400px;
+  min-width: 300px;
   margin: 20px;
-  padding: 20px;
+  padding: 65px;
   background-color: white;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   border-radius: 0px;

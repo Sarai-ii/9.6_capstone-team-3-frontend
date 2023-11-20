@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-import registrationImage from '../images/registration-image.png'
-import matchingImage from '../images/matching-image.png'
-import sendingGiftImage from '../images/send-a-gift-image.png'
-import receiveGiftImage from '../images/receiving-gift-image.png'
+import registrationImage from '../images/undraw_sign_up_n6im.svg'
+import matchingImage from '../images/undraw_sync_re_492g.svg'
+import sendingGiftImage from '../images/undraw_delivery_truck_vt6p.svg'
+import receiveGiftImage from '../images/undraw_arrived_re_t2bw.svg'
 
 
 import '../css/homepage.css';
