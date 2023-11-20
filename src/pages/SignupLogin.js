@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import Users from '../components/Users';
+import { auth } from '../firebaseConfig';
 
 import '../css/login.css';
 
@@ -11,37 +12,40 @@ const SignupLogin = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/users/login`, {
-        username,
-        password,
-      });
+      if (!username || !password) {
+        console.error('Username and password are required.');
+        return;
+      }
 
-      // Assuming the backend sends user data upon successful login
-      setLoggedInUser(response.data.user);
-
-      // You may want to redirect the user or perform other actions after login
+      const userCredential = await signInWithEmailAndPassword(auth, username, password);
+      const user = userCredential.user;
+      setLoggedInUser(user);
     } catch (error) {
       console.error('Login Error:', error);
-      // Handle login error (e.g., display an error message)
     }
   };
 
   const handleSignup = async () => {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/users`, {
-        username,
-        password,
-      });
-
-      // Assuming the backend sends user data upon successful signup
-      setLoggedInUser(response.data);
-
-      // You may want to redirect the user or perform other actions after signup
+      const userCredential = await createUserWithEmailAndPassword(auth, username, password);
+      const user = userCredential.user;
+      setLoggedInUser(user);
     } catch (error) {
       console.error('Signup Error:', error);
-      // Handle signup error (e.g., display an error message)
     }
   };
+
+  const handleGoogleLogin = async () => {
+    try {
+      const provider = new GoogleAuthProvider();
+      const userCredential = await signInWithPopup(auth, provider);
+      const user = userCredential.user;
+      setLoggedInUser(user);
+    } catch (error) {
+      console.error('Google Login Error:', error);
+    }
+  };
+
 
   return (
     <div className="login-container">
@@ -81,13 +85,16 @@ const SignupLogin = () => {
               />
             </label>
             <div className="button-container">
-              <button className="button" type="button" onClick={handleLogin}>
-                Login
-              </button>
-              <button className="button" type="button" onClick={handleSignup}>
-                Signup
-              </button>
-            </div>
+        <button className="button" type="button" onClick={handleLogin}>
+          Login
+        </button>
+        <button className="button" type="button" onClick={handleSignup}>
+          Signup
+        </button>
+        <button className="button" type="button" onClick={handleGoogleLogin}>
+          Login with Google
+        </button>
+      </div>
           </form>
         </div>
       )}
