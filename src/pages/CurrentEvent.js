@@ -7,16 +7,14 @@ import "../css/Events.css"
 
 export default function CurrentEvent({event}) {
   return (
-    <div className="card-text">
+    <div className="card-text " >
       <img className="current-img"
       src={event.image_url}
       alt={event.title}>
       </img>
       <div className="details-CE-container">
-        <h5> {event.description}
-          <br />
-          Required Minimum Spend: ${event.minimum_spend}
-        </h5>
+        <h5><span className="price-title">Required Minimum Spend:</span> <span className="price">${event.minimum_spend}</span></h5>
+        <h5> {event.description}</h5>
         <h5
         className="collapse-toggle d-inline-flex gap-1"
         data-bs-toggle="collapse" 

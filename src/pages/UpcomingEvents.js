@@ -11,7 +11,7 @@ export default function Event({event}) {
 
     
   return (
-    <div className="card">
+    <div className="card dark-mode light-mode">
         <img 
         className="future-img card-img"
         src={event.image_url}
