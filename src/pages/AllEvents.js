@@ -13,6 +13,7 @@ export default function AllEvents() {
   const [events, setEvents] = useState([])
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
+  const [isDarkMode, setDarkMode] = useState(false);
 
 
   useEffect(() => {
@@ -36,9 +37,14 @@ export default function AllEvents() {
 
     }, [events]);
 
+    const toggleMode = () => {
+      setDarkMode(!isDarkMode);
+    };
+  
 return (
-  <div>
-    <h2 className="events-h2">Current Event</h2>
+  <div className={isDarkMode ? 'dark-mode' : 'light-mode'}>
+    <button onClick={toggleMode}>Toggle Mode</button>
+    <h2>Current Event</h2>
     <ul className="current-container">
       {
       filteredEvents.map((event) => (
@@ -48,7 +54,7 @@ return (
         </div>
       ))}
     </ul>
-    <h2 className="events-h2">Upcoming Events</h2>
+    <h2 className="">Upcoming Events</h2>
     <ul className="upcoming-container">
     {
       upcomingEvents.map((event) => (
