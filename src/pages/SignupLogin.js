@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut, // Import signOut from firebase/auth
+} from 'firebase/auth';
 import Users from '../components/Users';
 import { auth } from '../firebaseConfig';
 
@@ -46,6 +52,14 @@ const SignupLogin = () => {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      setLoggedInUser(null);
+    } catch (error) {
+      console.error('Logout Error:', error);
+    }
+  };
 
   return (
     <div className="login-container">
@@ -59,12 +73,16 @@ const SignupLogin = () => {
 
       {loggedInUser ? (
         <div>
-          <p>You are logged in as {loggedInUser.username}.</p>
-          {/* Include a logout button or other user-related actions */}
+          <p>You are logged in as {loggedInUser.email}.</p>
+          <button className="button" type="button" onClick={handleLogout}>
+            Logout
+          </button>
         </div>
       ) : (
         <div className="login-forum-container">
-          <div className='login-h3-contianer'><h3 className='login-h3' >Login / Signup</h3></div>
+          <div className="login-h3-container">
+            <h3 className="login-h3">Login / Signup</h3>
+          </div>
           <form className="form-container">
             <label className="username-label">
               Username:
@@ -85,16 +103,16 @@ const SignupLogin = () => {
               />
             </label>
             <div className="button-container">
-        <button className="button" type="button" onClick={handleLogin}>
-          Login
-        </button>
-        <button className="button" type="button" onClick={handleSignup}>
-          Signup
-        </button>
-        <button className="button" type="button" onClick={handleGoogleLogin}>
-          Login with Google
-        </button>
-      </div>
+              <button className="button" type="button" onClick={handleLogin}>
+                Login
+              </button>
+              <button className="button" type="button" onClick={handleSignup}>
+                Signup
+              </button>
+              <button className="button" type="button" onClick={handleGoogleLogin}>
+                Login with Google
+              </button>
+            </div>
           </form>
         </div>
       )}
