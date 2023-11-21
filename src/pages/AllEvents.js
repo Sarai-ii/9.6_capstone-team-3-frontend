@@ -44,7 +44,13 @@ export default function AllEvents() {
 //     <button onClick={toggleMode}>Toggle Mode</button>
 return (
   <div >
-    <h2 className="">Current Event</h2>
+    <header className="hero-img">
+      <h1 className="introduction"> 
+        Welcome! Begin your gift giving journey here. 
+      </h1>
+      <br/>
+    </header>
+    <h2 className="event-type">Current Event</h2>
     <ul className="current-container" >
       {
       filteredEvents.map((event) => (
@@ -54,7 +60,7 @@ return (
         </div>
       ))}
     </ul>
-    <h2 className="">Upcoming Events</h2>
+    <h2 className="event-type">Upcoming Events</h2>
     <ul className="upcoming-container" >
     {
       upcomingEvents.map((event) => (

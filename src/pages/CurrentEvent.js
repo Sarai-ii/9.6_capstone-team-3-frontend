@@ -6,6 +6,43 @@ import { Link, useNavigate } from "react-router-dom";
 import "../css/Events.css"
 
 export default function CurrentEvent({event}) {
+  
+  const closeDate = new Date(event.close_date).getTime();
+  console.log(closeDate)
+
+  const calculateCountDown = () => {
+    const today = new Date().getTime();
+    return closeDate - today;
+  };
+  
+  const [deadline, setDeadline] = useState(calculateCountDown());
+  
+    useEffect(() => {
+      const intervalId = setInterval(() => {
+        setDeadline(calculateCountDown());
+      }, 1000);
+  
+      return () => clearInterval(intervalId);
+    }, []);
+  
+    const formatCountDown = (countdown) => {
+      if (countdown < 0) {
+        return 'Countdown Expired!';
+      }
+      const days = Math.floor(countdown / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((countdown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((countdown % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((countdown % (1000 * 60)) / 1000);
+      return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    };
+    
+  const signup = event.open_date.split('T')[0].split("-")
+  const close = event.close_date.split('T')[0].split("-")
+  const match = event.match_date.split('T')[0].split("-")
+  const ship = event.shipping_deadline.split('T')[0].split("-")
+  const year = event.open_date.split("T")[0].slice(0,4)
+  
+
   return (
     <div className="card-text " >
       <img className="current-img"
@@ -13,8 +50,8 @@ export default function CurrentEvent({event}) {
       alt={event.title}>
       </img>
       <div className="details-CE-container">
-        <h5><span className="price-title">Required Minimum Spend:</span> <span className="price">${event.minimum_spend}</span></h5>
-        <h5> {event.description}</h5>
+        <h5 className="description"><span className="price-title">Minimum Spend:</span><span className="price">${event.minimum_spend}</span></h5>
+        <h5 className="description"> {event.description}</h5>
         <h5
         className="collapse-toggle d-inline-flex gap-1"
         data-bs-toggle="collapse" 
@@ -28,16 +65,17 @@ export default function CurrentEvent({event}) {
           <div className="collapse collapse-details collapse-vertical col" id="collapseCurrentEvents">
             <div className="card card-body collapse-card">
               <h4 className="details-CEheader">
-                Important Dates
+                Important Timeline / Scheduling
               </h4>
               <p className="details-CE">
-                Sign Ups Opened: {event.open_date}
+       
+                {signup[1]}/{signup[2]}/{year} - {close[1]}/{close[2]}/{year} <span className="timeline">- Sign Ups</span>
                 <br />
-                Sign Ups Closes: {event.close_date}
+                {match[1]}/{match[2]}/{year} <span className="timeline">- Matching Period</span>
                 <br />
-                Matching Date: {event.matching_date}
-                <br />
-                Shipping Deadline: {event.shipping_deadline}
+                {match[1]}/{match[2]}/{year} - {ship[1]}/{ship[2]}/{year} <span className="timeline">- Shipping Timeframe</span>
+                <br/>
+                  <span className="deadline">EVENT CLOSES:  {formatCountDown(deadline)}</span>
               </p>
             </div>
           </div>
