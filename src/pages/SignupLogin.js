@@ -1,43 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
   signOut, // Import signOut from firebase/auth
-} from 'firebase/auth';
-import Users from '../components/Users';
-import { auth } from '../firebaseConfig';
+} from "firebase/auth";
+import Users from "../components/Users";
+import { auth } from "../firebaseConfig";
 
-import '../css/login.css';
+import "../css/login.css";
 
 const SignupLogin = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [loggedInUser, setLoggedInUser] = useState(null);
 
   const handleLogin = async () => {
     try {
       if (!username || !password) {
-        console.error('Username and password are required.');
+        console.error("Username and password are required.");
         return;
       }
 
-      const userCredential = await signInWithEmailAndPassword(auth, username, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        username,
+        password
+      );
       const user = userCredential.user;
       setLoggedInUser(user);
     } catch (error) {
-      console.error('Login Error:', error);
+      console.error("Login Error:", error);
     }
   };
 
   const handleSignup = async () => {
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, username, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        username,
+        password
+      );
       const user = userCredential.user;
       setLoggedInUser(user);
     } catch (error) {
-      console.error('Signup Error:', error);
+      console.error("Signup Error:", error);
     }
   };
 
@@ -48,7 +56,7 @@ const SignupLogin = () => {
       const user = userCredential.user;
       setLoggedInUser(user);
     } catch (error) {
-      console.error('Google Login Error:', error);
+      console.error("Google Login Error:", error);
     }
   };
 
@@ -57,7 +65,7 @@ const SignupLogin = () => {
       await signOut(auth);
       setLoggedInUser(null);
     } catch (error) {
-      console.error('Logout Error:', error);
+      console.error("Logout Error:", error);
     }
   };
 
@@ -69,14 +77,21 @@ const SignupLogin = () => {
       </div>
       <p>Join random gift exchanges and spread happiness.</p>
 
-      <Users />
+      {/* <Users /> */}
 
       {loggedInUser ? (
         <div>
-          <p>You are logged in as {loggedInUser.email}.</p>
-          <button className="button" type="button" onClick={handleLogout}>
-            Logout
-          </button>
+          <div className="login-forum-container">
+            You are logged in as {loggedInUser.email}.
+            <button
+              id="logout"
+              className="button logout-button"
+              type="button"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          </div>
         </div>
       ) : (
         <div className="login-forum-container">
@@ -109,8 +124,13 @@ const SignupLogin = () => {
               <button className="button" type="button" onClick={handleSignup}>
                 Signup
               </button>
-              <button className="button" type="button" onClick={handleGoogleLogin}>
-                Login with Google
+              <button
+                id="google-login-button"
+                className="google-btn"
+                type="button"
+                onClick={handleGoogleLogin}
+              >
+                <div className="google-icon-wrapper"></div>
               </button>
             </div>
           </form>
