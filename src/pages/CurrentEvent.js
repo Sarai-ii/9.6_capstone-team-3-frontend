@@ -13,8 +13,8 @@ export default function CurrentEvent({event}) {
       alt={event.title}>
       </img>
       <div className="details-CE-container">
-        <h5><span className="price-title">Required Minimum Spend:</span> <span className="price">${event.minimum_spend}</span></h5>
-        <h5> {event.description}</h5>
+        <h5 className="description"><span className="price-title">Required Minimum Spend:</span> <span className="price">${event.minimum_spend}</span></h5>
+        <h5 className="description"> {event.description}</h5>
         <h5
         className="collapse-toggle d-inline-flex gap-1"
         data-bs-toggle="collapse" 

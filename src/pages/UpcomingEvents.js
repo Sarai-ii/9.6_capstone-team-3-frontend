@@ -17,7 +17,7 @@ export default function Event({event}) {
         src={event.image_url}
         alt={event.title}>
         </img>
-        <h5>Deadline</h5>
+        <h5 className="description">Deadline</h5>
     </div>
   );
 };

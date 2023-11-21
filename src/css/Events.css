@@ -32,31 +32,130 @@ color: #ffffff;
 } */
   
 /* 
-#276BE5 main color
-#6474ED button color 
-#A4C1F4 accent color
-#E8EFFC background color
-#EDBB64 accent color 2
-
-
+        BRAND COLORS
+#276BE5 
+-main color
+#6474ED 
+-button color 
+#A4C1F4 
+-accent color
+#E8EFFC 
+-background color
+#EDBB64 
+-accent color 2 / button style backup
+#ED6495 
+-accent color 3
 */
-  
-h2{
-    color: #000;
-    /* font-family: Georgia; */
-    font-size: 4rem;
-    margin: 70px 5px 20px 5px;
+.hero-img {
+    padding: 200px;
+    /* Might change the image I kind of like the repeat but then I don't */
+    background-repeat: repeat;
+    /* background-size: cover; */
+    overflow: scroll;
+    background-image: url('https://i.pinimg.com/750x/2e/4b/67/2e4b679ed51d646f102a6dfd3107aef2.jpg');
 }
-h5{
+
+.introduction {
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+    /* which background color for the text is better? */
+    /* background-color: #A4C1F4;
+    border-bottom: 20px solid #A4C1F4;
+    border-top: 20px solid #A4C1F4;
+    border-right: .15em solid #A4C1F4;  */
+
+    background-color: #EDBB64;
+    border-bottom: 20px solid #EDBB64;
+    border-top: 20px solid #EDBB64;
+    border-right: .15em solid #EDBB64; 
+
+    font-family: Georgia;
+    font-size: 55px;
+    letter-spacing: .04em;
+    margin: 30px auto; 
+    overflow: hidden; 
+    white-space: nowrap; 
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #EDBB64; }
+    /* 50% { border-color: #A4C1F4; } */
+}
+
+@media screen and (min-width: 1030px) and (max-width: 1212px) {
+    .introduction {
+        font-size: 46px; 
+        border-bottom: 10px solid #EDBB64;
+        border-top: 10px solid #EDBB64;
+        border-right: 0.1em solid #EDBB64;
+        margin: 10px auto; 
+    }
+
+}
+@media screen and (min-width: 927px) and (max-width: 1029px) {
+    .introduction {
+        font-size: 42px; 
+        border-bottom: 10px solid #EDBB64;
+        border-top: 10px solid #EDBB64;
+        border-right: 0.1em solid #EDBB64;
+        margin: 10px auto; 
+    }
+
+}
+@media screen and (max-width: 926px) {
+    .introduction {
+        font-size: 30px; 
+        border-bottom: 10px solid #EDBB64;
+        border-top: 10px solid #EDBB64;
+        border-right: 0.1em solid #EDBB64;
+        margin: 10px auto; 
+    }
+
+}
+@media screen and (max-width: 662px) {
+    .introduction {
+        font-size: 20px; 
+        border-bottom: 10px solid #EDBB64;
+        border-top: 10px solid #EDBB64;
+        border-right: 0.1em solid #EDBB64;
+        margin: 10px auto; 
+    }
+
+}
+@media screen and (max-width: 446px) {
+    .introduction {
+        font-size: 15px; 
+        border-bottom: 10px solid #EDBB64;
+        border-top: 10px solid #EDBB64;
+        border-right: 0.1em solid #EDBB64;
+        margin: 10px auto; 
+    }
+
+}
+
+.event-type{
     color: #000;
     font-family: Georgia;
-    font-size: 1.5rem;
-    margin: 0px 0px 50px 0px ;
+    font-size: 4rem;
+    margin: 70px 5px 20px 5px;
+    text-shadow: 2px 7px 6px rgba(44, 46, 107, 0.449);    
+
 }
 .event-title {
-    color: #000000;
+    color: #276BE5;
+    font-size: 34px;
     /* font-style: oblique; */
     margin: 25px 5px 5px 5px;
+    text-shadow: .5px 1px 1px rgba(0, 0, 0, 0.313);    
 }
 
 .current-container{
@@ -82,16 +181,31 @@ h5{
     /* padding: 10px; */
     width: 80%;
 }
+
+.description{
+    color: #000;
+    font-family: Georgia;
+    font-size: 1.5rem;
+    margin: 0px 0px 5px 0px ;
+}
+.price-title, .price{
+    padding: 0px 10px 0px 0px;
+    color: #6474ED;
+}
+
 .collapse-details{
     min-height: 250px;
     width: 600px;
 }
 .collapse-toggle {
-    color: #000;
+    text-shadow: 0 1px 1px rgba(190, 88, 121, 0.492);    
+    color: #ED6495;
     font-size: 23px;
-    margin: 20px;
+    margin: 5px 5px 5px 5px;
 }
 .collapse-toggle:hover {
+    text-shadow: 0 1px 1px rgba(190, 88, 121, 0.492);    
+    color: #000;    
     cursor: pointer;
     font-size: 25px;
 }
@@ -100,9 +214,7 @@ h5{
     color: #ED6495;
 }
 .details-CE{
-    /* background-color: rgba(200, 132, 50, 0.982); */
     color: #000;
-    /* font-weight: bold; */
 }
 .details-CE-container{
     /* background-color: #00818F; */
