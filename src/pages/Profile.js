@@ -1,9 +1,13 @@
+//DEPENDENCIES
 import React from 'react'
+// COMPONENTS
+import PublicProfile from "../components/PublicProfile"
 
-function Profile() {
+
+export default function Profile() {
   return (
-    <div>Profile</div>
+    <div>
+      <PublicProfile />
+    </div>
   )
 }
-
-export default Profile
