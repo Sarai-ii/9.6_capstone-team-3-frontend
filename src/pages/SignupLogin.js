@@ -73,10 +73,16 @@ const SignupLogin = () => {
 
       {loggedInUser ? (
         <div>
-          <p className="login-forum-container">You are logged in as {loggedInUser.email}.</p>
-          <button className="button" type="button" onClick={handleLogout}>
+          <div className="login-forum-container">You are logged in as {loggedInUser.email}.
+          <button
+            id="logout" 
+            className="button logout-button" 
+            type="button"
+            onClick={handleLogout}
+          >
             Logout
           </button>
+          </div>
         </div>
       ) : (
         <div className="login-forum-container">

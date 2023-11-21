@@ -20,6 +20,14 @@
     font-weight: bold;
     text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
   }
+
+  #logout {
+    margin-top: 60px;
+  }
+  
+  .logout-button {
+    padding-top: 10px; 
+  }
   
   .login-forum-container {
     width: 350px;
