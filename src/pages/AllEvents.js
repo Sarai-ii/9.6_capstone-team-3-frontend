@@ -13,6 +13,7 @@ export default function AllEvents() {
   const [events, setEvents] = useState([])
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
+  // const [isDarkMode, setDarkMode] = useState(false);
 
 
   useEffect(() => {
@@ -36,24 +37,29 @@ export default function AllEvents() {
 
     }, [events]);
 
+    // const toggleMode = () => {
+    //   setDarkMode(!isDarkMode);
+    // };
+//     className={isDarkMode ? 'dark-mode' : 'light-mode'}
+//     <button onClick={toggleMode}>Toggle Mode</button>
 return (
-  <div>
-    <h2 className="events-h2">Current Event</h2>
-    <ul className="current-container">
+  <div >
+    <h2 className="">Current Event</h2>
+    <ul className="current-container" >
       {
       filteredEvents.map((event) => (
-        <div className="card">
-          <li key={event.id}>{event.title}</li>
+        <div className="card dark-mode light-mode">
+          <li key={event.id}><h3 className="event-title">{event.title}</h3></li>
           <CurrentEvent key={event.id} event = {event}/>
         </div>
       ))}
     </ul>
-    <h2 className="events-h2">Upcoming Events</h2>
-    <ul className="upcoming-container">
+    <h2 className="">Upcoming Events</h2>
+    <ul className="upcoming-container" >
     {
       upcomingEvents.map((event) => (
-        <div className="card">
-          <li key={event.id}>{event.title}</li>
+        <div className="card dark-mode light-mode" >
+          <li key={event.id}><h3 className="event-title">{event.title}</h3></li>
           <UpcomingEvents key={event.id} event = {event}/>
         </div>
       ))}
