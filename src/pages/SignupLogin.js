@@ -69,11 +69,11 @@ const SignupLogin = () => {
       </div>
       <p>Join random gift exchanges and spread happiness.</p>
 
-      <Users />
+      {/* <Users /> */}
 
       {loggedInUser ? (
         <div>
-          <p>You are logged in as {loggedInUser.email}.</p>
+          <p className="login-forum-container">You are logged in as {loggedInUser.email}.</p>
           <button className="button" type="button" onClick={handleLogout}>
             Logout
           </button>
