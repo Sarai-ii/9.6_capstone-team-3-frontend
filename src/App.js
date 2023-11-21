@@ -3,19 +3,22 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 
 /* Import all page components here  */
-import Home from './pages/Home';
+// PAGES
+import Account from './pages/Account';
 import About from './pages/About';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Header from './components/Header'
+import Home from './pages/Home';
 import SignupLogin from './pages/SignupLogin';
+import Gallery from './pages/Gallery';
+import PageNotFound from "./pages/PageNotFound"; 
+import Users from './pages/usersIndex';
 import AllEvents from './pages/AllEvents';
 import CurrentEvent from './pages/CurrentEvent';
-import Gallery from './pages/Gallery';
-import Profile from './pages/Profile';
-import Account from './pages/Account';
-import Users from './pages/usersIndex';
-import PageNotFound from "./pages/PageNotFound"; 
+// COMPONENTS
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Profile from './components/Profile';
+import UserPictureForm from "./components/UserPictureForm"
+// import Header from './components/Header'
 
 function App() {
   return (
@@ -34,7 +37,8 @@ function App() {
             <Route path="/currentevent" element = { <CurrentEvent /> } />
             <Route path="/gallery" element = { <Gallery /> } />
             <Route path="/allevents" element = { <AllEvents /> } />
-            <Route path="/profile" element = { <Profile /> } />
+            <Route path="/profile/:userId" element = {<Profile />} /> 
+            <Route path="/profile/:userId/edit" element={<UserPictureForm />} />       
             <Route path="/users" element = {<Users/>} />
             <Route path="/account" element = { <Account /> } />
             <Route path="*" element = { <PageNotFound /> } />
