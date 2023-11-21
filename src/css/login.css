@@ -24,6 +24,45 @@
   #logout {
     margin-top: 60px;
   }
+
+  #google-login-button {
+    width: 40px; 
+    height: 40px; 
+    background-color: white;
+    border-radius: 50%;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    margin: 0.5rem 0;
+    position: relative;
+  }
+  
+  #google-login-button:hover {
+    box-shadow: 0 0 6px #4285f4;
+  }
+  
+  #google-login-button:active {
+    background: #1669f2;
+  }
+  
+  .google-icon-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px; 
+    height: 24px;
+    background-color: #fff;
+    background-image: url("../images/googli-icon.png");
+    background-size: cover;
+    border-radius: 50%;
+  }
+  
+  /* Remove the btn-text styling */
+  .btn-text {
+    display: none;
+  }
+  
+  
   
   .logout-button {
     padding-top: 10px; 
