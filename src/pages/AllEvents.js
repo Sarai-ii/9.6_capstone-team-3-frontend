@@ -48,6 +48,7 @@ return (
       <h1 className="introduction"> 
         Welcome! Begin your gift giving journey here. 
       </h1>
+      <br/>
     </header>
     <h2 className="event-type">Current Event</h2>
     <ul className="current-container" >
