@@ -59,8 +59,8 @@ color: #ffffff;
 .hero-img {
     padding: 150px 20px 100px 2px;
     /* Might change the image I kind of like the repeat*/
-    background-size: 200px 2px;
-    /* background-size: cover; */
+    /* background-size: 200px 2px; */
+    background-size: cover;
     overflow: scroll;
     background-image: url('https://i.pinimg.com/750x/2e/4b/67/2e4b679ed51d646f102a6dfd3107aef2.jpg');
 }
