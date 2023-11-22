@@ -22,6 +22,7 @@ export default function PublicProfiles() {
       .catch((error) => console.error("Error fetching users", error));
   }, []);
 
+
   const user = users.find((user) => user.id === parseInt(userId));
 
   return (
