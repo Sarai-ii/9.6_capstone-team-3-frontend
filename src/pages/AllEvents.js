@@ -40,8 +40,8 @@ export default function AllEvents() {
     // const toggleMode = () => {
     //   setDarkMode(!isDarkMode);
     // };
-//     className={isDarkMode ? 'dark-mode' : 'light-mode'}
-//     <button onClick={toggleMode}>Toggle Mode</button>
+    // className={isDarkMode ? 'dark-mode' : 'light-mode'}
+    // <button onClick={toggleMode}>Toggle Mode</button>
 return (
   <div >
     <header className="hero-img">

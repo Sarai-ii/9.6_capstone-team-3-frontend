@@ -4,8 +4,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'DM Serif Display', 'Nunito', 'Merriweather'
 }
-
+h1,h2{
+  font-family: 'DM Serif Display';
+}
+h3,h4,h5,h6{
+  font-family: 'Nunito';
+  font-weight: 300;
+  color:black;
+}
+p{
+  font-family: 'Merriweather';
+}
 .App {
   font-family: 'Noto Sans', sans-serif;
   text-align: center;
