@@ -2,8 +2,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
 // COMPONENTS
-// import PublicProfile from "../components/PublicProfile"
+import UserPictureForm from "../components/UserPictureForm"
+import UserUpload from "../components/UserUpload"
+
 //API
 const API = process.env.REACT_APP_API_URL;
 

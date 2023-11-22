@@ -14,8 +14,76 @@
 #ED6495 
 -accent color 3
 */
+body {
+    overflow-x: hidden;
+}
+/* SideBar */
+.menu-details {
+    color: black;
+    padding: 70px 20px 0px 0px ;
+}
+.sidebar-text, .sidebar-links {
+    /* list-style: none; */
+    text-decoration: none;
+    color: black;
+    padding-top: 50px;
+}
+.sidebar-text:hover, .sidebar-links:hover {
+    list-style: none;
+    color: rgb(143, 36, 36);
+    cursor:pointer;
+    /* padding-top: 55px; */
 
+}
 
+.sidebar-icons{
+    margin: 0px 5.5px 0 0;
+}
+                                                
+
+/* All Profiles*/
+.webpage-container {
+    display: flex;
+    /* justify-content: space-between;  */
+    /* margin: 20px;  */
+    padding-left: 0px;
+    width: 100%;
+}
+.left-column {
+    border-right: 1px solid #a4c1f46b;
+    flex: 0 0 auto;
+    margin-left: 0;
+    margin-right: auto;
+    text-align: center;
+}
+.right-column{
+    flex-grow: 1;
+    overflow-y: auto
+}
+
+.left-column,
+.right-column {
+    /* flex-basis: 48%;  */
+    box-sizing: border-box;
+    padding: 20px 10px 10px 10px;
+}
+@media screen and (max-width: 768px) {
+    .webpage-container {
+      flex-direction: row; 
+    }
+    .left-column,
+    .right-column {
+      margin-bottom: 10px; 
+    }
+    .menu-details {
+        color: black;
+    }
+    .menu-details li {
+        padding-top: 30px;
+    }
+}
+
+/* Individual Profile */
 .profile-container{
     display: flex;
     flex-direction: column;
