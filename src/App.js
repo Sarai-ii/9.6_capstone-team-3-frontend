@@ -18,6 +18,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Profiles from './components/PublicProfiles';
 import UserPictureForm from "./components/UserPictureForm"
+import EventSignUp from "./components/EventSignup"
 // import Header from './components/Header'
 
 function App() {
@@ -35,12 +36,14 @@ function App() {
             <Route path='/signup' element = { <SignupLogin /> } />
             <Route path="/events" element = { <AllEvents /> } />
             <Route path="/currentevent" element = { <CurrentEvent /> } />
+            <Route path="/events/signup" element = { <EventSignUp /> } />
             <Route path="/gallery" element = { <Gallery /> } />
             <Route path="/profile/:userId" element = {<Profiles />} /> 
             <Route path="/profile/:userId/edit" element= {<UserPictureForm />} />       
             <Route path="/users" element = {<Users/>} />
             <Route path="/account" element = { <Account /> } />
             <Route path="*" element = { <PageNotFound /> } />
+
           </Routes>
         </main>
         <Footer/>
