@@ -54,7 +54,7 @@ return (
     <ul className="current-container" >
       {
       filteredEvents.map((event) => (
-        <div className="card dark-mode light-mode">
+        <div className="container">
           <li key={event.id}><h3 className="event-title">{event.title}</h3></li>
           <CurrentEvent key={event.id} event = {event}/>
         </div>
@@ -64,7 +64,7 @@ return (
     <ul className="upcoming-container" >
     {
       upcomingEvents.map((event) => (
-        <div className="card dark-mode light-mode" >
+        <div className="card" >
           <li key={event.id}><h3 className="event-title">{event.title}</h3></li>
           <UpcomingEvents key={event.id} event = {event}/>
         </div>
