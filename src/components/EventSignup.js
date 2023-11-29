@@ -4,19 +4,31 @@ export default function EventSignUp() {
     const [showDetails, setShowDetails] = useState(false);
     const [selectedOption, setSelectedOption] = useState('');
     const [showConfirmation, setShowConfirmation] = useState(false)
+    const [inputs, setInputs] = useState({
+        want: '',
+        dislike: '',
+        color: '',
+        category: '',
+    });
+    
+    const handleInputChange = (event) => {
+        const { id, value } = event.target;
+        setInputs((prevInputs) => ({ ...prevInputs, [id]: value }));
+    };
 
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
+        handleInputChange(event);
     };
   
     const handleConfirmation = () => {
       if (selectedOption === 'Yes') {
         alert("Please be advised that we try our best to ensure gifts are based on the desires of the reciever but sometimes there are chances of being gifted an item you already own. As this may not be desired, it is reality and therefore we require that everyone who joins any event understand and accept this possibility to be able to join. If you don't mind please change your response to 'No'.");
-      } else {
-        setShowConfirmation(!showConfirmation)
-      }
-
-    };
+        // setShowConfirmation(showConfirmation)
+        } else if(Object.values(inputs).every(value => value)){
+            setShowConfirmation(!showConfirmation)
+        };
+    }
 
     const handleIconClick = () => {
     setShowDetails(!showDetails);
@@ -44,51 +56,63 @@ export default function EventSignUp() {
         </div>
             {showDetails && (
             <div className="details-box">
-                <p>WHY THIS FORM? In order to be matched, it's required you fill out this form and stick to the rules of every event to ensure you recieve a gift that best suits you. </p>
+                <p><strong>WHY THIS FORM? </strong>
+                    <br />
+                    In order to be matched, it's required you fill out this form and stick to the rules of every event to ensure you recieve a gift that best suits you. </p>
             </div>
             )}
             
             <label htmlFor="want"> Based on the theme, if you could choose-what gift would you desire most? (Be specific but remember the budget): </label>
-            <input type="text" id="want"/>
+            <input type="text" id="want" value={inputs.want} onChange={handleInputChange} required/>
             <br />
             <label htmlFor="dislike"> Based on the theme, if you could choose-what gift should your match avoid?(Be specific):</label>
-            <input type="text" id="dislike"/>
+            <input type="text" id="dislike" value={inputs.dislike} onChange={handleInputChange} required/>
             <br />
             <label htmlFor="color"> What's your favorite color?:</label>
-            <input type="text" id="color"/>
+            <input type="text" id="color" value={inputs.color} onChange={handleInputChange} required/>
             <br />
             <label htmlFor="category"> Based on the theme, what category most interests you?(ie: "candy", "tech", "clothes" ):</label>
-            <input type="text" id="category"/>
+            <input type="text" id="category" value={inputs.category} onChange={handleInputChange} required/>
             <br />
-            <label htmlFor="category"> If applicable, what are your clothing sizes?: </label>
-            <input type="text" id="category"/>
+            <label htmlFor="clothes"> If applicable, what are your clothing sizes? 
             <br />
-            <label htmlFor="duplicate"> Do you mind receiving an item or version of an item that you already? 
-                <select id="duplicate" value={selectedOption} onChange={handleOptionChange}>
-                    <option value="">-</option>
+            <label htmlFor="clothes">Shirt Size:</label>
+            <input type="text" id="clothes"/>
+            <br />
+            <label htmlFor="clothes">Pants Size:</label>
+            <input type="text" id="clothes"/>
+            <br />
+            <label htmlFor="clothes">Shoes Size:</label>
+            <input type="text" id="clothes"/>
+            </label>
+            <br />
+            <label htmlFor="duplicate"> Do you mind receiving an item or version of an item that you already own? 
+                <select id="duplicate" value={selectedOption} onChange={handleOptionChange} required>
+                    <option value=""></option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select>
             </label>
             <ul className='rules-container'>
-                <h3 className='rules-h3'>Rules For <span className='rules-every'>EVERY</span >Event</h3>
+                <h3 className='rules-h3'>Rules For <span className='rules-every'>EVERY</span> Event</h3>
                 <li className='rules'>The person you are assigned is not the same person who is assigned to you to prevent violation of our terms</li>
                 <li className='rules'>We do <span className='rules-not'>NOT</span> by any means condone deragatory, sexually explicit nor discriminatory actions such has hate speech, bullying nor racially insensitive, comments or gifts. Please keep everything friendly and respectful. We seek to uplift and bring joy to any and everyone's lives.</li>
                 <li className='rules'>If in the event you miss the shipping deadline you will be at risk of being banned indefinently, per investigation by our team</li>
             </ul>
             <div>
                 <input type="checkbox" id="terms" required/>
-                <label for="terms">Do You Agree To The Terms?</label>
+                <label htmlFor="terms">Do You Agree To The Terms?</label>
             </div>
             <br />
-            <button onClick={handleConfirmation} >Confirm</button>
+            <button className="confirm button" onClick={handleConfirmation} >Confirm</button>
+
+        </form>
             {showConfirmation && (
                 <div className='conclusion'>
                     <h2 className='concluson-h2'>Form is complete, you've been added to the event. </h2>
                     <h3 className='conclusion-h3'>Check you messages and notification in the app for updates.</h3>
                 </div>
             )}
-        </form>
         <div className=''>
             <h1 className='welcome-2'>Making Someone Feel Special  </h1>
         </div>

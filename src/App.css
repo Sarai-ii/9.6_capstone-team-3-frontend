@@ -4,8 +4,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'DM Serif Display', 'Nunito', 'Merriweather'
 }
+
+button {
+  font-family: 'Merriweather';
+}
+
 h1,h2{
   font-family: 'DM Serif Display';
 }
@@ -18,7 +22,6 @@ p{
   font-family: 'Merriweather';
 }
 .App {
-  font-family: 'Noto Sans', sans-serif;
   text-align: center;
 }
 
