@@ -51,13 +51,13 @@ export default function CurrentEvent({event}) {
         src={event.image_url}
         alt={event.title}>
         </img>
-        
-        <div className="">
-          <Link to="./signup" className="join-now">REGISTER FOR THIS EVENT</Link></div>
+       <div className="">
+          <Link to="./signup" className="join-now">REGISTER <br /> FOR THIS EVENT</Link></div>
       </div>
       <div className="description-CE-container">
-        <h5 className="description-title"><span className="price-title">Minimum Spend:</span><span className="price">${event.minimum_spend}</span></h5>
-        <h5 className="description"> {event.description}</h5>
+        <h5 className="description-price-title"><span className="price-title">Minimum Spend:</span><span className="price">${event.minimum_spend}</span></h5>
+        <h5 className="description-event-title"> {event.title}: </h5>
+        <h5 className="description">{event.description}</h5>
         <h2
         className="collapse-toggle d-inline-flex gap-1"
         data-bs-toggle="collapse" 

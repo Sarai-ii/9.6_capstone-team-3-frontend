@@ -64,7 +64,7 @@ return (
     <ul className="upcoming-container" >
     {
       upcomingEvents.map((event) => (
-        <div className="card" >
+        <div className="upcoming-card" >
           <li key={event.id}><h3 className="event-title">{event.title}</h3></li>
           <UpcomingEvents key={event.id} event = {event}/>
         </div>

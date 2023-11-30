@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400&display=swap');
+/* Universal Code */
+
+body {
+  transition: background-color 0.5s ease;
+  background-color: #E8EFFC;
+}
 
 * { 
   margin: 0;
@@ -6,22 +12,38 @@
   box-sizing: border-box;
 }
 
-button {
-  font-family: 'Merriweather';
+.button, button {
+  font-family: 'Nunito';
 }
 
 h1,h2{
   font-family: 'DM Serif Display';
 }
 h3,h4,h5,h6{
-  font-family: 'Nunito';
+  font-family: 'Montserrat';
   font-weight: 300;
   color:black;
 }
 p{
-  font-family: 'Merriweather';
+  font-family: 'Montserrat';
 }
+
 .App {
   text-align: center;
 }
 
+/* 
+        BRAND COLORS
+#276BE5 
+-main color
+#6474ED 
+-button color 
+#A4C1F4 
+-accent color
+#E8EFFC 
+-background color
+#EDBB64 
+-accent color 2 / button style backup
+#ED6495 
+-accent color 3
+*/
