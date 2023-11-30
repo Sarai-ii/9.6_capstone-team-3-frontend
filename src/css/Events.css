@@ -33,34 +33,13 @@
     max-width: 600px;
 }
 .days-until{
+    cursor:default;
     font-size: 30px;
     margin: 10px 10px 20px 10px;
     text-shadow: .1px .5px 2px rgba(0, 0, 0, 0.576);    
 }
-@media screen and (min-width: 2000px) {
-    .future-img{
-        border-radius: 20px;
-        box-shadow: 12px 12px 2px 1px rgba(88, 24, 1, 0.2);
-        margin: 10px 20px 20px 10px;
-        max-height: 350px;
-        object-fit: cover;
-        padding: 2px;
-        max-width: 600px;
-    }
 
-}
-@media screen, (min-width: 970px) and (max-width: 1300px){
-    .event-type{
-        font-size: 20px;
-    }
-    .upcoming-container {
-       
-    }
-    
-    .future-img{
-       
-    }
-}
+
 @media screen and (max-width: 970px){
     .upcoming-container {
         display: flex;
@@ -81,6 +60,23 @@
         width: 100%;
     }
 }
+@media screen, (min-width: 970px) and (max-width: 1300px){
+    .event-type{
+        font-size: 20px;
+    }
+}
+@media (min-width: 2000px) and (max-width: 2500px) {
+    .future-img{
+        border-radius: 20px;
+        box-shadow: 12px 12px 2px 1px rgba(88, 24, 1, 0.2);
+        margin: 10px 20px 20px 10px;
+        max-height: 350px;
+        object-fit: cover;
+        padding: 2px;
+        max-width: 600px;
+    }
+
+}
 
 /* Classes In All Events JS */
    
@@ -89,8 +85,10 @@
     /* Might change the image I kind of like the repeat*/
     /* background-size: 200px 2px; */
     background-size: cover;
-    overflow: scroll;
-    padding: 150px 0px 100px 0px;
+    background-position: center;
+    /* height: 100px; */
+    overflow: hidden;
+    padding: 50px 0px 10px 0px;
 }
 
 .introduction {
@@ -107,8 +105,9 @@
     background-color: #EDBB64;
     border-bottom: 20px solid #EDBB64;
     border-top: 20px solid #EDBB64;
-    border-right: .5em solid #EDBB64; 
-    font-size: 60px;
+    border-right: .5em solid #EDBB64;
+    cursor:default; 
+    font-size: 50px;
     letter-spacing: .04em;
     /* margin: 30px auto;  */
     overflow: hidden; 
@@ -128,15 +127,17 @@
 
 .event-type{
     color: #000;
-    font-size: 4rem;
+    cursor:default;
+    font-size: 45px;
     margin: 50px 5px 10px 5px;
     text-shadow: 2px 3px 6px rgba(44, 46, 107, 0.449);    
 }
 .event-title {
     color: #276BE5;
-    font-size: 34px;
+    cursor:default;
+    font-size: 30px;
     /* font-style: oblique; */
-    margin: 25px 5px 5px 5px;
+    margin: 15px 5px 5px 5px;
     text-shadow: .5px 1px 1px rgba(0, 0, 0, 0.313);    
 }
 
@@ -151,6 +152,9 @@
     display: flex;
     list-style: none;
     width: auto;
+}
+.upcoming-container > li > .event-title{
+    margin-top: 1000px;
 }
 
 @media (min-width: 446px) and (max-width: 662px)  {
@@ -186,7 +190,43 @@
     li > .event-title{
         font-size: 25px;
     }
-
+}
+@media (min-height: 800px) and (max-height:1000px){
+    .hero-img {
+        background-image: url('https://i.pinimg.com/750x/2e/4b/67/2e4b679ed51d646f102a6dfd3107aef2.jpg');
+        /* background-size: 100px 50px; */
+        background-size:cover;
+        background-position: center;
+        height: 160px;
+    }
+    .introduction {
+        animation: 
+            typing .6s steps(40, end),
+            blink-caret .75s step-end infinite;
+        border-bottom: 10px solid #EDBB64;
+        border-top: 10px solid #EDBB64;
+        font-size: 20px;
+        overflow: hidden; 
+        white-space: nowrap; 
+    }
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+    }
+    @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: #EDBB64; }
+    }
+    .event-type{
+        color: #000;
+        font-size: 28px;
+        margin: 30px 5px 1px 5px;
+    }
+    li> .event-title {
+        color: #276BE5;
+        font-size: 18px;
+        margin: 5px;
+    }
 }
 
 
@@ -195,7 +235,7 @@
 .current-img{
     border-radius: 20px;
     box-shadow: 1px 1px 2px 2px rgba(26, 22, 20, 0.246);
-    max-height: 800px;
+    max-height: 600px;
     margin: 30px 10px 30px 10px ;
     object-fit: cover;
     /* object-position: 50% 50%; */
@@ -205,7 +245,7 @@
 }
 .current-img:hover{
     /* text-rendering: geometricPrecision; */
-    max-height: 800.5px;
+    max-height: 600.5px;
 }
 .container{
     /* margin: 10px; */
@@ -251,6 +291,7 @@
 .description-CE-container{
     background-color: #ffffffce;
     box-shadow: 1px 1px 2px 2px rgb(146, 140, 138);
+    cursor:default;
     letter-spacing: .02em;
     margin: 8px 85px 5px 85px;
     padding: 35px;
@@ -259,6 +300,7 @@
 .description-CE-container:hover{
     background-color: #ffffffc5;
     box-shadow: 1px 1px 2px 2px rgb(146, 140, 138);
+    cursor:default;
     margin: 7px 85px 7px 85px;
 }
 .description{
@@ -465,7 +507,19 @@
         max-height: 800px;
         max-width: 1505px;
     }
-    
+}
+@media (min-height: 800px) and (max-height:1000px){
+    .current-img{
+        margin: 0px 10px 10px 10px;
+        max-height: 500px;
+        max-width: 900px;
+    }
+    .description-CE-container{
+        padding: 15px;
+    }
+    .join-now{
+        font-size: 20px;
+    }
 }
 
 /* Events Sign Up */
