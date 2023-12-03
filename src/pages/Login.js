@@ -1,17 +1,16 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import Users from "../components/Users";
 import { auth } from "../firebaseConfig";
 
 import "../css/login.css";
 
-const SignupLogin = () => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loggedInUser, setLoggedInUser] = useState(null);
@@ -32,20 +31,6 @@ const SignupLogin = () => {
       setLoggedInUser(user);
     } catch (error) {
       console.error("Login Error:", error);
-    }
-  };
-
-  const handleSignup = async () => {
-    try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        username,
-        password
-      );
-      const user = userCredential.user;
-      setLoggedInUser(user);
-    } catch (error) {
-      console.error("Signup Error:", error);
     }
   };
 
@@ -77,8 +62,6 @@ const SignupLogin = () => {
       </div>
       <p>Join random gift exchanges and spread happiness.</p>
 
-      {/* <Users /> */}
-
       {loggedInUser ? (
         <div>
           <div className="login-forum-container">
@@ -96,14 +79,15 @@ const SignupLogin = () => {
       ) : (
         <div className="login-forum-container">
           <div className="login-h3-container">
-            <h3 className="login-h3">Login / Signup</h3>
+            <h3 className="login-h3">Login</h3>
           </div>
           <form className="form-container">
             <label className="username-label">
               Username:
               <input
                 className="username-input"
-                type="text"
+                type="email"
+                placeholder="Enter your email"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
@@ -113,6 +97,7 @@ const SignupLogin = () => {
               <input
                 className="password-input"
                 type="password"
+                placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -121,9 +106,11 @@ const SignupLogin = () => {
               <button className="button" type="button" onClick={handleLogin}>
                 Login
               </button>
-              <button className="button" type="button" onClick={handleSignup}>
-                Signup
-              </button>
+              <Link to="/signup">
+                <button className="button" type="button">
+                  Signup
+                </button>
+              </Link>
               <button
                 id="google-login-button"
                 className="google-btn"
@@ -140,4 +127,4 @@ const SignupLogin = () => {
   );
 };
 
-export default SignupLogin;
+export default Login;

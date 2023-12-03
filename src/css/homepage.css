@@ -9,7 +9,7 @@
 }
 
 .title-slogan-container {
-  background-image: url('https://media.istockphoto.com/id/1058085150/photo/white-gift-box-with-orange-bright-ribbon-on-yellow-background-beautiful-gift-for-the-new-year.jpg?s=1024x1024&w=is&k=20&c=W3angJGdbg9EGVISGA7ud6a9YfPSv-2I1rhzgeRKYys=');
+  background-image: url('https://cdn.vectorstock.com/i/1000x1000/13/66/banner-of-gift-boxes-vector-44041366.webp');
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -32,7 +32,7 @@ h1{
   font-size: 68px;
 }
 
-.to-title, .from-title {
+.happiness-title, .exchange-title {
   font-size: 48px;
   font-weight: bold;
   text-shadow: 4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
@@ -46,8 +46,8 @@ h1{
 }
 
 .slogan-2 {
-  font-size: 24px;
-  text-shadow: 4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+  /* font-size: 24px;
+  text-shadow: 4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000; */
 }
 
 .how-it-works-title {
