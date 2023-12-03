@@ -537,7 +537,7 @@
 /* Events Sign Up */
 
 .event-signup-container {
-    align-items: center;
+    align-items: start;
     background: linear-gradient(
         to top, 
         #E8EFFC 0%,
@@ -548,74 +548,16 @@
     );
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     width: 100%;
     height: 100%;
 }
 .section-header{
     color: #ED6495;
     font-size: 27px;
-    margin-top: 20px;
+    margin: 20px;
     text-shadow: 1px 1px 1px rgba(32, 27, 28, 0.492);    
 }
-
-.forms-container{
-    display: flex;
-    justify-content: space-evenly;
-}
-.signup-form{
-    /* background-color:#E8EFFC; */
-    color: #276BE5;
-    /* display: flex; */
-    text-align: start;
-    width: 80%;
-}
-.signup-form input {
-    background-color: #A4C1F4;
-    border: 2px solid;
-    padding: 10px;
-    margin: 15px;
-    width: 300px;
-    height: 3%;
-    /* display: inline; */
-}
-#duplicate {
-    background-color: #A4C1F4;
-    border: 2px solid;
-    margin: 10px 10px 10px 20px;
-    width: 70px;
-    height: 40px;
-}
-.signup-form label{
-    color: #ffffff;
-    font-size: 22px;
-    margin: 25px;
-}
-#clothes{
-    width: 20%;
-}
-#budget{
-    width: 70px;
-}
-
-.welcome, .welcome-2{
-    font-size: 47px;
-    margin: 10px;
-}
-.welcome{
-    color:#E8EFFC;
-}
-
-.conclusion{
-    font-size: 20px;
-    margin: 20px 2px 20px 2px;
-
-}
-.intro-container {
-    display: flex;
-    /* align-items: center; */
-}
-  
 .question-mark-icon {
     cursor: pointer;
     display: flex;
@@ -640,10 +582,64 @@
     padding: 10px;
 }
 
+.signup-form{
+    /* background-color:#E8EFFC; */
+    color: #276BE5;
+    /* display: flex; */
+    text-align: start;
+    /* width: 80%; */
+}
+.signup-form input {
+    background-color: #A4C1F4;
+    border: 2px solid;
+    padding: 10px;
+    margin: 5px;
+    width: 300px;
+    height: 3%;
+    /* display: inline; */
+}
+#duplicate {
+    background-color: #A4C1F4;
+    border: 2px solid;
+    margin-left: 10px
+    /* width: 70px; */
+    /* height: 40px; */
+}
+.signup-form label{
+    color: #ffffff;
+    font-size: 22px;
+    margin: 20px;
+}
+#clothes{
+    width: 70px;
+}
+#budget{
+    width: 70px;
+}
+
+.welcome, .welcome-2{
+    font-size: 47px;
+    margin: 10px;
+}
+.welcome{
+    color:#E8EFFC;
+}
+
+.conclusion{
+    font-size: 20px;
+    margin: 20px 2px 20px 2px;
+
+}
+.intro-container {
+    display: flex;
+    /* align-items: center; */
+}
+
 .terms-container{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
+    margin-left: 80px;
     margin-bottom: 30px;
 }
 #terms-checkbox{
@@ -652,13 +648,23 @@
     padding: 10px;
     width: 20px;
 }
-.terms-text{
-    color: #7a2727;
+#terms-text{
+    color: #000000;
+    font-weight: 500;
+}
+.rules-container{
+    /* text-indent: 20px; */
+    /* max-width: 500px; */
 }
 .rules-h3{
     color:#276BE5;
+    font-weight: 500;
     margin: 20px;
     text-decoration: underline;
+}
+.rules-every{
+    color: black;
+    font-weight: 600;
 }
 .rules-not{
     color: red;
@@ -667,19 +673,24 @@
 }
 .rules{
     color:#000;
+    cursor:default;
     font-size: 20px;
     list-style: decimal;
+    margin-left: 40px;
+    max-width: 80%;
 }
+
 .confirm {
     font-size: 20px;
-    padding: 10px 20px 10px 20px;
+    border: 2px solid #FFFAEB;
+    border-radius: 30px;
+    padding: 10px 20px;
+    /* padding: 10px 20px 10px 20px; */
     width: auto;
 }
-@media screen and (max-width: 2000px) {
-    .signup-form{
-        justify-content: center;
-        text-align: center;
-        width: 80%;
+@media screen and (max-width: 800px) {
+    .rules-h3{
+        color:#000000;
     }
 }
 
