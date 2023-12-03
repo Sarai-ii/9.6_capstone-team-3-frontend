@@ -21,7 +21,7 @@ export default function CurrentEvent({event}) {
       const intervalId = setInterval(() => {
         setDeadline(calculateCountDown());
       }, 1000);
-  
+      console.log(event.id)
       return () => clearInterval(intervalId);
     }, []);
   
@@ -41,6 +41,7 @@ export default function CurrentEvent({event}) {
   const match = event.match_date.split('T')[0].split("-")
   const ship = event.shipping_deadline.split('T')[0].split("-")
   const year = event.open_date.split("T")[0].slice(0,4)
+  const eventId = event.id
   
 
 
@@ -51,12 +52,13 @@ export default function CurrentEvent({event}) {
         src={event.image_url}
         alt={event.title}>
         </img>
-        <div className="">
-          <Link to="./signup" className="join-now">JOIN NOW</Link></div>
+       <div className="">
+          <Link to={`./${eventId}/register`} className="join-now">REGISTER <br /> FOR THIS EVENT</Link></div>
       </div>
       <div className="description-CE-container">
-        <h5 className="description"><span className="price-title">Minimum Spend:</span><span className="price">${event.minimum_spend}</span></h5>
-        <h5 className="description"> {event.description}</h5>
+        <h5 className="description-price-title"><span className="price-title">Minimum Spend:</span><span className="price">${event.minimum_spend}</span></h5>
+        <h5 className="description-event-title"> {event.title}: </h5>
+        <h5 className="description">{event.description}</h5>
         <h2
         className="collapse-toggle d-inline-flex gap-1"
         data-bs-toggle="collapse" 
@@ -70,17 +72,16 @@ export default function CurrentEvent({event}) {
           <div className="collapse collapse-details collapse-vertical col" id="collapseCurrentEvents">
             <div className="card card-body collapse-card">
               <h2 className="details-CEheader">
-                Important Timeline / Scheduling
+                Important Timeline/Scheduling
               </h2>
               <p className="details-CE">
-       
-                {signup[1]}/{signup[2]}/{year} - {close[1]}/{close[2]}/{year} <span className="timeline">- Sign Ups</span>
+                <span className="timeline">Registration Period: </span>{signup[1]}/{signup[2]}/{year} - {close[1]}/{close[2]}/{year}
                 <br />
-                {match[1]}/{match[2]}/{year} <span className="timeline">- Matching Period</span>
+                <span className="timeline">Matching Date: </span>{match[1]}/{match[2]}/{year} 
                 <br />
-                {match[1]}/{match[2]}/{year} - {ship[1]}/{ship[2]}/{year} <span className="timeline">- Shipping Timeframe</span>
+                <span className="timeline">Shipping Timeframe: </span>{match[1]}/{match[2]}/{year} - {ship[1]}/{ship[2]}/{year} 
                 <br/>
-                  <span className="deadline">EVENT CLOSES:  {formatCountDown(deadline)}</span>
+                <span className="deadline">EVENT CLOSES: {formatCountDown(deadline)}</span>
               </p>
             </div>
           </div>

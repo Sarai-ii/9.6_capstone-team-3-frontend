@@ -1,40 +1,127 @@
-import React, {useState} from 'react'
+// DEPENDENCIES
+import axios from 'axios';
+import React, {useState, useEffect} from 'react'
+import { useParams, useNavigate } from 'react-router-dom';
+// import firebase from 'firebase/app';
+// import 'firebase/auth';
+
+// STYLING
 import "../css/Events.css"
+// APT
+const API = process.env.REACT_APP_API_URL;
+
+
 export default function EventSignUp() {
+
+    const { userId } = useParams();
+    let navigate = useNavigate();
+
     const [showDetails, setShowDetails] = useState(false);
     const [selectedOption, setSelectedOption] = useState('');
     const [showConfirmation, setShowConfirmation] = useState(false)
+    const [userData, setUserData] = useState({
+        budget: 0,
+        favorite_color: [], 
+        category: '',
+        shirt_size: '', 
+        pants_size: '',
+        shoe_size: '',
+        gifts_avoid: '',
+        preferred_category: '', 
+        preferred_gift: '', 
+        gifts_avoid :'',
+        events_joined: [],
+    });
+        
+    // I can't continue with updating values until I have a user authentication status or trigger for related actionsto
+
+    const userEventRegistration = (updatedUser) => {
+        axios 
+        .put(`${API}/users/${id}`, updatedUser)
+        .then(
+            () => {
+                console.log(updatedUser)
+                navigate(``)
+            },
+            (error) => console.error(error)
+        )
+        .catch((c) => console.warn("catch", c));
+    }
+
+    useEffect(() => {
+        if (userId) {
+            axios.get(`${API}/users/${userId}`).then(
+                (response) =>{ 
+                    console.log(userId)
+                    console.log(`API Response:`, response)
+                    console.log(`API Response Data:`, response.data)
+                    console.log(`User Id:`, response.data.userId)
+                    // setUserId(response.data.userId)
+                },
+                (error) => {
+                    console.log(userId)
+                    console.error(' Error fetching user data:', error)
+                    navigate(`/not-found`)
+                }
+            );
+        }
+    }, [userId, navigate]);    
+    
+    const handleInputChange = (event) => {
+        const { id, value } = event.target;
+        if (id === 'favorite_colors') {
+            // Split the input value into an array using a delimiter (e.g., comma or space)
+            const colorsArray = value.split(',').map(color => color.trim()).filter(Boolean)
+            setUserData((prevUserData) => ({ ...prevUserData, favorite_colors: colorsArray }))
+        } else {
+            setUserData((prevUserData) => ({ ...prevUserData, [id]: value }));
+        }
+    };
 
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
+        handleInputChange(event);
     };
   
     const handleConfirmation = () => {
       if (selectedOption === 'Yes') {
         alert("Please be advised that we try our best to ensure gifts are based on the desires of the reciever but sometimes there are chances of being gifted an item you already own. As this may not be desired, it is reality and therefore we require that everyone who joins any event understand and accept this possibility to be able to join. If you don't mind please change your response to 'No'.");
-      } else {
-        setShowConfirmation(!showConfirmation)
-      }
-
-    };
+        // setShowConfirmation(showConfirmation)
+        } else if (Object.values(userData).every(value => value !== '')) {
+            const updatedEventsJoined = [...userData.events_joined, userData.eventId];
+            setUserData((prevUserData) => ({ ...prevUserData, events_joined: updatedEventsJoined }));
+            setShowConfirmation(!showConfirmation);
+        };
+    }
+    // useEffect(() => {
+    //     // Set up a listener for changes in authentication state
+    //     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    //       if (user) {
+    //         // User is signed in
+    //         setUser(user);
+    //       } else {
+    //         // User is signed out
+    //         setUserId(null);
+    //       }
+    //     });
+    
+    //     // Clean up the listener when the component unmounts
+    //     return () => unsubscribe();
+    //   }, []);
 
     const handleIconClick = () => {
-    setShowDetails(!showDetails);
+        setShowDetails(!showDetails);
     };
 
   return (
     <div className='event-signup-container'>
         <div className=''>
-            <h1 className='welcome'>You're One Step Away From  </h1>
+            <h1 className='welcome'>You're One Step Away From...</h1>
         </div>
-        <form className='signup-form'>
-        <div className='intro section-header'>
-            <h2>Thank you for joining this event, before you can register; please complete the form. </h2>
+        <div className='intro-container '>
+            <h2 className='section-header'>Thank you for joining this event, before you can register; please complete the form. </h2>
             <span onClick={handleIconClick} className="question-mark-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" 
-                width="22" 
-                height="22" 
-                fill="black" 
+                <svg xmlns="http://www.w3.org/2000/svg"  
                 className="bi bi-question-circle" 
                 viewBox="0 0 16 16">
                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
@@ -42,53 +129,66 @@ export default function EventSignUp() {
                 </svg>
             </span>
         </div>
-            {showDetails && (
+        {showDetails && (
             <div className="details-box">
-                <p>WHY THIS FORM? In order to be matched, it's required you fill out this form and stick to the rules of every event to ensure you recieve a gift that best suits you. </p>
+                <p><strong>WHY THIS FORM? </strong>
+                    <br />
+                    In order to be matched, it's required you fill out this form and stick to the rules of every event to ensure you recieve a gift that best suits you. </p>
             </div>
-            )}
-            
-            <label htmlFor="want"> Based on the theme, if you could choose-what gift would you desire most? (Be specific but remember the budget): </label>
-            <input type="text" id="want"/>
+        )}
+        <form className='signup-form'>
+            <label htmlFor="likes"> Based on the theme, if you could choose- what gift would you desire most? (Be specific): </label>
+            <input type="text" id="likes" onChange={handleInputChange} required/>
             <br />
-            <label htmlFor="dislike"> Based on the theme, if you could choose-what gift should your match avoid?(Be specific):</label>
-            <input type="text" id="dislike"/>
+            <label htmlFor="gifts_avoid"> Based on the theme, if you could choose- what gift should your match avoid?(Be specific):</label>
+            <input type="text" id="gifts_avoid" onChange={handleInputChange} required/>
+            <br />
+            <label htmlFor="budget"> What is your gift giving budget?</label>
+            <input type="number" id="budget" onChange={handleInputChange} required/>
             <br />
             <label htmlFor="color"> What's your favorite color?:</label>
-            <input type="text" id="color"/>
+            <input type="text" id="color"  onChange={handleInputChange} required/>
             <br />
             <label htmlFor="category"> Based on the theme, what category most interests you?(ie: "candy", "tech", "clothes" ):</label>
-            <input type="text" id="category"/>
+            <input type="text" id="category" onChange={handleInputChange} required/>
             <br />
-            <label htmlFor="category"> If applicable, what are your clothing sizes?: </label>
-            <input type="text" id="category"/>
+            <label htmlFor="clothes"> If applicable, what are your clothing sizes? 
             <br />
-            <label htmlFor="duplicate"> Do you mind receiving an item or version of an item that you already? 
-                <select id="duplicate" value={selectedOption} onChange={handleOptionChange}>
-                    <option value="">-</option>
+            <label htmlFor="clothes">Shirt Size:</label>
+            <input type="text" id="clothes"/>
+            <br />
+            <label htmlFor="clothes">Pants Size:</label>
+            <input type="text" id="clothes"/>
+            <br />
+            <label htmlFor="clothes">Shoes Size:</label>
+            <input type="text" id="clothes"/>
+            </label>
+            <label htmlFor="duplicate"> Do you mind receiving an item or version of an item that you already own? 
+                <select id="duplicate" value={selectedOption} onChange={handleOptionChange} required>
+                    <option value=""></option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select>
             </label>
             <ul className='rules-container'>
-                <h3 className='rules-h3'>Rules For <span className='rules-every'>EVERY</span >Event</h3>
+                <h3 className='rules-h3'>Rules For <span className='rules-every'>EVERY</span> Event</h3>
                 <li className='rules'>The person you are assigned is not the same person who is assigned to you to prevent violation of our terms</li>
                 <li className='rules'>We do <span className='rules-not'>NOT</span> by any means condone deragatory, sexually explicit nor discriminatory actions such has hate speech, bullying nor racially insensitive, comments or gifts. Please keep everything friendly and respectful. We seek to uplift and bring joy to any and everyone's lives.</li>
                 <li className='rules'>If in the event you miss the shipping deadline you will be at risk of being banned indefinently, per investigation by our team</li>
             </ul>
-            <div>
-                <input type="checkbox" id="terms" required/>
-                <label for="terms">Do You Agree To The Terms?</label>
+            <div className='terms-container'>
+                <input type="checkbox" id="terms-checkbox" required/>
+                <label htmlFor="terms-checkbox" className='terms-text'>Do You Agree To The Terms?</label>
+                <br />
+                <button className="confirm button" onClick={handleConfirmation} >Confirm</button>
             </div>
-            <br />
-            <button onClick={handleConfirmation} >Confirm</button>
+        </form>
             {showConfirmation && (
                 <div className='conclusion'>
                     <h2 className='concluson-h2'>Form is complete, you've been added to the event. </h2>
                     <h3 className='conclusion-h3'>Check you messages and notification in the app for updates.</h3>
                 </div>
             )}
-        </form>
         <div className=''>
             <h1 className='welcome-2'>Making Someone Feel Special  </h1>
         </div>
