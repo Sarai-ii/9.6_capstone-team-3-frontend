@@ -4,29 +4,28 @@ import React, {useState, useEffect} from 'react'
 import { Link, useParams } from 'react-router-dom';
 
 // COMPONENTS
-// STYLING
+
 import "../css/UserProfile.css"
-// import Sidebar from './ProfileSideBar';
-// API
+
 const API = process.env.REACT_APP_API_URL;
 
+
+
+
 export default function Profile({user}) {
-  // This is the Profile Show(layout for every user keep general, nothing hardcoded)
-  // Import users from Users.js no need to fetch
+
   const [picturePosts, setPicturePosts] = useState([]);
 
   const { userId } = useParams();
   const defaultImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1024px-Default_pfp.svg.png";
 
-// Have to create more dummy data in backend first then you can use this function inside the html
+
   const handleClick = () => {
     if (user.image_url === defaultImageUrl) {
-      // Handle the case where the image is the default URL
-      // You can redirect to the edit page or perform another action
+
       console.log(`Redirect to edit page for user with ID ${userId}`);
     } else {
-      // Handle the case where the image is not the default URL
-      // You can open a modal or perform another action
+
       console.log(`Show zoom-in options for user with ID ${userId}`);
     }
   };
@@ -41,7 +40,7 @@ export default function Profile({user}) {
       try {
         const response = await axios.get(`${API}/pictures`);
 
-        // Filter picture posts based on the userId
+
         const filteredPicturePosts = response.data.filter(
           (picturePost) => picturePost.receiver_id === parseInt(userId, 10)
         );
@@ -128,7 +127,6 @@ export default function Profile({user}) {
         <h1>User Profile</h1>
         <section className='bio-container'>
           <div className='pfp-container'>
-            {/* We are going to edit the layout of this page next. */}
             <Link to={"edit"}>
               <img className='pfp' 
               src={"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1024px-Default_pfp.svg.png" }
@@ -188,9 +186,6 @@ export default function Profile({user}) {
                 <img className="" 
                 src={picturePost.pictures_post_url} 
                 alt={picturePost.pictures_post_title} />
-                {/* <h3 className='picture-card-h3'>{picturePost.pictures_post_title}</h3> */}
-                {/* <p>{picturePost.pictures_post_blurb}</p>
-                <p>Likes: {picturePost.likes_count}</p> */}
               </div>
             ))}
             <section className=''>
@@ -203,29 +198,7 @@ export default function Profile({user}) {
       </div>
     </div>
   )
-  // CREATE TABLE users (
-  //   id SERIAL PRIMARY KEY, 
-  //   username TEXT UNIQUE NOT NULL CHECK (char_length(username) > 1 AND char_length(username) <= 30),
-  //   password VARCHAR(30) NOT NULL CHECK (password ~ '^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{8,}$'
-  //   ),
-  //   admin BOOLEAN DEFAULT false,
-  //   verified BOOLEAN DEFAULT false,
-  //   name_first TEXT,
-  //   name_last TEXT,
-  //   email TEXT UNIQUE NOT NULL,
-  //   address_street1 TEXT,
-  //   address_street2 TEXT,
-  //   address_city TEXT,
-  //   address_state CHAR(2),
-  //   address_zip INTEGER CHECK (address_zip >= 10000 AND address_zip <= 99999), -- Ensure it's a 5-digit number,
-  //   events_joined TEXT[],
-  //   exchanges_assigned TEXT[],
-  //   user_banned BOOLEAN NOT NULL DEFAULT false,
-  //   user_premium BOOLEAN NOT NULL DEFAULT false,
-  //   user_tags TEXT[],
-  //   user_profile JSONB,
-  //   date_created TIMESTAMPTZ DEFAULT NOW()
-  // );
+
 
 }
 
