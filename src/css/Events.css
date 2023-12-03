@@ -18,6 +18,8 @@
 /* Classes In Upcoming Events JS */
 
 .upcoming-container {
+    display: flex;
+    /* flex-direction: column; */
     /* align-items: center; */
     margin: 10px 10px 80px 10px;
     width: auto;
@@ -27,10 +29,11 @@
     border-radius: 20px;
     box-shadow: 12px 12px 2px 1px rgba(88, 24, 1, 0.2);
     margin: 10px 20px 20px 10px;
-    max-height: 350px;
+    max-height: 290px;
     object-fit: cover;
     padding: 2px;
-    max-width: 600px;
+    /* width: 450px; */
+    max-width: auto;
 }
 .days-until{
     cursor:default;
@@ -188,7 +191,7 @@
         border-right: 0.1em solid #EDBB64;
     }
     li > .event-title{
-        font-size: 25px;
+        font-size: 30px;
     }
 }
 @media (min-height: 800px) and (max-height:1000px){
@@ -219,13 +222,13 @@
     }
     .event-type{
         color: #000;
-        font-size: 28px;
-        margin: 30px 5px 1px 5px;
+        font-size: 40px;
+        /* margin: 30px 5px 1px 5px; */
     }
     li> .event-title {
         color: #276BE5;
         font-size: 18px;
-        margin: 5px;
+        /* margin: 5px; */
     }
 }
 
@@ -254,8 +257,9 @@
     /* color: white; */
 }
 .join-now {
-    background-color: #276BE5;
-    border-radius: 10px;
+    background-color: #6474edaa;
+    border: 1px solid #E8EFFC;
+    border-radius: 20px;
     color: #E8EFFC;
     font-family: 'DM serif display';
     font-size: 40px;
@@ -269,23 +273,21 @@
     transform: translate(-50%, -55%);
 }
 .join-now:hover{
-    background-color: #E8EFFC;
-    border: 1px solid #E8EFFC;
-    border-radius: 10px;
-    color: #276BE5;
-    font-size: 50px;
+    background-color: #e8effcd4;
+    border: 1px solid #6474ED;
+    border-radius: 20px;
+    color: #6474ED;
+    font-size: 45px;
     font-weight: 600;
     left: 50%;
-    padding: 5px;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -55%);
 }
 .join-now:focus{
-    background-color: #276BE5;
-    border-radius: 10px;
+    background-color: #6474ED;
+    border-radius: 20px;
     color: #E8EFFC;
-    /* font-size: 60px; */
 }
 
 .description-CE-container{
@@ -438,9 +440,10 @@
         text-align: start;
     }
     .join-now {
-        background-color: #E8EFFC;
-        border-radius: 10px;
-        color: #276BE5;
+        background-color: #e8effcd4;
+        border: 1px solid #6474ED;
+        border-radius: 20px;
+        color: #6474ED;
         font-size: 25px;
         font-weight: 600;
         left: 50%;
@@ -451,8 +454,8 @@
         transform: translate(-50%, -55%);
     }
     .join-now:hover{
-        background-color: #276BE5;
-        border-radius: 10px;
+        background-color: #6474edbd;
+        border-radius: 20px;
         color: #E8EFFC;
         font-size: 29px;
         font-weight: 600;
@@ -514,11 +517,19 @@
         max-height: 500px;
         max-width: 900px;
     }
+    .current-img:hover{
+        margin: 0px 10px 10px 10px;
+        max-height: 501px;
+        max-width: 900px;
+    }
     .description-CE-container{
         padding: 15px;
     }
     .join-now{
-        font-size: 20px;
+        font-size: 30px;
+    }
+    .join-now:hover{
+        font-size: 34px;
     }
 }
 
