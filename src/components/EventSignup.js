@@ -33,7 +33,7 @@ export default function EventSignUp() {
         events_joined: [],
     });
         
-    // I can't continue with updating values until I have a user authentication status or trigger for related actions    const handleInputChange = (event) => {
+    // I can't continue with updating values until I have a user authentication status or trigger for related actionsto
 
     const userEventRegistration = (updatedUser) => {
         axios 
@@ -67,6 +67,7 @@ export default function EventSignUp() {
         }
     }, [userId, navigate]);    
     
+    const handleInputChange = (event) => {
         const { id, value } = event.target;
         if (id === 'favorite_colors') {
             // Split the input value into an array using a delimiter (e.g., comma or space)
