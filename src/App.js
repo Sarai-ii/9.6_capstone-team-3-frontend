@@ -35,7 +35,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} /> {/* Add this line for the signup page */}
+            <Route path="/signup" element={<Signup />} />
             <Route path="/events" element={<AllEvents />} />
             <Route path="/currentevent" element={<CurrentEvent />} />
             <Route path="/events/:eventId/register" element={<EventSignUp />} />
