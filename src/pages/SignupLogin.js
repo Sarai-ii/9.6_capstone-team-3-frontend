@@ -4,7 +4,7 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-  signOut, // Import signOut from firebase/auth
+  signOut,
 } from "firebase/auth";
 import Users from "../components/Users";
 import { auth } from "../firebaseConfig";
@@ -72,8 +72,8 @@ const SignupLogin = () => {
   return (
     <div className="login-container">
       <div className="login-h1-container">
-        <h1 className="to-title">To:</h1>
-        <h1 className="from-title">From:</h1>
+        <h1 className="to-title">Happiness</h1>
+        <h1 className="from-title">Exchange</h1>
       </div>
       <p>Join random gift exchanges and spread happiness.</p>
 
