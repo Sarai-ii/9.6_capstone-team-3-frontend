@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -76,7 +77,6 @@ const Login = () => {
       </div>
       <p>Join random gift exchanges and spread happiness.</p>
 
-
       {loggedInUser ? (
         <div>
           <div className="login-forum-container">
@@ -94,7 +94,7 @@ const Login = () => {
       ) : (
         <div className="login-forum-container">
           <div className="login-h3-container">
-            <h3 className="login-h3">Login / Signup</h3>
+            <h3 className="login-h3">Login</h3>
           </div>
           <form className="form-container">
             <label className="username-label">
@@ -121,9 +121,11 @@ const Login = () => {
               <button className="button" type="button" onClick={handleLogin}>
                 Login
               </button>
-              <button className="button" type="button" onClick={handleSignup}>
-                Signup
-              </button>
+              <Link to="/signup">
+                <button className="button" type="button">
+                  Signup
+                </button>
+              </Link>
               <button
                 id="google-login-button"
                 className="google-btn"
