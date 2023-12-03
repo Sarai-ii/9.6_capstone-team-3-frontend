@@ -21,7 +21,7 @@ export default function CurrentEvent({event}) {
       const intervalId = setInterval(() => {
         setDeadline(calculateCountDown());
       }, 1000);
-  
+      console.log(event.id)
       return () => clearInterval(intervalId);
     }, []);
   
@@ -41,6 +41,7 @@ export default function CurrentEvent({event}) {
   const match = event.match_date.split('T')[0].split("-")
   const ship = event.shipping_deadline.split('T')[0].split("-")
   const year = event.open_date.split("T")[0].slice(0,4)
+  const eventId = event.id
   
 
 
@@ -52,7 +53,7 @@ export default function CurrentEvent({event}) {
         alt={event.title}>
         </img>
        <div className="">
-          <Link to="./signup" className="join-now">REGISTER <br /> FOR THIS EVENT</Link></div>
+          <Link to={`./${eventId}/register`} className="join-now">REGISTER <br /> FOR THIS EVENT</Link></div>
       </div>
       <div className="description-CE-container">
         <h5 className="description-price-title"><span className="price-title">Minimum Spend:</span><span className="price">${event.minimum_spend}</span></h5>

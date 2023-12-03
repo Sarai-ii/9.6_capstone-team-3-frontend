@@ -1,19 +1,80 @@
-import React, {useState} from 'react'
+// DEPENDENCIES
+import axios from 'axios';
+import React, {useState, useEffect} from 'react'
+import { useParams, useNavigate } from 'react-router-dom';
+// import firebase from 'firebase/app';
+// import 'firebase/auth';
+
+// STYLING
 import "../css/Events.css"
+// APT
+const API = process.env.REACT_APP_API_URL;
+
+
 export default function EventSignUp() {
+
+    const { userId } = useParams();
+    let navigate = useNavigate();
+
     const [showDetails, setShowDetails] = useState(false);
     const [selectedOption, setSelectedOption] = useState('');
     const [showConfirmation, setShowConfirmation] = useState(false)
-    const [inputs, setInputs] = useState({
-        want: '',
-        dislike: '',
-        color: '',
+    const [userData, setUserData] = useState({
+        budget: 0,
+        favorite_color: [], 
         category: '',
+        shirt_size: '', 
+        pants_size: '',
+        shoe_size: '',
+        gifts_avoid: '',
+        preferred_category: '', 
+        preferred_gift: '', 
+        gifts_avoid :'',
+        events_joined: [],
     });
+        
+    // I can't continue with updating values until I have a user authentication status or trigger for related actions    const handleInputChange = (event) => {
+
+    const userEventRegistration = (updatedUser) => {
+        axios 
+        .put(`${API}/users/${id}`, updatedUser)
+        .then(
+            () => {
+                console.log(updatedUser)
+                navigate(``)
+            },
+            (error) => console.error(error)
+        )
+        .catch((c) => console.warn("catch", c));
+    }
+
+    useEffect(() => {
+        if (userId) {
+            axios.get(`${API}/users/${userId}`).then(
+                (response) =>{ 
+                    console.log(userId)
+                    console.log(`API Response:`, response)
+                    console.log(`API Response Data:`, response.data)
+                    console.log(`User Id:`, response.data.userId)
+                    // setUserId(response.data.userId)
+                },
+                (error) => {
+                    console.log(userId)
+                    console.error(' Error fetching user data:', error)
+                    navigate(`/not-found`)
+                }
+            );
+        }
+    }, [userId, navigate]);    
     
-    const handleInputChange = (event) => {
         const { id, value } = event.target;
-        setInputs((prevInputs) => ({ ...prevInputs, [id]: value }));
+        if (id === 'favorite_colors') {
+            // Split the input value into an array using a delimiter (e.g., comma or space)
+            const colorsArray = value.split(',').map(color => color.trim()).filter(Boolean)
+            setUserData((prevUserData) => ({ ...prevUserData, favorite_colors: colorsArray }))
+        } else {
+            setUserData((prevUserData) => ({ ...prevUserData, [id]: value }));
+        }
     };
 
     const handleOptionChange = (event) => {
@@ -25,13 +86,30 @@ export default function EventSignUp() {
       if (selectedOption === 'Yes') {
         alert("Please be advised that we try our best to ensure gifts are based on the desires of the reciever but sometimes there are chances of being gifted an item you already own. As this may not be desired, it is reality and therefore we require that everyone who joins any event understand and accept this possibility to be able to join. If you don't mind please change your response to 'No'.");
         // setShowConfirmation(showConfirmation)
-        } else if(Object.values(inputs).every(value => value)){
-            setShowConfirmation(!showConfirmation)
+        } else if (Object.values(userData).every(value => value !== '')) {
+            const updatedEventsJoined = [...userData.events_joined, userData.eventId];
+            setUserData((prevUserData) => ({ ...prevUserData, events_joined: updatedEventsJoined }));
+            setShowConfirmation(!showConfirmation);
         };
     }
+    // useEffect(() => {
+    //     // Set up a listener for changes in authentication state
+    //     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+    //       if (user) {
+    //         // User is signed in
+    //         setUser(user);
+    //       } else {
+    //         // User is signed out
+    //         setUserId(null);
+    //       }
+    //     });
+    
+    //     // Clean up the listener when the component unmounts
+    //     return () => unsubscribe();
+    //   }, []);
 
     const handleIconClick = () => {
-    setShowDetails(!showDetails);
+        setShowDetails(!showDetails);
     };
 
   return (
@@ -58,17 +136,20 @@ export default function EventSignUp() {
             </div>
         )}
         <form className='signup-form'>
-            <label htmlFor="want"> Based on the theme, if you could choose- what gift would you desire most? (Be specific but remember the budget): </label>
-            <input type="text" id="want" value={inputs.want} onChange={handleInputChange} required/>
+            <label htmlFor="likes"> Based on the theme, if you could choose- what gift would you desire most? (Be specific): </label>
+            <input type="text" id="likes" onChange={handleInputChange} required/>
             <br />
-            <label htmlFor="dislike"> Based on the theme, if you could choose- what gift should your match avoid?(Be specific):</label>
-            <input type="text" id="dislike" value={inputs.dislike} onChange={handleInputChange} required/>
+            <label htmlFor="gifts_avoid"> Based on the theme, if you could choose- what gift should your match avoid?(Be specific):</label>
+            <input type="text" id="gifts_avoid" onChange={handleInputChange} required/>
+            <br />
+            <label htmlFor="budget"> What is your gift giving budget?</label>
+            <input type="number" id="budget" onChange={handleInputChange} required/>
             <br />
             <label htmlFor="color"> What's your favorite color?:</label>
-            <input type="text" id="color" value={inputs.color} onChange={handleInputChange} required/>
+            <input type="text" id="color"  onChange={handleInputChange} required/>
             <br />
             <label htmlFor="category"> Based on the theme, what category most interests you?(ie: "candy", "tech", "clothes" ):</label>
-            <input type="text" id="category" value={inputs.category} onChange={handleInputChange} required/>
+            <input type="text" id="category" onChange={handleInputChange} required/>
             <br />
             <label htmlFor="clothes"> If applicable, what are your clothing sizes? 
             <br />
@@ -81,7 +162,6 @@ export default function EventSignUp() {
             <label htmlFor="clothes">Shoes Size:</label>
             <input type="text" id="clothes"/>
             </label>
-            <br />
             <label htmlFor="duplicate"> Do you mind receiving an item or version of an item that you already own? 
                 <select id="duplicate" value={selectedOption} onChange={handleOptionChange} required>
                     <option value=""></option>
