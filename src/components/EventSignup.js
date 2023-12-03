@@ -136,6 +136,8 @@ export default function EventSignUp() {
                     In order to be matched, it's required you fill out this form and stick to the rules of every event to ensure you recieve a gift that best suits you. </p>
             </div>
         )}
+        <div className='forms-container'>
+
         <form className='signup-form'>
             <label htmlFor="likes"> Based on the theme, if you could choose- what gift would you desire most? (Be specific): </label>
             <input type="text" id="likes" onChange={handleInputChange} required/>
@@ -189,6 +191,7 @@ export default function EventSignUp() {
                     <h3 className='conclusion-h3'>Check you messages and notification in the app for updates.</h3>
                 </div>
             )}
+            </div>
         <div className=''>
             <h1 className='welcome-2'>Making Someone Feel Special  </h1>
         </div>
