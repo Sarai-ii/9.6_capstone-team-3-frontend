@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
@@ -32,20 +31,6 @@ const Login = () => {
       setLoggedInUser(user);
     } catch (error) {
       console.error("Login Error:", error);
-    }
-  };
-
-  const handleSignup = async () => {
-    try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        username,
-        password
-      );
-      const user = userCredential.user;
-      setLoggedInUser(user);
-    } catch (error) {
-      console.error("Signup Error:", error);
     }
   };
 
