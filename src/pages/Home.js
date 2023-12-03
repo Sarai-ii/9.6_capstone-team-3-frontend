@@ -16,8 +16,8 @@ function Home() {
     <div className="homepage-container">
       <div className='title-slogan-container'>
       <div className="h1-container">
-        <h1 className="to-title">Happiness</h1>
-        <h1 className="from-title">Exchange</h1>
+        <h1 className="happiness-title">Happiness</h1>
+        <h1 className="exchange-title">Exchange</h1>
       </div>
       <h2 className="slogan">
         Bringing People Together Through Thoughtful Gestures

@@ -6,12 +6,11 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import Users from "../components/Users";
 import { auth } from "../firebaseConfig";
 
 import "../css/login.css";
 
-const SignupLogin = () => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loggedInUser, setLoggedInUser] = useState(null);
@@ -77,7 +76,6 @@ const SignupLogin = () => {
       </div>
       <p>Join random gift exchanges and spread happiness.</p>
 
-      {/* <Users /> */}
 
       {loggedInUser ? (
         <div>
@@ -103,7 +101,8 @@ const SignupLogin = () => {
               Username:
               <input
                 className="username-input"
-                type="text"
+                type="email"
+                placeholder="Enter your email"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
@@ -113,6 +112,7 @@ const SignupLogin = () => {
               <input
                 className="password-input"
                 type="password"
+                placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -140,4 +140,4 @@ const SignupLogin = () => {
   );
 };
 
-export default SignupLogin;
+export default Login;
