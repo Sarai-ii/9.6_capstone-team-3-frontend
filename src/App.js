@@ -13,6 +13,7 @@ import PageNotFound from "./pages/PageNotFound";
 import Users from './pages/usersIndex';
 import AllEvents from './pages/AllEvents';
 import CurrentEvent from './pages/CurrentEvent';
+import ProofPage from "./pages/ProofPage";
 // COMPONENTS
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -42,6 +43,7 @@ function App() {
             <Route path="/profile/:userId/edit" element= {<UserPictureForm />} />       
             <Route path="/users/" element = {<Users/>} />
             <Route path="/account" element = { <Account /> } />
+            <Route path="/exchanges-proof" element = { <ProofPage />} /> 
             <Route path="*" element = { <PageNotFound /> } />
 
           </Routes>
