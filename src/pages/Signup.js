@@ -1,55 +1,80 @@
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebaseConfig';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+import axios from 'axios';
 
 const Signup = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
-  const [successMessage, setSuccessMessage] = useState(null);
-
-  // Store email and password in the component state
-  const [userCredentials, setUserCredentials] = useState({
-    email: '',
-    password: '',
-  });
-
-  const navigate = useNavigate(); // Use useNavigate for navigation
-
-  const handleSignup = async () => {
-    try {
-      if (!email || !password) {
-        setError('Email and password are required.');
-        return;
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [addressStreet1, setAddressStreet1] = useState('');
+    const [addressStreet2, setAddressStreet2] = useState('');
+    const [addressCity, setAddressCity] = useState('');
+    const [addressState, setAddressState] = useState('');
+    const [addressZip, setAddressZip] = useState('');
+    const [bio, setBio] = useState('');
+    const [error, setError] = useState(null);
+    const [successMessage, setSuccessMessage] = useState(null);
+    const [isLoading, setIsLoading] = useState(false); 
+  
+    const handleSignup = async (e) => {
+      e.preventDefault(); 
+  
+      try {
+        setIsLoading(true); 
+  
+        if (!email || !password || !username || !firstName || !lastName) {
+          setError('Email, password, username, first name, and last name are required.');
+          setIsLoading(false); 
+          return;
+        }
+    
+        // Create user in Firebase
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        console.log('Firebase user created:', userCredential.user);
+    
+        // Create user profile on your server
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/users`, {
+          username,
+          password,
+          admin: false,
+          verified: false,
+          name_first: firstName,
+          name_last: lastName,
+          email,
+          address_street1: addressStreet1,
+          address_street2: addressStreet2,
+          address_city: addressCity,
+          address_state: addressState,
+          address_zip: addressZip,
+          user_banned: false,
+          user_premium: false,
+          isluxury: false,
+          bio,
+        });
+    
+        console.log('Backend response:', response.data);
+    
+        setSuccessMessage(
+          `Signup successful! You are now logged in as ${email}.`
+        );
+        setError(null);
+      } catch (error) {
+        console.error('Signup Error:', error.message);
+        setSuccessMessage(null);
+        setError(`Signup Error: ${error.message}`);
+      } finally {
+        setIsLoading(false); 
       }
-
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-      // Store email and password in state
-      setUserCredentials({ email, password });
-
-      // Access the user information with userCredential.user
-      console.log('User signed up:', userCredential.user);
-
-      setSuccessMessage(
-        `Signup successful! You are now logged in as ${email}.`
-      );
-      setError(null);
-    } catch (error) {
-      setError(`Signup Error: ${error.message}`);
-      setSuccessMessage(null);
-    }
-  };
-
-  return (
-    <div>
-      <h1>Create an account</h1>
-      <form>
+    };
+    
+  
+    return (
+      <div>
+        <h1>Create an account</h1>
+        <form onSubmit={handleSignup}>
         <label>
           Email:
           <input
@@ -66,27 +91,80 @@ const Signup = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <button type="button" onClick={handleSignup}>
-          Signup
+        <label>
+          Username:
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </label>
+        <label>
+          First Name:
+          <input
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+        </label>
+        <label>
+          Last Name:
+          <input
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+        </label>
+        <label>
+          Street Address 1:
+          <input
+            type="text"
+            value={addressStreet1}
+            onChange={(e) => setAddressStreet1(e.target.value)}
+          />
+        </label>
+        <label>
+          Street Address 2:
+          <input
+            type="text"
+            value={addressStreet2}
+            onChange={(e) => setAddressStreet2(e.target.value)}
+          />
+        </label>
+        <label>
+          City:
+          <input
+            type="text"
+            value={addressCity}
+            onChange={(e) => setAddressCity(e.target.value)}
+          />
+        </label>
+        <label>
+          State:
+          <input
+            type="text"
+            value={addressState}
+            onChange={(e) => setAddressState(e.target.value)}
+          />
+        </label>
+        <label>
+          ZIP Code:
+          <input
+            type="text"
+            value={addressZip}
+            onChange={(e) => setAddressZip(e.target.value)}
+          />
+        </label>
+        <label>
+          Bio:
+          <textarea value={bio} onChange={(e) => setBio(e.target.value)}></textarea>
+        </label>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? 'Signing up...' : 'Signup'}
         </button>
       </form>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
-
-      {/* Link to the CreateProfile page with email and password */}
-      {userCredentials.email && userCredentials.password && (
-        <div>
-          <p>Continue to create your profile:</p>
-          <Link
-            to={{
-              pathname: '/create-profile',
-              state: { email: userCredentials.email, password: userCredentials.password },
-            }}
-          >
-            Create Profile
-          </Link>
-        </div>
-      )}
     </div>
   );
 };

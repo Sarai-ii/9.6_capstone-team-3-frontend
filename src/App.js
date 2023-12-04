@@ -9,7 +9,6 @@ import About from './pages/About';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup'
-import CreateProfile from './pages/CreateProfile';
 import Gallery from './pages/Gallery';
 import PageNotFound from "./pages/PageNotFound"; 
 import Users from './pages/usersIndex';
@@ -37,7 +36,6 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/create-profile" element={<CreateProfile />} />
             <Route path="/events" element={<AllEvents />} />
             <Route path="/currentevent" element={<CurrentEvent />} />
             <Route path="/events/:eventId/register" element={<EventSignUp />} />
