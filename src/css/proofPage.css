@@ -1,0 +1,17 @@
+/* Add this to your component's styles */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+  }
+  
+  label {
+    align-self: flex-start;
+  }
+  
+  .thumbnail {
+    max-width: 200px;
+    max-height: 200px;
+    margin-top: 8px;
+  }
+  
