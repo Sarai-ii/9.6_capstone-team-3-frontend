@@ -57,7 +57,7 @@
     border-radius: 50%;
   }
   
-  /* Remove the btn-text styling */
+
   .btn-text {
     display: none;
   }
@@ -107,14 +107,17 @@
   }
   
   .button-container {
-    padding-top: 1rem;
+    margin-top: 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center; 
+    justify-content: space-between;
   }
   
   .button {
+    flex: 1, 2;
+    margin-right: -35px;
+    margin-left: 5px;
     color: #fffaeb;
     background-color: #6474ed;
     text-decoration: none;
@@ -124,10 +127,32 @@
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    margin: 0.5rem 0; 
   }
   
   .button:hover {
+    color: #6474ed;
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-color: #6474ed;
+  }
+  
+
+  #login-button {
+    display: inline-block;
+    color: #fffaeb;
+    background-color: #6474ed;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid #fffaeb;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    min-width: 20px;
+  }
+  
+  #login-button:hover {
     color: #6474ed;
     background: white;
     transform: translateY(-2px);

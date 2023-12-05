@@ -85,7 +85,7 @@ const Login = () => {
           </div>
           <form className="form-container">
             <label className="username-label">
-              Username:
+              Email:
               <input
                 className="username-input"
                 type="email"
@@ -105,11 +105,11 @@ const Login = () => {
               />
             </label>
             <div className="button-container">
-              <button className="button" type="button" onClick={handleLogin}>
+              <button className="button" id="login-button" type="button" onClick={handleLogin}>
                 Login
               </button>
               <Link to="/signup">
-                <button className="button" type="button">
+                <button className="button" id="signup-button" type="button">
                   Signup
                 </button>
               </Link>
