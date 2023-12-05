@@ -33,6 +33,7 @@ const Signup = () => {
     
         // Create user in Firebase
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        console.log('Firebase user created:', userCredential.user.uid);
         console.log('Firebase user created:', userCredential.user);
     
         // Create user profile on your server
