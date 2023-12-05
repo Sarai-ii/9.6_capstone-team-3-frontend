@@ -80,18 +80,24 @@
   }
   
   #signup-button-submit {
-    width: 40%;
-    padding: 10px;
+    color: #fffaeb;
     background-color: #6474ed;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid #fffaeb;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    margin: 0.5rem 0; 
   }
   
   #signup-button-submit:hover {
-    background-color: #495bb5;
+    color: #6474ed;
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-color: #6474ed;
   }
   
   #error-message-container {
@@ -102,4 +108,3 @@
   }
   
 
-  
