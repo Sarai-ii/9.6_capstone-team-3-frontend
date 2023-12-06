@@ -2,8 +2,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 // COMPONENTS
-import UpcomingEvents from "./UpcomingEvents";
-import CurrentEvent from "./CurrentEvent";
+import UpcomingEvents from "../components/UpcomingEvents";
+import CurrentEvent from "../components/CurrentEvent";
 // STYLING
 import "../css/Events.css"
 // API
@@ -13,29 +13,39 @@ export default function AllEvents() {
   const [events, setEvents] = useState([])
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
+  const [cancelledEvents,setCancelledEvents] = useState([])
   // const [isDarkMode, setDarkMode] = useState(false);
 
 
   useEffect(() => {
     axios
       .get(`${API}/events`)
-      .then((response) => setEvents(response.data))
+      .then((response) => {
+        setEvents(response.data)
+        console.log(response.data)
+      
+      
+      })
       .catch((c) => console.warn("catch", c));
   }, []);
 
-
-  useEffect(() => {
-      // Get today's date
-      const today = new Date().toISOString().split('T')[0];
   
-      // Filter events based on today's date
-      const todayEvents = events.filter((event) => event.open_date <= today && today <= event.close_date);
-      const futureEvents = events.filter((event)=> event.open_date > today)
+  useEffect(() => {
+    //check if events are cancelled by checking the value of status from backend
+    // if(response.data.status === "cancelled"){
+    //   setCancelledEvents(cancelled)
       
-      setUpcomingEvents(futureEvents);
-      setFilteredEvents(todayEvents);
-
-    }, [events]);
+    // }
+    // Get today's date
+    const today = new Date().toISOString().split('T')[0];
+    
+    // Filter events based on today's date
+    const todayEvents = events.filter((event) => event.open_date <= today && today <= event.close_date);
+    const futureEvents = events.filter((event)=> event.open_date > today)
+    setUpcomingEvents(futureEvents);
+    setFilteredEvents(todayEvents);
+    
+  }, [events]);
 
     // const toggleMode = () => {
     //   setDarkMode(!isDarkMode);
