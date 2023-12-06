@@ -30,6 +30,8 @@ const Login = () => {
         password
       );
       const user = userCredential.user;
+      const uid = user.uid;
+
       setLoggedInUser(user);
     } catch (error) {
       console.error("Login Error:", error);
