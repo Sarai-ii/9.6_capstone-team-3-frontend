@@ -31,19 +31,26 @@ function App() {
         <Navbar />
         <main>
           {/* <Header/> */}
-          <Routes>
-            <Route path="/" element={<Home />} />
+          <Routes><Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
+
+            {/* USERS CURD NEW-SHOW-EDIT-INDEX*/}
             <Route path="/signup" element={<Signup />} />
-            <Route path="/events" element={<AllEvents />} />
-            <Route path="/currentevent" element={<CurrentEvent />} />
-            <Route path="/events/:eventId/register" element={<EventSignUp />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/profile/:userId" element={<Profile />} />
-            <Route path="/profile/:userId/edit" element={<UserPictureForm />} />
+            <Route path="/create-profile" element={<CreateProfile />} />
+            <Route path="/profile/:userId" element={<Profiles />} /
+            {/* <Route path="/profile/:userId/edit" element={<UserPictureForm />} /> */}
+            <Route path="/account/:userId/edit" element={<Account />} />
             <Route path="/users/" element={<Users />} />
-            <Route path="/account" element={<Account />} />
+
+            {/* EVENTS CRUD NEW-SHOW-EDIT-INDEX*/}
+            <Route path="/events" element={<AllEvents />} /> 
+            {/* <Route path="/currentevent" element={<CurrentEvent />} /> */}
+
+            {/* USER EVENTS NEW-SHOW-EDIT-INDEX*/}
+            <Route path="/events/:eventId/register" element={<EventSignUp />} />
+
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>
