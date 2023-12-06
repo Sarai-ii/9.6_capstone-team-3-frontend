@@ -37,8 +37,8 @@ function App() {
 
             {/* USERS CURD NEW-SHOW-EDIT-INDEX*/}
             <Route path="/signup" element={<Signup />} />
-            <Route path="/create-profile" element={<CreateProfile />} />
-            <Route path="/profile/:userId" element={<Profiles />} />
+            {/* <Route path="/create-profile" element={<CreateProfile />} /> */}
+            <Route path="/profile/:userId" element={<Profile />} />
 
             <Route path="/account/:userId/edit" element={<Account />} />
             <Route path="/users/" element={<Users />} />
