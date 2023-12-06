@@ -21,21 +21,21 @@ export default function AllEvents() {
     axios
       .get(`${API}/events`)
       .then((response) => {
-        setEvents(response.data)
-        console.log(response.data)
-      
-      
+        const cancelled = response.data.filter((event) => event.status === "cancelled")
+        const otherEvents = response.data.filter((event) => event.status !== "cancelled")
+        setCancelledEvents(cancelled)
+        setEvents(otherEvents)
       })
       .catch((c) => console.warn("catch", c));
   }, []);
 
-  
+
   useEffect(() => {
     //check if events are cancelled by checking the value of status from backend
-    // if(response.data.status === "cancelled"){
-    //   setCancelledEvents(cancelled)
+    if(events.status === "cancelled"){
+      setCancelledEvents(cancelled)
       
-    // }
+    }
     // Get today's date
     const today = new Date().toISOString().split('T')[0];
     
