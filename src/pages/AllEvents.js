@@ -13,39 +13,26 @@ export default function AllEvents() {
   const [events, setEvents] = useState([])
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
-  const [cancelledEvents,setCancelledEvents] = useState([])
   // const [isDarkMode, setDarkMode] = useState(false);
-
 
   useEffect(() => {
     axios
       .get(`${API}/events`)
       .then((response) => {
-        const cancelled = response.data.filter((event) => event.status === "cancelled")
-        const otherEvents = response.data.filter((event) => event.status !== "cancelled")
-        setCancelledEvents(cancelled)
-        setEvents(otherEvents)
+        const nonCancelledEvents = response.data.filter((event) => event.status !== "cancelled");
+        setEvents(nonCancelledEvents);
+
+        // Get today's date
+        const today = new Date().toISOString().split('T')[0];
+        
+        // Filter events based on today's date
+        const todayEvents = nonCancelledEvents.filter((event) => event.open_date <= today && today <= event.close_date);
+        const futureEvents = nonCancelledEvents.filter((event)=> event.open_date > today)
+        setUpcomingEvents(futureEvents);
+        setFilteredEvents(todayEvents);
       })
       .catch((c) => console.warn("catch", c));
   }, []);
-
-
-  useEffect(() => {
-    //check if events are cancelled by checking the value of status from backend
-    if(events.status === "cancelled"){
-      setCancelledEvents(cancelled)
-      
-    }
-    // Get today's date
-    const today = new Date().toISOString().split('T')[0];
-    
-    // Filter events based on today's date
-    const todayEvents = events.filter((event) => event.open_date <= today && today <= event.close_date);
-    const futureEvents = events.filter((event)=> event.open_date > today)
-    setUpcomingEvents(futureEvents);
-    setFilteredEvents(todayEvents);
-    
-  }, [events]);
 
     // const toggleMode = () => {
     //   setDarkMode(!isDarkMode);
