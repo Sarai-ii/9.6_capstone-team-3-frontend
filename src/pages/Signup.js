@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebaseConfig';
 import axios from 'axios';
@@ -7,6 +8,7 @@ import "../css/Signup.css"
 
 
 const Signup = () => {
+    const navigate = useNavigate()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
@@ -36,11 +38,14 @@ const Signup = () => {
     
         // Create user in Firebase
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        console.log('Firebase user created:', userCredential.user.uid);
+        const uid = userCredential.user.uid
+
         console.log('Firebase user created:', userCredential.user);
+        console.log('You Got The ID BABYYYYYYYY', uid);
     
         // Create user profile on your server
         const response = await axios.post(`${process.env.REACT_APP_API_URL}/users`, {
+          firebase_uid: uid, 
           username,
           password,
           admin: false,
@@ -57,14 +62,22 @@ const Signup = () => {
           user_premium: false,
           isluxury: false,
           bio,
+          // created_date: created,
         });
-    
+        if (response.data.error) {
+          setError(`Signup Error: ${response.data.error}`);
+          setIsLoading(false);
+          return;
+        }
+        const userId = response.data.id;
         console.log('Backend response:', response.data);
-    
+        console.log(userId)
+        
         setSuccessMessage(
-          `Signup successful! You are now logged in as ${email}.`
+          console.log(`Signup successful! You are now logged in as ${email}.`)
         );
         setError(null);
+        navigate(`/profile/${userId}`)
       } catch (error) {
         console.error('Signup Error:', error.message);
         setSuccessMessage(null);

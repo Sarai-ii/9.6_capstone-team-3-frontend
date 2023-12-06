@@ -17,7 +17,7 @@ import CurrentEvent from './pages/CurrentEvent';
 // COMPONENTS
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Profiles from './components/PublicProfiles';
+import Profile from './components/PublicProfiles';
 import UserPictureForm from "./components/UserPictureForm"
 import EventSignUp from "./components/EventSignup"
 // import Header from './components/Header'
