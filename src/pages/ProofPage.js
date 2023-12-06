@@ -68,7 +68,7 @@ const ProofPage = () => {
       <div className='form'>
         <form onSubmit={handleUpload} encType="multipart/form-data">
           <div className="form-group">
-            <label htmlFor="title">Title:</label>
+            <label htmlFor="title">Title</label>
             <input
               type="text"
               id="title"
@@ -79,7 +79,7 @@ const ProofPage = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="description">Description (optional, up to two paragraphs):</label>
+            <label htmlFor="description">Description</label>
             <textarea
               id="description"
               placeholder="Enter Description"
@@ -89,7 +89,7 @@ const ProofPage = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="file">Upload Image:</label>
+            <label htmlFor="file">Upload Image</label>
             <input type="file" id="file" onChange={handleFileChange} />
           </div>
           {fileUrl && (
@@ -97,13 +97,22 @@ const ProofPage = () => {
               <h2>Thumbnail Preview:</h2>
               <img src={fileUrl} alt={altText} className="thumbnail" />
               <div className="form-group">
-                <label htmlFor="altText">Alt Text:</label>
-                <input
-                  type="text"
+                <label htmlFor="altText">
+                  Alt Text
+                  <span className="info-box">
+                    <span className="info-text">
+                      Alt text (alternative text) describes the appearance or function of an image on a web page.
+                      Alt text is read aloud by programs called screen readers which are used by people with visual impairments and low vision.
+                      Alt text displays in place of an image if it fails to load, and is indexed by search engine bots to better understand image and page content.
+                    </span>
+                  </span>
+                </label>
+                <textarea
                   id="altText"
                   placeholder="Enter Alt Text"
                   value={altText}
                   onChange={handleAltTextChange}
+                  rows="8"
                 />
               </div>
             </div>

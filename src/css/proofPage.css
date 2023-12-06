@@ -1,8 +1,10 @@
-/* Add this to your component's styles */
+/* proofPage.css */
+
 .form-group {
     display: flex;
     flex-direction: column;
     margin-bottom: 16px;
+    margin: 2% 15% 0 15%;
   }
   
   label {
@@ -14,4 +16,33 @@
     max-height: 200px;
     margin-top: 8px;
   }
+
+.info-box {
+    position: relative;
+    display: inline-block;
+    margin-left: 8px;
+  }
+  
+.info-text {
+    visibility: hidden;
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    border-radius: 4px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -125px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.info-box:hover .info-text {
+    visibility: visible;
+    opacity: 1;
+}
+  
   
