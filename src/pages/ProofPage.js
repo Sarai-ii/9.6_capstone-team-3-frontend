@@ -1,9 +1,11 @@
 // ProofPage.js
 import React, { useState } from 'react';
+import Modal from 'react-modal';
 import '../css/proofPage.css';
 
 const ProofPage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [fileUrl, setFileUrl] = useState(null);
   const [altText, setAltText] = useState('');
   const [title, setTitle] = useState('');
@@ -60,66 +62,90 @@ const ProofPage = () => {
     console.log('Alt Text:', altText);
   };
 
+  const openUploadModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeUploadModal = () => {
+    setIsModalOpen(false);
+    // Optionally, you can clear the selected file and any other form state here
+    setSelectedFile(null);
+  };
+
   return (
     <div className='proof-page'>
       <h1>Upload a picture of your gift</h1>
       <p>Make sure that your gifter gets credit for sending you a gift!</p>
 
-      <div className='form'>
-        <form onSubmit={handleUpload} encType="multipart/form-data">
-          <div className="form-group">
-            <label htmlFor="title">Title</label>
-            <input
-              type="text"
-              id="title"
-              placeholder="Enter Title"
-              value={title}
-              onChange={handleTitleChange}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="description">Description</label>
-            <textarea
-              id="description"
-              placeholder="Enter Description"
-              value={description}
-              onChange={handleDescriptionChange}
-              rows="4"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="file">Upload Image</label>
-            <input type="file" id="file" onChange={handleFileChange} />
-          </div>
-          {fileUrl && (
-            <div>
-              <h2>Thumbnail Preview:</h2>
-              <img src={fileUrl} alt={altText} className="thumbnail" />
-              <div className="form-group">
-                <label htmlFor="altText">
-                  Alt Text
-                  <span className="info-box">
-                    <span className="info-text">
-                      Alt text (alternative text) describes the appearance or function of an image on a web page.
-                      Alt text is read aloud by programs called screen readers which are used by people with visual impairments and low vision.
-                      Alt text displays in place of an image if it fails to load, and is indexed by search engine bots to better understand image and page content.
-                    </span>
-                  </span>
-                </label>
-                <textarea
-                  id="altText"
-                  placeholder="Enter Alt Text"
-                  value={altText}
-                  onChange={handleAltTextChange}
-                  rows="8"
-                />
-              </div>
+
+      <button className="button" onClick={openUploadModal}>Open Upload Modal</button>
+
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeUploadModal}
+        contentLabel="Upload Modal"
+      >
+
+
+
+        <div className='form'>
+          <form onSubmit={handleUpload} encType="multipart/form-data">
+          <p>Make sure that your gifter gets credit for sending you a gift!</p>
+            <div className="form-group">
+              <label htmlFor="title">Title</label>
+              <input
+                type="text"
+                id="title"
+                placeholder="Enter Title"
+                value={title}
+                onChange={handleTitleChange}
+                required
+              />
             </div>
-          )}
-          <button className="button" type='submit'>Upload</button>
-        </form>
-      </div>
+            <div className="form-group">
+              <label htmlFor="description">Thoughts on your gift</label>
+              <textarea
+                id="description"
+                placeholder="Enter Description"
+                value={description}
+                onChange={handleDescriptionChange}
+                rows="4"
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="file">Upload Image</label>
+              <input type="file" id="file" onChange={handleFileChange} />
+            </div>
+            {selectedFile && (
+              <div>
+                <h2>Thumbnail Preview:</h2>
+                <img src={fileUrl} alt={altText} className="thumbnail" />
+                <div className="form-group">
+                  <label htmlFor="altText">
+                    Alt Text
+                    <span className="info-box">
+                      <span className="info-text">
+                        Alt text (alternative text) describes the appearance or function of an image on a web page.
+                        Alt text is read aloud by programs called screen readers which are used by people with visual impairments and low vision.
+                        Alt text displays in place of an image if it fails to load, and is indexed by search engine bots to better understand image and page content.
+                      </span>
+                    </span>
+                  </label>
+                  <textarea
+                    id="altText"
+                    placeholder="Enter Alt Text"
+                    value={altText}
+                    onChange={handleAltTextChange}
+                    rows="4"
+                  />
+                </div>
+              </div>
+            )}
+            <button className="button" type='submit'>Upload</button>
+          </form>
+        </div>
+        <button className="button" onClick={closeUploadModal}>Close Modal</button>
+      </Modal>
     </div>
   );
 };
