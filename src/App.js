@@ -9,7 +9,6 @@ import About from './pages/About';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup'
-import CreateProfile from './pages/CreateProfile';
 import Gallery from './pages/Gallery';
 import PageNotFound from "./pages/PageNotFound"; 
 import Users from './pages/usersIndex';
@@ -39,7 +38,7 @@ function App() {
             {/* USERS CURD NEW-SHOW-EDIT-INDEX*/}
             <Route path="/signup" element={<Signup />} />
             <Route path="/create-profile" element={<CreateProfile />} />
-            <Route path="/profile/:userId" element={<Profiles />} />
+            <Route path="/profile/:userId" element={<Profiles />} /
             {/* <Route path="/profile/:userId/edit" element={<UserPictureForm />} /> */}
             <Route path="/account/:userId/edit" element={<Account />} />
             <Route path="/users/" element={<Users />} />
