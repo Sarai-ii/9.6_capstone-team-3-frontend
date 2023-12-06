@@ -9,13 +9,7 @@
 }
 
 .title-slogan-container {
-  background-image: url('https://cdn.vectorstock.com/i/1000x1000/13/66/banner-of-gift-boxes-vector-44041366.webp');
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 80px 0;
-  color: white;
-  min-height: 100vh;
+
 }
 
 
@@ -52,8 +46,7 @@ h1{
 
 .how-it-works-title {
   font-size: 46px;
-  margin-top: 40px;
-  padding-top: 15rem;
+  padding-top: 10rem;
   padding-bottom: 5rem;
   background-color: #e8effc;
 }
@@ -108,7 +101,7 @@ h1{
   align-items: flex-end;
   padding: 3rem;
   padding-top: 15rem;
-  padding-bottom: 15rem;
+  padding-bottom: 10rem;
 }
 
 .signup {
