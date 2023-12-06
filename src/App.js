@@ -13,12 +13,12 @@ import Gallery from './pages/Gallery';
 import PageNotFound from "./pages/PageNotFound"; 
 import Users from './pages/usersIndex';
 import AllEvents from './pages/AllEvents';
-import CurrentEvent from './pages/CurrentEvent';
+// import CurrentEvent from './pages/CurrentEvent';
 // COMPONENTS
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Profile from './components/PublicProfiles';
-import UserPictureForm from "./components/UserPictureForm"
+// import UserPictureForm from "./components/UserPictureForm"
 import EventSignUp from "./components/EventSignup"
 // import Header from './components/Header'
 
@@ -38,8 +38,8 @@ function App() {
             {/* USERS CURD NEW-SHOW-EDIT-INDEX*/}
             <Route path="/signup" element={<Signup />} />
             <Route path="/create-profile" element={<CreateProfile />} />
-            <Route path="/profile/:userId" element={<Profiles />} /
-            {/* <Route path="/profile/:userId/edit" element={<UserPictureForm />} /> */}
+            <Route path="/profile/:userId" element={<Profiles />} />
+
             <Route path="/account/:userId/edit" element={<Account />} />
             <Route path="/users/" element={<Users />} />
 
