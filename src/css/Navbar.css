@@ -56,3 +56,31 @@
   }
   
 
+  .navbar-middle-links-container {
+    display: flex;
+    align-items: center; 
+  }
+  
+  .navbar-middle-links {
+    display: flex;
+    gap: 75px;
+    margin-left: auto;
+  }
+  
+
+  #events-middle-link{
+    padding-left: 75px;
+  }
+
+
+  .navbar-middle-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .navbar-middle-links a:hover {
+    color: #6474ed;
+  }
+  
