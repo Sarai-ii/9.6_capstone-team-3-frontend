@@ -15,14 +15,18 @@ function NavBar() {
       <Link to="/" className="navbar-logo">
         <Logo />  
       </Link>
-      
+      <div className='navbar-middle-links'>
+        <Link to="/events">events</Link>
+        <Link to="/how-it-works">how it works</Link>
+        <Link to="/about">about</Link>
+      </div>
       <div className="navbar-links">
         <Link className="navbar-login-link" to="/login">
           Login 
         </Link>
-        <Link className="navbar-events-link" to="/events">
-          Events
-        </Link>  
+        <Link className="homepage-signup-link" to="/signup">
+          Sign Up
+        </Link> 
       </div>
     </nav>
   );

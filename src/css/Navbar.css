@@ -1,9 +1,9 @@
 .navbar {
-  background: linear-gradient(135deg, #6495ED, #7aa4ef, #90b3f2, #a6c2f4, #bcd1f7, #d2e0f9, #7aa4ef, #6495ED);
+  background: #6495ED;
   display: flex;
   justify-content: space-between;
   padding: 9px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.225);
+
   min-height: 75px;
   align-items: center;
   border-bottom: 2px solid transparent;
@@ -25,8 +25,6 @@
     color: #FFFAEB;
     text-decoration: none;
     margin: 0 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
     transition: color 0.3s, background-color 0.3s, transform 0.3s;
     position: relative;
   }
