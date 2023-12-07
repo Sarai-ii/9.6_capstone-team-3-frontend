@@ -10,15 +10,6 @@
 
 
 
-.h1-container {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-
-  padding-top: 11rem;
-}
-
-
 .homepage-signup-link{
   padding-top: 10rem;
 }
@@ -35,14 +26,18 @@
 .text-container {
   width: 70%; /* Adjust the width as needed */
   padding-right: 20px; /* Add some space between text and image */
+  padding-left: 15px;
+  text-align: left; /* Align text to the left */
 }
 
 .h1-container {
   display: flex;
-  justify-content: center;
+  text-align: left; /* Align text to the left */
   gap: 20px;
 
-  padding-top: 11rem;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+
 }
 
 h1 {

@@ -6,6 +6,8 @@ import matchingImage from "../images/undraw_sync_re_492g.svg";
 import sendingGiftImage from "../images/undraw_delivery_truck_vt6p.svg";
 import receiveGiftImage from "../images/undraw_arrived_re_t2bw.svg";
 
+import homePageImage from "../images/home-container-image.svg"
+
 import "../css/homepage.css";
 import Gallery from "./Gallery";
 
@@ -27,8 +29,7 @@ function Home() {
       </Link>
     </div>
     <div className="image-container">
-      {/* Add Image here later on*/}
-      <img src="your-image-path.jpg" alt="Image Description" />
+      <img src={homePageImage} alt="homepage-gift-image" />
     </div>
   </div>
 
