@@ -102,7 +102,7 @@ h1 {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  
+  gap: 20px;
 }
 
 .step-container {
@@ -128,6 +128,7 @@ h1 {
 
 .step-container-title {
   font-size: 24px;
+  font-family: 'Montserrat';
   margin-bottom: 10px;
 }
 
@@ -152,12 +153,21 @@ h1 {
   position: relative;
   border: 1.5px solid #545454;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  width: 375px;
 }
-.homepage-link-container{
+
+.signup-h2-title{
+  font-family: 'Montserrat';
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.homepage-link-container {
   display: flex;
-  flex-direction: row-reverse;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
 }
+
 .homepage-signup-link {
     color: white;;
     background-color: #6474ed;;
