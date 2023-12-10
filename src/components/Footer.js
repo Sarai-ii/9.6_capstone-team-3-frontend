@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/footer.css';
-import LogoImage from '../images/LOGO OVER WHITE.png';
 
 function Footer() {
   return (
@@ -12,6 +11,7 @@ function Footer() {
         </svg>  
           <div className='footer-content'>
             <div className='footer-content-column'>
+              <p></p>
             {/* <div className='footer-logo'>
               <Link to="/"  className='footer-logo-link'>
                 <span className='hidden-link-text'>LOGO</span>
@@ -51,7 +51,7 @@ function Footer() {
           <div className="footer-content-column">
             <div className="footer-call-to-action">
               <p className="footer-call-to-action-description"></p>
-              <Link to="/"  className="button"> Join Now! </Link>
+              <Link to="/signup"  className="button call-to-action-signup-link"> Sign Up for Free! </Link>
             </div>            
           </div>
 
