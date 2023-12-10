@@ -11,6 +11,7 @@ function Footer() {
         </svg>  
           <div className='footer-content'>
             <div className='footer-content-column'>
+              <p></p>
             {/* <div className='footer-logo'>
               <Link to="/"  className='footer-logo-link'>
                 <span className='hidden-link-text'>LOGO</span>
