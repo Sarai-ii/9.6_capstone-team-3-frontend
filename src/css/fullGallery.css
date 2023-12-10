@@ -1,71 +1,86 @@
 .picture-card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px;
-    background-color: #e8effc;
-    padding-bottom: 15rem;
-  }
-  
-  .picture-card-h1-container {
-    text-align: center;
-    width: 100%;
-  }
-  
-  .picture-card-h1 {
-  
-    font-size: 4rem;
-    margin-bottom: 20px;
-    color: #545454;
-    text-decoration: none;
-    padding-bottom: 10rem;
-  }
-  
-  .picture-card-h1:hover {
-    color: #276be5;
-    transform: translateY(-2px);
-
- 
-  }
-
-  .picture-card-link {
-    text-decoration: none;
-  }
-  
-.picture-card-link:hover{
-    text-decoration: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  text-decoration: none;
 }
 
-  .picture-card {
-    background-color: white;
-    padding: 35px;
-    margin: 20px;
-    border-radius: 0px;
-    color: #545454;
-    position: relative;
-    border: 1.5px solid #545454;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    max-width: 400px;
-    min-height: 400px;
-  }
-  
-  .picture-card-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 0px;
-    box-shadow: 12px 12px 2px 1px rgba(88, 24, 1, 0.2);
-  }
-  
-  .picture-card-h3 {
-    margin-top: 10px;
-    padding-top: 15px;
-    font-size: 16px; 
-    font-weight: bold;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-height: 50px; 
-  }
-  
+
+.picture-card-h1-container {
+  text-align: center;
+  width: 100%;
+}
+
+#picture-card-h1-title{
+  text-decoration: none;
+}
+
+.picture-card-h1 {
+
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #545454;
+
+  padding-bottom: 10rem;
+}
+
+.picture-card-h1:hover {
+  color: #276be5;
+  transform: translateY(-2px);
+
+
+}
+
+.picture-card {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 8px;
+  cursor: pointer;
+  max-width: 400px;
+  min-height: 400px;
+  background-color: white;
+  padding: 35px;
+  margin: 20px;
+  border-radius: 0px;
+  color: #545454;
+  position: relative;
+  border: 1.5px solid #545454;
+}
+
+.picture-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 12px 12px 2px 1px rgba(88, 24, 1, 0.2);
+}
+
+.picture-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  transition: opacity 0.3s;
+}
+
+.picture-card.show-text .picture-card-overlay {
+  opacity: 1;
+}
+
+.picture-card-h3 {
+  margin: 10px 0;
+  color: #ED6495;
+}
+
+
