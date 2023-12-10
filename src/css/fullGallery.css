@@ -81,6 +81,7 @@
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
   transition: opacity 0.3s;
+  padding: 10px;
   
 }
 
@@ -96,8 +97,10 @@
 .show-more-less-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px; /* Adjust the margin as needed */
-  padding-bottom: 20px;
+  gap: 20px; 
+  margin-top: 20px; 
+  padding-bottom: 100px;
+  padding-top: 50px;
 }
 
 .show-button {
