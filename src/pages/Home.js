@@ -85,8 +85,8 @@ function Home() {
     </section>
   </div>
   <div className="gallery-container">
-    <Gallery />
-  </div>
+        <Gallery previewMode={true} />
+      </div>
 </div>
   );
 }

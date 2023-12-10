@@ -24,15 +24,15 @@
 }
 
 .text-container {
-  width: 70%; /* Adjust the width as needed */
+  width: 70%; 
   padding-right: 20px; /* Add some space between text and image */
   padding-left: 15px;
-  text-align: left; /* Align text to the left */
+  text-align: left; 
 }
 
 .h1-container {
   display: flex;
-  text-align: left; /* Align text to the left */
+  text-align: left; 
   gap: 20px;
 
   padding-top: 5rem;
@@ -50,25 +50,24 @@ h1 {
 }
 
 .slogan {
-
+  width: 90%
 }
 
 .slogan-2 {
  padding-bottom: 2rem;
+ width: 77%;
 }
 
 .image-container {
-  width: 30%; /* Adjust the width as needed */
+  width: 30%;
 }
 
-/* Add more styles for your image */
+
 .image-container img {
   width: 100%;
   height: auto;
-  border-radius: 8px; /* Optional: add border-radius to the image */
+  border-radius: 8px; 
 }
-
-
 
 
 
@@ -211,7 +210,7 @@ h1 {
 
 @media (max-width: 768px) {
   .title-slogan-container {
-    padding-bottom: 2rem; /* Adjust padding as needed */
+    padding-bottom: 2rem; 
   }
 
   .text-container {
@@ -222,8 +221,8 @@ h1 {
   .h1-container {
     padding-top: 2rem;
     padding-bottom: 1rem;
-    flex-direction: row; /* Switch back to horizontal layout */
-    justify-content: space-between; /* Add space between the two words */
+    flex-direction: row; 
+    justify-content: space-between; 
     align-items: left;
   }
 
@@ -232,7 +231,7 @@ h1 {
   }
 
   .image-container img {
-    border-radius: 0; /* Optional: remove border-radius for small screens */
+    border-radius: 0; 
   }
 }
 
