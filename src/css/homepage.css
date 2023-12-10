@@ -208,3 +208,31 @@ h1 {
     justify-content: center; 
   }
 }
+
+@media (max-width: 768px) {
+  .title-slogan-container {
+    padding-bottom: 2rem; /* Adjust padding as needed */
+  }
+
+  .text-container {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .h1-container {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    flex-direction: row; /* Switch back to horizontal layout */
+    justify-content: space-between; /* Add space between the two words */
+    align-items: left;
+  }
+
+  .image-container {
+    width: 100%;
+  }
+
+  .image-container img {
+    border-radius: 0; /* Optional: remove border-radius for small screens */
+  }
+}
+
