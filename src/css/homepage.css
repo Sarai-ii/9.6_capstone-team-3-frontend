@@ -8,52 +8,76 @@
   background-color: #e8effc;
 }
 
-.title-slogan-container {
-  background-image: url('https://cdn.vectorstock.com/i/1000x1000/13/66/banner-of-gift-boxes-vector-44041366.webp');
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 80px 0;
-  color: white;
-  min-height: 100vh;
+
+
+.homepage-signup-link{
+  padding-top: 10rem;
 }
 
+.title-slogan-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #6495ED;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.225);
+  padding-bottom: 3.5rem;
+}
 
+.text-container {
+  width: 70%; 
+  padding-right: 20px; /* Add some space between text and image */
+  padding-left: 15px;
+  text-align: left; 
+}
 
 .h1-container {
   display: flex;
-  justify-content: center;
+  text-align: left; 
   gap: 20px;
 
-  padding-top: 11rem;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+
 }
 
-h1{
+h1 {
   font-size: 68px;
 }
 
-.happiness-title, .exchange-title {
-  font-size: 48px;
-  font-weight: bold;
-  text-shadow: 4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+.happiness-title,
+.exchange-title {
+
 }
 
-
 .slogan {
-  padding-top: 1.5rem;
-  font-size: 32px;
-  text-shadow: 4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+  width: 90%
 }
 
 .slogan-2 {
-  /* font-size: 24px;
-  text-shadow: 4px 4px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000; */
+ padding-bottom: 2rem;
+ width: 77%;
 }
+
+.image-container {
+  width: 30%;
+}
+
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px; 
+}
+
+
+
+
+
+
 
 .how-it-works-title {
   font-size: 46px;
-  margin-top: 40px;
-  padding-top: 15rem;
+  padding-top: 10rem;
   padding-bottom: 5rem;
   background-color: #e8effc;
 }
@@ -108,7 +132,6 @@ h1{
   align-items: flex-end;
   padding: 3rem;
   padding-top: 15rem;
-  padding-bottom: 15rem;
 }
 
 .signup {
@@ -138,6 +161,25 @@ h1{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
+#main-signup-link {
+  color: white;
+  background: linear-gradient(to right, #ED6495, #FD85A1); 
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid white;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+#main-signup-link:hover {
+  background: linear-gradient(to right,#FD85A1,#ED6495,#ED6495,#FD85A1, #FF69B4); 
+  color: white
+}
+
+
+
 .homepage-signup-link:hover {
   color: #6474ed;;
   background: white;
@@ -165,3 +207,31 @@ h1{
     justify-content: center; 
   }
 }
+
+@media (max-width: 768px) {
+  .title-slogan-container {
+    padding-bottom: 2rem; 
+  }
+
+  .text-container {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .h1-container {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: left;
+  }
+
+  .image-container {
+    width: 100%;
+  }
+
+  .image-container img {
+    border-radius: 0; 
+  }
+}
+
