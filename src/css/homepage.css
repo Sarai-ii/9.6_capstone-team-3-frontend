@@ -193,8 +193,11 @@ h1 {
 }
 
 #main-signup-link:hover {
-  background: linear-gradient(to right,#FD85A1,#ED6495,#ED6495,#FD85A1, #FF69B4); 
-  color: white
+  color: #ED6495;
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  border-color: #ED6495;
 }
 
 
