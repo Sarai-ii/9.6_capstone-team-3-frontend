@@ -136,6 +136,7 @@ export default function EventSignUp() {
                     In order to be matched, it's required you fill out this form and stick to the rules of every event to ensure you recieve a gift that best suits you. </p>
             </div>
         )}
+        
         <form className='signup-form'>
             <label htmlFor="likes"> Based on the theme, if you could choose- what gift would you desire most? (Be specific): </label>
             <input type="text" id="likes" onChange={handleInputChange} required/>
@@ -152,17 +153,17 @@ export default function EventSignUp() {
             <label htmlFor="category"> Based on the theme, what category most interests you?(ie: "candy", "tech", "clothes" ):</label>
             <input type="text" id="category" onChange={handleInputChange} required/>
             <br />
-            <label htmlFor="clothes"> If applicable, what are your clothing sizes? 
+            <label htmlFor="clothes" > If applicable, what are your clothing sizes? 
             <br />
             <label htmlFor="clothes">Shirt Size:</label>
             <input type="text" id="clothes"/>
-            <br />
+            {/* <br /> */}
             <label htmlFor="clothes">Pants Size:</label>
             <input type="text" id="clothes"/>
-            <br />
             <label htmlFor="clothes">Shoes Size:</label>
             <input type="text" id="clothes"/>
             </label>
+            <br />
             <label htmlFor="duplicate"> Do you mind receiving an item or version of an item that you already own? 
                 <select id="duplicate" value={selectedOption} onChange={handleOptionChange} required>
                     <option value=""></option>
@@ -172,13 +173,15 @@ export default function EventSignUp() {
             </label>
             <ul className='rules-container'>
                 <h3 className='rules-h3'>Rules For <span className='rules-every'>EVERY</span> Event</h3>
-                <li className='rules'>The person you are assigned is not the same person who is assigned to you to prevent violation of our terms</li>
+                <li className='rules'>If in the event you miss the shipping and tracking deadline or violate any of the terms, you will be at risk of being banned indefinently, per investigation by our team. Moreover, your gifter will have the chance to rescind sending their gift to you as an interim consequence.</li>
+                <li className='rules'>The premise of every event is "Secret Santa", therefore the person you are assigned to gift is not necessarily the same person who is assigned to gift you.</li>
                 <li className='rules'>We do <span className='rules-not'>NOT</span> by any means condone deragatory, sexually explicit nor discriminatory actions such has hate speech, bullying nor racially insensitive, comments or gifts. Please keep everything friendly and respectful. We seek to uplift and bring joy to any and everyone's lives.</li>
-                <li className='rules'>If in the event you miss the shipping deadline you will be at risk of being banned indefinently, per investigation by our team</li>
+                <li className='rules'>The minimum spend is set so that everyone is expected to stay within a range when shopping for gifts. Do keep in mind that after the minimum anything higher is a budget range set by the gifter and can extend far beyond or exactly at the minimum required spend.</li>
+                <li className='rules'><span className='rules-not'>NOT</span> by any means, are you allowed to contact users requesting gifts. <span className='rules-not'>NOR</span> is revealing gifts prior to unboxing acceptable!</li>
             </ul>
             <div className='terms-container'>
                 <input type="checkbox" id="terms-checkbox" required/>
-                <label htmlFor="terms-checkbox" className='terms-text'>Do You Agree To The Terms?</label>
+                <label htmlFor="terms-checkbox" id='terms-text'>Do You Agree To The Terms?</label>
                 <br />
                 <button className="confirm button" onClick={handleConfirmation} >Confirm</button>
             </div>

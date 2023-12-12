@@ -21,7 +21,7 @@ export default function CurrentEvent({event}) {
       const intervalId = setInterval(() => {
         setDeadline(calculateCountDown());
       }, 1000);
-      console.log(event.id)
+      // console.log(event.id)
       return () => clearInterval(intervalId);
     }, []);
   

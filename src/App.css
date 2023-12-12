@@ -4,6 +4,7 @@
 body {
   transition: background-color 0.5s ease;
   background-color: #E8EFFC;
+
 }
 
 * { 
@@ -24,8 +25,9 @@ h3,h4,h5,h6{
   font-weight: 300;
   color:black;
 }
-p{
+p, li, ul{
   font-family: 'Montserrat';
+  cursor:default;
 }
 
 .App {

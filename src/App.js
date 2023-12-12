@@ -7,18 +7,19 @@ import './App.css';
 import Account from './pages/Account';
 import About from './pages/About';
 import Home from './pages/Home';
-import SignupLogin from './pages/SignupLogin';
+import Login from './pages/Login';
+import Signup from './pages/Signup'
 import Gallery from './pages/Gallery';
 import PageNotFound from "./pages/PageNotFound"; 
 import Users from './pages/usersIndex';
 import AllEvents from './pages/AllEvents';
-import CurrentEvent from './pages/CurrentEvent';
 import ProofPage from "./pages/ProofPage";
+// import CurrentEvent from './pages/CurrentEvent';
 // COMPONENTS
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Profiles from './components/PublicProfiles';
-import UserPictureForm from "./components/UserPictureForm"
+import Profile from './components/PublicProfiles';
+// import UserPictureForm from "./components/UserPictureForm"
 import EventSignUp from "./components/EventSignup"
 // import Header from './components/Header'
 
@@ -34,23 +35,30 @@ function App() {
           <Routes>
             <Route path="/" element={ <Home />} />
             <Route path="/about" element = { <About /> } />
-            <Route path='/signup' element = { <SignupLogin /> } />
-            <Route path="/events" element = { <AllEvents /> } />
-            <Route path="/currentevent" element = { <CurrentEvent /> } />
-            <Route path="/events/:eventId/register" element = { <EventSignUp /> } />
-            <Route path="/gallery" element = { <Gallery /> } />
-            <Route path="/profile/:userId" element = {<Profiles />} /> 
-            <Route path="/profile/:userId/edit" element= {<UserPictureForm />} />       
-            <Route path="/users/" element = {<Users/>} />
-            <Route path="/account" element = { <Account /> } />
-            <Route path="/exchanges-proof" element = { <ProofPage />} /> 
-            <Route path="*" element = { <PageNotFound /> } />
+            <Route path="/exchanges-proof" element = { <ProofPage />} />
+            <Route path="/login" element={<Login />} />
 
+            {/* USERS CURD NEW-SHOW-EDIT-INDEX*/}
+            <Route path="/signup" element={<Signup />} />
+            {/* <Route path="/create-profile" element={<CreateProfile />} /> */}
+            <Route path="/profile/:userId" element={<Profile />} />
+
+            <Route path="/account/:userId/edit" element={<Account />} />
+            <Route path="/users/" element={<Users />} />
+
+            {/* EVENTS CRUD NEW-SHOW-EDIT-INDEX*/}
+            <Route path="/events" element={<AllEvents />} /> 
+            {/* <Route path="/currentevent" element={<CurrentEvent />} /> */}
+
+            {/* USER EVENTS NEW-SHOW-EDIT-INDEX*/}
+            <Route path="/events/:eventId/register" element={<EventSignUp />} />
+
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>
-        <Footer/>
+        <Footer />
       </Router>
-
     </div>
   );
 }
