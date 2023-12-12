@@ -13,6 +13,7 @@ import Gallery from './pages/Gallery';
 import PageNotFound from "./pages/PageNotFound"; 
 import Users from './pages/usersIndex';
 import AllEvents from './pages/AllEvents';
+import ProofPage from "./pages/ProofPage";
 // import CurrentEvent from './pages/CurrentEvent';
 // COMPONENTS
 import Navbar from './components/Navbar';
@@ -31,8 +32,10 @@ function App() {
         <Navbar />
         <main>
           {/* <Header/> */}
-          <Routes><Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
+          <Routes>
+            <Route path="/" element={ <Home />} />
+            <Route path="/about" element = { <About /> } />
+            <Route path="/exchanges-proof" element = { <ProofPage />} />
             <Route path="/login" element={<Login />} />
 
             {/* USERS CURD NEW-SHOW-EDIT-INDEX*/}

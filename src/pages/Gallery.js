@@ -3,7 +3,13 @@ import FullGallery from '../components/FullGallery'
 
 function Gallery() {
   return (
-    <div><FullGallery/></div>
+    <div className='gallery'>
+      <FullGallery/>
+      <div className='testing-pictures'>
+        
+      </div>
+    </div>
+    
   )
 }
 
