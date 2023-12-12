@@ -25,6 +25,7 @@
     width: auto;
 }
 
+
 .future-img{
     border-radius: 20px;
     box-shadow: 12px 12px 2px 1px rgba(88, 24, 1, 0.2);
@@ -130,6 +131,14 @@
     font-size: 45px;
     margin: 50px 5px 10px 5px;
     text-shadow: 2px 3px 6px rgba(44, 46, 107, 0.449);    
+}
+#current{
+    text-align: flex-start;
+
+}
+#upcoming{
+    margin-top: 12%;
+
 }
 .event-title {
     color: #276BE5;
@@ -531,6 +540,7 @@
 /* Events Sign Up */
 
 .event-signup-container {
+    
     align-items: start;
     background: linear-gradient(
         to top, 

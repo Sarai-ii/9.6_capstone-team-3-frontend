@@ -1,9 +1,9 @@
 // DEPENDENCIES
 import axios from 'axios';
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
-// import firebase from 'firebase/app';
-// import 'firebase/auth';
+import { auth } from '../firebaseConfig';
+// import { initializeApp } from 'firebase/app';
 
 // STYLING
 import "../css/Events.css"
@@ -11,17 +11,19 @@ import "../css/Events.css"
 const API = process.env.REACT_APP_API_URL;
 
 
-export default function EventSignUp() {
+export default function EventSignUp({ onCloseModal }) {
 
     const { userId } = useParams();
     let navigate = useNavigate();
-
+    
+    const [showModal, setShowModal] = useState(false)
+    const [user, setUser] = useState()
     const [showDetails, setShowDetails] = useState(false);
     const [selectedOption, setSelectedOption] = useState('');
     const [showConfirmation, setShowConfirmation] = useState(false)
     const [userData, setUserData] = useState({
         budget: 0,
-        favorite_color: [], 
+        favorite_color: [''], 
         category: '',
         shirt_size: '', 
         pants_size: '',
@@ -30,48 +32,54 @@ export default function EventSignUp() {
         preferred_category: '', 
         preferred_gift: '', 
         gifts_avoid :'',
-        events_joined: [],
+        events_joined: [''],
     });
-        
-    // I can't continue with updating values until I have a user authentication status or trigger for related actionsto
-
+   
+    // I can't continue with updating values until I have a user authentication status or trigger - done
+    //UPDATE
     const userEventRegistration = (updatedUser) => {
-        axios 
-        .put(`${API}/users/${id}`, updatedUser)
+        axios.put(`${API}/users/${userId}`, updatedUser)
         .then(
             () => {
-                console.log(updatedUser)
-                navigate(``)
+                console.log(userData)
+                navigate(`/profile/${userId}`)
             },
             (error) => console.error(error)
         )
         .catch((c) => console.warn("catch", c));
     }
 
-    useEffect(() => {
-        if (userId) {
-            axios.get(`${API}/users/${userId}`).then(
-                (response) =>{ 
-                    console.log(userId)
-                    console.log(`API Response:`, response)
-                    console.log(`API Response Data:`, response.data)
-                    console.log(`User Id:`, response.data.userId)
-                    // setUserId(response.data.userId)
-                },
-                (error) => {
-                    console.log(userId)
-                    console.error(' Error fetching user data:', error)
-                    navigate(`/not-found`)
-                }
-            );
-        }
-    }, [userId, navigate]);    
+    // useEffect(() => {
+    //     const unsubscribe = auth.onAuthStateChanged((user) => {
+    //         if (user) {
+    //             const userId = user.uid;
+    //             setUser(userId)
+    //         axios.get(`${API}/users/${userId}`).then(
+    //             (response) =>{ 
+    //                 console.log(user)
+    //                 navigate(`profile/${userId}`)
+    //                 // setUser(response.data.userId)
+    //             },
+    //             (error) => {
+    //                 console.log(userId)
+    //                 console.error(' Error fetching user data:', error)
+    //                 navigate(`/not-found`)
+    //             }
+    //         )} else {
+    //             setUser(null)
+    //         }
+    //     })
+    //     return () => unsubscribe()
+    // }, [navigate]);    
     
     const handleInputChange = (event) => {
         const { id, value } = event.target;
         if (id === 'favorite_colors') {
             // Split the input value into an array using a delimiter (e.g., comma or space)
-            const colorsArray = value.split(',').map(color => color.trim()).filter(Boolean)
+            const colorsArray = value
+            .split(',')
+            .map(color => color.trim())
+            .filter(Boolean)
             setUserData((prevUserData) => ({ ...prevUserData, favorite_colors: colorsArray }))
         } else {
             setUserData((prevUserData) => ({ ...prevUserData, [id]: value }));
@@ -79,6 +87,7 @@ export default function EventSignUp() {
     };
 
     const handleOptionChange = (event) => {
+        event.preventDefault()
         setSelectedOption(event.target.value);
         handleInputChange(event);
     };
@@ -91,32 +100,31 @@ export default function EventSignUp() {
             const updatedEventsJoined = [...userData.events_joined, userData.eventId];
             setUserData((prevUserData) => ({ ...prevUserData, events_joined: updatedEventsJoined }));
             setShowConfirmation(!showConfirmation);
+            onCloseModal()
         };
+        userEventRegistration(userData);
+
     }
-    // useEffect(() => {
-    //     // Set up a listener for changes in authentication state
-    //     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-    //       if (user) {
-    //         // User is signed in
-    //         setUser(user);
-    //       } else {
-    //         // User is signed out
-    //         setUserId(null);
-    //       }
-    //     });
-    
-    //     // Clean up the listener when the component unmounts
-    //     return () => unsubscribe();
-    //   }, []);
+    // const handleCloseModal = () => {
+    //     // Check if onCloseModal is defined before calling it
+    //     // onCloseModal && onCloseModal();
+    //     // navigate(  `/events`)
+    //     console.log(`closing modal`)
+    //     setShowModal(false);
+    //   };
 
     const handleIconClick = () => {
         setShowDetails(!showDetails);
     };
-
-  return (
-    <div className='event-signup-container'>
+    
+    return (
+        <div className={`event-signup-container overlay ${showModal ? 'show' : ''}`}>
         <div className=''>
+            <button className="close-button" onClick={onCloseModal}>
+            X
+            </button>
             <h1 className='welcome'>You're One Step Away From...</h1>
+            <h1 className='welcome-2'>Making Someone Feel Special  </h1>
         </div>
         <div className='intro-container '>
             <h2 className='section-header'>Thank you for joining this event, before you can register; please complete the form. </h2>
@@ -156,12 +164,12 @@ export default function EventSignUp() {
             <label htmlFor="clothes" > If applicable, what are your clothing sizes? 
             <br />
             <label htmlFor="clothes">Shirt Size:</label>
-            <input type="text" id="clothes"/>
+            <input type="text" id="shirt"/>
             {/* <br /> */}
             <label htmlFor="clothes">Pants Size:</label>
-            <input type="text" id="clothes"/>
+            <input type="text" id="pants"/>
             <label htmlFor="clothes">Shoes Size:</label>
-            <input type="text" id="clothes"/>
+            <input type="text" id="shoes"/>
             </label>
             <br />
             <label htmlFor="duplicate"> Do you mind receiving an item or version of an item that you already own? 
@@ -186,14 +194,13 @@ export default function EventSignUp() {
                 <button className="confirm button" onClick={handleConfirmation} >Confirm</button>
             </div>
         </form>
-            {showConfirmation && (
-                <div className='conclusion'>
-                    <h2 className='concluson-h2'>Form is complete, you've been added to the event. </h2>
-                    <h3 className='conclusion-h3'>Check you messages and notification in the app for updates.</h3>
-                </div>
-            )}
+        {showConfirmation && (
+            <div className='conclusion'>
+                <h2 className='concluson-h2'>Form is complete, you've been added to the event. </h2>
+                <h3 className='conclusion-h3'>Check you messages and notification in the app for updates.</h3>
+            </div>
+        )}
         <div className=''>
-            <h1 className='welcome-2'>Making Someone Feel Special  </h1>
         </div>
     </div>
   )
