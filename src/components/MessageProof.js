@@ -4,6 +4,9 @@ import '../css/messages.css';
 
 function MessageProof() {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [uploadSuccess, setUploadSuccess] = useState(false); 
+
 
   const openUploadModal = () => {
     setIsModalOpen(true);
@@ -11,24 +14,38 @@ function MessageProof() {
 
   const closeUploadModal = () => {
     setIsModalOpen(false);
-    // Optionally, you can clear the selected file and any other form state here
     setSelectedFile(null);
+    setUploadSuccess(false); 
   };
 
+
+            //    JENNIFER - RETURN HERE: take success out of handle upload
   const handleUpload = (event) => {
     event.preventDefault();
 
-    // Validation
-    if (!title.trim()) {
-      alert('Title is required.');
-      return;
-    }
+          //    JENNIFER - RETURN HERE: to add validations
+    // // Validation
+    // if (!title.trim()) {
+    //   alert('Title is required.');
+    //   return;
+    // }
 
     // Perform the logic with the selected file, alt text, title, and description
     console.log('Title:', title);
     console.log('Description:', description);
     console.log('Selected File:', selectedFile);
     console.log('Alt Text:', altText);
+
+    // Replace this with your actual logic
+          //    JENNIFER - RETURN HERE
+    const uploadSuccessful = true;
+
+    if (uploadSuccessful) {
+      setUploadSuccess(true); // Set upload success status
+      alert('Success!');
+      window.location.href = '/';
+      //    JENNIFER - RETURN HERE
+    }    
     closeUploadModal();
   };
 
@@ -64,7 +81,12 @@ function MessageProof() {
         onRequestClose={closeUploadModal}
         onUpload={handleUpload}
       />
-
+     {uploadSuccess && (
+        <div>
+          <h2>Thank You!</h2>
+          <p>Your upload was successful. Thank you for sharing!</p>
+        </div>
+      )}
 </div>
   )
 }

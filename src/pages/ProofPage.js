@@ -163,17 +163,7 @@ const ProofPage = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-
-    if (file && file.size > MAX_FILE_SIZE) {
-      alert('File size exceeds the maximum limit of 5 MB. Please choose a smaller file.');
-      event.target.value = null; // Clear the file input
-      return;
-    }
-    setSelectedFile(file);
 
     // Read and display a thumbnail preview of the selected image
       if (file) {
@@ -189,33 +179,6 @@ const ProofPage = () => {
   //   const url = URL.createObjectURL(file);
   //   setFileUrl(url);  
   // };
-
-  const handleAltTextChange = (event) => {
-    setAltText(event.target.value);
-  };
-
-  const handleTitleChange = (event) => {
-    setTitle(event.target.value);
-  };
-
-  const handleDescriptionChange = (event) => {
-    setDescription(event.target.value);
-  };
-
-  const handleUpload = (event) => {
-    event.preventDefault();
-
-    // Validation
-    if (!title.trim()) {
-      alert('Title is required.');
-      return;
-    }
-
-    // Perform the logic with the selected file, alt text, title, and description
-    console.log('Selected File:', selectedFile);
-    console.log('Alt Text:', altText);
-    console.log('Title:', title);
-    console.log('Description:', description);
   };
 
   return (

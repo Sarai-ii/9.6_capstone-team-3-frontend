@@ -38,7 +38,8 @@ const UploadModal = ({ isOpen, onRequestClose, onUpload }) => {
   };
 
   const handleTitleChange = (event) => {
-    setTitle(event.target.value);
+    const newTitle = event.target.value;
+    setTitle(newTitle);
   };
 
   const handleDescriptionChange = (event) => {
@@ -49,16 +50,24 @@ const UploadModal = ({ isOpen, onRequestClose, onUpload }) => {
     event.preventDefault();
 
     // Validation
-    if (!title.trim()) {
-      alert('Title is required.');
-      return;
-    }
+    // if (!title.trim()) {
+    //   alert('Title is required.');
+    //   return;
+    // }
 
     // Perform the logic with the selected file, alt text, title, and description
     console.log('Title:', title);
     console.log('Description:', description);
     console.log('Selected File:', selectedFile);
     console.log('Alt Text:', altText);
+
+    // Clear the form state
+    setTitle('');
+    setDescription('');
+    setAltText('');
+
+    // Close the modal
+    onRequestClose();
   };
 
   const openUploadModal = () => {
