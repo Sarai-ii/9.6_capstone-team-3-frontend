@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import '../css/messageMatch.css';
 
 function MessageMatch() {
   return (
 <div className="message">
-    <h2>Congratulations! You've Been Matched for the Gift Exchange!</h2>
+    {/* <h1>logo here</h1> */}
+    <h2>
+        <span>Congratulations! <br />You've Been Matched for the Gift Exchange! </span></h2>
     <p>Hi Mozzy, Exciting news! You've been successfully matched for the upcoming Gift Exchange. Now, the joy of gift-giving begins! To help you get started, here's some information about your recipient's preferences:</p>
     <ul>
         <li>Based on the theme, if given carte blanche, the person receiving your gift would like: a bottle of De Venoge Princes Tour Eiffel Champagne</li>
@@ -11,32 +14,34 @@ function MessageMatch() {
         <li>Their favorite color is: cobalt blue</li> 
         <li>They ask that you avoid: any meat</li>
     </ul>
-    <p>
-
-        You will be sending your gift to:
-            17 Cherry Tree Lane
+    <p className='address'> You will be sending your gift to:
+            17 Cherry Tree Lane,
             Phoenix, AZ 85005
-
-
-        Here are the rules:
     </p>
+    <p>Here are the rules:</p>
     <ul>
-        <li>Your gift must be mailed by </li>
-        <li></li>
+        <li>Your gift must be mailed by January 10, 2024</li>
+        <li>Do not send anything sexually explicit</li>
         <li></li>
         <li></li>
         <li></li>
     </ul>
 
-    Important Dates: Your thoughtful gift should be on its way by the SHIPPING DEADLINE on [insert date]. Once you've sent your gift, please click [HERE] to update us with the carrier, date, and tracking information.
-
-Sharing the Joy: When you receive your gift, don't forget to spread the joy! Upload a picture of your received gift to our gallery to confirm its safe arrival.
-
-We hope you have a fantastic time selecting and exchanging gifts. If you have any questions or need assistance, feel free to reach out.
-
-Happy Gifting!
-
-Best Regards, Happiness Exchange
+    <p>
+        Important Dates: Your thoughtful gift should be on its way by the SHIPPING DEADLINE on January 10, 2024. Once you've sent your gift, please click [HERE] to update us with the carrier, date, and tracking information.
+    </p>
+    <p>
+        Sharing the Joy: When you receive your gift, don't forget to spread the joy! Upload a picture of your received gift to our gallery to confirm its safe arrival.
+    </p>
+    <p>
+        We hope you have a fantastic time selecting and exchanging gifts. If you have any questions or need assistance, feel free to reach out.
+    </p>
+    <p>
+        Happy Gifting!
+    </p>
+    <p>
+        Best Regards, Happiness Exchange
+    </p>
 
 </div>
   )
