@@ -49,6 +49,14 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     border: 2px solid #6474ed;
   }
+
+  .navbar-links button:hover {
+    color: #6474ed;
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border: 2px solid #6474ed;
+  }
   
   .navbar-login-link, .navbar-events-link {
     padding: 10px 20px;
@@ -62,6 +70,8 @@
     background: #6474ed;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
+
+
   
   .navbar-events-link {
     background: #6474ed;
