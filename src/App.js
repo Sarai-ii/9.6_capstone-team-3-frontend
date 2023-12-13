@@ -22,6 +22,7 @@ import Profile from './components/PublicProfiles';
 // import UserPictureForm from "./components/UserPictureForm"
 import EventSignUp from "./components/EventSignup"
 // import Header from './components/Header'
+import MessageMatch from "./components/MessageMatch";
 
 function App() {
   return (
@@ -34,7 +35,11 @@ function App() {
           {/* <Header/> */}
           <Routes>
             <Route path="/" element={ <Home />} />
-            <Route path="/about" element = { <About /> } />
+
+            {/* <Route path="/about" element = { <About /> } /> */}
+            {/* SINCE WE DON'T HAVE AN ABOUT PAGE YET, I AM ROUTING THIS HOME FOR NOW */}
+            <Route path="/about" element = { <Home /> } />
+            
             <Route path="/exchanges-proof" element = { <ProofPage />} />
             <Route path="/login" element={<Login />} />
 
@@ -54,6 +59,7 @@ function App() {
             <Route path="/events/:eventId/register" element={<EventSignUp />} />
 
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/match-message" element={ <MessageMatch /> } />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>
