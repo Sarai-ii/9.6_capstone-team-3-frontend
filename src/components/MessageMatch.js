@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/messageMatch.css';
+import '../css/messages.css';
 
 function MessageMatch() {
   return (

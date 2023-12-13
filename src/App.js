@@ -23,6 +23,7 @@ import Profile from './components/PublicProfiles';
 import EventSignUp from "./components/EventSignup"
 // import Header from './components/Header'
 import MessageMatch from "./components/MessageMatch";
+import MessageProof from "./components/MessageProof";
 
 function App() {
   return (
@@ -59,7 +60,8 @@ function App() {
             <Route path="/events/:eventId/register" element={<EventSignUp />} />
 
             <Route path="/gallery" element={<Gallery />} />
-            <Route path="/match-message" element={ <MessageMatch /> } />
+            <Route path="/message-match" element={ <MessageMatch /> } />
+            <Route path="/message-proof" element={ <MessageProof /> } />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>
