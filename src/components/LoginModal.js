@@ -52,7 +52,8 @@ const LoginModal = ({ openModal }) => {
   return (
     <div className="modal-container">
       <div className="modal-content">
-        <span className="close" onClick={openModal}>
+
+        <span id='close-container' className="close" onClick={openModal}>
           &times;
         </span>
 
