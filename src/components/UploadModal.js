@@ -1,15 +1,14 @@
-// ProofPage.js
+//UploadModal.js
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import '../css/proofPage.css';
 
-const ProofPage = () => {
+const UploadModal = ({ isOpen, onRequestClose, onUpload }) => {
   const [selectedFile, setSelectedFile] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [fileUrl, setFileUrl] = useState(null);
   const [altText, setAltText] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+
 
   const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
 
@@ -39,7 +38,8 @@ const ProofPage = () => {
   };
 
   const handleTitleChange = (event) => {
-    setTitle(event.target.value);
+    const newTitle = event.target.value;
+    setTitle(newTitle);
   };
 
   const handleDescriptionChange = (event) => {
@@ -50,16 +50,24 @@ const ProofPage = () => {
     event.preventDefault();
 
     // Validation
-    if (!title.trim()) {
-      alert('Title is required.');
-      return;
-    }
+    // if (!title.trim()) {
+    //   alert('Title is required.');
+    //   return;
+    // }
 
     // Perform the logic with the selected file, alt text, title, and description
     console.log('Title:', title);
     console.log('Description:', description);
     console.log('Selected File:', selectedFile);
     console.log('Alt Text:', altText);
+
+    // Clear the form state
+    setTitle('');
+    setDescription('');
+    setAltText('');
+
+    // Close the modal
+    onRequestClose();
   };
 
   const openUploadModal = () => {
@@ -72,24 +80,16 @@ const ProofPage = () => {
     setSelectedFile(null);
   };
 
+
   return (
-    <div className='proof-page'>
-      <h1>Upload a picture of your gift</h1>
-      <p>Make sure that your gifter gets credit for sending you a gift!</p>
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      contentLabel="Upload Modal"
+    >
+      <div className='form'>
+        <form onSubmit={onUpload} encType="multipart/form-data">
 
-
-      <button className="button" onClick={openUploadModal}>Open Upload Modal</button>
-
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeUploadModal}
-        contentLabel="Upload Modal"
-      >
-
-
-
-        <div className='form'>
-          <form onSubmit={handleUpload} encType="multipart/form-data">
           <p>Make sure that your gifter gets credit for sending you a gift!</p>
             <div className="form-group">
               <label htmlFor="title">Title</label>
@@ -142,99 +142,11 @@ const ProofPage = () => {
               </div>
             )}
             <button className="button" type='submit'>Upload</button>
-          </form>
-        </div>
-        <button className="button" onClick={closeUploadModal}>Close Modal</button>
-      </Modal>
-    </div>
+        </form>
+      </div>
+      <button className="button" onClick={onRequestClose}>Close Modal</button>
+    </Modal>
   );
 };
 
-export default ProofPage;
-
-
-/*
-
-const ProofPage = () => {
-
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [fileUrl, setFileUrl] = useState(null);
-  const [altText, setAltText] = useState('');
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-
-
-
-    // Read and display a thumbnail preview of the selected image
-      if (file) {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          setFileUrl(reader.result);
-        };
-        reader.readAsDataURL(file);
-      }
-    };
-
-  //   // Display the selected image
-  //   const url = URL.createObjectURL(file);
-  //   setFileUrl(url);  
-  // };
-  };
-
-  return (
-    <div className='proof-page'>
-      <h1>Hurrah, Your Gift Arrived!</h1>
-      <p>Take a picture to give credit where credit is due.</p>
-
-        <div className='form'>
-            <form onSubmit={handleUpload} encType="multipart/form-data">
-            <div className='form-group'>
-                <label htmlFor="title">Title:</label>
-                <input
-                  type="text"
-                  id="title"
-                  placeholder="Enter Title"
-                  value={title}
-                  onChange={handleTitleChange}
-                  required
-                />               
-              </div>
-              <div className="form-group">
-                <label htmlFor="description">Description:</label>
-                <textarea
-                  id="description"
-                  placeholder="Enter Description"
-                  value={description}
-                  onChange={handleDescriptionChange}
-                  rows="7"
-                />
-              </div>
-              <div className='form-group'>
-                <label htmlFor="file">Upload Image:</label>
-                <input type="file" id="file" onChange={handleFileChange} />
-              </div>
-              {fileUrl && (
-                <div>
-                  <h2>Selected Image:</h2>
-                  <img src={fileUrl} alt={altText} />
-                  <div className='form-group'>
-                    <label htmlFor="altText">Alt Text:</label>
-                    <input
-                      type="text"
-                      id="altText"
-                      placeholder="Enter Alt Text"
-                      value={altText}
-                      onChange={handleAltTextChange}
-                    />                    
-                  </div>
-                </div>
-              )}
- 
-              <button className="button" type='submit'>Upload</button>
-            </form>
-        </div>
-    </div>
-  );
-};
-
-*/
+export default UploadModal;

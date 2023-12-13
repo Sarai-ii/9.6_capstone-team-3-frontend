@@ -1,0 +1,62 @@
+
+body{
+    background-color: #e8effc;
+}
+
+.bold{
+    font-weight: bold;
+}
+.message {
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    position: relative;
+    align-content: flex-start;
+    text-align: left;
+    padding: 20px;
+    background: #fff; /* Set a white background */
+    border: 2px solid #ccc; /* Add a border for a note-like border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    /* border-top:15px solid #276BE5;
+    border-bottom:15px solid #276BE5; */
+}
+
+
+h2 {
+    padding: 44px 0;
+    text-align: center;
+    color: #276BE5;
+}
+
+  .message ul {
+    text-align: left;
+    align-content: flex-start;
+  }
+  
+.message-list li {
+      margin-bottom: 10px;
+}
+
+.logo-for-message{
+    background:url(../images/HELogo.svg);
+  }
+  
+
+.address {
+    margin: 0 30% 5%;
+}
+  
+/* Add a footer-like style for the last paragraph */
+.message p:last-child {
+    margin-top: 20px; 
+    font-weight: bold; 
+    color: #555; /* Adjust the color as needed */
+  }
+  
+/* Add media query for responsiveness */
+@media (max-width: 768px) {
+    .message {
+      width: 90%;
+    }
+}
+
