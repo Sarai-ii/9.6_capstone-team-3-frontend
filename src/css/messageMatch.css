@@ -1,62 +1,62 @@
 
+body{
+    background-color: #e8effc;
+}
 
-/* * {
-    box-sizing: border-box;
-  } */
-  
-
-/*   
-  body {
-    margin: 0;
-    background: #ccc;
-  } */
-  
-  .message {
-    width: 210mm;
-
+.bold{
+    font-weight: bold;
+}
+.message {
+    width: 80%;
+    max-width: 600px;
     margin: 20px auto;
     position: relative;
     align-content: flex-start;
     text-align: left;
-  }
-  
-  address {
-    position: absolute;
-    bottom: 8mm;
-    right: 20mm;
-  }
-  
-  h1 {
-    top: 12mm;
-    left: 20mm;
-    width: 128px;
-    height: 128px;
-    font-size: 20px;
-    letter-spacing: 1px;
-    text-align: center;
-    padding: 44px 0;
+    padding: 20px;
+    background: #fff; /* Set a white background */
+    border: 2px solid #ccc; /* Add a border for a note-like border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    /* border-top:15px solid #276BE5;
+    border-bottom:15px solid #276BE5; */
+}
 
 
-    text-shadow: 1px 1px 1px black;
-  }
-
-  h2 {
+h2 {
     padding: 44px 0;
     text-align: center;
-  }
-  
-  /* Your CSS below here */
-  .message {
+    color: #276BE5;
+}
 
-    
-    /* background: 0 100% local, linear-gradient(to bottom, rgba(39, 117, 229, .9), #fff 20%, #fff 80%, rgba(219, 233, 251, .1 )); */
-  
-    border-top:15px solid #276BE5;
-    border-bottom:15px solid #276BE5;
+  .message ul {
+    text-align: left;
+    align-content: flex-start;
   }
   
-  h1{
+.message-list li {
+      margin-bottom: 10px;
+}
+
+.logo-for-message{
     background:url(../images/HELogo.svg);
-
-    
   }
+  
+
+.address {
+    margin: 0 30% 5%;
+}
+  
+/* Add a footer-like style for the last paragraph */
+.message p:last-child {
+    margin-top: 20px; 
+    font-weight: bold; 
+    color: #555; /* Adjust the color as needed */
+  }
+  
+/* Add media query for responsiveness */
+@media (max-width: 768px) {
+    .message {
+      width: 90%;
+    }
+}
+
