@@ -1,36 +1,46 @@
 //UploadModal.js
 import React, { useState } from 'react';
+import firebase from 'firebase/app';
+import 'firebase/storage';
 import Modal from 'react-modal';
 
 const UploadModal = ({ isOpen, onRequestClose, onUpload }) => {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [isUploading, setIsUploading] = useState(false);
   const [fileUrl, setFileUrl] = useState(null);
   const [altText, setAltText] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
 
-  const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
+  const MAX_FILE_SIZE_MB = 5 * 1024 * 1024; // 5 MB
+  const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
+    try {
+        if (file && file.size > MAX_FILE_SIZE_BYTES) {
+            throw new Error ('File size exceeds the maximum limit of ${MAX_FILE_SIZE_MB} MB. Please choose a smaller file.');
+        }
+        
+        setSelectedFile(file);
 
-    if (file && file.size > MAX_FILE_SIZE) {
-      alert('File size exceeds the maximum limit of 5 MB. Please choose a smaller file.');
-      event.target.value = null; // Clear the file input
-      return;
+        // Read and display a thumbnail preview of the selected image
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+            setFileUrl(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    } catch (error) {
+        console.error('File size validation failed:', error.message);
+        alert(error.message);
+        event.target.value = null; // Clear the file input
     }
 
-    setSelectedFile(file);
 
-    // Read and display a thumbnail preview of the selected image
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFileUrl(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
+
   };
 
   const handleAltTextChange = (event) => {
@@ -46,8 +56,10 @@ const UploadModal = ({ isOpen, onRequestClose, onUpload }) => {
     setDescription(event.target.value);
   };
 
-  const handleUpload = (event) => {
+  const handleUpload = async (event) => {
     event.preventDefault();
+    setIsUploading(true);
+
 
     // Validation
     // if (!title.trim()) {
