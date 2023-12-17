@@ -36,15 +36,11 @@ function App() {
           {/* <Header/> */}
           <Routes>
             <Route path="/" element={ <Home />} />
-
-            {/* <Route path="/about" element = { <About /> } /> */}
-            {/* SINCE WE DON'T HAVE AN ABOUT PAGE YET, I AM ROUTING THIS HOME FOR NOW */}
-            <Route path="/about" element = { <Home /> } />
-            
+            <Route path="/about" element = { <About /> } />
             <Route path="/exchanges-proof" element = { <ProofPage />} />
             <Route path="/login" element={<Login />} />
 
-            {/* USERS CURD NEW-SHOW-EDIT-INDEX*/}
+            {/* USERS CRUD NEW-SHOW-EDIT-INDEX*/}
             <Route path="/signup" element={<Signup />} />
             {/* <Route path="/create-profile" element={<CreateProfile />} /> */}
             <Route path="/profile/:userId" element={<Profile />} />
