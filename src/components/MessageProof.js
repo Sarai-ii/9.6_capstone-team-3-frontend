@@ -8,7 +8,6 @@ function MessageProof() {
     const [selectedFile, setSelectedFile] = useState(null);
     const [uploadSuccess, setUploadSuccess] = useState(false); 
 
-
   const openUploadModal = () => {
     setIsModalOpen(true);
   };
@@ -19,23 +18,13 @@ function MessageProof() {
     setUploadSuccess(false); 
   };
 
-
-            //    JENNIFER - RETURN HERE: take success out of handle upload
   const handleUpload = (event) => {
     event.preventDefault();
 
-          //    JENNIFER - RETURN HERE: to add validations
-    // // Validation
-    // if (!title.trim()) {
-    //   alert('Title is required.');
-    //   return;
-    // }
-
-    // Perform the logic with the selected file, alt text, title, and description
-    console.log('Title:', title);
-    console.log('Description:', description);
+    console.log('Title:', title.value);
+    console.log('Description:', description.value);
     console.log('Selected File:', selectedFile);
-    console.log('Alt Text:', altText);
+    console.log('Alt Text:', altText.value);
 
     // Replace this with your actual logic
 
@@ -43,7 +32,6 @@ function MessageProof() {
       setUploadSuccess(true); // Set upload success status
       alert('Success!');
       window.location.href = '/';
-      //    JENNIFER - RETURN HERE
     }    
     closeUploadModal();
   };
