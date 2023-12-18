@@ -25,8 +25,8 @@
     width: auto;
 }
 
-
 .future-img{
+    border: 1px solid #FFFAEB;
     border-radius: 20px;
     box-shadow: 12px 12px 2px 1px rgba(88, 24, 1, 0.2);
     margin: 10px 20px 20px 10px;
@@ -239,6 +239,7 @@
 /* Classes in Current Event JS */
 
 .current-img{
+    border: 2px solid #FFFAEB;
     border-radius: 20px;
     box-shadow: 1px 1px 2px 2px rgba(26, 22, 20, 0.246);
     max-height: 600px;
@@ -254,43 +255,33 @@
     max-height: 600.5px;
 }
 .container{
-    /* margin: 10px; */
     position: relative;
     text-align: center;
-    /* color: white; */
+}
+.join-container{
+    display: flex;
+    justify-content: center;
 }
 .join-now {
-    background-color: #6474edaa;
-    border: 1px solid #E8EFFC;
-    border-radius: 20px;
-    color: #E8EFFC;
-    font-family: 'DM serif display';
+    background-color: #ED6495;
+    border: 2px solid #FFFAEB;
+    border-radius: 30px;
+    color: #fff;
+    /* font-family: 'DM serif display'; */
     font-size: 40px;
     font-weight: 600;
-    left: 50%;
-    letter-spacing: 3px;
-    padding: 10px 20px 20px 20px;
-    position: absolute;
+    letter-spacing: 2px;
+    margin: 10px 10px 20px 10px;
+    padding: 10px 20px;
     text-decoration: none;
-    top: 50%;
-    transform: translate(-50%, -55%);
 }
 .join-now:hover{
-    background-color: #e8effcd4;
-    border: 1px solid #6474ED;
-    border-radius: 20px;
-    color: #6474ED;
+    background-color: #fff;
+    color: #ED6495;
     font-size: 45px;
-    font-weight: 600;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -55%);
 }
 .join-now:focus{
-    background-color: #6474ED;
-    border-radius: 20px;
-    color: #E8EFFC;
+    color: #000;
 }
 
 .description-CE-container{
@@ -302,12 +293,6 @@
     margin: 8px 85px 5px 85px;
     padding: 35px;
     word-spacing: 1px;
-}
-.description-CE-container:hover{
-    background-color: #ffffffc5;
-    box-shadow: 1px 1px 2px 2px rgb(146, 140, 138);
-    cursor:default;
-    margin: 7px 85px 7px 85px;
 }
 .description{
     color: #000;
@@ -364,8 +349,7 @@
 .collapse-toggle:hover {
     color: #000;    
     cursor: pointer;
-    font-size: 25px;
-    text-shadow: 0 1px 1px rgba(190, 88, 121, 0.492);    
+    font-size: 23.2px;
 }
 
 .details-CEheader{
@@ -423,11 +407,6 @@
         padding: 10px;
         word-spacing: 3px;
     }
-    .description-CE-container:hover{
-        margin: 8px;
-        padding: 10px;
-        word-spacing: 3px;
-    }
     .description{
         margin: 5px;
     } 
@@ -444,35 +423,11 @@
         text-align: start;
     }
     .join-now {
-        background-color: #e8effcd4;
-        border: 1px solid #6474ED;
-        border-radius: 20px;
-        color: #6474ED;
         font-size: 25px;
-        font-weight: 600;
-        left: 50%;
-        padding: 5px;
-        position: absolute;
-        text-decoration: none;
-        top: 50%;
-        transform: translate(-50%, -55%);
     }
     .join-now:hover{
-        background-color: #6474edbd;
-        border-radius: 20px;
-        color: #E8EFFC;
-        font-size: 29px;
-        font-weight: 600;
-        left: 50%;
-        padding: 5px;
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -55%);
+        font-size: 25px;
     }
-    .join-now:focus{
-        background-color: #276BE5;
-        color: #E8EFFC;
-    } 
 }
 @media (min-width: 1000px) and (max-width: 1400px) {
     .current-img{
@@ -482,11 +437,11 @@
         /* object-fit: cover; */
         max-width: 900px;
     }
-    
     .current-img:hover{
         max-height: 600px;
         max-width: 900px;
     }
+
     .timeline {
         color: #6474ED;
         font-size: 19px;
@@ -533,14 +488,13 @@
         font-size: 30px;
     }
     .join-now:hover{
-        font-size: 34px;
+        font-size: 32px;
     }
 }
 
 /* Events Sign Up */
 
 .event-signup-container {
-    
     align-items: start;
     background: linear-gradient(
         to top, 
@@ -614,7 +568,9 @@
     font-size: 22px;
     margin: 20px;
 }
-#clothes{
+#shirt_size,
+#pants_size,
+#shoe_size{
     width: 70px;
 }
 #budget{
@@ -622,58 +578,34 @@
 }
 
 .welcome, .welcome-2{
+    color:#E8EFFC;
     font-size: 47px;
     margin: 10px;
-}
-.welcome{
-    color:#E8EFFC;
-}
-
-.conclusion{
-    font-size: 20px;
-    margin: 20px 2px 20px 2px;
-
 }
 .intro-container {
     display: flex;
     /* align-items: center; */
 }
 
-.terms-container{
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    margin-left: 80px;
-    margin-bottom: 30px;
-}
-#terms-checkbox{
-    height: 20px;
-    margin: 0px;
-    padding: 10px;
-    width: 20px;
-}
-#terms-text{
-    color: #000000;
-    font-weight: 500;
-}
+
 .rules-container{
-    /* text-indent: 20px; */
-    /* max-width: 500px; */
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
 }
 .rules-h3{
     color:#276BE5;
     font-weight: 500;
-    margin: 20px;
-    text-decoration: underline;
+    margin: 1 1 5px 1;
 }
 .rules-every{
-    color: black;
-    font-weight: 600;
+    font-weight: 700;
+    text-decoration: underline;
 }
 .rules-not{
-    color: red;
+    color:#276BE5;
+    font-weight: 700;
     text-decoration:underline;
-    font-weight: 600;
 }
 .rules{
     color:#000;
@@ -682,6 +614,27 @@
     list-style: decimal;
     margin-left: 40px;
     max-width: 80%;
+    /* text-indent: 20px; */
+}
+.terms-container{
+    align-items: start;
+    display: inline-block;
+    /* justify-content: start; */
+    /* margin-left: 80px; */
+    margin-bottom: 10px;
+    /* vertical-align: top; */
+
+}
+#terms-checkbox{
+    height: 20px;
+    /* margin: 0px; */
+    /* padding: 10px; */
+    /* vertical-align: top; */
+    width: 20px;
+}
+#terms-text{
+    color: #000000;
+    font-weight: 500;
 }
 
 .confirm {
@@ -692,16 +645,15 @@
     /* padding: 10px 20px 10px 20px; */
     width: auto;
 }
-@media screen and (max-width: 800px) {
-    .rules-h3{
-        color:#000000;
-    }
+
+.conclusion{
+    font-size: 20px;
+    margin: 20px 2px 20px 2px;
+
 }
+@media screen and (max-width: 800px) {
 
-  
-
-
-
+}
 
 /*
 BRAND COLORS

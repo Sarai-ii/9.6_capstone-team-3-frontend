@@ -1,6 +1,6 @@
 // DEPENDENCIES
 import axios from 'axios';
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
 import { auth } from '../firebaseConfig';
 // import { initializeApp } from 'firebase/app';
@@ -11,79 +11,68 @@ import "../css/Events.css"
 const API = process.env.REACT_APP_API_URL;
 
 
-export default function EventSignUp({ onCloseModal }) {
-
-    const { userId } = useParams();
+export default function EventSignUp() {
+    const { userId, eventId} = useParams();
     let navigate = useNavigate();
-    
-    const [showModal, setShowModal] = useState(false)
+    let userUid;
     const [user, setUser] = useState()
     const [showDetails, setShowDetails] = useState(false);
     const [selectedOption, setSelectedOption] = useState('');
     const [showConfirmation, setShowConfirmation] = useState(false)
     const [userData, setUserData] = useState({
         budget: 0,
-        favorite_color: [''], 
-        category: '',
+        favorite_color: [], 
         shirt_size: '', 
         pants_size: '',
         shoe_size: '',
-        gifts_avoid: '',
         preferred_category: '', 
         preferred_gift: '', 
         gifts_avoid :'',
-        events_joined: [''],
+        events_joined: [],
     });
-   
+        
     // I can't continue with updating values until I have a user authentication status or trigger - done
     //UPDATE
-    const userEventRegistration = (updatedUser) => {
-        axios.put(`${API}/users/${userId}`, updatedUser)
-        .then(
-            () => {
-                console.log(userData)
-                navigate(`/profile/${userId}`)
-            },
-            (error) => console.error(error)
-        )
-        .catch((c) => console.warn("catch", c));
+    const userEventRegistration = async (updatedUser) => {
+        try{
+            const response = await axios.put(`${API}/users/${userId}`, updatedUser)
+            console.log(`API Response:`, response.data)
+            console.log(response)
+            return response
+            // navigate(`/profile/${response.data.userId}`)
+        } catch(error) {
+            console.error(error)
+            throw error
+        }
     }
 
-    // useEffect(() => {
-    //     const unsubscribe = auth.onAuthStateChanged((user) => {
-    //         if (user) {
-    //             const userId = user.uid;
-    //             setUser(userId)
-    //         axios.get(`${API}/users/${userId}`).then(
-    //             (response) =>{ 
-    //                 console.log(user)
-    //                 navigate(`profile/${userId}`)
-    //                 // setUser(response.data.userId)
-    //             },
-    //             (error) => {
-    //                 console.log(userId)
-    //                 console.error(' Error fetching user data:', error)
-    //                 navigate(`/not-found`)
-    //             }
-    //         )} else {
-    //             setUser(null)
-    //         }
-    //     })
-    //     return () => unsubscribe()
-    // }, [navigate]);    
+    useEffect(() => {
+                const unsubscribe = auth.onAuthStateChanged((user) => {
+                    if (user) {
+                        console.log(user);
+                        console.log(user.uid);
+                        userUid = user.uid;
+                        console.log(eventId)
+                    } else {
+                        setUser(null);
+                        // resolve(null);
+                    }
+                });
+                return () => unsubscribe();
+            // }) 
+        // }
+        // fetchData()
+    }, [navigate, eventId]);  
     
     const handleInputChange = (event) => {
         const { id, value } = event.target;
         if (id === 'favorite_colors') {
-            // Split the input value into an array using a delimiter (e.g., comma or space)
-            const colorsArray = value
-            .split(',')
-            .map(color => color.trim())
-            .filter(Boolean)
+            const colorsArray = value.split(',').map(color => color.trim()).filter(String)
             setUserData((prevUserData) => ({ ...prevUserData, favorite_colors: colorsArray }))
-        } else {
+        }else {
             setUserData((prevUserData) => ({ ...prevUserData, [id]: value }));
         }
+        console.log('id:', id, 'value:', value)
     };
 
     const handleOptionChange = (event) => {
@@ -92,39 +81,38 @@ export default function EventSignUp({ onCloseModal }) {
         handleInputChange(event);
     };
   
-    const handleConfirmation = () => {
-      if (selectedOption === 'Yes') {
-        alert("Please be advised that we try our best to ensure gifts are based on the desires of the reciever but sometimes there are chances of being gifted an item you already own. As this may not be desired, it is reality and therefore we require that everyone who joins any event understand and accept this possibility to be able to join. If you don't mind please change your response to 'No'.");
-        // setShowConfirmation(showConfirmation)
-        } else if (Object.values(userData).every(value => value !== '')) {
-            const updatedEventsJoined = [...userData.events_joined, userData.eventId];
-            setUserData((prevUserData) => ({ ...prevUserData, events_joined: updatedEventsJoined }));
-            setShowConfirmation(!showConfirmation);
-            onCloseModal()
-        };
-        userEventRegistration(userData);
+    const handleConfirmation = async (event) => {
+        event.preventDefault()
+        try{
+            console.log("Selected Option:", selectedOption);
+            console.log("User Data:", userData);
+            if (selectedOption === 'Yes') {
+                alert("Please be advised that we try our best to ensure gifts are based on the desires of the reciever but sometimes there are chances of being gifted an item you already own. As this may not be desired, it is reality and therefore we require that everyone who joins any event understand and accept this possibility to be able to join. If you don't mind please change your response to 'No'.");
+                // setShowConfirmation(showConfirmation)
+            } else if (Object.values(userData).every(value => value !== '')) {
+                const updatedEventsJoined = [...userData.events_joined, userData.eventId];
+                setUserData((prevUserData) => ({ ...prevUserData, events_joined: updatedEventsJoined }));
+                setShowConfirmation(!showConfirmation);
+                console.log("Submitting User Data:", userData);
 
+                await userEventRegistration(userData);
+
+                console.log("Submitted successfully");
+            };
+        } catch(error){
+            console.error(`Error Submitting`, error)
+        } 
     }
-    // const handleCloseModal = () => {
-    //     // Check if onCloseModal is defined before calling it
-    //     // onCloseModal && onCloseModal();
-    //     // navigate(  `/events`)
-    //     console.log(`closing modal`)
-    //     setShowModal(false);
-    //   };
 
     const handleIconClick = () => {
         setShowDetails(!showDetails);
     };
     
     return (
-        <div className={`event-signup-container overlay ${showModal ? 'show' : ''}`}>
+        <div className='event-signup-container'>
         <div className=''>
-            <button className="close-button" onClick={onCloseModal}>
-            X
-            </button>
-            <h1 className='welcome'>You're One Step Away From...</h1>
-            <h1 className='welcome-2'>Making Someone Feel Special  </h1>
+            <h1 className='welcome'>You're One Step Away From,</h1>
+            <h1 className='welcome-2'>Making Someone Feel Special!  </h1>
         </div>
         <div className='intro-container '>
             <h2 className='section-header'>Thank you for joining this event, before you can register; please complete the form. </h2>
@@ -146,32 +134,34 @@ export default function EventSignUp({ onCloseModal }) {
         )}
         
         <form className='signup-form'>
-            <label htmlFor="likes"> Based on the theme, if you could choose- what gift would you desire most? (Be specific): </label>
-            <input type="text" id="likes" onChange={handleInputChange} required/>
+            <label htmlFor="preferred_gift"> Based on the theme, if you could choose- what gift would you desire most? (Be specific): </label>
+            <input type="text" id="preferred_gift" onChange={handleInputChange} value={userData.preferred_gift} required/>
             <br />
             <label htmlFor="gifts_avoid"> Based on the theme, if you could choose- what gift should your match avoid?(Be specific):</label>
-            <input type="text" id="gifts_avoid" onChange={handleInputChange} required/>
+            <input type="text" id="gifts_avoid" onChange={handleInputChange} value={userData.gifts_avoid} required/>
             <br />
-            <label htmlFor="budget"> What is your gift giving budget?</label>
-            <input type="number" id="budget" onChange={handleInputChange} required/>
+            <label htmlFor="budget"> What's your gift giving budget?</label>
+            <input type="number" id="budget" onChange={handleInputChange} value={userData.budget} required/>
             <br />
-            <label htmlFor="color"> What's your favorite color?:</label>
-            <input type="text" id="color"  onChange={handleInputChange} required/>
+            <label htmlFor="favorite_color"> What's your favorite color?:</label>
+            <input type="text" id="favorite_color"  onChange={handleInputChange} value={userData.favorite_color} required/>
             <br />
-            <label htmlFor="category"> Based on the theme, what category most interests you?(ie: "candy", "tech", "clothes" ):</label>
-            <input type="text" id="category" onChange={handleInputChange} required/>
+            <label htmlFor="preferred_category"> Based on the theme, what category most interests you?(ie: "candy", "tech", "clothes" ):</label>
+            <input type="text" id="preferred_category" onChange={handleInputChange} value={userData.preferred_category} required/>
             <br />
-            <label htmlFor="clothes" > If applicable, what are your clothing sizes? 
+            <label htmlFor="clothes" > If applicable, 
             <br />
-            <label htmlFor="clothes">Shirt Size:</label>
-            <input type="text" id="shirt"/>
-            {/* <br /> */}
-            <label htmlFor="clothes">Pants Size:</label>
-            <input type="text" id="pants"/>
-            <label htmlFor="clothes">Shoes Size:</label>
-            <input type="text" id="shoes"/>
+                <label htmlFor="shirt_size">Shirt Size:
+                <input type="text" id="shirt_size" onChange={handleInputChange} value={userData.shirt_size}/>
+                </label>
+                <label htmlFor="pants_size">Pants Size:
+                <input type="text" id="pants_size" onChange={handleInputChange} value={userData.pants_size}/>
+                </label>
+                <label htmlFor="shoe_size">Shoes Size:
+                <input type="text" id="shoe_size" onChange={handleInputChange} value={userData.shoe_size}/>
+                </label>
+            <br />
             </label>
-            <br />
             <label htmlFor="duplicate"> Do you mind receiving an item or version of an item that you already own? 
                 <select id="duplicate" value={selectedOption} onChange={handleOptionChange} required>
                     <option value=""></option>
@@ -188,18 +178,18 @@ export default function EventSignUp({ onCloseModal }) {
                 <li className='rules'><span className='rules-not'>NOT</span> by any means, are you allowed to contact users requesting gifts. <span className='rules-not'>NOR</span> is revealing gifts prior to unboxing acceptable!</li>
             </ul>
             <div className='terms-container'>
-                <input type="checkbox" id="terms-checkbox" required/>
-                <label htmlFor="terms-checkbox" id='terms-text'>Do You Agree To The Terms?</label>
+                <label htmlFor="terms-checkbox" id='terms-text'>
+                <input type="checkbox" id="terms-checkbox" required /> Do You Agree To The Terms? </label>
                 <br />
                 <button className="confirm button" onClick={handleConfirmation} >Confirm</button>
             </div>
         </form>
-        {showConfirmation && (
-            <div className='conclusion'>
-                <h2 className='concluson-h2'>Form is complete, you've been added to the event. </h2>
-                <h3 className='conclusion-h3'>Check you messages and notification in the app for updates.</h3>
-            </div>
-        )}
+            {showConfirmation && (
+                <div className='conclusion'>
+                    <h2 className='concluson-h2'>Form is complete, you've been added to the event. </h2>
+                    <h3 className='conclusion-h3'>Check you messages and notification in the app for updates.</h3>
+                </div>
+            )}
         <div className=''>
         </div>
     </div>

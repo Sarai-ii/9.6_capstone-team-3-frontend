@@ -1,29 +1,20 @@
-// DEPENDENCIES 
-// import axios from "axios";
-import {useState, useEffect, useCallback, useRef } from "react"
+//DEPENDENCIES 
+import axios from "axios";
+import {useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom";
-
-// COMPONENTS
-import EventSignUp from "./EventSignup";
-import Modal from '../pages/Modal'
-
-// STYLING
+//STYLING
 import "../css/Events.css"
 
 export default function CurrentEvent({event}) {
-
-  const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate()
-  const modalContainerRef = useRef(null);
+  
   const eventId = event.id
-
   const signup = event.open_date.split('T')[0].split("-")
   const close = event.close_date.split('T')[0].split("-")
   const match = event.match_date.split('T')[0].split("-")
   const ship = event.shipping_deadline.split('T')[0].split("-")
   const year = event.open_date.split("T")[0].slice(0,4)
   const closeDate = new Date(event.close_date).getTime();
-  // console.log(closeDate)
+
 
   const calculateCountDown = () => {
     const today = new Date().getTime();
@@ -39,7 +30,7 @@ export default function CurrentEvent({event}) {
     // console.log(event.id)
     return () => clearInterval(intervalId);
   }, []);
-
+  
   const formatCountDown = (countdown) => {
     if (countdown < 0) {
       return 'Countdown Expired!';
@@ -50,39 +41,6 @@ export default function CurrentEvent({event}) {
     const seconds = Math.floor((countdown % (1000 * 60)) / 1000);
     return `${days}d ${hours}h ${minutes}m ${seconds}s`;
   };
-    
-  const openModal = () => {
-    setShowModal(true)
-  }
-  const closeModal = () => {
-    console.log('Closing modal...');
-    setShowModal(false);
-  };
-
-  const onCloseModal = useCallback(() => {
-    console.log('Closing modal...');
-    closeModal();
-    console.log('Navigating back to event page...');
-    navigate(`/events`);
-
-  }, [closeModal, event.id, navigate]);
-// Outside click to Close 
-
-const handleOutsideClick = (event) => {
-  if (modalContainerRef.current && !modalContainerRef.current.contains(event.target)) {
-    closeModal();
-  }
-}
-
-useEffect(() => {
-  // Add event listener for clicks outside the modal
-  document.addEventListener('click', handleOutsideClick);
-
-  // Cleanup the event listener when the component unmounts
-  return () => {
-    document.removeEventListener('click', handleOutsideClick);
-  };
-}, []);
   return (
     <div className="" >
       <div className="container">
@@ -90,19 +48,8 @@ useEffect(() => {
         src={event.image_url}
         alt={event.title}>
         </img>
-        {/* <div className="">
-          <Link to={`/events/${eventId}/register`} className="open-modal join-now">REGISTER TO <br/> JOIN THIS EVENT</Link>
-        </div> */}
-      </div>
-      <div>
-        <button className={`join-now`} onClick={openModal}>Register To Join Event</button>
-        { showModal && (
-          <div className="modal-overlay" ref={modalContainerRef}>
-            <div className="modal-content">
-              <EventSignUp onCloseModal={closeModal} />
-            </div>
-          </div>
-        )}
+       <div className="join-container">
+          <Link to={`/events/${eventId}/register`} className="join-now">Register Here</Link></div>
       </div>
       <div className="description-CE-container">
         <h5 className="description-price-title"><span className="price-title">Minimum Spend:</span><span className="price">${event.minimum_spend}</span></h5>
