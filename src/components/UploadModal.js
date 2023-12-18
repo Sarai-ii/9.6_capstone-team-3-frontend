@@ -1,8 +1,10 @@
 //UploadModal.js
 import React, { useState } from 'react';
-import firebase from 'firebase/app';
 import 'firebase/storage';
 import Modal from 'react-modal';
+import '../css/uploadModal.css'
+
+Modal.setAppElement('#root'); //this is so accessibility readers can read the modal
 
 const UploadModal = ({ isOpen, onRequestClose, onUpload }) => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -38,9 +40,6 @@ const UploadModal = ({ isOpen, onRequestClose, onUpload }) => {
         alert(error.message);
         event.target.value = null; // Clear the file input
     }
-
-
-
   };
 
   const handleAltTextChange = (event) => {
@@ -56,53 +55,21 @@ const UploadModal = ({ isOpen, onRequestClose, onUpload }) => {
     setDescription(event.target.value);
   };
 
-  const handleUpload = async (event) => {
-    event.preventDefault();
-    setIsUploading(true);
-
-
-    // Validation
-    // if (!title.trim()) {
-    //   alert('Title is required.');
-    //   return;
-    // }
-
-    // Perform the logic with the selected file, alt text, title, and description
-    console.log('Title:', title);
-    console.log('Description:', description);
-    console.log('Selected File:', selectedFile);
-    console.log('Alt Text:', altText);
-
-    // Clear the form state
-    setTitle('');
-    setDescription('');
-    setAltText('');
-
-    // Close the modal
-    onRequestClose();
-  };
-
-  const openUploadModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeUploadModal = () => {
-    setIsModalOpen(false);
-    // Optionally, you can clear the selected file and any other form state here
-    setSelectedFile(null);
-  };
-
 
   return (
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       contentLabel="Upload Modal"
+      appElement={document.getElementById('root')} //setting the app element to fix ARIA warning
     >
+    <button className='close-button' onClick={onRequestClose}>
+        <span aria-hidden="true">&times;</span>
+    </button>
       <div className='form'>
         <form onSubmit={onUpload} encType="multipart/form-data">
 
-          <p>Make sure that your gifter gets credit for sending you a gift!</p>
+          <h2 className='top-row'>Show everyone what you got!</h2>
             <div className="form-group">
               <label htmlFor="title">Title</label>
               <input
@@ -125,13 +92,12 @@ const UploadModal = ({ isOpen, onRequestClose, onUpload }) => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="file">Upload Image</label>
               <input type="file" id="file" onChange={handleFileChange} />
             </div>
             {selectedFile && (
-              <div>
+              <div className='thumbnail'>
                 <h2>Thumbnail Preview:</h2>
-                <img src={fileUrl} alt={altText} className="thumbnail" />
+                <img src={fileUrl} alt={altText} className="thumbnail-image" />
                 <div className="form-group">
                   <label htmlFor="altText">
                     Alt Text
@@ -153,12 +119,37 @@ const UploadModal = ({ isOpen, onRequestClose, onUpload }) => {
                 </div>
               </div>
             )}
-            <button className="button" type='submit'>Upload</button>
+            <button className="button button-right" type='submit'>Upload</button>
         </form>
       </div>
-      <button className="button" onClick={onRequestClose}>Close Modal</button>
     </Modal>
   );
 };
 
 export default UploadModal;
+
+/* DELETED CODE. GET RID OF IF THE APP WORKS WIHOUT IT 
+  const handleUpload = async (event) => {
+    event.preventDefault();
+    setIsUploading(true);
+
+    // Clear the form state
+    setTitle('');
+    setDescription('');
+    setAltText('');
+
+    // Close the modal
+    onRequestClose();
+  };
+
+    const openUploadModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeUploadModal = () => {
+    setIsModalOpen(false);
+    // Optionally, you can clear the selected file and any other form state here
+    setSelectedFile(null);
+  };
+
+  */

@@ -13,7 +13,7 @@ import Gallery from './pages/Gallery';
 import PageNotFound from "./pages/PageNotFound"; 
 import Users from './pages/usersIndex';
 import AllEvents from './pages/AllEvents';
-import ProofPage from "./pages/ProofPage";
+// import ProofPage from "./pages/ProofPage";
 // import CurrentEvent from './pages/CurrentEvent';
 // COMPONENTS
 import Navbar from './components/Navbar';
@@ -37,14 +37,12 @@ function App() {
           <Routes>
             <Route path="/" element={ <Home />} />
             <Route path="/about" element = { <About /> } />
-            <Route path="/exchanges-proof" element = { <ProofPage />} />
             <Route path="/login" element={<Login />} />
 
             {/* USERS CRUD NEW-SHOW-EDIT-INDEX*/}
             <Route path="/signup" element={<Signup />} />
             {/* <Route path="/create-profile" element={<CreateProfile />} /> */}
             <Route path="/profile/:userId" element={<Profile />} />
-
             <Route path="/account/:userId/edit" element={<Account />} />
             <Route path="/users/" element={<Users />} />
 
@@ -58,6 +56,7 @@ function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/message-match" element={ <MessageMatch /> } />
             <Route path="/message-proof" element={ <MessageProof /> } />
+            {/* <Route path="/exchanges-proof" element = { <ProofPage />} /> */}
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>

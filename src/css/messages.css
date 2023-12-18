@@ -22,13 +22,13 @@ body{
 }
 
 
-h2 {
+.message h2 {
     padding: 44px 0;
     text-align: center;
     color: #276BE5;
 }
 
-  .message ul {
+.message ul {
     text-align: left;
     align-content: flex-start;
   }
@@ -41,7 +41,6 @@ h2 {
     background:url(../images/HELogo.svg);
   }
   
-
 .address {
     margin: 0 30% 5%;
 }
