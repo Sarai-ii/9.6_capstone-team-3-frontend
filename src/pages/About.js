@@ -3,7 +3,7 @@ import '../css/about.css'
 import SaraiPic from "../images/Pursuit_ST.jpg";
 import JenniferPic from "../images/Jennifer Einstein_2022_Pursuit_a copy.jpg";
 import JoanavelPic from "../images/Pursuit_JP.jpg";
-
+import FAQ from '../components/FAQ';
 
 function About() {
   return (
@@ -15,6 +15,7 @@ function About() {
       <br/>
       <div>
         <h2 className='display-6'>FAQs</h2>
+          <FAQ />
       </div>
       <br/>
       <div className='developers'>
