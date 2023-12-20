@@ -1,8 +1,7 @@
-// DEPENDENCIES
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 
-/* Import all page components here  */
+
 // PAGES
 import Account from './pages/Account';
 import About from './pages/About';
@@ -15,6 +14,7 @@ import Users from './pages/usersIndex';
 import AllEvents from './pages/AllEvents';
 // import ProofPage from "./pages/ProofPage";
 // import CurrentEvent from './pages/CurrentEvent';
+
 // COMPONENTS
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -38,21 +38,14 @@ function App() {
             <Route path="/" element={ <Home />} />
             <Route path="/about" element = { <About /> } />
             <Route path="/login" element={<Login />} />
-
-            {/* USERS CRUD NEW-SHOW-EDIT-INDEX*/}
             <Route path="/signup" element={<Signup />} />
             {/* <Route path="/create-profile" element={<CreateProfile />} /> */}
             <Route path="/profile/:userId" element={<Profile />} />
             <Route path="/account/:userId/edit" element={<Account />} />
             <Route path="/users/" element={<Users />} />
-
-            {/* EVENTS CRUD NEW-SHOW-EDIT-INDEX*/}
             <Route path="/events" element={<AllEvents />} /> 
             {/* <Route path="/currentevent" element={<CurrentEvent />} /> */}
-
-            {/* USER EVENTS NEW-SHOW-EDIT-INDEX*/}
             <Route path="/events/:eventId/register" element={<EventSignUp />} />
-
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/message-match" element={ <MessageMatch /> } />
             <Route path="/message-proof" element={ <MessageProof /> } />

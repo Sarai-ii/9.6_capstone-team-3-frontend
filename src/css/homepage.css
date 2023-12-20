@@ -73,7 +73,7 @@ h1 {
 .image-container img {
   width: 100%;
   height: auto;
-  border-radius: 8px; 
+  border-radius: 0px; 
 }
 
 
@@ -112,8 +112,7 @@ h1 {
   margin: 20px;
   padding: 65px;
   background-color: white;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  border-radius: 15px;
+  border-radius: 0px;
   border: 1px solid #545454;
   display: flex;
   flex-direction: column;
@@ -148,11 +147,10 @@ h1 {
   background-color: white;
   padding: 20px;
   margin: 20px;
-  border-radius: 15px;
+  border-radius: 0px;
   color: #545454;
   position: relative;
   border: 1.5px solid #545454;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   width: 375px;
 }
 
@@ -172,12 +170,12 @@ h1 {
     color: white;;
     background-color: #6474ed;;
     text-decoration: none;
-    padding: 10px 20px;
-    border: 2px solid white;;
-    border-radius: 30px;
+    padding: 5px 10px;
+    border: 2px solid #6474ed;;
+    border-radius: 8px;
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;  
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    
 }
 
 #main-signup-link {
@@ -186,17 +184,17 @@ h1 {
   text-decoration: none;
   padding: 10px 20px;
   border: 2px solid white;
-  border-radius: 15px;
+  border-radius: 8px;
   font-weight: bold;
   transition: background-color 0.3s, color 0.3s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  
 }
 
 #main-signup-link:hover {
   color: #ED6495;
   background: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  
   border-color: #ED6495;
 }
 
@@ -206,8 +204,8 @@ h1 {
   color: #6474ed;;
   background: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  border-color: #6474ed;;
+  
+  border-color: white;;
 }
 
 .gallery-container{
@@ -243,9 +241,9 @@ h1 {
   .h1-container {
     padding-top: 2rem;
     padding-bottom: 1rem;
-    flex-direction: row; 
     justify-content: space-between; 
-    align-items: left;
+    flex-direction: column; /* Change to column for smaller devices */
+    align-items: flex-start; /* Align items to the start (left) */
   }
 
   .image-container {

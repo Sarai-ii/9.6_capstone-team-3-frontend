@@ -19,64 +19,96 @@
   .navbar-links {
     display: flex;
     align-items: center;
+    margin-right: 50px; 
   }
 
-  .navbar-login-link{
+  
+
+  #navbar-login{
     color: white;
-    background: #6474ed; 
     text-decoration: none;
-    padding: 10px 20px;
-    border: 2px solid white;
-    border-radius: 15px;
     font-weight: bold;
-    transition: color 0.3s, background-color 0.3s, transform 0.3s;
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+
+
+  #navbar-login {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    position: relative;
+    background: #6474ed;
+    border: none;
+    margin-right: 50px; /* Add space on the right */
+    border: 2px solid #6474ed;
+    border-radius: 8px;
+    padding: 5px 10px;
+  }
+
+
+  #navbar-singup{
+    margin-right: 10px; 
+    transform: translateY(0); 
+  }
+
+  #navbar-signup:hover{
+    transform: translateY(0); 
   }
   
-  .navbar-links a {
-    color: #FFFAEB;
-    text-decoration: none;
-    margin: 0 20px;
-    transition: color 0.3s, background-color 0.3s, transform 0.3s;
-    position: relative;
+  #navbar-login:hover {
+    color: #6474ed;
+    background: white;
+    transform: translateY(0); /* Prevent vertical movement on hover */
+    border: 2px solid white;
+    margin: 0px 10px 0px 0px;
+    padding: 5px 10px;
+    margin-right: 50px;
+    border-radius: 8px;
   }
+  
+
+  
+  
   
   .navbar-links a:hover {
     color: #6474ed;
     background: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    border: 2px solid #6474ed;
+    border: 2px solid white;
   }
 
   .navbar-links button:hover {
     color: #6474ed;
     background: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     border: 2px solid #6474ed;
   }
   
-  .navbar-login-link, .navbar-events-link {
-    padding: 10px 20px;
+  .navbar-events-link {
+    padding: 5px 10px;
     border: 2px solid #FFFAEB;
     border-radius: 30px;
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;
   }
   
+
+
+
+
+
+
   .navbar-login-link {
-    background: #6474ed;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, background-color 0.3s, transform 0.3s;
+    position: relative;
   }
 
 
   
-  .navbar-events-link {
-    background: #6474ed;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  }
+
   
 
   .navbar-middle-links-container {
