@@ -4,29 +4,19 @@
 body {
   transition: background-color 0.5s ease;
   background-color: #E8EFFC;
-
 }
 
 * { 
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Raleway';
 }
 
-.button, button {
-  font-family: 'Nunito';
-}
-
-h1,h2{
-  font-family: 'DM Serif Display';
-}
-h3,h4,h5,h6{
-  font-family: 'Montserrat';
-  font-weight: 300;
+h1,h2,h3,h4,h5,h6{
   color:black;
 }
 p, li, ul{
-  font-family: 'Montserrat';
   cursor:default;
 }
 

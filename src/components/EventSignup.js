@@ -10,16 +10,16 @@ import "../css/Events.css"
 // APT
 const API = process.env.REACT_APP_API_URL;
 
+export default function EventSignUp({ userData, userId }) {
+    
+    const { eventId } = useParams()
+    // console.log('userId:', userId); // working 12/20
+    let navigate = useNavigate()
 
-export default function EventSignUp() {
-    const { userId, eventId} = useParams();
-    let navigate = useNavigate();
-    let userUid;
-    const [user, setUser] = useState()
     const [showDetails, setShowDetails] = useState(false);
     const [selectedOption, setSelectedOption] = useState('');
     const [showConfirmation, setShowConfirmation] = useState(false)
-    const [userData, setUserData] = useState({
+    const [userDataForEvents, setUserDataForEvents] = useState({
         budget: 0,
         favorite_color: [], 
         shirt_size: '', 
@@ -29,84 +29,71 @@ export default function EventSignUp() {
         preferred_gift: '', 
         gifts_avoid :'',
         events_joined: [],
-    });
-        
+        // eventId:eventId 
+    })
     // I can't continue with updating values until I have a user authentication status or trigger - done
     //UPDATE
     const userEventRegistration = async (updatedUser) => {
-        try{
+        try {
             const response = await axios.put(`${API}/users/${userId}`, updatedUser)
-            console.log(`API Response:`, response.data)
-            console.log(response)
-            return response
-            // navigate(`/profile/${response.data.userId}`)
+            // console.log(`API Response:`, response.data)
+            // console.log(userId)
         } catch(error) {
             console.error(error)
             throw error
         }
-    }
-
-    useEffect(() => {
-                const unsubscribe = auth.onAuthStateChanged((user) => {
-                    if (user) {
-                        console.log(user);
-                        console.log(user.uid);
-                        userUid = user.uid;
-                        console.log(eventId)
-                    } else {
-                        setUser(null);
-                        // resolve(null);
-                    }
-                });
-                return () => unsubscribe();
-            // }) 
-        // }
-        // fetchData()
-    }, [navigate, eventId]);  
+    }  
     
     const handleInputChange = (event) => {
         const { id, value } = event.target;
         if (id === 'favorite_colors') {
             const colorsArray = value.split(',').map(color => color.trim()).filter(String)
-            setUserData((prevUserData) => ({ ...prevUserData, favorite_colors: colorsArray }))
-        }else {
-            setUserData((prevUserData) => ({ ...prevUserData, [id]: value }));
+            setUserDataForEvents((prevUserData) => ({ ...prevUserData, favorite_colors: colorsArray }))
+        } else {
+            setUserDataForEvents((prevUserData) => ({ ...prevUserData, [id]: value }))
         }
-        console.log('id:', id, 'value:', value)
-    };
+        // console.log('id:', id, 'value:', value)
+    }
 
     const handleOptionChange = (event) => {
         event.preventDefault()
-        setSelectedOption(event.target.value);
-        handleInputChange(event);
-    };
-  
+        setSelectedOption(event.target.value)
+        handleInputChange(event)
+    }
+
     const handleConfirmation = async (event) => {
         event.preventDefault()
-        try{
-            console.log("Selected Option:", selectedOption);
-            console.log("User Data:", userData);
+        try {
+            // console.log(`Event Id:`, eventId)
+            // console.log(`User Id:`, userId)
+            // console.log(userDataForEvents)
+
             if (selectedOption === 'Yes') {
-                alert("Please be advised that we try our best to ensure gifts are based on the desires of the reciever but sometimes there are chances of being gifted an item you already own. As this may not be desired, it is reality and therefore we require that everyone who joins any event understand and accept this possibility to be able to join. If you don't mind please change your response to 'No'.");
-                // setShowConfirmation(showConfirmation)
-            } else if (Object.values(userData).every(value => value !== '')) {
-                const updatedEventsJoined = [...userData.events_joined, userData.eventId];
-                setUserData((prevUserData) => ({ ...prevUserData, events_joined: updatedEventsJoined }));
-                setShowConfirmation(!showConfirmation);
-                console.log("Submitting User Data:", userData);
+                alert("Please be advised that we try our best to ensure gifts are based on the desires of the receiver, but sometimes there are chances of being gifted an item you already own. As this may not be desired, it is reality, and therefore we require that everyone who joins any event understands and accepts this possibility to be able to join. If you don't mind, please change your response to 'No'.")
+                setShowConfirmation(showConfirmation)
+            } else if (selectedOption === 'No') {
+                // Update the state and get the updated user data
+                const updatedUserData = {
+                    ...userDataForEvents,
+                    events_joined: [...userDataForEvents.events_joined, eventId]
+                }
+                setUserDataForEvents(updatedUserData)
+                setShowConfirmation(!showConfirmation)
+                
+                console.log("Submitting User Data:", updatedUserData)
+                await userEventRegistration(updatedUserData)
+                console.log("Submitted successfully")
+                navigate(`/profile/${userId}`)
 
-                await userEventRegistration(userData);
-
-                console.log("Submitted successfully");
-            };
-        } catch(error){
+            }
+        } catch (error) {
             console.error(`Error Submitting`, error)
-        } 
+        }
     }
 
     const handleIconClick = () => {
         setShowDetails(!showDetails);
-    };
+    }
     
     return (
         <div className='event-signup-container'>
@@ -135,30 +122,30 @@ export default function EventSignUp() {
         
         <form className='signup-form'>
             <label htmlFor="preferred_gift"> Based on the theme, if you could choose- what gift would you desire most? (Be specific): </label>
-            <input type="text" id="preferred_gift" onChange={handleInputChange} value={userData.preferred_gift} required/>
+            <input type="text" id="preferred_gift" onChange={handleInputChange} value={userDataForEvents.preferred_gift} required/>
             <br />
             <label htmlFor="gifts_avoid"> Based on the theme, if you could choose- what gift should your match avoid?(Be specific):</label>
-            <input type="text" id="gifts_avoid" onChange={handleInputChange} value={userData.gifts_avoid} required/>
+            <input type="text" id="gifts_avoid" onChange={handleInputChange} value={userDataForEvents.gifts_avoid} required/>
             <br />
             <label htmlFor="budget"> What's your gift giving budget?</label>
-            <input type="number" id="budget" onChange={handleInputChange} value={userData.budget} required/>
+            <input type="number" id="budget" onChange={handleInputChange} value={userDataForEvents.budget} required/>
             <br />
             <label htmlFor="favorite_color"> What's your favorite color?:</label>
-            <input type="text" id="favorite_color"  onChange={handleInputChange} value={userData.favorite_color} required/>
+            <input type="text" id="favorite_color"  onChange={handleInputChange} value={userDataForEvents.favorite_color} required/>
             <br />
             <label htmlFor="preferred_category"> Based on the theme, what category most interests you?(ie: "candy", "tech", "clothes" ):</label>
-            <input type="text" id="preferred_category" onChange={handleInputChange} value={userData.preferred_category} required/>
+            <input type="text" id="preferred_category" onChange={handleInputChange} value={userDataForEvents.preferred_category} required/>
             <br />
             <label htmlFor="clothes" > If applicable, 
             <br />
                 <label htmlFor="shirt_size">Shirt Size:
-                <input type="text" id="shirt_size" onChange={handleInputChange} value={userData.shirt_size}/>
+                <input type="text" id="shirt_size" onChange={handleInputChange} value={userDataForEvents.shirt_size}/>
                 </label>
                 <label htmlFor="pants_size">Pants Size:
-                <input type="text" id="pants_size" onChange={handleInputChange} value={userData.pants_size}/>
+                <input type="text" id="pants_size" onChange={handleInputChange} value={userDataForEvents.pants_size}/>
                 </label>
                 <label htmlFor="shoe_size">Shoes Size:
-                <input type="text" id="shoe_size" onChange={handleInputChange} value={userData.shoe_size}/>
+                <input type="text" id="shoe_size" onChange={handleInputChange} value={userDataForEvents.shoe_size}/>
                 </label>
             <br />
             </label>

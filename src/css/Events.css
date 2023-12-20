@@ -27,8 +27,8 @@
 
 .future-img{
     border: 1px solid #FFFAEB;
-    border-radius: 20px;
-    box-shadow: 12px 12px 2px 1px rgba(88, 24, 1, 0.2);
+    /* border-radius: 20px; */
+    /* box-shadow: 12px 12px 2px 1px rgba(88, 24, 1, 0.2); */
     margin: 10px 20px 20px 10px;
     max-height: 290px;
     object-fit: cover;
@@ -40,7 +40,7 @@
     cursor:default;
     font-size: 30px;
     margin: 10px 10px 20px 10px;
-    text-shadow: .1px .5px 2px rgba(0, 0, 0, 0.576);    
+    /* text-shadow: .1px .5px 2px rgba(0, 0, 0, 0.576);     */
 }
 
 
@@ -54,8 +54,7 @@
     }
     
     .future-img{
-        border-radius: 20px;
-        box-shadow: 12px 12px 2px 1px rgba(88, 24, 1, 0.2);
+        /* border-radius: 20px; */
         max-height: 350px;
         object-fit: cover;
         /* padding: 2px; */
@@ -71,8 +70,7 @@
 }
 @media (min-width: 2000px) and (max-width: 2500px) {
     .future-img{
-        border-radius: 20px;
-        box-shadow: 12px 12px 2px 1px rgba(88, 24, 1, 0.2);
+        /* border-radius: 20px; */
         margin: 10px 20px 20px 10px;
         max-height: 350px;
         object-fit: cover;
@@ -84,34 +82,20 @@
 
 /* Classes In All Events JS */
    
-.hero-img {
-    background-image: url('https://i.pinimg.com/750x/2e/4b/67/2e4b679ed51d646f102a6dfd3107aef2.jpg');
-    background-size: cover;             
-    overflow: hidden;
-    padding: 50px 0px 10px 0px;
+intro-container{
+    display: inline-block;
 }
-
 .introduction {
     animation: 
-        typing 3.5s steps(40, end),
-        blink-caret .75s step-end infinite;
-    /* which background color for the text is better? */
-/* color 1 */
-    /* background-color: #A4C1F4;
-    border-bottom: 20px solid #A4C1F4;
-    border-top: 20px solid #A4C1F4;
-    border-right: .15em solid #A4C1F4;  */
-/* color 2 */
-    background-color: #EDBB64;
-    border-bottom: 20px solid #EDBB64;
-    border-top: 20px solid #EDBB64;
-    border-right: .5em solid #EDBB64;
+        typing 4s steps(36),
+        cursor .4s step-end infinite alternate;
+    border-right: .15em solid #000000; 
     cursor:default; 
     font-size: 50px;
-    letter-spacing: .04em;
-    /* margin: 30px auto;  */
+    letter-spacing: 3px;
     overflow: hidden; 
     white-space: nowrap; 
+    width: 100%;
 }
 /* The typing effect */
 @keyframes typing {
@@ -121,7 +105,7 @@
 /* The typewriter cursor effect */
 @keyframes blink-caret {
     from, to { border-color: transparent }
-    50% { border-color: #EDBB64; }
+    50% { border-color: #000000; }
     /* 50% { border-color: #A4C1F4; } */
 }
 
@@ -130,23 +114,17 @@
     cursor:default;
     font-size: 45px;
     margin: 50px 5px 10px 5px;
-    text-shadow: 2px 3px 6px rgba(44, 46, 107, 0.449);    
-}
-#current{
-    text-align: flex-start;
-
 }
 #upcoming{
-    margin-top: 12%;
-
+    text-align: start;
+    /* margin-top: 12%; */
 }
 .event-title {
     color: #276BE5;
     cursor:default;
     font-size: 30px;
     /* font-style: oblique; */
-    margin: 15px 5px 5px 5px;
-    text-shadow: .5px 1px 1px rgba(0, 0, 0, 0.313);    
+    margin: 15px 5px 5px 5px; 
 }
 
 .current-container{
@@ -192,36 +170,15 @@
 }
 @media (min-width: 1349px) and (max-width: 1500px) {
     .introduction {
-        font-size: 40px; 
-        border-right: 0.1em solid #EDBB64;
+        font-size: 40px;
     }
     li > .event-title{
         font-size: 30px;
     }
 }
 @media (min-height: 900px) and (max-height:1000px){
-    .hero-img {
-        /* background-size: 100px 50px; */
-        /* background-size:cover; */
-        height: 160px;
-    }
     .introduction {
-        animation: 
-            typing .6s steps(40, end),
-            blink-caret .75s step-end infinite;
-        border-bottom: 10px solid #EDBB64;
-        border-top: 10px solid #EDBB64;
         font-size: 20px;
-        overflow: hidden; 
-        white-space: nowrap; 
-    }
-    @keyframes typing {
-        from { width: 0 }
-        to { width: 100% }
-    }
-    @keyframes blink-caret {
-        from, to { border-color: transparent }
-        50% { border-color: #EDBB64; }
     }
     .event-type{
         color: #000;
@@ -240,8 +197,7 @@
 
 .current-img{
     border: 2px solid #FFFAEB;
-    border-radius: 20px;
-    box-shadow: 1px 1px 2px 2px rgba(26, 22, 20, 0.246);
+    /* border-radius: 20px; */
     max-height: 600px;
     margin: 30px 10px 30px 10px ;
     object-fit: cover;
