@@ -1,8 +1,9 @@
 import React from 'react'
 
-function FAQ() {
+const FAQ = ({ id }) => {
   return (
-    <div className='faq'>
+    <div id={id} className='faq' >
+      <h2>FAQs</h2>
         <ul className='list faq-list'>
             <li>I didn't receive a gift; what do I do?</li>
             <li>Do I really have to upload a picture of the gift I got?</li>
