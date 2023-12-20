@@ -28,6 +28,8 @@ import Profile from './components/PublicProfiles'
 // import CurrentEvent from './components/CurrentEvent'
 import EventSignUp from "./components/EventSignup"
 // import Header from './components/Header'
+import MessageMatch from "./components/MessageMatch";
+import MessageProof from "./components/MessageProof";
 
 function App() {
   const [user, setUser] = useState(null)
@@ -108,6 +110,7 @@ function App() {
             {/* <Route path="/create-profile" element={<CreateProfile />} /> */}
             <Route path="/profile/:userId" element={<Profile userData={userData}/>} />
             <Route path="/profile/:userId/account-edit" element={<Account userData={userData}/>} />
+
             <Route path="/users/" element={<Users />} />
 
             {/* EVENTS CRUD NEW-SHOW-EDIT-INDEX*/}
@@ -120,6 +123,9 @@ function App() {
               element={user? <EventSignUp userData={userData} userId={userId}/> : <Navigate to='login' />} />
 
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/message-match" element={ <MessageMatch /> } />
+            <Route path="/message-proof" element={ <MessageProof /> } />
+            {/* <Route path="/exchanges-proof" element = { <ProofPage />} /> */}
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>

@@ -1,49 +1,63 @@
-.login-container {
+ /* ... Modal CSS ... */
+
+.modal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center both vertically and horizontally */
+    max-width: 400px; 
+    width: 100%;
+    z-index: 1000; /* Ensure the modal stays on top */
+    border-radius: 8px;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 0px;
+    border-radius: 8px;
+    box-shadow: 10px 10px 1.8px .7px rgba(88, 24, 1, 0.2);
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 3rem 0; 
+  }
+  
+  
+  /* Login Container CSS */
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: #e8effc;
   }
   
-  .login-h1-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px; 
-    padding-top: 2rem; 
+
+  
+  .logout-button {
+    margin-top: 20px;
   }
   
-  .login-h1-container h1 {
-    color: #6474ed;
-    font-size: 36px; 
-    font-weight: bold;
-    text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
-  }
-
-  #logout {
-    margin-top: 60px;
-  }
-
-  #google-login-button {
-    width: 40px; 
-    height: 40px; 
+  .google-btn {
+    width: 40px;
+    height: 40px;
     background-color: white;
     border-radius: 50%;
     transition: background-color 0.3s, color 0.3s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     margin: 0.5rem 0;
     position: relative;
-    flex: 1, 2;
-    margin-right: 10px;
-    margin-left: 0px;
   }
   
-  #google-login-button:hover {
+  .google-btn:hover {
     box-shadow: 0 0 6px #4285f4;
   }
   
-  #google-login-button:active {
+  .google-btn:active {
     background: #1669f2;
   }
   
@@ -52,13 +66,18 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 24px; 
+    width: 24px;
     height: 24px;
     background-color: #fff;
     background-image: url("../images/googli-icon.png");
     background-size: cover;
     border-radius: 50%;
   }
+  
+  .form-container {
+    width: 100%;
+  }
+  
   
 
   .btn-text {
@@ -71,21 +90,20 @@
     padding-top: 10px; 
   }
   
-  .login-forum-container {
+#login-forum-container{
     width: 350px;
-    height: 100%; /* Take up all available vertical space */
+    min-height: 400px;
     margin: 20px;
     padding: 20px;
     background-color: white;
-
-    border-radius: 8px; 
-  
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-  }
-  
+    justify-content: center;  
+}
+
+
   
   .login-h3-container {
     display: flex;
@@ -162,5 +180,24 @@
     transform: translateY(-2px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border-color: #6474ed;
+  }
+  
+
+
+  /* Closing "X" CSS*/
+  #close-container {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .close {
+    top: 5px;
+    cursor: pointer;
+    padding-top: 5px;
+  }
+  
+  .close:hover {
+    color: #ff0000;
   }
   

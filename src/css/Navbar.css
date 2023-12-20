@@ -20,6 +20,19 @@
     display: flex;
     align-items: center;
   }
+
+  .navbar-login-link{
+    color: white;
+    background: #6474ed; 
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 15px;
+    font-weight: bold;
+    transition: color 0.3s, background-color 0.3s, transform 0.3s;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
   
   .navbar-links a {
     color: #FFFAEB;
@@ -30,6 +43,14 @@
   }
   
   .navbar-links a:hover {
+    color: #6474ed;
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border: 2px solid #6474ed;
+  }
+
+  .navbar-links button:hover {
     color: #6474ed;
     background: white;
     transform: translateY(-2px);
@@ -49,6 +70,8 @@
     background: #6474ed;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
+
+
   
   .navbar-events-link {
     background: #6474ed;
