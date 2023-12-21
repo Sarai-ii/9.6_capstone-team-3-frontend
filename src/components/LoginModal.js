@@ -20,7 +20,7 @@ const LoginModal = ({ openModal }) => {
         auth,
         username,
         password
-      );
+      ).then(() => window.location.reload() )
       const user = userCredential.user;
       const uid = user.uid;
   
@@ -46,7 +46,7 @@ const LoginModal = ({ openModal }) => {
 
   const handleLogout = async () => {
     try {
-      await signOut(auth);
+      await signOut(auth).then(()=> window.location.reload());
       setLoggedInUser(null);
     } catch (error) {
       console.error("Logout Error:", error);

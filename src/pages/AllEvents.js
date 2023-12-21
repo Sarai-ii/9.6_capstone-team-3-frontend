@@ -9,7 +9,8 @@ import "../css/Events.css"
 // API
 const API = process.env.REACT_APP_API_URL;
 
-export default function AllEvents() {
+export default function AllEvents({ userData, userId }) {
+  console.log(userData, userId) // working 12/20
   const [events, setEvents] = useState([])
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
@@ -34,6 +35,7 @@ export default function AllEvents() {
       .catch((c) => console.warn("catch", c));
   }, []);
 
+
     // const toggleMode = () => {
     //   setDarkMode(!isDarkMode);
     // };
@@ -41,29 +43,27 @@ export default function AllEvents() {
     // <button onClick={toggleMode}>Toggle Mode</button>
 return (
   <div >
-    <header className="hero-img">
-      <h1 className="introduction"> 
-        Welcome! Begin your gift giving journey here. 
-      </h1>
+    <header className="hero-img intro-container">
+      <h1 className="introduction">Begin your gift giving journey here. </h1>
       <br/>
     </header>
+    <ul id= "current" className="current-container" >
     <h2 className="event-type">Current Event</h2>
-    <ul className="current-container" >
       {
       filteredEvents.map((event) => (
         <div className="container">
-          <li key={event.id}><h3 className="event-title">{event.title}</h3></li>
-          <CurrentEvent key={event.id} event = {event}/>
+          <li><h3 className="event-title">{event.title}</h3></li>
+          <CurrentEvent key={event.id} event = {event} userId={userId} />
         </div>
       ))}
     </ul>
-    <h2 className="event-type">Upcoming Events</h2>
+    <h2 id= "upcoming" className="event-type">Upcoming Events</h2>
     <ul className="upcoming-container" >
     {
       upcomingEvents.map((event) => (
         <div className="upcoming-card" >
-          <li key={event.id}><h3 className="event-title">{event.title}</h3></li>
-          <UpcomingEvents key={event.id} event = {event}/>
+          <li><h3 className="event-title">{event.title}</h3></li>
+          <UpcomingEvents key={event.id} event = {event} userId= {userId}/>
         </div>
       ))}
     </ul>
