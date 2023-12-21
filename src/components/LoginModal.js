@@ -56,13 +56,12 @@ const LoginModal = ({ openModal }) => {
   return (
     <div className="modal-container">
       <div className="modal-content">
-
-        <span id='close-container' className="close" onClick={openModal}>
+      <span id='close-container' className="close" onClick={openModal}>
           &times;
         </span>
-
         {loggedInUser ? (
           <div>
+            
             <div id="login-forum-container" className="login-forum-container">
               You are logged in as {loggedInUser.email}.
               <button

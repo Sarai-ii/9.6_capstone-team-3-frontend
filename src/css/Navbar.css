@@ -19,96 +19,64 @@
   .navbar-links {
     display: flex;
     align-items: center;
-    margin-right: 50px; 
   }
 
-  
-
-  #navbar-login{
+  .navbar-login-link{
     color: white;
+    background: #6474ed; 
     text-decoration: none;
-    font-weight: bold;
-    position: relative;
-  }
-
-
-  #navbar-login {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-    position: relative;
-    background: #6474ed;
-    border: none;
-    margin-right: 50px; /* Add space on the right */
-    border: 2px solid #6474ed;
-    border-radius: 8px;
-    padding: 5px 10px;
-  }
-
-
-  #navbar-singup{
-    margin-right: 10px; 
-    transform: translateY(0); 
-  }
-
-  #navbar-signup:hover{
-    transform: translateY(0); 
-  }
-  
-  #navbar-login:hover {
-    color: #6474ed;
-    background: white;
-    transform: translateY(0); /* Prevent vertical movement on hover */
+    padding: 10px 20px;
     border: 2px solid white;
-    margin: 0px 10px 0px 0px;
-    padding: 5px 10px;
-    margin-right: 50px;
-    border-radius: 8px;
+    border-radius: 15px;
+    font-weight: bold;
+    transition: color 0.3s, background-color 0.3s, transform 0.3s;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
   
-
-  
-  
+  .navbar-links a {
+    color: #FFFAEB;
+    text-decoration: none;
+    margin: 0 20px;
+    transition: color 0.3s, background-color 0.3s, transform 0.3s;
+    position: relative;
+  }
   
   .navbar-links a:hover {
     color: #6474ed;
     background: white;
     transform: translateY(-2px);
-    border: 2px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border: 2px solid #6474ed;
   }
 
   .navbar-links button:hover {
     color: #6474ed;
     background: white;
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     border: 2px solid #6474ed;
   }
   
-  .navbar-events-link {
-    padding: 5px 10px;
+  .navbar-login-link, .navbar-events-link {
+    padding: 10px 20px;
     border: 2px solid #FFFAEB;
     border-radius: 30px;
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;
   }
   
-
-
-
-
-
-
   .navbar-login-link {
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s, background-color 0.3s, transform 0.3s;
-    position: relative;
+    background: #6474ed;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
 
 
   
-
+  .navbar-events-link {
+    background: #6474ed;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
   
 
   .navbar-middle-links-container {
@@ -141,7 +109,34 @@
   
 
 
-@media only screen and (max-width: 600px) {
-  .navbar-middle-links {
-    display: none; 
-  }}
+
+
+  #navbar-signup{
+    padding: 7.5px 12px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .navbar-middle-links {
+      display: flex;
+      flex-direction: row; 
+      align-items:flex-start; 
+      justify-content: space-between; 
+    }
+  
+    #events-middle-link {
+      display: block;
+    }
+  
+    #hiw-middle-link,
+    #about-middle-link {
+      display: none;
+    }
+  
+    #navbar-links {
+      margin-left: auto; 
+    }
+    .navbar-middle-links {
+      display: flex;
+    }
+
+  }
