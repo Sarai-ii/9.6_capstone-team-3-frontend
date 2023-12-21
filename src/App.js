@@ -105,6 +105,7 @@ function App() {
 
             {/* USERS CURD NEW-SHOW-EDIT-INDEX*/}
             <Route path="/signup" element={<Signup userData={userData}/>} />
+
             {/* <Route path="/create-profile" element={<CreateProfile />} /> */}
             <Route path="/profile/:userId" element={<Profile userData={userData}/>} />
             <Route path="/profile/:userId/account-edit" element={<Account userData={userData}/>} />
