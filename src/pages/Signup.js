@@ -72,10 +72,9 @@ const Signup = () => {
         const userId = response.data.id;
         console.log('Backend response:', response.data);
         console.log(userId)
-        
         setSuccessMessage(
           console.log(`Signup successful! You are now logged in as ${email}.`)
-        );
+        )
         setError(null);
         navigate(`/profile/${userId}`)
       } catch (error) {
@@ -83,10 +82,9 @@ const Signup = () => {
         setSuccessMessage(null);
         setError(`Signup Error: ${error.message}`);
       } finally {
-        setIsLoading(false); 
+        setIsLoading(false)
       }
     };
-    
   
     return (
       <div id="signup-container">
