@@ -39,18 +39,16 @@ function App() {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (authUser) => {
+      setUser(authUser) // firebase data for user
       // console.log(authUser) // working
       if (authUser) {
-        console.log('authUser:', authUser) // working
-        setUser(authUser) // firebase data for user
-        // console.log(authUser.uid) // working
         setUserUid(authUser.uid) 
+        // console.log(authUser.uid) // working
         try {
           const response = await axios.get(`${API}/users`)
           // console.log(response.data) // working
           const loggedInUser = response.data.find(verifiedUser => {
             // console.log(verifiedUser) // working
-            // console.log(verifiedUser.firebase_uid === userUid) //working 
             return verifiedUser.firebase_uid === userUid
           })
           console.log(loggedInUser.username, `is logged in`) // working
@@ -64,7 +62,7 @@ function App() {
         catch (error) {
           console.error('Error fetching user data:', error)
         } finally {
-          setLoading(false);
+          setLoading(false)
         }
       } else {
         setUser(null) // helps with logging out
@@ -79,10 +77,9 @@ function App() {
 
   const handleLogout = async () => {
     try {
-      await auth.signOut().then(()=> window.location.reload())
+      await auth.signOut()
       console.log(user.displayName, `is logged out.`)
       setUserData(null) // Clear user data
-      console.log(userData)
     } catch (error) {
       console.error('Error during logout:', error)
     }
