@@ -1,3 +1,6 @@
+
+
+
 // DEPENDENCIES
 import axios from "axios"
 import React, { useEffect, useState } from "react"
@@ -41,17 +44,24 @@ function App() {
     const unsubscribe = auth.onAuthStateChanged(async (authUser) => {
       setUser(authUser) // firebase data for user
       if (authUser) {
-        setUserUid(authUser.uid)
+
+        const uid = authUser.uid; // Capture uid here
+        console.log('authUser:', authUser) // working
+        setUser(authUser) // firebase data for user
+        console.log(authUser.uid) // working
+        setUserUid(authUser.uid) 
         try {
           const response = await axios.get(`${API}/users`)
-          // console.log(response.data) // working
-          const loggedInUser = response.data.find(verifiedUser => {
-            console.log(verifiedUser) // working
-            return verifiedUser.firebase_uid === userUid
-          })
+          console.log(response.data) // working
+          const loggedInUser = response.data.find((verifiedUser) => verifiedUser.firebase_uid === uid);
+            // console.log(verifiedUser) // working
+            // console.log(verifiedUser.firebase_uid === userUid) //working 
+          
+
           console.log(loggedInUser.username, `is logged in`) // working
           if (loggedInUser) {
             setUserData(loggedInUser)
+            console.log(loggedInUser.username, 'is logged in');
           } else {
             console.error(`User not found in the database, check if user is logged in properly`)
             setUserData(null)
@@ -69,9 +79,17 @@ function App() {
       }
     })
     return () => unsubscribe()
-  }, [])
-  const userId = userData ? userData.id : null 
+  }, [API])
 
+  const userId = userData?.id; // Use optional chaining to handle potential null values
+
+
+
+  // const userId = userData ? userData.id : null 
+
+
+
+  
   const handleLogout = async () => {
     try {
       await auth.signOut()
@@ -86,8 +104,8 @@ function App() {
       <header className="App-header">
       </header>
       <Router>
-        <Navbar />
-        <button onClick={handleLogout}>Logout</button>
+      <Navbar handleLogout={handleLogout} user={user} />
+        {/* <button onClick={handleLogout}>Logout</button> */}
         <main>
           {/* <Header/> */}
           <Routes>

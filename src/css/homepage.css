@@ -28,14 +28,14 @@
   padding-right: 20px; /* Add some space between text and image */
   padding-left: 15px;
   text-align: left; 
-  color: white;
+  color: white; 
 }
 
 .h1-container {
   display: flex;
   text-align: left; 
   gap: 20px;
-
+  color: white; 
   font-family: 'Montserrat';
 
   padding-top: 5rem;
@@ -50,12 +50,14 @@ h1 {
 .happiness-title,
 .exchange-title {
   font-family: 'Montserrat';
+  color: white; 
 }
 
 .slogan {
   width: 90%;
   font-family: 'Montserrat';
   font-size: 32px;
+  color: white; 
 }
 
 .slogan-2 {
