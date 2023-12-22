@@ -1,3 +1,6 @@
+
+
+
 // DEPENDENCIES
 import axios from "axios"
 import React, { useEffect, useState } from "react"
@@ -32,30 +35,31 @@ import MessageMatch from "./components/MessageMatch";
 import MessageProof from "./components/MessageProof";
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [userData, setUserData] = useState(null);
-  const [userUid, setUserUid] = useState(null);
+  const [user, setUser] = useState(null)
+  const [userData, setUserData] = useState(null)
+  const [userUid, setUserUid] = useState(null)
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (authUser) => {
       // console.log(authUser) // working
       if (authUser) {
+        const uid = authUser.uid; // Capture uid here
         console.log('authUser:', authUser) // working
         setUser(authUser) // firebase data for user
-        // console.log(authUser.uid) // working
+        console.log(authUser.uid) // working
         setUserUid(authUser.uid) 
         try {
           const response = await axios.get(`${API}/users`)
-          // console.log(response.data) // working
-          const loggedInUser = response.data.find(verifiedUser => {
+          console.log(response.data) // working
+          const loggedInUser = response.data.find((verifiedUser) => verifiedUser.firebase_uid === uid);
             // console.log(verifiedUser) // working
             // console.log(verifiedUser.firebase_uid === userUid) //working 
-            return verifiedUser.firebase_uid === userUid
-          })
+          
           console.log(loggedInUser.username, `is logged in`) // working
           if (loggedInUser) {
             setUserData(loggedInUser)
+            console.log(loggedInUser.username, 'is logged in');
           } else {
             console.error(`User not found in the database, check if user is logged in properly`)
             setUserData(null)
@@ -73,26 +77,34 @@ function App() {
       }
     })
     return () => unsubscribe()
-  }, [])
+  }, [API])
 
-  const userId = userData ? userData.id : null 
+  const userId = userData?.id; // Use optional chaining to handle potential null values
 
+
+  // const userId = userData ? userData.id : null 
+
+
+
+  
   const handleLogout = async () => {
     try {
-      await auth.signOut().then(() => window.location.reload());
-      console.log(user.displayName, `is logged out.`);
-      setUserData(null); // Clear user data
+      await auth.signOut().then(()=> window.location.reload())
+      console.log(user.displayName, `is logged out.`)
+      setUserData(null) // Clear user data
       console.log(userData)
     } catch (error) {
-      console.error('Error during logout:', error);
+      console.error('Error during logout:', error)
     }
-  }; //logout works perfectly, I logged back in and was able to get userData and userId unhinged. Doesn't work for other emails just design30@gmail.com
+  } //logout works perfectly, I logged back in and was able to get userData and userId unhinged. Doesn't work for other emails just design30@gmail.com
   
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <header className="App-header">
+      </header>
       <Router>
-        <Navbar handleLogout={handleLogout} user={user} />
+        <Navbar />
+        <button onClick={handleLogout}>Logout</button>
         <main>
           {/* <Header/> */}
           <Routes>
