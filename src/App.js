@@ -32,9 +32,9 @@ import MessageMatch from "./components/MessageMatch";
 import MessageProof from "./components/MessageProof";
 
 function App() {
-  const [user, setUser] = useState(null)
-  const [userData, setUserData] = useState(null)
-  const [userUid, setUserUid] = useState(null)
+  const [user, setUser] = useState(null);
+  const [userData, setUserData] = useState(null);
+  const [userUid, setUserUid] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -79,22 +79,20 @@ function App() {
 
   const handleLogout = async () => {
     try {
-      await auth.signOut().then(()=> window.location.reload())
-      console.log(user.displayName, `is logged out.`)
-      setUserData(null) // Clear user data
+      await auth.signOut().then(() => window.location.reload());
+      console.log(user.displayName, `is logged out.`);
+      setUserData(null); // Clear user data
       console.log(userData)
     } catch (error) {
-      console.error('Error during logout:', error)
+      console.error('Error during logout:', error);
     }
-  } //logout works perfectly, I logged back in and was able to get userData and userId unhinged. Doesn't work for other emails just design30@gmail.com
+  }; //logout works perfectly, I logged back in and was able to get userData and userId unhinged. Doesn't work for other emails just design30@gmail.com
   
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
+      <header className="App-header"></header>
       <Router>
-        <Navbar />
-        <button onClick={handleLogout}>Logout</button>
+        <Navbar handleLogout={handleLogout} user={user} />
         <main>
           {/* <Header/> */}
           <Routes>
