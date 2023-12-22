@@ -42,11 +42,11 @@ export default function AllEvents({ userData, userId }) {
     // className={isDarkMode ? 'dark-mode' : 'light-mode'}
     // <button onClick={toggleMode}>Toggle Mode</button>
 return (
-  <div >
-    <header className="hero-img intro-container">
+  <div className="events-webpage-container">
+    {/* <header className="hero-img intro-container">
       <h1 className="introduction">Begin your gift giving journey here. </h1>
       <br/>
-    </header>
+    </header> */}
     <ul id= "current" className="current-container" >
     <h2 className="event-type">Current Event</h2>
       {
