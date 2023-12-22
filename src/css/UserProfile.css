@@ -17,59 +17,62 @@
 body {
     overflow-x: hidden;
 }
-/* SideBar */
-.menu-details {
-    color: black;
-    padding: 70px 20px 0px 0px ;
-}
-.sidebar-text, .sidebar-links {
-    /* list-style: none; */
-    text-decoration: none;
-    color: black;
-    padding-top: 50px;
-}
-.sidebar-text:hover, .sidebar-links:hover {
-    list-style: none;
-    color: rgb(143, 36, 36);
-    cursor:pointer;
-    /* padding-top: 55px; */
-
-}
-
-.sidebar-icons{
-    margin: 0px 5.5px 0 0;
-}
                                                 
-
-/* All Profiles*/
+/* Classes In All Profiles */
 .webpage-container {
     display: flex;
+    border: 2px solid black;
     /* justify-content: space-between;  */
     /* margin: 20px;  */
     padding-left: 0px;
+    text-align: start;
     width: 100%;
 }
+
 .left-column {
+    background-color: black;
     border-right: 1px solid #a4c1f46b;
+    border: 2px solid black;
     flex: 0 0 auto;
-    margin-left: 0;
-    margin-right: auto;
     text-align: center;
 }
-.right-column{
-    flex-grow: 1;
-    overflow-y: auto;
-}
-
 .left-column,
 .right-column {
-    /* flex-basis: 48%;  */
+    flex-direction: column; 
     box-sizing: border-box;
-    padding: 20px 10px 10px 10px;
+    /* padding: 20px 10px 10px 10px; */
 }
+/* SideBar */
+.menu-details {
+    color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 70px 10px;
+}
+.sidebar-text, .sidebar-links {
+    color: white;
+    list-style: none;
+    text-decoration: none;
+    /* padding-top: 50px; */
+}
+.sidebar-icons{
+    fill: #A4C1F4;
+    margin: 16px;
+    /* padding: 10px; */
+}
+.sidebar-text:hover{
+    background-color: #a5acb838;
+    border-radius: 30px;
+}
+.sidebar-text:hover, .sidebar-links:hover{
+    color: #ED6495;
+    cursor:pointer;
+    /* fill: #ED6495; */
+    list-style: none;
+}
+
 @media screen and (max-width: 768px) {
     .webpage-container {
-      flex-direction: row; 
+      /* flex-direction: row;  */
     }
     .left-column,
     .right-column {
@@ -83,13 +86,8 @@ body {
     }
 }
 
-/* Individual Profile */
-.profile-container{
-    display: flex;
-    flex-direction: column;
+/* Classes In Individual Profile */
 
-    /* text-align: center; */
-}
 .bio-container, .posts-container{
     /* flex-direction: column; */
     /* border: 2px solid #A4C1F4; */
@@ -98,6 +96,7 @@ body {
 
 .bio-container{
     border-bottom: 1px solid #A4C1F4;
+    border: 2px solid black;
     display: flex;
     text-align: center;
     /* flex-direction: column; */
@@ -122,4 +121,12 @@ body {
 .funfacts{
     list-style-position: inside;
     list-style: upper-roman;
+}
+.logo-container{
+    border: 2px solid ;
+
+}
+
+.achievements-title{
+    text-align: start;
 }

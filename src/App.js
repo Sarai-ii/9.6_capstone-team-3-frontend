@@ -40,15 +40,13 @@ function App() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (authUser) => {
       setUser(authUser) // firebase data for user
-      // console.log(authUser) // working
       if (authUser) {
-        setUserUid(authUser.uid) 
-        // console.log(authUser.uid) // working
+        setUserUid(authUser.uid)
         try {
           const response = await axios.get(`${API}/users`)
           // console.log(response.data) // working
           const loggedInUser = response.data.find(verifiedUser => {
-            // console.log(verifiedUser) // working
+            console.log(verifiedUser) // working
             return verifiedUser.firebase_uid === userUid
           })
           console.log(loggedInUser.username, `is logged in`) // working
@@ -72,7 +70,6 @@ function App() {
     })
     return () => unsubscribe()
   }, [])
-
   const userId = userData ? userData.id : null 
 
   const handleLogout = async () => {
@@ -83,8 +80,7 @@ function App() {
     } catch (error) {
       console.error('Error during logout:', error)
     }
-  } //logout works perfectly, I logged back in and was able to get userData and userId unhinged. Doesn't work for other emails just design30@gmail.com
-  
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -106,17 +102,16 @@ function App() {
             {/* <Route path="/create-profile" element={<CreateProfile />} /> */}
             <Route path="/profile/:userId" element={<Profile userData={userData}/>} />
             <Route path="/profile/:userId/account-edit" element={<Account userData={userData}/>} />
-
             <Route path="/users/" element={<Users />} />
 
             {/* EVENTS CRUD NEW-SHOW-EDIT-INDEX*/}
-            <Route path="/events" element={user? <AllEvents userId = {userId} userData={userData}/> : <Navigate to='./'/>} /> 
+            <Route path="/events" element={user? <AllEvents userId = {userId} userData={userData}/> : <Login />} /> 
             {/* <Route path="/events/:eventId" element={<CurrentEvent />} /> */}
 
             {/* USER EVENTS NEW-SHOW-EDIT-INDEX*/}
             <Route 
               path="/events/:eventId/register/:userId" 
-              element={user? <EventSignUp userData={userData} userId={userId}/> : <Navigate to='./' />} />
+              element={user? <EventSignUp userData={userData} userId={userId}/> : <Login />} />
 
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/message-match" element={ <MessageMatch /> } />
