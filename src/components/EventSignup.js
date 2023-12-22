@@ -91,7 +91,6 @@ export default function EventSignUp({ userData, userId }) {
                 await userEventRegistration(updatedUserData)
                 console.log("Submitted successfully")
                 navigate(`/profile/${userId}`)
-
             }
         } catch (error) {
             console.error(`Error Submitting`, error)
