@@ -60,4 +60,3 @@ function NavBar({ handleLogout, user }) {
 }
 
 export default NavBar;
-

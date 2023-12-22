@@ -103,7 +103,7 @@ function App() {
       <header className="App-header">
       </header>
       <Router>
-      <Navbar handleLogout={handleLogout} />
+      <Navbar handleLogout={handleLogout} user={user} />
         {/* <button onClick={handleLogout}>Logout</button> */}
         <main>
           {/* <Header/> */}
