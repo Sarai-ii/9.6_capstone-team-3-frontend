@@ -116,6 +116,10 @@ const Signup = () => {
           <form onSubmit={handleSignup} id="signup-form">
 
             <div className='account-inputs'>
+            <div className='account-inputs-text'>
+              <h2>Step 1:</h2>
+              <p>Create an account by registering your email and username, please ensure you pass word contians a minimum of 6 characters, should include one cpaital letter and special character.</p>
+            </div>
             <label>
               Email:
               <input
@@ -146,6 +150,10 @@ const Signup = () => {
             </div>
 
             <div className='name-inputs'>
+            <div className='name-inputs-text'>
+              <h2>Step 2:</h2>
+              <p> Proivde First and Last name</p>
+            </div>
             <label>
               First Name:
               <input
@@ -168,6 +176,10 @@ const Signup = () => {
 
 
             <div className='address-inputs'>
+              <div className='address-inputs-text'>
+                <h2>Step 3:</h2>
+                <p>Confirm your address to ensure gifts are sent to the proper destiantion, please be aware that your information will not be publiy provided at any time and that it will only be provided after a matchup is made and user is ready to send your gift</p>
+              </div>
             <label>
               Street Address 1:
               <input
@@ -215,6 +227,10 @@ const Signup = () => {
             </label>
             </div>
             <div className='bio-input'></div>
+            <div className='bio-input-text'>
+              <h2>Step 4:</h2>
+              <p>Lastly include a fun bio about yourself to help other users learn interesting things about you</p>
+            </div>
             <label>
               Bio:
               <textarea id='signup-textarea-bio' value={bio} onChange={(e) => setBio(e.target.value)}></textarea>
