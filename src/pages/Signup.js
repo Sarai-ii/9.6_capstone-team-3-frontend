@@ -4,6 +4,10 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebaseConfig';
 import axios from 'axios';
 
+
+
+import registrationSignupImage from "../images/undraw_settings_tab_mgiw.svg";
+
 import "../css/Signup.css"
 
 
@@ -87,12 +91,31 @@ const Signup = () => {
     };
   
     return (
-      <div id="signup-container">
-        <div id='signup-h1-container'>
-          <h1 id='signup-title-h1'>Create an account</h1>
+      <>
+      <div className='signup-title-container' id="signup-title-container">
+      <div id="signup-image-container">
+          <img src={registrationSignupImage} alt="Register" />
         </div>
-        <div id='signup-form-container' >
+        <div id="signup-text-container">
+          <div id="singup-h1-container">
+            <h1 id="signup-title">Signup Today !</h1>
+          </div>
+          <h2 id="signup-slogan">
+            Create an account and join Happiness Exchange
+          </h2>
+          <h3 id="signup-slogan-2">
+            Where gift giving is fun and stress-free! Events are ongoing on a
+            seasonal basis
+          </h3>
+        </div>
+      </div>
+
+      
+      <div id="signup-container">
+        <div id="signup-form-container">
           <form onSubmit={handleSignup} id="signup-form">
+
+            <div className='account-inputs'>
             <label>
               Email:
               <input
@@ -120,6 +143,9 @@ const Signup = () => {
                 onChange={(e) => setUsername(e.target.value)}
               />
             </label>
+            </div>
+
+            <div className='name-inputs'>
             <label>
               First Name:
               <input
@@ -138,6 +164,10 @@ const Signup = () => {
                 onChange={(e) => setLastName(e.target.value)}
               />
             </label>
+            </div>
+
+
+            <div className='address-inputs'>
             <label>
               Street Address 1:
               <input
@@ -183,20 +213,25 @@ const Signup = () => {
                 onChange={(e) => setAddressZip(e.target.value)}
               />
             </label>
+            </div>
+            <div className='bio-input'></div>
             <label>
               Bio:
               <textarea id='signup-textarea-bio' value={bio} onChange={(e) => setBio(e.target.value)}></textarea>
             </label>
+
+
             <button id='signup-button-submit' type="submit" disabled={isLoading}>
-              {isLoading ? 'Signing up...' : 'Signup'}
+            {isLoading ? 'Signing up...' : 'Signup'}
             </button>
           </form>
         </div>
-        <div id='error-message-container'></div>
+        <div id="error-message-container"></div>
         {error && <p style={{ color: 'red' }}>{error}</p>}
         {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
       </div>
-    );
+    </>
+  );
 }
 
 export default Signup;
