@@ -198,3 +198,18 @@
     color: #ff0000;
   }
   
+
+  .login-forum-container {
+    width: 350px;
+    height: 100%; /* Take up all available vertical space */
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+
+    border-radius: 8px; 
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
