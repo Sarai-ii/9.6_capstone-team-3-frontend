@@ -128,48 +128,63 @@ export default function EventSignUp({ userData, userId }) {
         
         <form className='signup-form'>
             <label htmlFor="preferred_gift"> Based on the theme, if you could choose- what gift would you desire most? (Be specific): </label>
-            <input type="text" id="preferred_gift" onChange={handleInputChange} value={userDataForEvents.preferred_gift} required/>
+            <input type="text" id="preferred_gift" onChange={handleInputChange} value={userDataForEvents.preferred_gift} placeholder='i.e. Travel Bag...' required/>
             <br />
-            <label htmlFor="gifts_avoid"> Based on the theme, if you could choose- what gift should your match avoid?(Be specific):</label>
-            <input type="text" id="gifts_avoid" onChange={handleInputChange} value={userDataForEvents.gifts_avoid} required/>
+            <label htmlFor="gifts_avoid"> Based on the theme, if you could choose- what gift should your match avoid? (Be specific):</label>
+            <input type="text" id="gifts_avoid" onChange={handleInputChange} value={userDataForEvents.gifts_avoid} placeholder=' i.e. "Can you avoid Cosmetics please.."' required/>
             <br />
-            <label htmlFor="budget"> What's your gift giving budget?</label>
+            <label htmlFor="budget"> What's your spending cap?:</label>
             <input type="number" id="budget" onChange={handleInputChange} value={userDataForEvents.budget} required/>
+            {/* <br /> */}
+            <label htmlFor="favorite_color"> Favorite color?:</label>
+            <input type="text" id="favorite_color"  onChange={handleInputChange} value={userDataForEvents.favorite_color} placeholder='i.e. Brown..' required/>
             <br />
-            <label htmlFor="favorite_color"> What's your favorite color?:</label>
-            <input type="text" id="favorite_color"  onChange={handleInputChange} value={userDataForEvents.favorite_color} required/>
+            <label htmlFor="preferred_category"> Based on the theme, name the category of gift you're most interested to receive?:</label>
+            <input type="text" id="preferred_category" onChange={handleInputChange} value={userDataForEvents.preferred_category} placeholder='i.e. Technology, Fashion, Books , etc...' required/>
             <br />
-            <label htmlFor="preferred_category"> Based on the theme, what category most interests you?(ie: "candy", "tech", "clothes" ):</label>
-            <input type="text" id="preferred_category" onChange={handleInputChange} value={userDataForEvents.preferred_category} required/>
-            <br />
-            <label htmlFor="clothes" > If applicable, 
+            <label htmlFor="clothes" > If desired, 
             <br />
                 <label htmlFor="shirt_size">Shirt Size:
-                <input type="text" id="shirt_size" onChange={handleInputChange} value={userDataForEvents.shirt_size}/>
+                <input type="text" id="shirt_size" onChange={handleInputChange} value={userDataForEvents.shirt_size} placeholder=' i.e. "Womens S"'/>
                 </label>
                 <label htmlFor="pants_size">Pants Size:
-                <input type="text" id="pants_size" onChange={handleInputChange} value={userDataForEvents.pants_size}/>
+                <input type="text" id="pants_size" onChange={handleInputChange} value={userDataForEvents.pants_size} placeholder=' i.e. "Womens M"' />
                 </label>
                 <label htmlFor="shoe_size">Shoes Size:
-                <input type="text" id="shoe_size" onChange={handleInputChange} value={userDataForEvents.shoe_size}/>
+                <input type="text" id="shoe_size" onChange={handleInputChange} value={userDataForEvents.shoe_size} placeholder=' i.e. "Womens 5"'/>
                 </label>
             <br />
             </label>
-            <label htmlFor="duplicate"> Do you mind receiving an item or version of an item that you already own? 
+            <label className="duplicate" htmlFor="duplicate"> Do you mind receiving an item or version of an item that you already own? 
                 <select id="duplicate" value={selectedOption} onChange={handleOptionChange} required>
                     <option value=""></option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select>
             </label>
-            <ul className='rules-container'>
-                <h3 className='rules-h3'>Rules For <span className='rules-every'>EVERY</span> Event</h3>
+            <br />
+            <h3
+            className="d-inline-flex gap-1 rules-h3"
+            data-bs-toggle="collapse" 
+            data-bs-target="#collapseRulesForEvent" 
+            // aria-expanded="false" 
+            aria-controls="collapseRulesForEvent"
+            >
+            Rules For <span className='rules-every'>EVERY</span> Event
+          </h3>
+             <div className="collapse-container row">
+            <div className="collapse collapse-details collapse-vertical col" id="collapseRulesForEvent">
+              <div className="collapse-card">
+              <ul className='rules-container'>
                 <li className='rules'>If in the event you miss the shipping and tracking deadline or violate any of the terms, you will be at risk of being banned indefinently, per investigation by our team. Moreover, your gifter will have the chance to rescind sending their gift to you as an interim consequence.</li>
                 <li className='rules'>The premise of every event is "Secret Santa", therefore the person you are assigned to gift is not necessarily the same person who is assigned to gift you.</li>
                 <li className='rules'>We do <span className='rules-not'>NOT</span> by any means condone deragatory, sexually explicit nor discriminatory actions such has hate speech, bullying nor racially insensitive, comments or gifts. Please keep everything friendly and respectful. We seek to uplift and bring joy to any and everyone's lives.</li>
                 <li className='rules'>The minimum spend is set so that everyone is expected to stay within a range when shopping for gifts. Do keep in mind that after the minimum anything higher is a budget range set by the gifter and can extend far beyond or exactly at the minimum required spend.</li>
                 <li className='rules'><span className='rules-not'>NOT</span> by any means, are you allowed to contact users requesting gifts. <span className='rules-not'>NOR</span> is revealing gifts prior to unboxing acceptable!</li>
             </ul>
+              </div>
+            </div>
+          </div>
             <div className='terms-container'>
                 <label htmlFor="terms-checkbox" id='terms-text'>
                 <input type="checkbox" id="terms-checkbox" required /> Do You Agree To The Terms? </label>

@@ -30,6 +30,7 @@ import Profile from './components/PublicProfiles'
 // import UserPictureForm from "./components/UserPictureForm"
 // import CurrentEvent from './components/CurrentEvent'
 import EventSignUp from "./components/EventSignup"
+import LoginModal from "./components/LoginModal"
 // import Header from './components/Header'
 import MessageMatch from "./components/MessageMatch";
 import MessageProof from "./components/MessageProof";
@@ -123,13 +124,13 @@ function App() {
             <Route path="/users/" element={<Users />} />
 
             {/* EVENTS CRUD NEW-SHOW-EDIT-INDEX*/}
-            <Route path="/events" element={user? <AllEvents userId = {userId} userData={userData}/> : <Login />} /> 
+            <Route path="/events" element={user? <AllEvents userId = {userId} userData={userData}/> : <LoginModal />} /> 
             {/* <Route path="/events/:eventId" element={<CurrentEvent />} /> */}
 
             {/* USER EVENTS NEW-SHOW-EDIT-INDEX*/}
             <Route 
               path="/events/:eventId/register/:userId" 
-              element={user? <EventSignUp userData={userData} userId={userId}/> : <Login />} />
+              element={user? <EventSignUp userData={userData} userId={userId}/> : <LoginModal />} />
 
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/message-match" element={ <MessageMatch /> } />

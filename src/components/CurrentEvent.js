@@ -66,7 +66,7 @@ export default function CurrentEvent({event, userData, userId}) {
           </h2>
           <div className="collapse-container row">
             <div className="collapse collapse-details collapse-vertical col" id="collapseCurrentEvents">
-              <div className="card card-body collapse-card">
+              <div className="collapse-card">
                 <h2 className="details-CEheader">Important Timeline/Scheduling</h2>
                 <p className="details-CE">
                   <span className="timeline">Registration Period: </span>{signup[1]}/{signup[2]}/{year} - {close[1]}/{close[2]}/{year}
