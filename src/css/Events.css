@@ -417,17 +417,21 @@ intro-container{
         #276BE5 60%, 
         #0c2147 100%
     ); */
+    background-color: #A4C1F4;
+    border: 1px solid #000;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     justify-content: start;
-    width: 100%;
-    height: 100%;
+    margin: 5% auto;
+    padding: 10px; 
+    width: 80%;
+    height: auto;
 }
 .section-header{
     color: #ED6495;
     font-size: 27px;
     margin: 20px;
-    text-shadow: 1px 1px 1px rgba(32, 27, 28, 0.492);    
 }
 .question-mark-icon {
     cursor: pointer;
@@ -436,17 +440,16 @@ intro-container{
     /* margin-left: 8px; */
 }
 .bi-question-circle{
-    fill: #A4C1F4;
+    fill: #000;
     height: 40px;
-    margin-left: 5px;
-    margin-top: 16px;
+    margin: 10px 0 0 0;
     width: 30px;
 }
 .bi-question-circle:hover{
-   fill: black;
+   fill: #ED6495;
 }
 .details-box {
-    background-color: #ffffff25;
+    background-color: #A4C1F4;
     color: rgb(255, 255, 255);
     cursor: help;
     margin-top: 10px;
@@ -455,42 +458,57 @@ intro-container{
 
 .signup-form{
     /* background-color:#E8EFFC; */
-    color: #276BE5;
+    color: #000;
     /* display: flex; */
+    /* margin: 0 0 0 50px; */
     text-align: start;
     /* width: 80%; */
 }
-.signup-form input {
-    background-color: #A4C1F4;
-    border: 2px solid;
+.signup-form > input {
+    /* display: inline-block; */
+    /* background-color: #A4C1F4; */
+    /* border-bottom: 2px #000; */
+    /* border: 2px solid; */
+    /* outline: inset #000000; */
+    outline-color: #6474ED;
     padding: 10px;
     margin: 5px;
     width: 300px;
-    height: 3%;
+    /* height: 3%; */
     /* display: inline; */
 }
-#duplicate {
-    background-color: #A4C1F4;
-    border: 2px solid;
-    margin-left: 10px
-    /* width: 70px; */
+#duplicate,
+.duplicate {
+    display: inline-block;
     /* height: 40px; */
+}
+#duplicate {
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    margin-left: 5px;
+    outline-color: #000;
+    width: 100px;
+
 }
 .signup-form label{
     font-size: 22px;
-    margin: 20px;
+    margin: 5px;
+    /* width: 300px; */
+    /* add to smaller screen to fix the collapse toggle issue with responsive design */
 }
 #shirt_size,
 #pants_size,
 #shoe_size{
-    width: 70px;
+    width: 200px;
 }
 #budget{
     width: 70px;
 }
 
 .welcome, .welcome-2{
-    color:#000000;
+    color:#fff;
+    display: inline;
     font-size: 47px;
     margin: 10px;
 }
@@ -499,16 +517,19 @@ intro-container{
     /* align-items: center; */
 }
 
-
 .rules-container{
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
+    margin-right: 10px;
     max-width: 1200px;
+    /* min-height: 300px; */
+    /* width: 220px; */
 }
 .rules-h3{
     color:#276BE5;
+    cursor: pointer;
     font-weight: 500;
-    margin: 1 1 5px 1;
+    margin: 5px 1px 5px 10px;
 }
 .rules-every{
     font-weight: 700;
@@ -529,23 +550,25 @@ intro-container{
     /* text-indent: 20px; */
 }
 .terms-container{
-    align-items: start;
-    display: inline-block;
-    /* justify-content: start; */
+    align-items: center;
+    display: flex;
+    justify-content: center;
     /* margin-left: 80px; */
-    margin-bottom: 10px;
+    margin: 10px;
     /* vertical-align: top; */
-
 }
 #terms-checkbox{
+    cursor: pointer;
     height: 20px;
-    /* margin: 0px; */
     /* padding: 10px; */
-    /* vertical-align: top; */
+    /* vertical-align: top */
     width: 20px;
 }
 #terms-text{
-    color: #000000;
+    color: #fff;
+    cursor: pointer;
+    display: inline;
+    font-size: 20px;
     font-weight: 500;
 }
 
@@ -565,14 +588,57 @@ intro-container{
 
 }
 @media screen and (max-width: 800px) {
-
+    .signup-form label, .duplicate{
+        max-width: 500px;
+    }
+}
+@media screen and (max-width: 690px) {
+    .signup-form label, .duplicate{
+        width: 300px;
+    }
+    .rules-container{
+        max-width: 520px;
+    }
+    .terms-container{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        max-width: 300px;
+    }
+}
+@media screen and (max-width: 595px) {
+    .signup-form label, .duplicate{
+        width: 200px;
+    }
+    .rules-container{
+        max-width: 320px;
+    }
+    .terms-container{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+    }
+}
+@media screen and (max-width: 435px) {
+    .signup-form label, .duplicate{
+        width: 200px;
+    }
+    .signup-form > input {
+        width: 200px;
+    }
+    .rules-container{
+        max-width: 220px;
+    }
+    .welcome, .welcome-2 {
+        font-size: 35px;
+    }
 }
 
 /*
 BRAND COLORS
 #276BE5 
 -main color
-#6474ED 
+#6495ED
 -button color 
 #A4C1F4 
 -accent color
