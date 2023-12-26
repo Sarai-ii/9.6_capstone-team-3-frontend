@@ -24,13 +24,14 @@ import AllEvents from './pages/AllEvents'
 import ProofPage from "./pages/ProofPage"
 
 // COMPONENTS
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Profile from './components/PublicProfiles'
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import FAQ from './components/FAQ';
+import Profile from './components/PublicProfiles';
 // import UserPictureForm from "./components/UserPictureForm"
 // import CurrentEvent from './components/CurrentEvent'
-import EventSignUp from "./components/EventSignup"
-import LoginModal from "./components/LoginModal"
+import EventSignUp from "./components/EventSignup";
+import LoginModal from "./components/LoginModal";
 // import Header from './components/Header'
 import MessageMatch from "./components/MessageMatch";
 import MessageProof from "./components/MessageProof";
@@ -112,6 +113,7 @@ function App() {
           <Routes>
             <Route path="/" element={ <Home />} />
             <Route path="/about" element = { <About /> } />
+            <Route path="/faq" element = { <FAQ /> } />
             <Route path="/exchanges-proof" element = { <ProofPage />} />
             <Route path="/login" element={<Login userData={userData}  />} />
 
