@@ -12,6 +12,8 @@ const FAQ = ({ id }) => {
   
       toggles.forEach(function (toggle) {
         toggle.addEventListener('click', function () {
+          console.log('Toggle clicked!');
+
           const content = this.nextElementSibling;
   
           if (this.classList.contains('open')) {
@@ -45,7 +47,7 @@ const FAQ = ({ id }) => {
         });
       });
     });
-  })
+  }, [])
 
 
 
@@ -56,7 +58,7 @@ const FAQ = ({ id }) => {
       <h2>FAQs</h2>
         <div className='accordion'>
           <div className='accordion-toggle'>
-            <h3><svg className="f-triangle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 6.2"><title>triangle-right</title><path className="a" d="M0 6.2V0l7 3.1-7 3.1"/></svg>Will I be gifting the same person who is giving a gift to me?</h3>
+            <h3><svg className="f-triangle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 6.2"><title>triangle-right</title><path className="a" d="M0 6.2V0l7 3.1-7 3.1"/></svg>Will I be giving a gift to the same person who is giving a gift to me?</h3>
           </div>
           <div className="accordion-content">
             <p>Answer 1</p>
@@ -104,12 +106,12 @@ const FAQ = ({ id }) => {
             <p>Answer 8</p>
           </div>
           <div className="accordion-toggle">
-            <h3><svg className="f-triangle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 6.2"><title>triangle-right</title><path className="a" d="M0 6.2V0l7 3.1-7 3.1"/></svg>Question 9</h3>
+            <h3><svg className="f-triangle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 6.2"><title>triangle-right</title><path className="a" d="M0 6.2V0l7 3.1-7 3.1"/></svg>What safety precautions are in place?</h3>
           </div>
           <div className="accordion-content">
             <p>Answer 9</p>
           </div>
-          <div className='accordion-toggle'>
+          {/* <div className='accordion-toggle'>
             <h3><svg className="f-triangle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 6.2"><title>triangle-right</title><path className="a" d="M0 6.2V0l7 3.1-7 3.1"/></svg>Question 10</h3>
           </div>
           <div className="accordion-content">
@@ -126,9 +128,9 @@ const FAQ = ({ id }) => {
           </div>
           <div className="accordion-content">
             <p>Answer 12</p>
-          </div>
+          </div> */}
         </div>
-        <ul className='list faq-list'>
+        {/* <ul className='list faq-list'>
             <li>Will I be gifting the same person who is giving a gift to me?</li>
             <li>Do I really have to upload a picture of the gift I got?</li>
             <li>Can I send anything I want?</li>
@@ -141,7 +143,7 @@ const FAQ = ({ id }) => {
             <li>What if I get an inappropriate gift?</li>
             <li>What if I don't send a gift?</li>
             <li>Is this safe?</li>
-        </ul>
+        </ul> */}
     </div>
   )
 }

@@ -27,7 +27,6 @@
 	}
 	100% {
 		transform: rotate(90deg);
-		fill: red;
 	}
 }
 @keyframes bounce-rotate-back {
@@ -50,8 +49,6 @@
 }
 .accordion {
 	h3 {
-		color: $color-secondary;
-	}
 	.accordion-toggle {
 		cursor: pointer;
 		&.open {
@@ -68,4 +65,5 @@
 	.accordion-content {
 		margin-left: 27px;
 	}
+}
 }
