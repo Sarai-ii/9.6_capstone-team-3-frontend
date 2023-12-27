@@ -10,7 +10,6 @@ import './App.css'
 const API = process.env.REACT_APP_API_URL
 
 // PAGES
-import Account from './pages/Account'
 import About from './pages/About'
 import Home from './pages/Home'
 import Login from './pages/Login'
@@ -24,6 +23,7 @@ import ProofPage from "./pages/ProofPage"
 // COMPONENTS
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import Account from './components/Account'
 import Profile from './components/PublicProfiles'
 // import UserPictureForm from "./components/UserPictureForm"
 // import CurrentEvent from './components/CurrentEvent'
@@ -56,9 +56,7 @@ function App() {
           const loggedInUser = response.data.find((verifiedUser) => verifiedUser.firebase_uid === uid);
             // console.log(verifiedUser) // working
             // console.log(verifiedUser.firebase_uid === userUid) //working 
-          
-
-          console.log(loggedInUser.username, `is logged in`) // working
+            // console.log(loggedInUser.username, `is logged in`) // working
           if (loggedInUser) {
             setUserData(loggedInUser)
             console.log(loggedInUser.username, 'is logged in');
@@ -84,12 +82,7 @@ function App() {
   const userId = userData?.id; // Use optional chaining to handle potential null values
 
 
-
   // const userId = userData ? userData.id : null 
-
-
-
-  
   const handleLogout = async () => {
     try {
       await auth.signOut()
