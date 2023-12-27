@@ -8,7 +8,7 @@ function Logo() {
   return <img src={logo} alt="ToFromLogo" />;
 }
 
-function NavBar({ handleLogout, user }) {
+function NavBar({ handleLogout, user, userId }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -33,8 +33,13 @@ function NavBar({ handleLogout, user }) {
       </div>
       <div id="navbar-links" className="navbar-links">
         {user ? (
-          // If user is logged in, show Logout button
+          // If user is logged in, show Profile and Logout buttons
           <>
+            {userId && (
+              <Link to={`/profile/${userId}`} id="navbar-profile-link">
+                Profile
+              </Link>
+            )}
             <button id="navbar-logout" className="navbar-login-link" onClick={handleLogout}>
               Logout
             </button>
