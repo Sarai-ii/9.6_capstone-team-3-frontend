@@ -1,6 +1,4 @@
 
-
-
 // DEPENDENCIES
 import axios from "axios"
 import React, { useEffect, useState } from "react"
@@ -34,6 +32,7 @@ import LoginModal from "./components/LoginModal"
 // import Header from './components/Header'
 import MessageMatch from "./components/MessageMatch";
 import MessageProof from "./components/MessageProof";
+
 
 function App() {
   const [user, setUser] = useState(null)
@@ -117,7 +116,7 @@ function App() {
             <Route path="/users/" element={<Users />} />
 
             {/* EVENTS CRUD NEW-SHOW-EDIT-INDEX*/}
-            <Route path="/events" element={user? <AllEvents userId = {userId} userData={userData}/> : <LoginModal />} /> 
+            <Route path="/events" element={user? <AllEvents userId = {userId} userData={userData}/> : <Login/>} /> 
             {/* <Route path="/events/:eventId" element={<CurrentEvent />} /> */}
 
             {/* USER EVENTS NEW-SHOW-EDIT-INDEX*/}
