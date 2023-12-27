@@ -3,7 +3,7 @@ import "../css/login.css"
 
 function Login() {
   return (
-    <div className='login-for-events-message'><h2>To view current events please login or creat an account</h2></div>
+    <div className='login-for-events-message'><h2>To view current events please login or create an account</h2></div>
   )
 }
 

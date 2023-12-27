@@ -2,138 +2,355 @@
 
 
 #signup-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem 0;
-    background-color: #e8effc;
-    /* margin: 20px;  */
-  }
-  
-
-
-/* Form Container */
-#signup-form-container {
   display: flex;
   flex-direction: column;
-  max-width: 500px;
-  margin: 0 auto; /* Center the form */
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+  background-color: #e8effc;
+  margin: 20px; 
 }
 
-/* Input Groups */
+
 .account-inputs,
 .name-inputs,
 .address-inputs,
 .bio-input {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Two columns, adjust as needed */
-  gap: 15px; /* Adjust as needed */
+  margin-bottom: 40px;
 }
 
-/* Individual Input Styles (you can customize these further) */
-label {
+
+.account-inputs input,
+.name-inputs input,
+.address-inputs input,
+.bio-input input,
+.bio-input textarea {
+  background-color: #e8effc;; 
+  border: 1px solid black;
+}
+
+
+#signup-form-container {
+display: flex;
+flex-direction: column;
+max-width: 500px;
+margin: 0 auto; 
+}
+
+
+
+
+
+.account-inputs {
+  display: flex;
+  align-items: flex-start; 
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 5px; 
+  background-color: white;
+}
+
+.account-inputs-text {
+  width: 50%; 
+  padding-right: 20px; 
+}
+
+.account-inputs-text h2 {
+  margin-bottom: 10px;
+}
+
+.account-inputs-text p {
+  margin-bottom: 20px; 
+}
+
+
+.account-inputs label {
+  width: 50%; 
+}
+
+
+.account-inputs label input {
+  margin-bottom: 15px; 
+}
+
+
+
+.account-input-fields {
+  display: flex;
+  flex-direction: column; 
+}
+
+.account-input-fields label {
+  width: 100%;
+  margin-bottom: 15px; 
+}
+
+.account-input-fields label input {
+  width: 100%; 
+}
+
+
+
+.name-inputs {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 35px;
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.name-inputs-text {
+  width: 50%;
+  padding-right: 20px;
+}
+
+.name-inputs-text h2 {
+  margin-bottom: 10px;
+}
+
+.name-inputs-text p {
+  margin-bottom: 20px;
+}
+
+
+.name-input-fields {
   display: flex;
   flex-direction: column;
+}
+
+.name-input-fields label {
+  width: 100%;
+  margin-bottom: 15px; 
+}
+
+.name-input-fields label input {
+  width: 100%; 
+}
+
+
+
+
+
+.address-inputs {
+  display: flex;
+  align-items: flex-start;
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.address-inputs-text {
+  width: 50%;
+  padding-right: 20px;
+}
+
+.address-inputs-text h2 {
   margin-bottom: 10px;
+}
+
+.address-inputs-text p {
+  margin-bottom: 20px;
+}
+
+
+.address-input-fields {
+  display: flex;
+  flex-direction: column; 
+}
+
+.address-input-fields label {
+  width: 100%;
+  margin-bottom: 15px; 
+}
+
+.address-input-fields label input {
+  width: 100%; 
+}
+
+
+
+
+
+
+.bio-input {
+  display: flex;
+  align-items: flex-start;
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.bio-input-text {
+  width: 50%;
+  padding-right: 20px;
+}
+
+.bio-input-text h2 {
+  margin-bottom: 10px;
+}
+
+.bio-input-text p {
+  margin-bottom: 20px;
+}
+
+
+.bio-input-fields {
+  width: 100%;
+}
+
+#signup-textarea-bio {
+  width: 100%;
+  padding: 10px;
+  min-height: 180px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+/*Button CSS*/
+#signup-button-submit {
+  color: #fffaeb;
+  background-color: #6474ed;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid #fffaeb;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  margin: 0.5rem 0;
+}
+
+#signup-button-submit:hover {
+  color: #6474ed;
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-color: #6474ed;
+}
+
+
+
+
+
+
+
+
+
+
+*/
+label {
+display: flex;
+flex-direction: column;
+margin-bottom: 10px;
 }
 
 input,
 textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 100%;
-  box-sizing: border-box;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+width: 100%;
+box-sizing: border-box;
 }
 
 
-  /*Button CSS*/
-  #signup-button-submit {
-    color: #fffaeb;
-    background-color: #6474ed;
-    text-decoration: none;
-    padding: 10px 20px;
-    border: 2px solid #fffaeb;
-    border-radius: 30px;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    margin: 0.5rem 0; 
-  }
-  
-  #signup-button-submit:hover {
-    color: #6474ed;
-    background: white;
-    transform: translateY(-2px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    border-color: #6474ed;
-  }
-  
-  #error-message-container {
-    width: 100%;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-  }
-  
+
+.account-inputs{
+
+}
+
+/*Button CSS*/
+#signup-button-submit {
+  color: #fffaeb;
+  background-color: #6474ed;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid #fffaeb;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  margin: 0.5rem 0; 
+}
+
+#signup-button-submit:hover {
+  color: #6474ed;
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-color: #6474ed;
+}
+
+#error-message-container {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
 
 /* sign up title CSS */
 #signup-title-container {
-  display: flex;
-  background-color: #6495ED;
-  color: white;
-  padding-bottom: 3.5rem;
-  padding-top: 5rem;
-  padding-bottom: 3rem;
+display: flex;
+background-color: #6495ED;
+color: white;
+padding-bottom: 3.5rem;
+padding-top: 5rem;
+padding-bottom: 3rem;
 
 }
 
 .signup-title-container{
-  padding-bottom: 3.5rem;
+padding-bottom: 3.5rem;
 }
 
 
 #signup-image-container {
-  width: 40%;
+width: 40%;
 }
 
 #signup-image-container img {
-  width: 100%;
-  height: auto;
+width: 100%;
+height: auto;
 
-  padding-left: 10px;
+padding-left: 10px;
 }
 
 #signup-text-container {
-  width: 70%;
-  padding: 20px; 
-  text-align: right;
+width: 70%;
+padding: 20px; 
+text-align: right;
 }
 
 #singup-h1-container {
-  text-align: right;
+text-align: right;
 }
 
 #signup-title {
-  font-family: 'Montserrat';
-  color: white;
-  margin: 0; 
-  padding-bottom: 25px;
-  font-size: 50px;
+font-family: 'Montserrat';
+color: white;
+margin: 0; 
+padding-bottom: 25px;
+font-size: 50px;
 
 }
 
 #signup-slogan {
-  width: 100%;
-  font-size: 28px;
-  color: white;
-  margin: 0; 
+width: 100%;
+font-size: 28px;
+color: white;
+margin: 0; 
 }
 
 #signup-slogan-2 {
-  padding-bottom: 2rem;
-  width: 100%;
-  color: white;
-  margin: 0; 
+padding-bottom: 2rem;
+width: 100%;
+color: white;
+margin: 0; 
 }

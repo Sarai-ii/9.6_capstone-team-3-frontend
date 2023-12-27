@@ -6,7 +6,7 @@
 
 
 
-/* .login-container {
+.login-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,7 +80,7 @@
   }
   
   .login-forum-container {
-    width: 350px;
+
     height: 100%; 
     margin: 20px;
     padding: 20px;
@@ -171,4 +171,4 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border-color: #6474ed;
   }
-   */
+  
