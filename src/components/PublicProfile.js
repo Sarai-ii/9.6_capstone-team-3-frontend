@@ -58,32 +58,33 @@ export default function Profile({user, userData}) {
 
   return (
     <div className='profile-container right-column'>
-      <h2 className='name'>Welcome, {user.name_first}</h2>
-      <section className='bio-container'>
-        <div className='pfp-container'>
-          <Link to={"edit"}>
-            <img className='pfp' 
-            src={"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1024px-Default_pfp.svg.png" }
-            alt ="a person"
-            onClick={handleClick}
-            />
-          </Link>
+      <section className='bio-container left-profile'>
+        <div className='profile-header'>
+          <div className='pfp-container'>
+            <img className='cover-pic' src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFjZWJvb2slMjBjb3ZlcnxlbnwwfHwwfHx8MA%3D%3D"/>
+            <Link to={"edit"}>
+              <img className='pfp' 
+              src={"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1024px-Default_pfp.svg.png" }
+              alt ="a person"
+              onClick={handleClick}
+              />
+            </Link>
+          </div>
         </div>
         <p 
         className='username'> 
         {user.username}
         <br />
-        {/* { userData ?(
+        { userData ?(
           <div>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#EDBB64" className="bi bi-clock-fill" viewBox="0 0 16 16">
               <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
-            </svg> 
-            Joined {monthName} {joinedYear}
+            </svg> Joined 
             <br />
           </div>
         ) : ( <div>Hi</div>
   
-        )} */}
+        )}
         <svg xmlns="http://www.w3.org/2000/svg" 
         width="16" 
         height="16" 
@@ -99,8 +100,12 @@ export default function Profile({user, userData}) {
           <img className="twitter logo" src="https://seeklogo.com/images/T/twitter-new-logo-8A0C4E0C58-seeklogo.com.png?v=638258088440000000"/>
         </div> */}
       </section>
-        <main className='posts-container'>
-          <section className='col-4'>
+        <main className='posts-container right-profile'>
+          <div className="posts-headings">
+          <h2 lassName='name'>Welcome, {user.name_first}</h2>
+          </div>
+          {/* GET TO KNOW ME */}
+          <section className='get-to-know'>
             <h2 className=''>Get To Know Me</h2>
             <ul className='funfacts '>
               <li>Mommy</li>
@@ -109,7 +114,8 @@ export default function Profile({user, userData}) {
               <li>Athletic</li>
             </ul>
           </section>
-            <section className=''>
+            {/* ACHIEVEMENTS */}
+            <section className='achievements'>
               <h2 className='achievements-title'>Achievements</h2>
               <div className=''>
                 <h4 className='card-header'>Early Shipper</h4>
@@ -121,6 +127,7 @@ export default function Profile({user, userData}) {
               <img className='card-img' />
               </div>
             </section>
+            {/* GIFTS RECEIVED ==> POSTS */}
             <h2 className='col-4'>Gifts Received</h2>
             {picturePosts.map((picturePost) => (
               <div key={picturePost.id} 

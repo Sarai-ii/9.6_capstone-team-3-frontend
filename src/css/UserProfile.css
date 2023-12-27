@@ -48,6 +48,9 @@ body {
     margin: 0;
     padding: 70px 10px;
 }
+.profile {
+    padding: 0;
+}
 .sidebar-text, .sidebar-links {
     color: white;
     list-style: none;
@@ -89,26 +92,29 @@ body {
 /* Classes In Individual Profile */
 
 .bio-container, .posts-container{
-    /* flex-direction: column; */
-    /* border: 2px solid #A4C1F4; */
-    /* text-align: center; */
+    display: flex;
 }
-
 .bio-container{
     border-bottom: 1px solid #A4C1F4;
-    border: 2px solid black;
     display: flex;
+    flex-direction: column;
     text-align: center;
-    /* flex-direction: column; */
 }
 
-.pfp-container{
-    border: 2px solid rgba(0, 0, 0, 0.147);
-    border-radius: 50px;
+.cover-pic{
+    display: block;
+    max-height: 300px;
+    min-height: 300px;
+    object-fit: cover;
+    width: 100%;
 }
 .pfp{
-    width: 170px;
+    background-color: #A4C1F4;
+    border: 3px solid rgba(0, 0, 0, 0.147);
+    border-radius: 200px;
     height: 170px;
+    margin-top: -70px;
+    width: 170px;
 }
 .username{
     /* text-align: center; */
@@ -118,15 +124,21 @@ body {
     width: 42px;
     height: 42px;
 }
-.funfacts{
-    list-style-position: inside;
-    list-style: upper-roman;
-}
 .logo-container{
     border: 2px solid ;
 
 }
 
+.posts-headings{
+    flex-direction: column;
+}
+.funfacts{
+    list-style-position: inside;
+    list-style: upper-roman;
+}
+.get-to-know{
+    flex-direction: column;
+}
 .achievements-title{
     text-align: start;
 }
