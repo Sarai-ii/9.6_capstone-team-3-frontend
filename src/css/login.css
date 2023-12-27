@@ -1,3 +1,11 @@
+.login-for-events-message{
+  padding-top: 15rem;
+  padding-bottom: 15rem;
+}
+
+
+
+
 .login-container {
     display: flex;
     flex-direction: column;
@@ -72,8 +80,8 @@
   }
   
   .login-forum-container {
-    width: 350px;
-    height: 100%; /* Take up all available vertical space */
+
+    height: 100%; 
     margin: 20px;
     padding: 20px;
     background-color: white;

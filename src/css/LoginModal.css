@@ -33,6 +33,39 @@
   }
   
 
+
+
+  #login-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .username-label,
+  .password-login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+
+  .username-label label,
+  .password-login label {
+    text-align: left !important;
+    margin-bottom: 0.5rem !important; 
+  }
+  
+  .username-input,
+  .password-input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border-radius: 2.5px;
+    border: 1px solid #545454;
+  }
+  
+  
   
   .logout-button {
     margin-top: 20px;
@@ -74,7 +107,7 @@
     width: 100%;
   }
   
-  
+
 
   .btn-text {
     display: none;
@@ -112,20 +145,13 @@
   .login-h3 {
     display: flex;
     justify-content: center;
-    margin-bottom: 1rem; 
+    margin-bottom: 2rem; 
   }
   
-  .password-input,
-  .username-input {
-    width: 100%; 
-    padding: 0.5rem; 
-    margin: 0.5rem 0; 
-    border-radius: .5px; 
-    border: 1px solid #545454;
-  }
+  
   
   .button-container {
-    margin-top: 1rem;
+    margin-top: 2.5rem;
     display: flex;
     flex-direction: row;
     align-items: center;

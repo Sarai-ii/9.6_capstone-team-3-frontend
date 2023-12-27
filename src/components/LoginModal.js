@@ -80,8 +80,9 @@ const LoginModal = ({ openModal }) => {
               <h3 className="login-h3">Login</h3>
             </div>
             <form className="form-container">
+              <div id='login-input-contianer'>
               <label className="username-label">
-                Email:
+                {/* Email: */}
                 <input
                   className="username-input"
                   type="email"
@@ -91,7 +92,7 @@ const LoginModal = ({ openModal }) => {
                 />
               </label>
               <label className="password-login">
-                Password:
+                {/* Password: */}
                 <input
                   className="password-input"
                   type="password"
@@ -100,6 +101,7 @@ const LoginModal = ({ openModal }) => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </label>
+              </div>
               <div className="button-container">
                 <button
                   className="button"
