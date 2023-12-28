@@ -1,3 +1,5 @@
+/* file name: about.css */
+
 
 .dev-profile-pic {
     width: 100px;
@@ -11,6 +13,11 @@
 
 
 /* FAQ CSS */
+
+.faq {
+    text-align: left;
+	margin-left: 8%;
+}
 
 @keyframes bounce-rotate {
 	0% {
@@ -46,24 +53,25 @@
 }
 .accordion.js .accordion-content {
 	display: none;
+	margin-left: 8%;
 }
 .accordion {
 	h3 {
-	.accordion-toggle {
-		cursor: pointer;
-		&.open {
-			.f-triangle {
-				animation: bounce-rotate 1s forwards;
+		.accordion-toggle {
+			cursor: pointer;
+			&.open {
+				.f-triangle {
+					animation: bounce-rotate 1s forwards;
+				}
+			}
+			&.closed {
+				.f-triangle {
+					animation: bounce-rotate-back .2s forwards;
+				}
 			}
 		}
-		&.closed {
-			.f-triangle {
-				animation: bounce-rotate-back .2s forwards;
-			}
+		.accordion-content {
+			margin-left: 27px;
 		}
 	}
-	.accordion-content {
-		margin-left: 27px;
-	}
-}
 }

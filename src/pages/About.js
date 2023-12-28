@@ -5,7 +5,7 @@ import '../css/about.css'
 import SaraiPic from "../images/Pursuit_ST.jpg";
 import JenniferPic from "../images/Jennifer Einstein_2022_Pursuit_a copy.jpg";
 import JoanavelPic from "../images/Pursuit_JP.jpg";
-import FAQ from '../components/FAQ';
+// import FAQ from '../components/FAQ';
 
 function About() {
   //make sure that the user is scrolled to the correct place when they press the FAQ link
@@ -22,11 +22,11 @@ function About() {
         <h2>How Does It Work?</h2>
       </div>
       <br/>
-      <div >
+      {/* <div >
         <h2 className='display-6'></h2>
           <FAQ id='faq'/>
       </div>
-      <br/>
+      <br/> */}
       <div className='developers'>
         <h2 className='display-6'>App Developers</h2>
         <div className='individual-devs'>
