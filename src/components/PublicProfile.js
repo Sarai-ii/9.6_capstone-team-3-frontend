@@ -11,7 +11,9 @@ const API = process.env.REACT_APP_API_URL;
 
 export default function Profile({user, userData}) {
   console.log(userData)
-  console.log(user.likes)  
+  console.log(user)
+  console.log(user.likes)
+  console.log(user.likes[0][0])  
   const [picturePosts, setPicturePosts] = useState([]);
   const [postsToggle, setPostsToggle] = useState(false);
   const [interestsToggle, setInterestsToggle] = useState(true);
@@ -95,57 +97,58 @@ export default function Profile({user, userData}) {
           </div>
           <div className='bio-content'>
             <p className='username'> @{user.username}</p>
+            <p className='bio-followers'>
+              <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="16" 
+              height="16" 
+              fill="#EDBB64" 
+              className="bi bi-people-fill" 
+              viewBox="0 0 16 16">
+                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+              </svg> Followers
+              <span className='bio-num '> 0 </span>
+            </p>
+            <p className='bio-location bio-details'>
+              <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="16"
+              height="16" 
+              fill="#EDBB64" 
+              class="bi bi-geo-alt-fill" 
+              viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+              </svg> {user.address_state}
+            </p>
+            { userData ?(
+              <p className='bio-joined'>
+                <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="16" 
+                height="16" 
+                fill="#EDBB64" 
+                className="bi bi-clock-fill" 
+                viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+                </svg> Joined {monthJoined}-{yearJoined}
+                <br />
+              </p>
+            ) : ( 
+              <p className='bio-details'>
+                <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="16" 
+                height="16" 
+                fill="#EDBB64" 
+                className="bi bi-clock-fill" 
+                viewBox="0 0 16 16">
+                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+                </svg> Loading 
+              </p>
+            )}
+            <p className='bio'>{user.bio}</p>
+            <button className='button'> Follow </button>
           </div>
-          { userData ?(
-            <p>
-              <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="16" 
-              height="16" 
-              fill="#EDBB64" 
-              className="bi bi-clock-fill" 
-              viewBox="0 0 16 16">
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
-              </svg> Joined {monthJoined}-{yearJoined}
-              <br />
-            </p>
-          ) : ( 
-            <p>
-              <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="16" 
-              height="16" 
-              fill="#EDBB64" 
-              className="bi bi-clock-fill" 
-              viewBox="0 0 16 16">
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
-              </svg> Loading 
-            </p>
-          )}
-          <p>
-            <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="16"
-            height="16" 
-            fill="#EDBB64" 
-            class="bi bi-geo-alt-fill" 
-            viewBox="0 0 16 16">
-              <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
-            </svg> {user.address_state}
-          </p>
-          <p>
-            <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="16" 
-            height="16" 
-            fill="#EDBB64" 
-            className="bi bi-people-fill" 
-            viewBox="0 0 16 16">
-              <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
-            </svg> Followers
-            <span className='bio-num'> 0 </span>
-          </p>
-          <button className='button'> Follow </button>
             {/* <div className="logo-container">
               <img className="insta logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png"/>
               <img className="fb logo" src='https://pngimg.com/uploads/facebook_logos/small/facebook_logos_PNG19757.png'/>
@@ -154,10 +157,10 @@ export default function Profile({user, userData}) {
         </section>
         <main className='posts-container-right'>
           <div className="posts-headings">
-            <p id='posts' onClick={handlePostsToggle}>Posts </p>
+            <p id='posts' onClick={handlePostsToggle}>Posts
+              <span>{picturePosts.length}</span>
+            </p>
             <p id='interests' onClick={handleInterestToggle}>Interests</p>
-          {/* <h2 lassName='name'>Welcome, {userData.name_first}</h2>  */}
-          {/* move the line above to Account Settings */}
           </div>
           {postsToggle ? (
             <div>
@@ -173,15 +176,15 @@ export default function Profile({user, userData}) {
           <div className='interests-container'>
             <section className='get-to-know'>
               <h2 className=''>Likes</h2>
-              <ul className='funfacts likes '>
-                <li>{user.likes}</li>
-                <li>Beauty Enthusiast</li>
-                <li>Default Facts</li>
-                <li>Athletic</li>
+              <ul className='funfacts likes'>
+              {user.likes.map((like) => (
+                <li>{like}</li>
+            ))}
+                
               </ul>
               <h2 className=''>Dislikes</h2>
               <ul className='funfacts dislikes'>
-                <li>{user.likes}</li>
+                <li>{user.likes[0]}</li>
                 <li>Beauty Enthusiast</li>
                 <li>Default Facts</li>
                 <li>Athletic</li>

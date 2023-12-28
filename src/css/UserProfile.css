@@ -114,12 +114,7 @@ body {
 
 .profile-content{
     display: flex;
-    /* border: 2px solid black; */
-    /* justify-content: space-between;  */
     margin: 0 5% 0 5%; 
-    /* padding-left: 0px; */
-    /* text-align: start; */
-    /* width: 100%; */
 }
 
 .bio-container-left{
@@ -130,10 +125,12 @@ body {
     border-radius: 100px 100px 0 0;
     display: flex;
     flex-direction: column;
-    margin: -80px 5% 0 0;
+    margin-top: -80px;
+    /* margin: -80px 5% 0 0; */
     padding: 20px;
     /* height: 100%; */
     text-align: center;
+    width: 30%;
 
 }
 .pfp-container {
@@ -142,22 +139,36 @@ body {
 .pfp,
 .pfp-uploaded {
     border-radius: 200px;
-    height: 180px;
-    margin: 0 0 30% 0;
-    width: 180px;
+    height: 200px;
+    margin: 0 0 20% 0;
+    width: 200px;
     text-align: start;
 }
 .pfp { 
     background-color: #000000;
     border: 3px solid rgba(0, 0, 0, 0.147);
 }
-
+.bio-details{
+    margin: 3px;
+}
+.bio-followers,
+.bio-location, 
+.bio-joined {
+    margin: 0px;
+    text-align: start;
+    text-indent: 1px;
+}
+.bio {
+    margin-top: 10px;
+}
 .username{
     font-size: 30px;
+    font-weight: 500;
 }
 .bio-num{
     display: block;
     font-size: 30px;
+    text-align: center;
 }
 .logo{
     width: 42px;
@@ -165,29 +176,27 @@ body {
 }
 .logo-container{
     border: 2px solid ;
-
 }
 
 .posts-container-right{
-    border: 5px dotted gray;
+    /* border: 5px dotted gray; */
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 100%;
+    /* width: 100%; */
 }
 .posts-headings {
     border-bottom: 1px solid gray;
     display: flex;
-    /* align-content: space-evenly; */
-    justify-content:space-evenly;
+    font-weight: 500;
+    justify-content:space-around;
     margin-left: 10%;
     width: 80%;
-    /* flex-direction: column; */
 }
 #posts,
 #interests {
-    margin: 0 ;
-    font-size: 20px;
+    color: #000;
+    margin: 0;
 }
 .gifts-container {
     display: inline;
@@ -203,12 +212,16 @@ body {
     display: flex;
     justify-content: space-evenly;
     text-align: start;
-
 }
 .likes, 
 .dislikes {
     display: inline-block;
     list-style: none;
+}
+.likes,
+.dislikes,
+.achievements-title{
+    font-size: 20px;
 }
 .get-to-know{
     /* flex-direction: column; */
@@ -216,11 +229,43 @@ body {
 .achievements-title{
     /* text-align: start; */
 }
-
-@media (max-width: 695px) { 
+@media (max-width: 800px) { 
     .profile-content{
         flex-direction: column;
-        /* display: grid;
-        grid-template-columns: 1fr; */
+        width: 100%;
+    }
+    .bio-followers,
+    .bio-location, 
+    .bio-joined {
+        text-align: center;
+    }
+    .bio-container-left {
+        background-color:#00000000;
+        justify-content: center;
+        margin-left: 10%;
+        /* justify-content: center; */
+        /* margin-left: 20px; */
+        width: 70%;
+    }
+    .button {
+        width: 100px;
+    }
+
+    .posts-container-right {
+        /* flex-direction: row;     */
+        padding-right: 5%; 
+        width: 100%;
+    }
+    .interests-container {
+        flex-direction: column;
+        margin: 20px;
+        text-indent: 30px;
     }
 }
+@media (801px <= width <= 1350px) {
+    .interests-container {
+        flex-direction: column;
+        margin: 30px ;
+        text-indent: 20px;
+    }
+ }
