@@ -31,6 +31,16 @@
 }
 
 
+.account-inputs input:focus,
+.name-inputs input:focus,
+.address-inputs input:focus,
+.bio-input input:focus,
+.bio-input textarea:focus {
+  outline: 2px solid #ED6495;
+}
+
+
+
 #signup-form-container {
 display: flex;
 flex-direction: column;
