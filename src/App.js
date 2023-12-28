@@ -34,7 +34,7 @@ import LoginModal from "./components/LoginModal"
 // import Header from './components/Header'
 import MessageMatch from "./components/MessageMatch";
 import MessageProof from "./components/MessageProof";
-import LoginModal from "./components/LoginModal";
+// import LoginModal from "./components/LoginModal";
 
 function App() {
   const [user, setUser] = useState(null)
