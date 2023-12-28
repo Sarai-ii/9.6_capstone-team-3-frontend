@@ -151,12 +151,17 @@ body {
 .bio-details{
     margin: 3px;
 }
-.bio-followers,
+
 .bio-location, 
 .bio-joined {
     margin: 0px;
     text-align: start;
-    text-indent: 1px;
+    text-indent: 30px;
+}
+.bio-followers {
+    display: flex;
+    justify-content: space-around;
+    margin: 4px;
 }
 .bio {
     margin-top: 10px;
@@ -166,6 +171,7 @@ body {
     font-weight: 500;
 }
 .bio-num{
+    color: #6474ED;
     display: block;
     font-size: 30px;
     text-align: center;
@@ -218,16 +224,14 @@ body {
     display: inline-block;
     list-style: none;
 }
-.likes,
-.dislikes,
+.likes-title,
+.dislikes-title,
 .achievements-title{
+    color: #6474ED;
     font-size: 20px;
 }
 .get-to-know{
     /* flex-direction: column; */
-}
-.achievements-title{
-    /* text-align: start; */
 }
 @media (max-width: 800px) { 
     .profile-content{
