@@ -214,24 +214,27 @@ margin: 0 auto;
 
 /*Button CSS*/
 #signup-button-submit {
-  color: #fffaeb;
+  color: white;
   background-color: #6474ed;
   text-decoration: none;
   padding: 10px 20px;
-  border: 2px solid #fffaeb;
+  border: 2px solid transparent; 
   border-radius: 30px;
   font-weight: bold;
   transition: background-color 0.3s, color 0.3s;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  margin: 0.5rem 0;
 }
 
 #signup-button-submit:hover {
   color: #6474ed;
-  background: white;
-  transform: translateY(-2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  border-color: #6474ed;
+  background-color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid transparent; 
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 
@@ -267,11 +270,11 @@ box-sizing: border-box;
 
 /*Button CSS*/
 #signup-button-submit {
-  color: #fffaeb;
+  color: white;
   background-color: #6474ed;
   text-decoration: none;
   padding: 10px 20px;
-  border: 2px solid #fffaeb;
+  border: 2px solid transparent; 
   border-radius: 30px;
   font-weight: bold;
   transition: background-color 0.3s, color 0.3s;
@@ -281,10 +284,14 @@ box-sizing: border-box;
 
 #signup-button-submit:hover {
   color: #6474ed;
-  background: white;
-  transform: translateY(-2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  border-color: #6474ed;
+  background-color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid transparent; 
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 #error-message-container {
