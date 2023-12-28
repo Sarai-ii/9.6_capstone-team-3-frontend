@@ -9,6 +9,7 @@
   padding: 3rem 0;
   background-color: #e8effc;
   margin: 20px; 
+  margin-left: -80px;
 }
 
 
@@ -25,7 +26,7 @@
 .address-inputs input,
 .bio-input input,
 .bio-input textarea {
-  background-color: #e8effc;; 
+  background-color: #F8F8F8;; 
   border: 1px solid black;
 }
 
@@ -40,14 +41,14 @@ margin: 0 auto;
 
 
 
-
 .account-inputs {
   display: flex;
   align-items: flex-start; 
   border: 1px solid black;
   padding: 20px;
   border-radius: 5px; 
-  background-color: white;
+  background-color: #A4C1F4;;
+  min-width: 600px ;
 }
 
 .account-inputs-text {
@@ -98,7 +99,8 @@ margin: 0 auto;
   border: 1px solid black;
   padding: 20px;
   border-radius: 5px;
-  background-color: white;
+  background-color: #A4C1F4;;
+  min-width: 600px ;
 }
 
 .name-inputs-text {
@@ -139,7 +141,8 @@ margin: 0 auto;
   border: 1px solid black;
   padding: 20px;
   border-radius: 5px;
-  background-color: white;
+  background-color: #A4C1F4;;
+  min-width: 600px ;
 }
 
 .address-inputs-text {
@@ -181,7 +184,8 @@ margin: 0 auto;
   border: 1px solid black;
   padding: 20px;
   border-radius: 5px;
-  background-color: white;
+  background-color: #A4C1F4;;
+  min-width: 600px ;
 }
 
 .bio-input-text {
@@ -239,7 +243,9 @@ margin: 0 auto;
 
 
 
-
+#signup-button-container{
+  margin-left: 100px;
+}
 
 
 
@@ -264,9 +270,6 @@ box-sizing: border-box;
 
 
 
-.account-inputs{
-
-}
 
 /*Button CSS*/
 #signup-button-submit {
@@ -361,3 +364,4 @@ width: 100%;
 color: white;
 margin: 0; 
 }
+
