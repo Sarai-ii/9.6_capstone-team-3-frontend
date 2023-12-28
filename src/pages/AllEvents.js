@@ -51,7 +51,7 @@ return (
     <h2 className="event-type">Current Event</h2>
       {
       filteredEvents.map((event) => (
-        <div className="container">
+        <div className="">
           <li><h3 className="event-title">{event.title}</h3></li>
           <CurrentEvent key={event.id} event = {event} userId={userId} />
         </div>
