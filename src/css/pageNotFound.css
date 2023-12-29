@@ -1,0 +1,15 @@
+/* pageNotFound.css */
+
+.not-found-page {
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+    justify-content:flex-start;
+    align-items:center;
+    padding: 20px;
+  }
+  
+  h1 {
+    margin-bottom: 6%;
+  }
