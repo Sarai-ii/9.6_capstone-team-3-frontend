@@ -96,9 +96,18 @@ const Signup = () => {
     }
   };
 
+  const stateInitials = [
+    "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
+    "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+    "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+    "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+    "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
+  ];
+
+
   return (
     <>
-    <div id="signup-page-container"></div>
+      <div id="signup-page-container"></div>
       <div className="signup-title-container" id="signup-title-container">
         <div id="signup-image-container">
           <img src={registrationSignupImage} alt="Register" />
@@ -126,8 +135,8 @@ const Signup = () => {
                 <p>
                   Create an account by registering your email and username,
                   please ensure your password contains a minimum of 6
-                  characters, should include one capital letter, and one special
-                  character.
+                  characters, should include one capital letter, number and
+                  special character.
                 </p>
               </div>
               <div className="account-input-fields">
@@ -229,13 +238,20 @@ const Signup = () => {
                 </label>
                 <label>
                   State:
-                  <input
+                  <select
                     id="signup-input-state"
-                    type="text"
                     value={addressState}
                     onChange={(e) => setAddressState(e.target.value)}
-                  />
+                  >
+                    <option value="">Select State</option>
+                    {stateInitials.map((state) => (
+                      <option key={state} value={state}>
+                        {state}
+                      </option>
+                    ))}
+                  </select>
                 </label>
+
                 <label>
                   ZIP Code:
                   <input
@@ -268,13 +284,13 @@ const Signup = () => {
               </div>
             </div>
             <div id="signup-button-container">
-            <button
-              id="signup-button-submit"
-              type="submit"
-              disabled={isLoading}
-            >
-              {isLoading ? "Signing up..." : "Signup"}
-            </button>
+              <button
+                id="signup-button-submit"
+                type="submit"
+                disabled={isLoading}
+              >
+                {isLoading ? "Signing up..." : "Signup"}
+              </button>
             </div>
           </form>
         </div>
