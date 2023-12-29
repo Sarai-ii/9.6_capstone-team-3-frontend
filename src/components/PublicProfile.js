@@ -183,18 +183,31 @@ export default function Profile({user, userData}) {
           <div className='interests-container'>
             <section className='get-to-know'>
               <h2 className='likes-title'>Likes</h2>
-              <ul className='funfacts likes'>
-              {user.likes.map((like) => (
-                <li>{like}</li>
-            ))}
-                
-              </ul>
+              {user.likes && user.likes[0] ? (
+                <div>
+                  <ul className='funfacts likes'>
+                    {user.likes[0].map((like, index) => (
+                      <li key={index}>{like}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <div></div>
+              )}
+              {user.dislikes && user.dislikes[0] ? (
+                <div>
+                  <h2 className='dislikes-title'>Dislikes</h2>
+                  <ul className='funfacts dislikes'>
+                    {user.dislikes[0].map((dislike, index) => (
+                      <li key={index}>{dislike}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <div></div>
+              )}
               <h2 className='dislikes-title'>Dislikes</h2>
               <ul className='funfacts dislikes'>
-                <li>{user.likes[0]}</li>
-                <li>Beauty Enthusiast</li>
-                <li>Default Facts</li>
-                <li>Athletic</li>
               </ul>
             </section>
             <section className='achievements'>

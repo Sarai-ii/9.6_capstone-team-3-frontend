@@ -170,7 +170,7 @@ body {
     font-size: 30px;
     font-weight: 500;
 }
-.bio-num{
+.bio-num, .posts-num {
     color: #6474ED;
     display: block;
     font-size: 30px;
@@ -228,7 +228,10 @@ body {
 .dislikes-title,
 .achievements-title{
     color: #6474ED;
-    font-size: 20px;
+    font-size: 16px;
+}
+.posts-num {
+    color: #6474ED;
 }
 .get-to-know{
     /* flex-direction: column; */
