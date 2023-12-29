@@ -184,12 +184,11 @@
   }
   
 
-  
   @media only screen and (max-width: 851px) {
     .navbar-middle-links-container {
       display: flex;
       flex-direction: row;
-      align-items: center; /* Center items vertically */
+      align-items: center;
       justify-content: space-between;
       width: 100%;
     }
@@ -211,27 +210,31 @@
   
     #navbar-links {
       display: flex;
-      gap: 10px; /* Adjust the gap as needed */
+      gap: 10px;
       align-items: center;
+      margin-left: -300px;
     }
   
     #navbar-singup {
       display: none; /* Hide the Sign Up link */
     }
   
+    #navbar-profile-link {
+      display: none;
+    }
+  
     .navbar-links {
       display: flex;
       align-items: center;
-    }
-  
-    #navbar-profile-link,
-    #navbar-logout {
-      margin-left: -10px;
+      margin-right: -32px;
     }
   
     #navbar-login,
     #navbar-singup {
-      margin-left: -90px; 
+      margin-left: -90px;
     }
   }
   
+  #navbar-logout{
+
+  }
