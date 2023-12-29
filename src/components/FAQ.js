@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import '../css/about.css'
 
 const FAQ = ({ id }) => {
-
+  window.scrollTo(0,0);
   const [openIndex, setOpenIndex] = useState(null);
 
   const faqData = [

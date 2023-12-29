@@ -17,6 +17,10 @@
 .faq {
     text-align: left;
 	margin-left: 8%;
+	padding-bottom: 4%;
+	h2 {
+		margin-top: 5%;
+	}
 }
 
 @keyframes bounce-rotate {
@@ -53,12 +57,16 @@
 }
 .accordion.js .accordion-content {
 	display: none;
-	margin-left: 8%;
 }
 .accordion {
 	h3 {
+		margin-top: 3%;
+		padding-top: 2%;
+		
 		.accordion-toggle {
 			cursor: pointer;
+
+
 			&.open {
 				.f-triangle {
 					animation: bounce-rotate 1s forwards;
@@ -70,8 +78,9 @@
 				}
 			}
 		}
-		.accordion-content {
-			margin-left: 27px;
-		}
 	}
+}
+
+.accordion-content {
+	margin-left: 5%;
 }
