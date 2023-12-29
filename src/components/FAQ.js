@@ -6,6 +6,7 @@ import '../css/about.css'
 const FAQ = ({ id }) => {
   useEffect(() => {
     console.log('Effect executed');
+    window.scrollTo(0,0);
     const accordions = document.querySelectorAll('.accordion');
   
     accordions.forEach(function (accordion) {

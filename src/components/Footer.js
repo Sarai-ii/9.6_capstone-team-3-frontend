@@ -43,7 +43,7 @@ function Footer() {
                   <Link to="/about" >About Us</Link>
                 </li>
                 <li className="menu-item ">
-                  <Link to="/about#faq">FAQ</Link></li>
+                  <Link to="/faq">FAQ</Link></li>
                 <li className="menu-item">
                   <Link to="/events">Event</Link>
                 </li>
