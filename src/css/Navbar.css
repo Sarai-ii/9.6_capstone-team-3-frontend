@@ -104,8 +104,9 @@
   
   #navbar-middle-links {
     display: flex;
-    gap: 65px;
+    gap: 45px;
     margin-left: auto;
+    margin-left: -40px;
   }
   
 
@@ -184,8 +185,6 @@
   
 
   
-
-  
   @media only screen and (max-width: 851px) {
     .navbar-middle-links {
       display: flex;
@@ -217,8 +216,12 @@
       margin-left: -10px; 
     }
   
+
+    #navbar-login,
+    #navbar-singup{
+
+    }
     .navbar-middle-links {
       display: flex;
     }
   }
-  
