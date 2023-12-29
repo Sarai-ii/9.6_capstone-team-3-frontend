@@ -186,15 +186,22 @@
 
   
   @media only screen and (max-width: 851px) {
-    .navbar-middle-links {
+    .navbar-middle-links-container {
       display: flex;
-      flex-direction: row; 
-      align-items: flex-start; 
-      justify-content: space-between; 
+      flex-direction: row;
+      align-items: center; /* Center items vertically */
+      justify-content: space-between;
+      width: 100%;
+    }
+  
+    .navbar-logo {
+      order: -1; /* Move the logo to the left */
+      margin-left: -20px;
     }
   
     #events-middle-link {
       display: block;
+      margin-left: -211px;
     }
   
     #hiw-middle-link,
@@ -203,7 +210,13 @@
     }
   
     #navbar-links {
-      margin-left: auto; 
+      display: flex;
+      gap: 10px; /* Adjust the gap as needed */
+      align-items: center;
+    }
+  
+    #navbar-singup {
+      display: none; /* Hide the Sign Up link */
     }
   
     .navbar-links {
@@ -213,15 +226,12 @@
   
     #navbar-profile-link,
     #navbar-logout {
-      margin-left: -10px; 
+      margin-left: -10px;
     }
   
-
     #navbar-login,
-    #navbar-singup{
-
-    }
-    .navbar-middle-links {
-      display: flex;
+    #navbar-singup {
+      margin-left: -90px; 
     }
   }
+  
