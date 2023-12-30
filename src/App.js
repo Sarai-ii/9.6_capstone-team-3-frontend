@@ -1,6 +1,4 @@
 
-
-
 // DEPENDENCIES
 import axios from "axios"
 import React, { useEffect, useState } from "react"
@@ -12,7 +10,6 @@ import './App.css'
 const API = process.env.REACT_APP_API_URL
 
 // PAGES
-import Account from './pages/Account'
 import About from './pages/About'
 import Home from './pages/Home'
 import Login from './pages/Login'
@@ -24,10 +21,11 @@ import AllEvents from './pages/AllEvents'
 import ProofPage from "./pages/ProofPage"
 
 // COMPONENTS
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import FAQ from './components/FAQ';
-import Profile from './components/PublicProfiles';
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import Account from './components/Account'
+import Profile from './components/PublicProfiles'
 // import UserPictureForm from "./components/UserPictureForm"
 // import CurrentEvent from './components/CurrentEvent'
 import EventSignUp from "./components/EventSignup";
@@ -35,6 +33,7 @@ import LoginModal from "./components/LoginModal";
 // import Header from './components/Header'
 import MessageMatch from "./components/MessageMatch";
 import MessageProof from "./components/MessageProof";
+
 
 function App() {
   const [user, setUser] = useState(null)
@@ -58,9 +57,7 @@ function App() {
           const loggedInUser = response.data.find((verifiedUser) => verifiedUser.firebase_uid === uid);
             // console.log(verifiedUser) // working
             // console.log(verifiedUser.firebase_uid === userUid) //working 
-          
-
-          console.log(loggedInUser.username, `is logged in`) // working
+            // console.log(loggedInUser.username, `is logged in`) // working
           if (loggedInUser) {
             setUserData(loggedInUser)
             console.log(loggedInUser.username, 'is logged in');
@@ -86,12 +83,7 @@ function App() {
   const userId = userData?.id; // Use optional chaining to handle potential null values
 
 
-
   // const userId = userData ? userData.id : null 
-
-
-
-  
   const handleLogout = async () => {
     try {
       await auth.signOut()
@@ -106,7 +98,7 @@ function App() {
       <header className="App-header">
       </header>
       <Router>
-      <Navbar handleLogout={handleLogout} user={user} />
+      <Navbar handleLogout={handleLogout} user={user} userId={userData?.id} />
         {/* <button onClick={handleLogout}>Logout</button> */}
         <main>
           {/* <Header/> */}
@@ -126,7 +118,7 @@ function App() {
             <Route path="/users/" element={<Users />} />
 
             {/* EVENTS CRUD NEW-SHOW-EDIT-INDEX*/}
-            <Route path="/events" element={user? <AllEvents userId = {userId} userData={userData}/> : <LoginModal />} /> 
+            <Route path="/events" element={user? <AllEvents userId = {userId} userData={userData}/> : <Login/>} /> 
             {/* <Route path="/events/:eventId" element={<CurrentEvent />} /> */}
 
             {/* USER EVENTS NEW-SHOW-EDIT-INDEX*/}
