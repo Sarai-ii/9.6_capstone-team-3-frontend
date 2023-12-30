@@ -3,14 +3,14 @@ import "../css/about.css";
 
 function TermsOfService() {
   return (
-    <div className='tos about'>
+    <div className='legal tos about'>
         <h2 className='heading'>Terms of Service</h2>
 
         <p>
             We provide certain services to you, subject to these Terms and Conditions of Service. We may change these or make new ones at any time. Although we will attempt to notify you through reasonable means when these change, we are under no obligation to do so.
         </p>
 
-        <p>In compliance with United States regulations regarding online privacy for children, we do not knowingly solicit or collect information from children under the age of thirteen (13). Children under the age of thirteen (13) are therefore not permitted to have an account or upload any content. By creating an account and/or uploading content,  you confirm that you are thirteen (13) years old or older</p>
+        <p>In compliance with United States regulations regarding online privacy for children, we do not knowingly solicit or collect information from children under the age of thirteen (13). Children under the age of thirteen (13) are therefore not permitted to have an account or upload any content. By creating an account and/or uploading content, you confirm that you are thirteen (13) years old or older</p>
 
         <p>At this time, we are only open to users in The United States.</p>
 
