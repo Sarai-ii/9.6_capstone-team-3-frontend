@@ -13,7 +13,7 @@ export default function Profile({user, userData}) {
   console.log(userData)
   console.log(user)
   console.log(user.likes)
-  console.log(user.likes[0][0])  
+  // console.log(user.likes[0][0])  //crashes the site if likes array is empty.
   const [picturePosts, setPicturePosts] = useState([]);
   const [postsToggle, setPostsToggle] = useState(false);
   const [interestsToggle, setInterestsToggle] = useState(true);
@@ -184,35 +184,38 @@ export default function Profile({user, userData}) {
             <section className='get-to-know'>
               <h2 className='likes-title'>Likes</h2>
               {user.likes && user.likes[0] ? (
-                <div>
                   <ul className='funfacts likes'>
-                    {user.likes[0].map((like, index) => (
-                      <li key={index}>{like}</li>
+                    {user.likes.map((like, index) => (
+                      <li key={index}>{
+                        // like.splice(0, 1).toUpperCase()
+                        like.toUpperCase()
+                        // like.slice(0,1)
+                        // like[0].toUpperCase()
+                        }</li>
                     ))}
                   </ul>
-                </div>
               ) : (
-                <div></div>
-              )}
-              {user.dislikes && user.dislikes[0] ? (
-                <div>
-                  <h2 className='dislikes-title'>Dislikes</h2>
-                  <ul className='funfacts dislikes'>
-                    {user.dislikes[0].map((dislike, index) => (
-                      <li key={index}>{dislike}</li>
-                    ))}
-                  </ul>
+                <div className=''>
+                  <Link className='edit-link'>Click to add details</Link>
                 </div>
-              ) : (
-                <div></div>
               )}
               <h2 className='dislikes-title'>Dislikes</h2>
-              <ul className='funfacts dislikes'>
-              </ul>
+              {user.dislikes && user.dislikes[0] ? (
+                  <ul className='funfacts dislikes'>
+                    {user.dislikes.map((dislike, index) => (
+                      <li key={index}>{dislike.toUpperCase()}</li>
+                    ))}
+                  </ul>
+              ) : (
+                <div>
+                  <Link className='edit-link'>Click to add details</Link>
+                </div>
+              )}
             </section>
             <section className='achievements'>
               <h2 className='achievements-title'>Achievements</h2>
-              <p className='points-num'>{points}</p>
+              <p className='points-num'>Points: {points}</p>
+              <p></p>
               <div className=''>
                 <h4 className='card-header'>Early Shipper</h4>
               </div>
