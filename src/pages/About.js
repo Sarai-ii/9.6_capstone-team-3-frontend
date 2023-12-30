@@ -1,20 +1,14 @@
 // About.js
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../css/about.css'
 import SaraiPic from "../images/Pursuit_ST.jpg";
 import JenniferPic from "../images/Jennifer Einstein_2022_Pursuit_a copy.jpg";
 import JoanavelPic from "../images/Pursuit_JP.jpg";
-import FAQ from '../components/FAQ';
+
 
 function About() {
-  //make sure that the user is scrolled to the correct place when they press the FAQ link
-  useEffect(() => {
-    const faqElement = document.getElementById('faq');
-    if (faqElement){
-      faqElement.scrollIntoView({ behavior: 'smooth'});
-    }
-  }, [])
+  window.scrollTo(0,0);
   return (
     <div className='about container-fluid p-5'>
       <h1 className='display-6'>Header for About Page</h1>
@@ -22,11 +16,11 @@ function About() {
         <h2>How Does It Work?</h2>
       </div>
       <br/>
-      <div >
+      {/* <div >
         <h2 className='display-6'></h2>
           <FAQ id='faq'/>
       </div>
-      <br/>
+      <br/> */}
       <div className='developers'>
         <h2 className='display-6'>App Developers</h2>
         <div className='individual-devs'>
@@ -63,10 +57,6 @@ function About() {
               </ul>
         </div>
       </div>
-
-
-
-
     </div>
   )
 }
