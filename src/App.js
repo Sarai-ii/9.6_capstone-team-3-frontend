@@ -16,7 +16,8 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Gallery from './pages/Gallery';
 import PageNotFound from "./pages/PageNotFound";
-import PrivacyAndTerms from "./pages/PrivacyAndTerms";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import Users from './pages/usersIndex';
 import AllEvents from './pages/AllEvents';
 
@@ -106,7 +107,8 @@ function App() {
             <Route path="/" element={ <Home />} />
             <Route path="/about" element = { <About /> } />
             <Route path="/faq" element = { <FAQ /> } />
-            <Route path="/terms-of-service" element = {<PrivacyAndTerms/> } />
+            <Route path="/terms-of-service" element = {<TermsOfService/> } />
+            <Route path="/privacy-policy" element = {<PrivacyPolicy/> } />
             <Route path="/login" element={<Login userData={userData}  />} />
 
             {/* USERS CURD NEW-SHOW-EDIT-INDEX*/}
