@@ -12,6 +12,15 @@
 }
 
 
+.tos {
+	margin: 3% 10% 3% 8%;
+
+}
+
+.tos li {
+	margin-left: 1%;
+}
+
 /* FAQ CSS */
 
 .faq {
