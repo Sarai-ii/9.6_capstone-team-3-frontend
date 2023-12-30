@@ -16,11 +16,6 @@ function About() {
         <h2>How Does It Work?</h2>
       </div>
       <br/>
-      {/* <div >
-        <h2 className='display-6'></h2>
-          <FAQ id='faq'/>
-      </div>
-      <br/> */}
       <div className='developers'>
         <h2 className='display-6'>App Developers</h2>
         <div className='individual-devs'>
@@ -49,13 +44,13 @@ function About() {
           <br/>
         </div>
 
-        <div>
+        {/* <div>
             <h6>Credits</h6>
               <ul className='list credits-list'>
                 <li>placeholder one</li>
                 <li>placeholder two</li>
               </ul>
-        </div>
+        </div> */}
       </div>
     </div>
   )
