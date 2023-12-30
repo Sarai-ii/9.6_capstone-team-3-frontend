@@ -10,13 +10,18 @@ import "../css/UserProfile.css"
 const API = process.env.REACT_APP_API_URL;
 
 export default function Profile({user, userData}) {
-  console.log(userData)
-  console.log(user)
-  console.log(user.likes)
+  if (userData) {
+    console.log(`The Logged in User Is`, userData)
+    console.log(`Doesn't always work but this is to set up user specific displays`, userData.firebase_uid)
+  }
+  console.log(`The User Info On Screen`,user)
+  // console.log(user.likes)
   // console.log(user.likes[0][0])  //crashes the site if likes array is empty.
   const [picturePosts, setPicturePosts] = useState([]);
   const [postsToggle, setPostsToggle] = useState(false);
   const [interestsToggle, setInterestsToggle] = useState(true);
+  const [pointsIcon, setPointsIcon] = useState('')
+  const [luxuryStatus, setLuxuryStatus] = useState(false)
   const navigate = useNavigate()
   const { userId } = useParams();
 
@@ -44,6 +49,12 @@ export default function Profile({user, userData}) {
     setInterestsToggle(true)
   }
   const points = user.points === null ? 0 : user.points
+  // const handlePoints = () => {
+  //   points > 1000 ? setLuxuryStatus (true) : 
+  //   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+  //     <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+  //   </svg>
+  // }
   //Getting The Dates 
   const regularDateFormat = user.date_created.split("T")[0].split("-")
   const monthJoined = regularDateFormat[1]
@@ -59,6 +70,7 @@ export default function Profile({user, userData}) {
     //     console.error('Error fetching user data:', error);
     //   }
     // }
+
 
     const fetchPicturePosts = async () => {
       try {
@@ -82,16 +94,16 @@ export default function Profile({user, userData}) {
       <div className='profile-content'>
         <section className='bio-container-left'>
           <div className='pfp-container'>
-          { user.profile_pic ? 
-              ( <img className='pfp-uploaded' 
-              onClick={handleClick}
-              src= {user.profile_pic}
-              /> 
-              ) 
-              : 
-              (<img className='pfp' 
-              src= {defaultImageUrl}
-              onClick={handleClick}/>
+          { user.profile_pic ? ( 
+            <img className='pfp-uploaded' src= {user.profile_pic}/> 
+            ) : (
+              <div>
+                { userData && user.firebase_uid === userData.firebase_uid? (
+                <img className='pfp' src= {defaultImageUrl} onClick={handleClick}/>
+                ) : (
+                  <img className='pfp' src= {defaultImageUrl}/>
+                )}
+              </div>
             )
           }
           </div>
@@ -185,36 +197,51 @@ export default function Profile({user, userData}) {
               <h2 className='likes-title'>Likes</h2>
               {user.likes && user.likes[0] ? (
                   <ul className='funfacts likes'>
+                    {/* {console.log("User on the screen:", user.firebase_uid)} */}
+                    {/* {console.log("User logged in:", userData.firebase_uid)} */}
                     {user.likes.map((like, index) => (
-                      <li key={index}>{
-                        // like.splice(0, 1).toUpperCase()
-                        like.toUpperCase()
-                        // like.slice(0,1)
-                        // like[0].toUpperCase()
-                        }</li>
+                      <li key={index}>{like.toUpperCase()}</li>
                     ))}
                   </ul>
               ) : (
-                <div className=''>
-                  <Link className='edit-link'>Click to add details</Link>
+                <div>
+                  {/* {console.log("userData.firebase_uid:", userData.firebase_uid)} */}
+                  {/* {console.log("user.firebase_uid:", user.firebase_uid)} */}
+                  {/* {user ? ( */}
+                  {userData && user.firebase_uid === userData.firebase_uid? (
+                    <Link className='edit-link' to={`./account-edit`}>Click to add details</Link>
+                  ) : (
+                    <div className='temp-empty'> 
+                    </div>
+                  )}
                 </div>
               )}
               <h2 className='dislikes-title'>Dislikes</h2>
               {user.dislikes && user.dislikes[0] ? (
                   <ul className='funfacts dislikes'>
+                    {/* {console.log("User on the screen:", user.firebase_uid)} */}
+                    {/* {console.log("User logged in:", userData.firebase_uid)} */}
                     {user.dislikes.map((dislike, index) => (
                       <li key={index}>{dislike.toUpperCase()}</li>
                     ))}
                   </ul>
               ) : (
                 <div>
-                  <Link className='edit-link'>Click to add details</Link>
+                  {/* {console.log("userData.firebase_uid:", userData.firebase_uid)} */}
+                  {/* {console.log("user.firebase_uid:", user.firebase_uid)} */}
+                  {/* {user ? ( */}
+                  {userData && user.firebase_uid === userData.firebase_uid? (
+                    <Link className='edit-link' to={`./account-edit`}>Click to add details</Link>
+                  ) : (
+                    <div className='temp-empty'> 
+                    </div>
+                  )}
                 </div>
               )}
             </section>
             <section className='achievements'>
               <h2 className='achievements-title'>Achievements</h2>
-              <p className='points-num'>Points: {points}</p>
+              <p className='points'>Points: <span className='points-num'>{points}</span></p>
               <p></p>
               <div className=''>
                 <h4 className='card-header'>Early Shipper</h4>

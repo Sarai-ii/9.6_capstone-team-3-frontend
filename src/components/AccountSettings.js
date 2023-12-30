@@ -4,7 +4,7 @@ export default function Account({ userData }) {
   console.log(`This is Account Settings For${userData}`)
   return (
     <div>
-      <h2 lassName='name'>Welcome, {userData.name_first}</h2> 
+      <h2 className='name'>Welcome, {userData.name_first}</h2> 
     </div>
   )
 }
