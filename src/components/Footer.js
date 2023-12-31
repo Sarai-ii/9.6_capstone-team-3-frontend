@@ -42,12 +42,6 @@ function Footer({user}) {
           </div>
           <div className='footer-content-column'>
               <p></p>
-            {/* <div className='footer-logo'>
-              <Link to="/"  className='footer-logo-link'>
-                <span className='hidden-link-text'>LOGO</span>
-                <img src={LogoImage} alt="Logo" className="logo-image" />
-              </Link>
-            </div> */}
           </div>
           <div className="footer-content-column">
             <div className="footer-call-to-action">
