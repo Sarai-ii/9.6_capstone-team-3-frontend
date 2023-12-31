@@ -131,7 +131,7 @@ function App() {
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>
-        <Footer />
+        <Footer handleLogout={handleLogout} user={user} userId={userData?.id} />
       </Router>
     </div>
   )
