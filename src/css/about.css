@@ -12,6 +12,20 @@
 }
 
 
+.legal {
+	margin: 3% 10% 3% 8%;
+
+}
+
+.legal li
+ {
+	margin-left: 1%;
+}
+
+.heading {
+	padding-top: 20px;
+}
+
 /* FAQ CSS */
 
 .faq {

@@ -10,22 +10,23 @@ import './App.css'
 const API = process.env.REACT_APP_API_URL
 
 // PAGES
-import About from './pages/About'
-import Home from './pages/Home'
-import Login from './pages/Login'
-import Signup from './pages/Signup'
-import Gallery from './pages/Gallery'
-import PageNotFound from "./pages/PageNotFound"
-import Users from './pages/usersIndex'
-import AllEvents from './pages/AllEvents'
-import ProofPage from "./pages/ProofPage"
+import About from './pages/About';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Gallery from './pages/Gallery';
+import PageNotFound from "./pages/PageNotFound";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import Users from './pages/usersIndex';
+import AllEvents from './pages/AllEvents';
 
 // COMPONENTS
 import FAQ from './components/FAQ';
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Account from './components/Account'
-import Profile from './components/PublicProfiles'
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Account from './components/Account';
+import Profile from './components/PublicProfiles';
 // import UserPictureForm from "./components/UserPictureForm"
 // import CurrentEvent from './components/CurrentEvent'
 import EventSignUp from "./components/EventSignup";
@@ -106,7 +107,8 @@ function App() {
             <Route path="/" element={ <Home />} />
             <Route path="/about" element = { <About /> } />
             <Route path="/faq" element = { <FAQ /> } />
-            <Route path="/exchanges-proof" element = { <ProofPage />} />
+            <Route path="/terms-of-service" element = {<TermsOfService/> } />
+            <Route path="/privacy-policy" element = {<PrivacyPolicy/> } />
             <Route path="/login" element={<Login userData={userData}  />} />
 
             {/* USERS CURD NEW-SHOW-EDIT-INDEX*/}
@@ -129,7 +131,6 @@ function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/message-match" element={ <MessageMatch /> } />
             <Route path="/message-proof" element={ <MessageProof /> } />
-            {/* <Route path="/exchanges-proof" element = { <ProofPage />} /> */}
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>

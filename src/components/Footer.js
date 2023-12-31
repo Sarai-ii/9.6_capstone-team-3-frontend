@@ -24,13 +24,13 @@ function Footer({user}) {
           <div className="footer-content-column">
 
             <div className='footer-menu'>
-            <h2 className="footer-menu-name"> Legal</h2>
+            <h2 className="footer-menu-name">Legal</h2>
             <ul id="menu-legal" className="footer-menu-list">
               <li className="menu-item menu-item-privacy-policy">
-                <Link to="#">Privacy Notice</Link>
+                <Link to="/privacy-policy">Privacy Policy</Link>
               </li>
               <li className="menu-item">
-                <Link to="#">Terms of Use</Link>
+                <Link to="/terms-of-service">Terms of Service</Link>
               </li>
             </ul>
           </div>
