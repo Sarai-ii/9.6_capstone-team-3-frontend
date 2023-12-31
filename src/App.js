@@ -19,6 +19,7 @@ import PageNotFound from "./pages/PageNotFound"
 import Users from './pages/usersIndex'
 import AllEvents from './pages/AllEvents'
 import ProofPage from "./pages/ProofPage"
+import AllMessages from "./pages/MessagesIndex"
 
 // COMPONENTS
 import Navbar from './components/Navbar'
@@ -49,7 +50,7 @@ function App() {
         console.log('authUser:', authUser) // working
         setUser(authUser) // firebase data for user
         console.log(authUser.uid) // working
-        setUserUid(authUser.uid) 
+        setUserUid(authUser.uid)
         try {
           const response = await axios.get(`${API}/users`)
           console.log(response.data) // working
