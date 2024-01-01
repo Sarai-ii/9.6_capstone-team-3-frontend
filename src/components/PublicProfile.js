@@ -270,9 +270,35 @@ export default function Profile({user, userData}) {
             <section className=''>
               <h2 className='personal-title'>Personal Details</h2>
               <ul className='funfacts'>
-                <li>SHIRT SIZE: {user.shirt_size.toUpperCase()}</li>
-                <li>PANTS SIZE: {user.pants_size.toUpperCase()}</li>
-                <li>SHOE SIZE: {user.shoe_size.toUpperCase()}</li>
+                <li>SHIRT SIZE: {user.shirt_size ? user.shirt_size.toUpperCase() 
+                : 
+                  <div>
+                    {userData && user.firebase_uid === userData.firebase_uid? (
+                      <Link className='edit-link' to={`./account-edit`}>Click to add details</Link>
+                    ) : (
+                      <div className='temp-empty'> 
+                      </div>
+                    )}
+                  </div>}
+                </li>
+                <li>PANTS SIZE: {user.pants_size ? user.pants_size.toUpperCase() :  <div>
+                    {userData && user.firebase_uid === userData.firebase_uid? (
+                      <Link className='edit-link' to={`./account-edit`}>Click to add details</Link>
+                    ) : (
+                      <div className='temp-empty'> 
+                      </div>
+                    )}
+                  </div>}
+                </li>
+                <li>SHOE SIZE: {user.shoe_size ? user.shoe_size.toUpperCase() :  <div>
+                    {userData && user.firebase_uid === userData.firebase_uid? (
+                      <Link className='edit-link' to={`./account-edit`}>Click to add details</Link>
+                    ) : (
+                      <div className='temp-empty'> 
+                      </div>
+                    )}
+                  </div>}
+                </li>
               </ul>
               <h2 className='color-title'>Favorite Colors</h2>
               {user.favorite_color && user.favorite_color[0] ? (
