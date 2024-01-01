@@ -110,14 +110,15 @@ function App() {
 
             {/* USERS CURD NEW-SHOW-EDIT-INDEX*/}
             <Route path="/signup" element={<Signup userData={userData}/>} />
-
+            
+            <Route path="/profile/:userId/messages" element={userData ? <AllMessages userData={userData}/> : <LoginModal />} />
             {/* <Route path="/create-profile" element={<CreateProfile />} /> */}
             <Route path="/profile/:userId" element={<Profile userData={userData}/>} />
             <Route path="/profile/:userId/account-edit" element={<Account userData={userData}/>} />
             <Route path="/users/" element={<Users />} />
 
             {/* EVENTS CRUD NEW-SHOW-EDIT-INDEX*/}
-            <Route path="/events" element={user? <AllEvents userId = {userId} userData={userData}/> : <Login/>} /> 
+            <Route path="/events" element={user? <AllEvents userId = {userId} userData={userData}/> : <LoginModal/>} /> 
             {/* <Route path="/events/:eventId" element={<CurrentEvent />} /> */}
 
             {/* USER EVENTS NEW-SHOW-EDIT-INDEX*/}

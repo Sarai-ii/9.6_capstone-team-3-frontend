@@ -11,14 +11,14 @@ const API = process.env.REACT_APP_API_URL;
 
 export default function Profile({user, userData}) {
   if (userData) {
-    console.log(`The Logged in User Is`, userData)
+    // console.log(`The Logged in User Is`, userData) //working
     // console.log(`
     // Checking if this loads up, if not it's due to ASYNC functionality. 
     // Reason: This is to set up user specific UI/UX. 
     // Currently logged in User's UID:`, 
-    // userData.firebase_uid)
+    // userData.firebase_uid) //working
   }
-  console.log(`The User Info On Screen`,user)
+  // console.log(`The User Info On Screen`,user) //working
   // console.log(user.likes)
   // console.log(user.likes[0][0])  //crashes the site if likes array is empty.
   const [picturePosts, setPicturePosts] = useState([]);
@@ -31,9 +31,9 @@ export default function Profile({user, userData}) {
 
   const defaultImageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1024px-Default_pfp.svg.png";
 
-  const handlePictureChangeToFirebase = () => {
+  // const handlePictureChangeToFirebase = () => {
 
-  }
+  // }
 
   const handleClick = () => {
     if (user.profile_pic === defaultImageUrl) {
@@ -110,11 +110,12 @@ export default function Profile({user, userData}) {
               </div>
             )
           }
+          
           </div>
           <div className='bio-content'>
             <p className='username'> @{user.username}
-            <span>{ user.isluxury ? (
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
+            <span>{ points > 100 ? (
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="gold" className="bi bi-star-fill" viewBox="0 0 16 16">
                   <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                 </svg>
             ) : (
@@ -124,6 +125,7 @@ export default function Profile({user, userData}) {
             )}
             </span>
             </p>
+            
             <p className='bio-location bio-details'>
               <svg 
               xmlns="http://www.w3.org/2000/svg" 
@@ -145,7 +147,7 @@ export default function Profile({user, userData}) {
                 className="bi bi-clock-fill" 
                 viewBox="0 0 16 16">
                   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
-                </svg> Joined {monthJoined}-{yearJoined}
+                </svg> Joined {monthJoined}/{yearJoined}
                 <br />
               </p>
             ) : ( 
@@ -161,24 +163,34 @@ export default function Profile({user, userData}) {
                 </svg> Loading 
               </p>
             )}
+            {/* <p className='bio'>{user.bio}</p> */}
+
+            <section className='bio-score' > 
+                <p id='points'>Points:
+                  <span className='points-num'>{points}</span>
+                </p>
+                <p id='level'>Level:
+                  <span className='level-num '> {user.level} </span>
+                </p>
+              </section>
             <section className='bio-followers' > 
-            <p id='followers'>
-              {/* <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="16" 
-              height="16" 
-              fill="#EDBB64" 
-              className="bi bi-people-fill" 
-              viewBox="0 0 16 16">
-                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
-              </svg>  */}
-              Followers
-              <span className='bio-num '> 0 </span>
-            </p>
-            <p id='following'>
-            Following
-              <span className='bio-num '> 0 </span>
-            </p>
+              <p id='followers'>
+                {/* <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="16" 
+                height="16" 
+                fill="#EDBB64" 
+                className="bi bi-people-fill" 
+                viewBox="0 0 16 16">
+                  <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+                </svg>  */}
+                Followers
+                <span className='bio-num '> 0 </span>
+              </p>
+              <p id='following'>
+              Following
+                <span className='bio-num '> 0 </span>
+              </p>
             </section>
             <p className='bio'>{user.bio}</p>
             <button className='button'> Follow </button>
@@ -197,18 +209,17 @@ export default function Profile({user, userData}) {
             <p id='interests' onClick={handleInterestToggle}>Interests</p>
           </div>
           {postsToggle ? (
-            <div>
+            <div className="gifts-container">
             {picturePosts.map((picturePost) => (
-              <div key={picturePost.id} className="gifts-container">
-                <img className="gifts" 
+                <img key={picturePost.id} className="gifts" 
                 src={picturePost.pictures_post_url} 
                 alt={picturePost.pictures_post_title} />
-              </div>
             ))}
             </div>
           ) : (
           <div className='interests-container'>
             <section className='get-to-know'>
+            
               <h2 className='likes-title'>Likes</h2>
               {user.likes && user.likes[0] ? (
                   <ul className='funfacts likes'>
@@ -231,6 +242,8 @@ export default function Profile({user, userData}) {
                   )}
                 </div>
               )}
+              <div>
+              </div>
               <h2 className='dislikes-title'>Dislikes</h2>
               {user.dislikes && user.dislikes[0] ? (
                   <ul className='funfacts dislikes'>
@@ -254,10 +267,38 @@ export default function Profile({user, userData}) {
                 </div>
               )}
             </section>
-            <section className='achievements'>
+            <section className=''>
+              <h2 className='personal-title'>Personal Details</h2>
+              <ul className='funfacts'>
+                <li>SHIRT SIZE: {user.shirt_size.toUpperCase()}</li>
+                <li>PANTS SIZE: {user.pants_size.toUpperCase()}</li>
+                <li>SHOE SIZE: {user.shoe_size.toUpperCase()}</li>
+              </ul>
+              <h2 className='color-title'>Favorite Colors</h2>
+              {user.favorite_color && user.favorite_color[0] ? (
+                <ul className='funfacts'>
+                  {user.favorite_color.map((color, index) => (
+                    <li key={index}>{color.toUpperCase()}</li>
+                  ))}
+                </ul>
+              ) : (
+              <div>
+                {/* {console.log("userData.firebase_uid:", userData.firebase_uid)} */}
+                {/* {console.log("user.firebase_uid:", user.firebase_uid)} */}
+                {/* {user ? ( */}
+                {userData && user.firebase_uid === userData.firebase_uid? (
+                  <Link className='edit-link' to={`./account-edit`}>Click to add details</Link>
+                ) : (
+                  <div className='temp-empty'> 
+                  </div>
+                )}
+              </div>
+              )}
+    
+            </section>
+            
+            {/* <section className='achievements'>
               <h2 className='achievements-title'>Achievements</h2>
-              <p className='points'>Points: <span className='points-num'>{points}</span></p>
-              <p></p>
               <div className=''>
                 <h4 className='card-header'>Early Shipper</h4>
               </div>
@@ -266,7 +307,8 @@ export default function Profile({user, userData}) {
                 <p className='card-header'>Leave 50 comments to complete.
                 </p>
               </div>
-            </section>
+            </section> */}
+
           </div>
           )
           }
