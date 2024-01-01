@@ -10,23 +10,25 @@ import './App.css'
 const API = process.env.REACT_APP_API_URL
 
 // PAGES
-import About from './pages/About';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import Gallery from './pages/Gallery';
-import PageNotFound from "./pages/PageNotFound";
+import About from './pages/About'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
+import Gallery from './pages/Gallery'
+import PageNotFound from "./pages/PageNotFound"
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
-import Users from './pages/usersIndex';
-import AllEvents from './pages/AllEvents';
+import Users from './pages/usersIndex'
+import AllEvents from './pages/AllEvents'
+import ProofPage from "./pages/ProofPage"
+import AllMessages from "./pages/MessagesIndex"
 
 // COMPONENTS
 import FAQ from './components/FAQ';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Account from './components/Account';
-import Profile from './components/PublicProfiles';
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import Account from './components/AccountSettings'
+import Profile from './components/PublicProfiles'
 // import UserPictureForm from "./components/UserPictureForm"
 // import CurrentEvent from './components/CurrentEvent'
 import EventSignUp from "./components/EventSignup";
@@ -51,7 +53,7 @@ function App() {
         console.log('authUser:', authUser) // working
         setUser(authUser) // firebase data for user
         console.log(authUser.uid) // working
-        setUserUid(authUser.uid) 
+        setUserUid(authUser.uid)
         try {
           const response = await axios.get(`${API}/users`)
           console.log(response.data) // working
@@ -113,14 +115,14 @@ function App() {
 
             {/* USERS CURD NEW-SHOW-EDIT-INDEX*/}
             <Route path="/signup" element={<Signup userData={userData}/>} />
-
+            <Route path="/profile/:userId/messages" element={userData ? <AllMessages userData={userData}/> : <LoginModal />} />
             {/* <Route path="/create-profile" element={<CreateProfile />} /> */}
             <Route path="/profile/:userId" element={<Profile userData={userData}/>} />
             <Route path="/profile/:userId/account-edit" element={<Account userData={userData}/>} />
             <Route path="/users/" element={<Users />} />
 
             {/* EVENTS CRUD NEW-SHOW-EDIT-INDEX*/}
-            <Route path="/events" element={user? <AllEvents userId = {userId} userData={userData}/> : <Login/>} /> 
+            <Route path="/events" element={user? <AllEvents userId = {userId} userData={userData}/> : <LoginModal/>} /> 
             {/* <Route path="/events/:eventId" element={<CurrentEvent />} /> */}
 
             {/* USER EVENTS NEW-SHOW-EDIT-INDEX*/}
