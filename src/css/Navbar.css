@@ -104,8 +104,9 @@
   
   #navbar-middle-links {
     display: flex;
-    gap: 65px;
+    gap: 45px;
     margin-left: auto;
+    margin-left: -40px;
   }
   
 
@@ -183,19 +184,23 @@
   }
   
 
-  
-
-  
   @media only screen and (max-width: 851px) {
-    .navbar-middle-links {
+    .navbar-middle-links-container {
       display: flex;
-      flex-direction: row; 
-      align-items: flex-start; 
-      justify-content: space-between; 
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+  
+    .navbar-logo {
+      order: -1; /* Move the logo to the left */
+      margin-left: -20px;
     }
   
     #events-middle-link {
       display: block;
+      margin-left: -211px;
     }
   
     #hiw-middle-link,
@@ -204,21 +209,32 @@
     }
   
     #navbar-links {
-      margin-left: auto; 
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-left: -300px;
+    }
+  
+    #navbar-singup {
+      display: none; /* Hide the Sign Up link */
+    }
+  
+    #navbar-profile-link {
+      display: none;
     }
   
     .navbar-links {
       display: flex;
       align-items: center;
+      margin-right: -32px;
     }
   
-    #navbar-profile-link,
-    #navbar-logout {
-      margin-left: -10px; 
-    }
-  
-    .navbar-middle-links {
-      display: flex;
+    #navbar-login,
+    #navbar-singup {
+      margin-left: -90px;
     }
   }
   
+  #navbar-logout{
+
+  }

@@ -135,7 +135,7 @@ export default function EventSignUp({ userData, userId }) {
             <br />
             <label htmlFor="budget"> What's your spending cap?:</label>
             <input type="number" id="budget" onChange={handleInputChange} value={userDataForEvents.budget} required/>
-            {/* <br /> */}
+            <br />
             <label htmlFor="favorite_color"> Favorite color?:</label>
             <input type="text" id="favorite_color"  onChange={handleInputChange} value={userDataForEvents.favorite_color} placeholder='i.e. Brown..' required/>
             <br />

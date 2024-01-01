@@ -16,20 +16,23 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Gallery from './pages/Gallery'
 import PageNotFound from "./pages/PageNotFound"
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import Users from './pages/usersIndex'
 import AllEvents from './pages/AllEvents'
 import ProofPage from "./pages/ProofPage"
 import AllMessages from "./pages/MessagesIndex"
 
 // COMPONENTS
+import FAQ from './components/FAQ';
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Account from './components/AccountSettings'
 import Profile from './components/PublicProfiles'
 // import UserPictureForm from "./components/UserPictureForm"
 // import CurrentEvent from './components/CurrentEvent'
-import EventSignUp from "./components/EventSignup"
-import LoginModal from "./components/LoginModal"
+import EventSignUp from "./components/EventSignup";
+import LoginModal from "./components/LoginModal";
 // import Header from './components/Header'
 import MessageMatch from "./components/MessageMatch";
 import MessageProof from "./components/MessageProof";
@@ -105,12 +108,13 @@ function App() {
           <Routes>
             <Route path="/" element={ <Home />} />
             <Route path="/about" element = { <About /> } />
-            <Route path="/exchanges-proof" element = { <ProofPage />} />
+            <Route path="/faq" element = { <FAQ /> } />
+            <Route path="/terms-of-service" element = {<TermsOfService/> } />
+            <Route path="/privacy-policy" element = {<PrivacyPolicy/> } />
             <Route path="/login" element={<Login userData={userData}  />} />
 
             {/* USERS CURD NEW-SHOW-EDIT-INDEX*/}
             <Route path="/signup" element={<Signup userData={userData}/>} />
-            
             <Route path="/profile/:userId/messages" element={userData ? <AllMessages userData={userData}/> : <LoginModal />} />
             {/* <Route path="/create-profile" element={<CreateProfile />} /> */}
             <Route path="/profile/:userId" element={<Profile userData={userData}/>} />
@@ -129,7 +133,6 @@ function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/message-match" element={ <MessageMatch /> } />
             <Route path="/message-proof" element={ <MessageProof /> } />
-            {/* <Route path="/exchanges-proof" element = { <ProofPage />} /> */}
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>

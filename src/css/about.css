@@ -1,3 +1,5 @@
+/* file name: about.css */
+
 
 .dev-profile-pic {
     width: 100px;
@@ -10,7 +12,30 @@
 }
 
 
+.legal {
+	margin: 3% 10% 3% 8%;
+
+}
+
+.legal li
+ {
+	margin-left: 1%;
+}
+
+.heading {
+	padding-top: 20px;
+}
+
 /* FAQ CSS */
+
+.faq {
+    text-align: left;
+	margin-left: 8%;
+	padding-bottom: 4%;
+	h2 {
+		margin-top: 5%;
+	}
+}
 
 @keyframes bounce-rotate {
 	0% {
@@ -27,7 +52,6 @@
 	}
 	100% {
 		transform: rotate(90deg);
-		fill: red;
 	}
 }
 @keyframes bounce-rotate-back {
@@ -50,22 +74,27 @@
 }
 .accordion {
 	h3 {
-		color: $color-secondary;
-	}
-	.accordion-toggle {
-		cursor: pointer;
-		&.open {
-			.f-triangle {
-				animation: bounce-rotate 1s forwards;
+		margin-top: 3%;
+		padding-top: 2%;
+		
+		.accordion-toggle {
+			cursor: pointer;
+
+
+			&.open {
+				.f-triangle {
+					animation: bounce-rotate 1s forwards;
+				}
+			}
+			&.closed {
+				.f-triangle {
+					animation: bounce-rotate-back .2s forwards;
+				}
 			}
 		}
-		&.closed {
-			.f-triangle {
-				animation: bounce-rotate-back .2s forwards;
-			}
-		}
 	}
-	.accordion-content {
-		margin-left: 27px;
-	}
+}
+
+.accordion-content {
+	margin-left: 5%;
 }

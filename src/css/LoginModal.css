@@ -49,6 +49,9 @@
     margin-bottom: 1rem;
   }
   
+  .login-inputs input:focus {
+    outline: 2px solid #ED6495;
+  }
 
   .username-label label,
   .password-login label {
@@ -64,7 +67,6 @@
     border-radius: 2.5px;
     border: 1px solid #545454;
   }
-  
   
   
   .logout-button {
