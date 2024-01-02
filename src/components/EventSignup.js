@@ -128,30 +128,30 @@ export default function EventSignUp({ userData, userId }) {
         
         <form className='signup-form'>
             <label htmlFor="preferred_gift"> Based on the theme, if you could choose- what gift would you desire most? (Be specific): </label>
-            <input type="text" id="preferred_gift" onChange={handleInputChange} value={userDataForEvents.preferred_gift} placeholder='i.e. Travel Bag...' required/>
+            <input type="text" id="preferred_gift" onChange={handleInputChange} value={userDataForEvents.preferred_gift} placeholder='e.g Travel Bag...' required/>
             <br />
             <label htmlFor="gifts_avoid"> Based on the theme, if you could choose- what gift should your match avoid? (Be specific):</label>
-            <input type="text" id="gifts_avoid" onChange={handleInputChange} value={userDataForEvents.gifts_avoid} placeholder=' i.e. "Can you avoid Cosmetics please.."' required/>
+            <input type="text" id="gifts_avoid" onChange={handleInputChange} value={userDataForEvents.gifts_avoid} placeholder=' e.g "Can you avoid Cosmetics please.."' required/>
             <br />
             {/* <label htmlFor="budget"> What's your spending cap?:</label>
             <input type="number" id="budget" onChange={handleInputChange} value={userDataForEvents.budget} required/>
             <br /> */}
             <label htmlFor="favorite_color"> Favorite color?:</label>
-            <input type="text" id="favorite_color"  onChange={handleInputChange} value={userDataForEvents.favorite_color} placeholder='i.e. Brown..' required/>
+            <input type="text" id="favorite_color"  onChange={handleInputChange} value={userDataForEvents.favorite_color} placeholder='e.g Brown..' required/>
             <br />
             <label htmlFor="preferred_category"> Based on the theme, name the category of gift you're most interested to receive?:</label>
-            <input type="text" id="preferred_category" onChange={handleInputChange} value={userDataForEvents.preferred_category} placeholder='i.e. Technology, Fashion, Books , etc...' required/>
+            <input type="text" id="preferred_category" onChange={handleInputChange} value={userDataForEvents.preferred_category} placeholder='e.g Technology, Fashion, Books , etc...' required/>
             <br />
             <label htmlFor="clothes" > If desired, 
             <br />
                 <label htmlFor="shirt_size">Shirt Size:
-                <input type="text" id="shirt_size" onChange={handleInputChange} value={userDataForEvents.shirt_size} placeholder=' i.e. "Womens S"'/>
+                <input type="text" id="shirt_size" onChange={handleInputChange} value={userDataForEvents.shirt_size} placeholder=' e.g "Womens S"'/>
                 </label>
                 <label htmlFor="pants_size">Pants Size:
-                <input type="text" id="pants_size" onChange={handleInputChange} value={userDataForEvents.pants_size} placeholder=' i.e. "Womens M"' />
+                <input type="text" id="pants_size" onChange={handleInputChange} value={userDataForEvents.pants_size} placeholder=' e.g "Womens M"' />
                 </label>
                 <label htmlFor="shoe_size">Shoes Size:
-                <input type="text" id="shoe_size" onChange={handleInputChange} value={userDataForEvents.shoe_size} placeholder=' i.e. "Womens 5"'/>
+                <input type="text" id="shoe_size" onChange={handleInputChange} value={userDataForEvents.shoe_size} placeholder=' e.g "Womens 5"'/>
                 </label>
             <br />
             </label>
