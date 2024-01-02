@@ -10,7 +10,7 @@ import "../css/Events.css"
 const API = process.env.REACT_APP_API_URL;
 
 export default function AllEvents({ userData, userId }) {
-  console.log(userData, userId) // working 12/20
+  // console.log(userData, userId) // working 12/20
   const [events, setEvents] = useState([])
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
