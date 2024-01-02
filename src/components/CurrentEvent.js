@@ -52,7 +52,7 @@ export default function CurrentEvent({event, userData, userId}) {
       <div className="container">
         <div className="description-CE-container">
           <h5 className="description-price-title"><span className="price-title">Minimum Spend:</span><span className="price">${event.minimum_spend}</span></h5>
-          <h5 className="description-price-title"><span className="price-title">Maximum Spend:</span><span className="price">${event.minimum_spend + 30} </span></h5>
+          <h5 className="description-price-title"><span className="price-title">Maximum Spend:</span><span className="price">${event.minimum_spend + 40} </span></h5>
           <h5 className="description-event-title"> {event.title}: </h5>
           <h5 className="description">{event.description}</h5>
           <h2
