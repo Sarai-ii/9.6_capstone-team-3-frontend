@@ -78,7 +78,7 @@ export default function CurrentEvent({event, userData, userId}) {
                   <span className="deadline">EVENT CLOSES: {formatCountDown(deadline)}</span>
                 </p>
                 <div className="join-container">
-                  <Link to={`/events/${eventId}/register/${userId}`} className="join-now">Register Here</Link>
+                  <Link to={`/events/${eventId}/register/${userId}`} event = {event} className="join-now">Register Here</Link>
                 </div>
               </div>
             </div>

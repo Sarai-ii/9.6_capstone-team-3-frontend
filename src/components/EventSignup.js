@@ -20,7 +20,6 @@ export default function EventSignUp({ userData, userId }) {
     const [selectedOption, setSelectedOption] = useState('');
     const [showConfirmation, setShowConfirmation] = useState(false)
     const [userDataForEvents, setUserDataForEvents] = useState({
-        budget: 0,
         favorite_color: [], 
         shirt_size: '', 
         pants_size: '',
@@ -86,7 +85,8 @@ export default function EventSignUp({ userData, userId }) {
                 }
                 setUserDataForEvents(updatedUserData)
                 setShowConfirmation(!showConfirmation)
-                
+                userData.level += 1
+                userData.points +=100
                 console.log("Submitting User Data:", updatedUserData)
                 await userEventRegistration(updatedUserData)
                 console.log("Submitted successfully")
@@ -133,9 +133,9 @@ export default function EventSignUp({ userData, userId }) {
             <label htmlFor="gifts_avoid"> Based on the theme, if you could choose- what gift should your match avoid? (Be specific):</label>
             <input type="text" id="gifts_avoid" onChange={handleInputChange} value={userDataForEvents.gifts_avoid} placeholder=' i.e. "Can you avoid Cosmetics please.."' required/>
             <br />
-            <label htmlFor="budget"> What's your spending cap?:</label>
+            {/* <label htmlFor="budget"> What's your spending cap?:</label>
             <input type="number" id="budget" onChange={handleInputChange} value={userDataForEvents.budget} required/>
-            <br />
+            <br /> */}
             <label htmlFor="favorite_color"> Favorite color?:</label>
             <input type="text" id="favorite_color"  onChange={handleInputChange} value={userDataForEvents.favorite_color} placeholder='i.e. Brown..' required/>
             <br />

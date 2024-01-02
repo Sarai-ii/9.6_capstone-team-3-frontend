@@ -17,12 +17,14 @@ export default function UpcomingEvents({ event }) {
   };
 
   return (
-    <div className="card upcoming-container dark-mode light-mode">
-      <img
-        className="future-img card-img"
-        src={event.image_url}
-        alt={event.title}
-      />
+    <div className="upcoming-details-container">
+      <div className="upcoming-img-container">
+        <img
+          className="future-img"
+          src={event.image_url}
+          alt={event.title}
+        />
+      </div>
       <h5 className="days-until">
         {calculateDaysUntil(event.date)} days until the event
       </h5>

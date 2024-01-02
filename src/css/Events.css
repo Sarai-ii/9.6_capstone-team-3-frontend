@@ -14,27 +14,20 @@
 -accent color 3
 */
 
-
-/* Classes In Upcoming Events JS */
+/* CLASSES FOUND IN UPCOMING EVENTS.JS */
 
 .upcoming-container {
     display: flex;
-    /* flex-direction: column; */
-    /* align-items: center; */
-    margin: 10px 10px 80px 10px;
-    width: auto;
+    /* margin: 10px 10px 80px 10px; */
 }
-
 .future-img{
     /* border: 1px solid #FFFAEB; */
     /* border-radius: 20px; */
     /* box-shadow: 12px 12px 2px 1px rgba(88, 24, 1, 0.2); */
     margin: 10px 20px 20px 10px;
-    max-height: 290px;
+    height: 300px;
     object-fit: cover;
-    padding: 2px;
-    /* width: 450px; */
-    max-width: auto;
+    width: 650px;
 }
 .days-until{
     cursor:default;
@@ -42,56 +35,68 @@
     margin: 10px 10px 20px 10px;
     /* text-shadow: .1px .5px 2px rgba(0, 0, 0, 0.576);     */
 }
-
-
-@media screen and (max-width: 970px){
-    .upcoming-container {
-        display: flex;
+@media screen and (max-width: 384px){
+    .upcoming-container{
         flex-direction: column;
-        margin: 10px 5px 60px 5px;
-        text-align: center;
-        width: auto;
     }
-    
     .future-img{
-        /* border-radius: 20px; */
-        max-height: 350px;
-        object-fit: cover;
-        /* padding: 2px; */
-        /* max-width: 500px; */
-        text-align: center;
+        height: 200px;
+        object-fit: contain;
         width: 100%;
     }
 }
-@media screen, (min-width: 970px) and (max-width: 1300px){
-    .event-type{
-        font-size: 20px;
+@media (385px <= width <= 874px){
+    .upcoming-container{
+        flex-direction: column;
     }
-}
-@media (min-width: 2000px) and (max-width: 2500px) {
     .future-img{
-        /* border-radius: 20px; */
-        margin: 10px 20px 20px 10px;
-        max-height: 350px;
+        height: 300px;
         object-fit: cover;
-        padding: 2px;
-        max-width: 600px;
+        width: 100%;
+    }
+}
+@media screen and (875px <= width < 970px){
+    .future-img{
+        height: 200px;
+        width: 370px;
+    }
+}
+@media ( 970px <= width < 1162px){
+    .future-img{
+        height: 250px;
+        width: 400px;
+    }
+}
+@media (1162px <= width < 1275px){
+    .future-img{
+        height: 350px;
+        width: 500px;
+    }
+}
+@media ( 1275px <= width <= 2000px){
+    .future-img{
+        height: 350px;
+        width: 600px;
+    }
+}
+@media (2000px < width <= 2500px) {
+    .future-img{
+        height: 350px;
+        width: 600px;
     }
 
 }
 
-/* Classes In All Events JS */
+/* CLASSES FOUND IN ALL EVENTS.JS */
 .events-webpage-container{
-    border: 5px solid black;
-    /* outlining to see what I can do style wise in the future. leaving as is for now.
-     */
+    margin: 5px;
     display: flex;
     flex-direction: column;
 }
-intro-container{
+/* intro-container{
     display: inline-block;
-}
-.introduction {
+} */
+/* .introduction {
     animation: 
         typing 4s steps(36),
         cursor .4s step-end infinite alternate;
@@ -102,18 +107,17 @@ intro-container{
     overflow: hidden; 
     white-space: nowrap; 
     width: 100%;
-}
+} */
 /* The typing effect */
-@keyframes typing {
+/* @keyframes typing {
     from { width: 0 }
     to { width: 100% }
-}
+} */
 /* The typewriter cursor effect */
-@keyframes blink-caret {
+/* @keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: #000000; }
-    /* 50% { border-color: #A4C1F4; } */
-}
+} */
 
 .event-type{
     color: #000;
@@ -123,9 +127,9 @@ intro-container{
     margin: 40px 0 10px 0;
     text-align: start;
 }
-#upcoming{
-    text-align: start;
-    /* margin-top: 12%; */
+#current{
+    font-size: 45px;
+    text-align: center;
 }
 .event-title {
     color: #276BE5;
@@ -138,21 +142,24 @@ intro-container{
 
 .current-container{
     flex-direction: column;
-    padding: 0;
 }
-.card{
-    background-color: #00818f00;
-    border: none;
-}
+
 .upcoming-container, .current-container{
     display: flex;
     list-style: none;
+    margin: 4px;
+    padding: 0;
     width: auto;
 }
-.upcoming-container > li > .event-title{
-    margin-top: 1000px;
+@media screen and (max-width: 250px) {
+    #upcoming{
+        font-size: 30px;
+    }
+    #current{
+        font-size: 38px;
+    }
+    
 }
-
 @media (min-width: 446px) and (max-width: 662px)  {
     .introduction {
         font-size: 20px; 
@@ -202,7 +209,7 @@ intro-container{
     }
 }
 
-/* Classes in Current Event JS */
+/* CLASSES IN CURRENT EVENTS JS*/
 
 .current-img{
     margin: 10px 10px 10px 10px ;
@@ -408,7 +415,7 @@ intro-container{
     }
 }
 
-/* Events Sign Up */
+/* CLASSES FOUND IN EVENTS SIGNUP JS*/
 
 .event-signup-container {
     align-items: start;
@@ -420,7 +427,7 @@ intro-container{
         #276BE5 60%, 
         #0c2147 100%
     ); */
-    background-color: #6495ED;
+    background-color: #A4C1F4;
     border: 1px solid #000;
     border-radius: 5px;
     display: flex;
@@ -432,7 +439,7 @@ intro-container{
     height: auto;
 }
 .section-header{
-    color: #000;
+    color: #ED6495;
     font-size: 27px;
     margin: 20px;
 }
@@ -544,7 +551,7 @@ intro-container{
     text-decoration:underline;
 }
 .rules{
-    color:#fff;
+    color:#000;
     cursor:default;
     font-size: 20px;
     list-style: decimal;
