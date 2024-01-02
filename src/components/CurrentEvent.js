@@ -7,8 +7,6 @@ import "../css/Events.css"
 
 export default function CurrentEvent({event, userData, userId}) {  
   
-  // const []
-  // console.log(userData)
   const eventId = event.id
   const signup = event.open_date.split('T')[0].split("-")
   const close = event.close_date.split('T')[0].split("-")
@@ -16,14 +14,14 @@ export default function CurrentEvent({event, userData, userId}) {
   const ship = event.shipping_deadline.split('T')[0].split("-")
   const year = event.open_date.split("T")[0].slice(0,4)
   const closeDate = new Date(event.close_date).getTime();
+  
   const calculateCountDown = () => {
     const today = new Date().getTime();
     return closeDate - today;
   };
-  // console.log(today)
   
   const [deadline, setDeadline] = useState(calculateCountDown());
-  console.log(deadline)
+  // console.log(deadline)
   useEffect(() => {
     const intervalId = setInterval(() => {
       setDeadline(calculateCountDown());
@@ -34,7 +32,7 @@ export default function CurrentEvent({event, userData, userId}) {
   
   const formatCountDown = (countdown) => {
     if (countdown < 0) {
-      return 'Countdown Expired!';
+      return `OUR NEXT EVENT IS STARTING SHORTLY.`;
     }
     const days = Math.floor(countdown / (1000 * 60 * 60 * 24));
     const hours = Math.floor((countdown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -77,15 +75,13 @@ export default function CurrentEvent({event, userData, userId}) {
                   <br />
                   <span className="timeline">Shipping Timeframe: </span>{match[1]}/{match[2]}/{year} - {ship[1]}/{ship[2]}/{year} 
                   <br/>
-                  {deadline === 0 ? (
-                    <span className="deadline">
-                      Event is Closed
-                    </span>
+                  {deadline <= 0 ? (
+                    <span className="deadline">EVENT CLOSED: {formatCountDown(deadline)}</span>
                 ) : (
                   <span className="deadline">EVENT CLOSES: {formatCountDown(deadline)}</span>
                 )}
                 </p>
-                {deadline === 0 ? (
+                {deadline <= 0 ? (
                     <div className="join-container">
                     </div>
                 ) : (

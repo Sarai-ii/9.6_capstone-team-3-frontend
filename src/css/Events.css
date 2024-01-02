@@ -21,6 +21,9 @@
     /* margin: 10px 10px 80px 10px; */
 }
 .upcoming-img-container {
+    perspective: 5000px;
+    position: relative;
+    height: 100%;
     width: 100%;
 }
 .future-img{
@@ -32,6 +35,8 @@
     height: 300px;
     object-fit: cover;
     width: 650px;
+    transform: perspective(1000px) rotateY(0deg);
+    transition: transform 0.5s ease;
 }
 .days-until{
     cursor:default;
@@ -39,6 +44,50 @@
     margin: 10px 10px 20px 10px;
     /* text-shadow: .1px .5px 2px rgba(0, 0, 0, 0.576);     */
 }
+.upcoming-img-container:hover > .future-img {
+    opacity: 0;
+    transition: transform 1s ease;
+    transform: rotateY(-90deg);
+}
+.upcoming-img-container:hover > .details-overlay {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg);
+}
+.upcoming-img-container:not(:hover) .details-overlay {
+    opacity: 0;
+    transform: perspective(1000px) rotateY(80deg);
+}
+.details-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.813);
+    color: #fff;
+    transition: transform 0.3s ease;
+    padding: 10px;
+    transform: perspective(5000px) rotateY(-180deg);
+  }
+  .details-UEHeader{
+    color:#ED6495
+  }
+  .timeline-UE {
+    color: #6474ED;
+    font-size: 20px;
+  }
+  .price-title-UE{
+    color: #6474ED;
+    font-size: 20px;
+  }
+  .price-UE{
+    color: #fff;
+  }
 
 @media screen and (max-width: 384px){
     .upcoming-container{
@@ -331,6 +380,7 @@
     letter-spacing: .03em;
     margin: 5px;
 }
+
 .deadline{ 
     color: red;
     font-size: 21px;
