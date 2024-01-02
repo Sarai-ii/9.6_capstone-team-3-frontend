@@ -10,63 +10,62 @@ import "../css/Events.css"
 const API = process.env.REACT_APP_API_URL;
 
 export default function AllEvents({ userData, userId }) {
-  console.log(userData, userId) // working 12/20
+  // console.log(userData, userId) // working 12/20
   const [events, setEvents] = useState([])
+  const [status, setStatus] = useState("") // leaving for the chance to update status in the future 
   const [filteredEvents, setFilteredEvents] = useState([]);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
-  // const [isDarkMode, setDarkMode] = useState(false);
+  const [pastEvents, setPastEvents] = useState([])
+
 
   useEffect(() => {
     axios
       .get(`${API}/events`)
       .then((response) => {
+        const today = new Date().toISOString() //removing the time ruined the comparisons
+        // console.log(response.data[2].open_date)
+        // console.log(response.data[1].close_date)
+        // console.log(today)
         const nonCancelledEvents = response.data.filter((event) => event.status !== "cancelled");
-        setEvents(nonCancelledEvents);
-
-        // Get today's date
-        const today = new Date().toISOString().split('T')[0];
-        
-        // Filter events based on today's date
-        const todayEvents = nonCancelledEvents.filter((event) => event.open_date <= today && today <= event.close_date);
+        const currentEvents = nonCancelledEvents.filter((event) => event.open_date <= today && today <= event.close_date)
         const futureEvents = nonCancelledEvents.filter((event)=> event.open_date > today)
-        setUpcomingEvents(futureEvents);
-        setFilteredEvents(todayEvents);
+        const pastEvents = nonCancelledEvents.filter((event)=> today > event.close_date)
+        setEvents(nonCancelledEvents)
+        setFilteredEvents(currentEvents)
+        setUpcomingEvents(futureEvents)
+        setPastEvents(pastEvents) //in case we want to use this in the future
       })
       .catch((c) => console.warn("catch", c));
   }, []);
 
+  console.log(filteredEvents) 
 
-    // const toggleMode = () => {
-    //   setDarkMode(!isDarkMode);
-    // };
-    // className={isDarkMode ? 'dark-mode' : 'light-mode'}
-    // <button onClick={toggleMode}>Toggle Mode</button>
-return (
-  <div className="events-webpage-container">
-    {/* <header className="hero-img intro-container">
-      <h1 className="introduction">Begin your gift giving journey here. </h1>
-      <br/>
-    </header> */}
-    <ul id= "current" className="current-container" >
-    <h2 className="event-type">Current Event</h2>
-      {
-      filteredEvents.map((event) => (
-        <div className="">
-          <li><h3 className="event-title">{event.title}</h3></li>
-          <CurrentEvent key={event.id} event = {event} userId={userId} />
-        </div>
-      ))}
-    </ul>
-    <h2 id= "upcoming" className="event-type">Upcoming Events</h2>
-    <ul className="upcoming-container" >
-    {
-      upcomingEvents.map((event) => (
-        <div className="upcoming-card" >
-          <li><h3 className="event-title">{event.title}</h3></li>
-          <UpcomingEvents key={event.id} event = {event} userId= {userId}/>
-        </div>
-      ))}
-    </ul>
-  </div>
-);
+  return (
+    <div className="events-webpage-container">
+      {/* <header className="hero-img intro-container">
+        <h1 className="introduction">Begin your gift giving journey here. </h1>
+        <br/>
+      </header> */}
+      <ul id= "current" className="current-container" >
+      <h2 id='current' className="event-type">Live Event</h2>
+        { 
+        filteredEvents.map((event) => (
+          <div className="">
+            <li><h3 className="event-title">{event.title}</h3></li>
+            <CurrentEvent key={event.id} event = {event} userId={userId} />
+          </div>
+        ))}
+      </ul>
+      <h2 id= "upcoming" className="event-type">Upcoming Events</h2>
+      <ul className="upcoming-container" >
+      { 
+        upcomingEvents.map((event) => (
+          <div className="" >
+            <li><h3 className="event-title">{event.title}</h3></li>
+            <UpcomingEvents key={event.id} event = {event} filteredEvents={filteredEvents} upcomingEvents = {upcomingEvents} userId= {userId}/>
+          </div>
+        ))}
+      </ul>
+    </div>
+  );
 };

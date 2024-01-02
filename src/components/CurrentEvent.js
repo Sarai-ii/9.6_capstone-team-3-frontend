@@ -5,9 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 //STYLING
 import "../css/Events.css"
 
-export default function CurrentEvent({event, userData, userId}) {
-
-  // console.log(userData)
+export default function CurrentEvent({event, userData, userId}) {  
+  
   const eventId = event.id
   const signup = event.open_date.split('T')[0].split("-")
   const close = event.close_date.split('T')[0].split("-")
@@ -15,14 +14,14 @@ export default function CurrentEvent({event, userData, userId}) {
   const ship = event.shipping_deadline.split('T')[0].split("-")
   const year = event.open_date.split("T")[0].slice(0,4)
   const closeDate = new Date(event.close_date).getTime();
-
+  
   const calculateCountDown = () => {
     const today = new Date().getTime();
     return closeDate - today;
   };
   
   const [deadline, setDeadline] = useState(calculateCountDown());
-  
+  // console.log(deadline)
   useEffect(() => {
     const intervalId = setInterval(() => {
       setDeadline(calculateCountDown());
@@ -33,7 +32,7 @@ export default function CurrentEvent({event, userData, userId}) {
   
   const formatCountDown = (countdown) => {
     if (countdown < 0) {
-      return 'Countdown Expired!';
+      return `OUR NEXT EVENT IS STARTING SHORTLY.`;
     }
     const days = Math.floor(countdown / (1000 * 60 * 60 * 24));
     const hours = Math.floor((countdown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -53,6 +52,7 @@ export default function CurrentEvent({event, userData, userId}) {
       <div className="container">
         <div className="description-CE-container">
           <h5 className="description-price-title"><span className="price-title">Minimum Spend:</span><span className="price">${event.minimum_spend}</span></h5>
+          <h5 className="description-price-title"><span className="price-title">Maximum Spend:</span><span className="price">${event.minimum_spend + 30} </span></h5>
           <h5 className="description-event-title"> {event.title}: </h5>
           <h5 className="description">{event.description}</h5>
           <h2
@@ -75,11 +75,20 @@ export default function CurrentEvent({event, userData, userId}) {
                   <br />
                   <span className="timeline">Shipping Timeframe: </span>{match[1]}/{match[2]}/{year} - {ship[1]}/{ship[2]}/{year} 
                   <br/>
+                  {deadline <= 0 ? (
+                    <span className="deadline">EVENT CLOSED: {formatCountDown(deadline)}</span>
+                ) : (
                   <span className="deadline">EVENT CLOSES: {formatCountDown(deadline)}</span>
+                )}
                 </p>
-                <div className="join-container">
-                  <Link to={`/events/${eventId}/register/${userId}`} className="join-now">Register Here</Link>
-                </div>
+                {deadline <= 0 ? (
+                    <div className="join-container">
+                    </div>
+                ) : (
+                  <div className="join-container">
+                    <Link to={`/events/${eventId}/register/${userId}`} event = {event} className="join-now">Register Here</Link>
+                  </div>
+                )}
               </div>
             </div>
           </div>
