@@ -18,10 +18,10 @@ import Gallery from './pages/Gallery'
 import PageNotFound from "./pages/PageNotFound"
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
-import Users from './pages/usersIndex'
-import AllEvents from './pages/AllEvents'
-import ProofPage from "./pages/ProofPage"
-import AllMessages from "./pages/MessagesIndex"
+import Users from './pages/usersIndex';
+import AllEvents from './pages/AllEvents';
+import AllMessages from "./pages/MessagesIndex";
+import AdminMatching from "./pages/AdminMatching";
 
 // COMPONENTS
 import FAQ from './components/FAQ';
@@ -133,6 +133,7 @@ function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/message-match" element={ <MessageMatch /> } />
             <Route path="/message-proof" element={ <MessageProof /> } />
+            <Route path="/admin/make-matches" element={ <AdminMatching /> } />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>
