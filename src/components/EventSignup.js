@@ -142,15 +142,15 @@ export default function EventSignUp({ userData, userId }) {
             <label htmlFor="preferred_category"> Based on the theme, name the category of gift you're most interested to receive?:</label>
             <input type="text" id="preferred_category" onChange={handleInputChange} value={userDataForEvents.preferred_category} placeholder='e.g Technology, Fashion, Books , etc...' required/>
             <br />
-            <label htmlFor="clothes" > If desired, 
+            <label className="clothes" htmlFor="clothes" > If desired, 
             <br />
-                <label htmlFor="shirt_size">Shirt Size:
+                <label className='clothes-labels' htmlFor="shirt_size">Shirt Size:
                 <input type="text" id="shirt_size" onChange={handleInputChange} value={userDataForEvents.shirt_size} placeholder=' e.g "Womens S"'/>
                 </label>
-                <label htmlFor="pants_size">Pants Size:
+                <label className='clothes-labels' htmlFor="pants_size">Pants Size:
                 <input type="text" id="pants_size" onChange={handleInputChange} value={userDataForEvents.pants_size} placeholder=' e.g "Womens M"' />
                 </label>
-                <label htmlFor="shoe_size">Shoes Size:
+                <label className='clothes-labels' htmlFor="shoe_size">Shoes Size:
                 <input type="text" id="shoe_size" onChange={handleInputChange} value={userDataForEvents.shoe_size} placeholder=' e.g "Womens 5"'/>
                 </label>
             <br />
