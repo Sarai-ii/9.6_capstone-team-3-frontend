@@ -74,10 +74,10 @@ export default function EventSignUp({ userData, userId }) {
             // console.log(`User Id:`, userId)
             // console.log(userDataForEvents)
 
-            if (selectedOption === 'Yes') {
+            if (selectedOption === 'No') {
                 alert("Please be advised that we try our best to ensure gifts are based on the desires of the receiver, but sometimes there are chances of being gifted an item you already own. As this may not be desired, it is reality, and therefore we require that everyone who joins any event understands and accepts this possibility to be able to join. If you don't mind, please change your response to 'No'.")
                 setShowConfirmation(showConfirmation)
-            } else if (selectedOption === 'No') {
+            } else if (selectedOption === 'Yes') {
                 // Update the state and get the updated user data
                 const updatedUserData = {
                     ...userDataForEvents,
@@ -104,11 +104,11 @@ export default function EventSignUp({ userData, userId }) {
     return (
         <div className='event-signup-container'>
         <div className=''>
-            <h1 className='welcome'>You're One Step Away From,</h1>
-            <h1 className='welcome-2'>Making Someone Feel Special!  </h1>
+            <h1 className='welcome'>You're One Step Away From</h1>
+            <h1 className='welcome-2'>Making Someone Feel Special!</h1>
         </div>
         <div className='intro-container '>
-            <h2 className='section-header'>Thank you for joining this event, before you can register; please complete the form. </h2>
+            <h2 className='section-header'>To join an event; please complete the form. </h2>
             <span onClick={handleIconClick} className="question-mark-icon">
                 <svg xmlns="http://www.w3.org/2000/svg"  
                 className="bi bi-question-circle" 
@@ -120,42 +120,42 @@ export default function EventSignUp({ userData, userId }) {
         </div>
         {showDetails && (
             <div className="details-box">
-                <p><strong>WHY THIS FORM? </strong>
+                <p><strong>WHY COMPLETE A QUESTIONAIRE? </strong>
                     <br />
-                    In order to be matched, it's required you fill out this form and stick to the rules of every event to ensure you recieve a gift that best suits you. </p>
+                    You won't be matched if the form is not submitted. Please be as detailed as possible and accept the terms to ensure recieve/give a gift that best suits you and your match that adheres to our guidelines. </p>
             </div>
         )}
         
         <form className='signup-form'>
-            <label htmlFor="preferred_gift"> Based on the theme, if you could choose- what gift would you desire most? (Be specific): </label>
+            <label htmlFor="preferred_gift"> Considering the event theme, kindly specify the type of gift you desire most.</label>
             <input type="text" id="preferred_gift" onChange={handleInputChange} value={userDataForEvents.preferred_gift} placeholder='e.g Travel Bag...' required/>
             <br />
-            <label htmlFor="gifts_avoid"> Based on the theme, if you could choose- what gift should your match avoid? (Be specific):</label>
+            <label htmlFor="gifts_avoid"> Considering the event theme, kindly specify the type of gifts your match should avoid.</label>
             <input type="text" id="gifts_avoid" onChange={handleInputChange} value={userDataForEvents.gifts_avoid} placeholder=' e.g "Can you avoid Cosmetics please.."' required/>
             <br />
             {/* <label htmlFor="budget"> What's your spending cap?:</label>
             <input type="number" id="budget" onChange={handleInputChange} value={userDataForEvents.budget} required/>
             <br /> */}
-            <label htmlFor="favorite_color"> Favorite color?:</label>
+            <label htmlFor="favorite_color"> What's your favorite color?</label>
             <input type="text" id="favorite_color"  onChange={handleInputChange} value={userDataForEvents.favorite_color} placeholder='e.g Brown..' required/>
             <br />
-            <label htmlFor="preferred_category"> Based on the theme, name the category of gift you're most interested to receive?:</label>
+            <label htmlFor="preferred_category">Considering the theme, specify the type or category of gift you are most eager to receive?</label>
             <input type="text" id="preferred_category" onChange={handleInputChange} value={userDataForEvents.preferred_category} placeholder='e.g Technology, Fashion, Books , etc...' required/>
             <br />
-            <label htmlFor="clothes" > If desired, 
+            <label className="clothes" htmlFor="clothes" > If desired, 
             <br />
-                <label htmlFor="shirt_size">Shirt Size:
+                <label className='clothes-labels' htmlFor="shirt_size">Shirt Size:
                 <input type="text" id="shirt_size" onChange={handleInputChange} value={userDataForEvents.shirt_size} placeholder=' e.g "Womens S"'/>
                 </label>
-                <label htmlFor="pants_size">Pants Size:
+                <label className='clothes-labels' htmlFor="pants_size">Pants Size:
                 <input type="text" id="pants_size" onChange={handleInputChange} value={userDataForEvents.pants_size} placeholder=' e.g "Womens M"' />
                 </label>
-                <label htmlFor="shoe_size">Shoes Size:
+                <label className='clothes-labels' htmlFor="shoe_size">Shoes Size:
                 <input type="text" id="shoe_size" onChange={handleInputChange} value={userDataForEvents.shoe_size} placeholder=' e.g "Womens 5"'/>
                 </label>
             <br />
             </label>
-            <label className="duplicate" htmlFor="duplicate"> Do you mind receiving an item or version of an item that you already own? 
+            <label className="duplicate" htmlFor="duplicate"> Are you open to receiving duplicate items or similar versions of those you already own? 
                 <select id="duplicate" value={selectedOption} onChange={handleOptionChange} required>
                     <option value=""></option>
                     <option value="Yes">Yes</option>
@@ -176,11 +176,11 @@ export default function EventSignUp({ userData, userId }) {
             <div className="collapse collapse-details collapse-vertical col" id="collapseRulesForEvent">
               <div className="collapse-card">
               <ul className='rules-container'>
-                <li className='rules'>If in the event you miss the shipping and tracking deadline or violate any of the terms, you will be at risk of being banned indefinently, per investigation by our team. Moreover, your gifter will have the chance to rescind sending their gift to you as an interim consequence.</li>
-                <li className='rules'>The premise of every event is "Secret Santa", therefore the person you are assigned to gift is not necessarily the same person who is assigned to gift you.</li>
-                <li className='rules'>We do <span className='rules-not'>NOT</span> by any means condone deragatory, sexually explicit nor discriminatory actions such has hate speech, bullying nor racially insensitive, comments or gifts. Please keep everything friendly and respectful. We seek to uplift and bring joy to any and everyone's lives.</li>
-                <li className='rules'>The minimum spend is set so that everyone is expected to stay within a range when shopping for gifts. Do keep in mind that after the minimum anything higher is a budget range set by the gifter and can extend far beyond or exactly at the minimum required spend.</li>
-                <li className='rules'><span className='rules-not'>NOT</span> by any means, are you allowed to contact users requesting gifts. <span className='rules-not'>NOR</span> is revealing gifts prior to unboxing acceptable!</li>
+                <li className='rules'>Failure to meet shipping and tracking deadlines or violation of any terms poses a risk of indefinite suspension following investigation by our team. Additionally, your assigned gift giver may choose to withhold their gift as an interim consequence.</li>
+                <li className='rules'>The fundamental principle of each event is "Secret Santa," meaning the person you are assigned to gift may differ from the one assigned to gift you.</li>
+                <li className='rules'>We <span className='rules-not'>strictly</span> prohibit derogatory, sexually explicit, or discriminatory actions, including hate speech, bullying, and racially insensitive comments or gifts. Maintaining a friendly and respectful environment is crucial, as our goal is to uplift and bring joy to everyone's lives.</li>
+                <li className='rules'>The minimum spending requirement ensures that everyone stays within a specified range when selecting gifts. Keep in mind that spending beyond the minimum is at the discretion of the gift giver and can vary.</li>
+                <li className='rules'>Under no circumstances are you allowed to contact other users to request gifts. <span className='rules-not'>NOR</span>, disclosing the details of the gift you've selected for your match before they've had a chance to open it is strictly prohibited!</li>
             </ul>
               </div>
             </div>
@@ -194,8 +194,8 @@ export default function EventSignUp({ userData, userId }) {
         </form>
             {showConfirmation && (
                 <div className='conclusion'>
-                    <h2 className='concluson-h2'>Form is complete, you've been added to the event. </h2>
-                    <h3 className='conclusion-h3'>Check you messages and notification in the app for updates.</h3>
+                    <h2 className='concluson-h2'>Form is complete, you're added to the event. </h2>
+                    <h3 className='conclusion-h3'>Exciting news awaits you! Head over to your profile page for the latest updates buzzing in your app messages. Stay connected and be in the know!</h3>
                 </div>
             )}
         <div className=''>

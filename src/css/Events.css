@@ -271,12 +271,17 @@
     width: 80%;
 }
 .container{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
     position: relative;
     text-align: center;
 }
 .join-container{
     display: flex;
     justify-content: center;
+    align-content: center;
+    width: 100%; 
 }
 .join-now {
     background-color: #ED6495;
@@ -284,7 +289,7 @@
     border-radius: 20px;
     color: #fff;
     /* font-family: 'DM serif display'; */
-    font-size: 30px;
+    font-size: 50%;
     font-weight: 600;
     letter-spacing: 2px;
     margin: 8px;
@@ -300,15 +305,16 @@
 }
 
 .description-CE-container{
+    align-content: center;
     background-color: #ffffffce;
     /* border: 1.5px solid #545454; */
     box-shadow: 0 10px 10px rgba(232, 226, 226, 0.4);
     cursor:default;
+    /* justify-content: center; */
     letter-spacing: .02em;
-    margin: 8px 85px 5px 85px;
-    padding: 35px;
+    /* margin: 10% 30% 10% 30%; */
+    /* padding: 35px; */
     text-align: center;
-    align-content: center;
     word-spacing: 1px;
     /* width: 70%; */
 }
@@ -331,6 +337,7 @@
     font-weight: 500;
     letter-spacing: .06em;
     margin-top: 15px;
+    margin-left: 5px;
     text-align: start;
 }
 .price-title{
@@ -361,13 +368,17 @@
     color: #000;    
     cursor: pointer;
 }
+.collapse-container{
+    width: 100%;
+}
 
 .details-CEheader{
     color: #6474ED;
-    font-size: 20px;
+    font-size: 50%;
     font-weight: 400;
     letter-spacing: .06em; 
     text-align: center;
+    text-wrap:wrap;
 }
 .details-CE{
     color: #000;
@@ -406,11 +417,15 @@
         /* text-shadow: 0 1px 1px rgba(190, 88, 121, 0.492);     */
     }
     .description-CE-container{
+        justify-content: center;
         padding: 10px;
+        width: 80%;
         word-spacing: 3px;
+
     }
     .description{
-        margin: 5px 5px 5px 15px; 
+        font-size: 50%;
+        /* margin: 5px 5px 5px 15px;  */
         /* 15px on the right aligns with the collapse-toggle on smaller screens */
     } 
     .timeline {
@@ -441,6 +456,25 @@
         color: #000;
         font-size: 18px;
         margin-left: 8px;
+    }
+}
+@media (max-width: 380px){
+    .details-CEheader{
+        font-size: 30%;
+    }
+    .join-container{
+        width: 100%;
+    }
+    .join-now{
+        width: 100%;
+        font-size: 30%;
+    }
+}
+@media (max-width: 221px){
+    .description-CE-container{
+        font-size: 80%;
+        padding: 0;
+        
     }
 }
 @media (max-height: 1000px) and (max-width: 2000px) {
@@ -612,6 +646,9 @@
     max-width: 80%;
     /* text-indent: 20px; */
 }
+.collapse-card {
+    height:auto;
+}
 .terms-container{
     align-items: center;
     align-content: center;
@@ -685,16 +722,100 @@
 }
 @media screen and (max-width: 435px) {
     .signup-form label, .duplicate{
+        /* font-size: 30%; */
+        display: block;
         width: 200px;
     }
     .signup-form > input {
         width: 200px;
     }
     .rules-container{
-        max-width: 220px;
+        /* max-width: 220px; */
     }
     .welcome, .welcome-2 {
         font-size: 35px;
+    }
+}
+@media screen and (max-width: 365px) {
+    .signup-form label, 
+    .duplicate{
+        display: block;
+        font-size: 60%;
+        /* width: 30%; */
+    }
+    #shirt_size,
+    #pants_size,
+    #shoe_size{
+        display: block;
+        font-size: 80%;
+        width: 80%;
+    }
+    .signup-form > input {
+        width: 30%;
+        font-size: 70%;
+    }
+    .rules-container{
+        margin: 0;
+        padding: 0;
+        width: 30%;
+    }
+    .rules{
+        width: 60%;
+        font-size: 70%;
+        margin: 2px;
+    }
+    .rules-h3 {
+        font-size: 70%;
+        display: flex;
+        margin-right: 10px;
+    }
+    .section-header{
+        font-size: 70%;
+    }
+    .welcome, .welcome-2 {
+        font-size: 80%;
+        margin-left: 1px;
+        margin-right: 1px;
+    }
+    .bi-question-circle {
+        width: 20px;
+    }
+    #terms-text{
+        font-size: 70%;
+    }
+    #terms-checkbox{
+        width: 10px;
+        height: 10px;
+    }
+    /* .collapse-details {
+        margin: 0;
+        padding: 0;
+    } */
+    .collapse-card {
+        height:auto;
+        margin: 0;
+        padding: 0;
+    }
+}
+@media screen and (max-width: 205px) {
+    .signup-form label {
+        display: block;
+        font-size: 20%;
+        text-wrap: wrap;
+        /* width: 30%; */
+    }
+    .signup-form input {
+        font-size: 30%;
+        width: 100%;
+    }
+    .signup-form{
+        width: 80%;
+    }
+    #shirt_size,
+    #pants_size,
+    #shoe_size{
+        font-size: 5px;
+        width: 30%;
     }
 }
 
