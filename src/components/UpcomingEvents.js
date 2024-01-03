@@ -38,7 +38,7 @@ export default function UpcomingEvents({ upcomingEvents, filteredEvents, event }
           </h5>
           <h5 className="description-price-title">
             <span className="price-title-UE">Maximum Spend:</span>
-            <span className="price-UE">${event.minimum_spend + 30} </span>
+            <span className="price-UE">${event.minimum_spend + 40} </span>
           </h5>
         </div>
         <img
