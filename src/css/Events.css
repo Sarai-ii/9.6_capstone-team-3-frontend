@@ -646,6 +646,9 @@
     max-width: 80%;
     /* text-indent: 20px; */
 }
+.collapse-card {
+    height:auto;
+}
 .terms-container{
     align-items: center;
     align-content: center;
@@ -719,42 +722,39 @@
 }
 @media screen and (max-width: 435px) {
     .signup-form label, .duplicate{
+        /* font-size: 30%; */
+        display: block;
         width: 200px;
     }
     .signup-form > input {
         width: 200px;
     }
     .rules-container{
-        max-width: 220px;
+        /* max-width: 220px; */
     }
     .welcome, .welcome-2 {
         font-size: 35px;
     }
 }
 @media screen and (max-width: 365px) {
-    .signup-form label, .duplicate{
-        font-size: 60%;
-        width: 70%;
-    }
+    .signup-form label, 
     .duplicate{
-        font-size: 50%;
+        display: block;
+        font-size: 60%;
+        /* width: 30%; */
     }
-    /* .clothes-labels{
-        font-size: 100%;
-    }  */
     #shirt_size,
     #pants_size,
     #shoe_size{
-        font-size: 100%;
+        display: block;
+        font-size: 80%;
         width: 80%;
     }
     .signup-form > input {
-        width: 60%;
-        font-size: 50%;
+        width: 30%;
+        font-size: 70%;
     }
     .rules-container{
-        /* display: flex; */
-        flex-direction: column;
         margin: 0;
         padding: 0;
         width: 30%;
@@ -792,11 +792,32 @@
         padding: 0;
     } */
     .collapse-card {
-    margin: 0;
-    padding: 0;
+        height:auto;
+        margin: 0;
+        padding: 0;
     }
 }
-
+@media screen and (max-width: 205px) {
+    .signup-form label {
+        display: block;
+        font-size: 20%;
+        text-wrap: wrap;
+        /* width: 30%; */
+    }
+    .signup-form input {
+        font-size: 30%;
+        width: 100%;
+    }
+    .signup-form{
+        width: 80%;
+    }
+    #shirt_size,
+    #pants_size,
+    #shoe_size{
+        font-size: 5px;
+        width: 30%;
+    }
+}
 
 /*
 BRAND COLORS
