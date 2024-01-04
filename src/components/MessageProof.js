@@ -64,10 +64,10 @@ function MessageProof() {
 
       {/* Modal */}
       <UploadModal
-        isOpen={isModalOpen}
-        onRequestClose={closeUploadModal}
-        onUpload={handleUpload}
-      />
+  isOpen={isModalOpen}
+  onRequestClose={closeUploadModal}
+  onUpload={(event) => handleUpload(event)} // Ensure to pass the event object
+/>
      {uploadSuccess && (
         <div>
           <h2>Thank You!</h2>
@@ -79,8 +79,3 @@ function MessageProof() {
 }
 
 export default MessageProof
-
-/* -- DELETED CODE --
-
-
-*/

@@ -113,7 +113,7 @@ function App() {
             <Route path="/privacy-policy" element = {<PrivacyPolicy/> } />
             <Route path="/login" element={<Login userData={userData}  />} />
 
-            {/* USERS CURD NEW-SHOW-EDIT-INDEX*/}
+            {/* USERS CRUD NEW-SHOW-EDIT-INDEX*/}
             <Route path="/signup" element={<Signup userData={userData}/>} />
             <Route path="/profile/:userId/messages" element={userData ? <AllMessages userData={userData}/> : <LoginModal />} />
             {/* <Route path="/create-profile" element={<CreateProfile />} /> */}
@@ -130,7 +130,10 @@ function App() {
               path="/events/:eventId/register/:userId" 
               element={user? <EventSignUp userData={userData} userId={userId}/> : <LoginModal />} />
 
-            <Route path="/gallery" element={<Gallery />} />
+            <Route
+              path="/gallery"
+              element={<Gallery userUid={userUid} />} 
+            />
             <Route path="/message-match" element={ <MessageMatch /> } />
             <Route path="/message-proof" element={ <MessageProof /> } />
             <Route path="*" element={<PageNotFound />} />
