@@ -1,16 +1,16 @@
-import React from 'react'
-import FullGallery from '../components/FullGallery'
+import React from 'react';
+import FullGallery from '../components/FullGallery';
+import UploadModal from '../components/UploadModal';
 
 function Gallery() {
   return (
     <div className='gallery'>
-      <FullGallery/>
+      <FullGallery />
       <div className='testing-pictures'>
-        
+        <UploadModal />
       </div>
     </div>
-    
-  )
+  );
 }
 
-export default Gallery
+export default Gallery;
