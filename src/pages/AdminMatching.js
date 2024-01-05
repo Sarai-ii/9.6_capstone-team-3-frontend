@@ -1,38 +1,55 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import '../css/admin.css';
+  // AdminMatching.js
 
-const API = process.env.REACT_APP_API_URL;
+  import React, { useState } from 'react';
+  import axios from 'axios';
+  import '../css/admin.css';
 
-function AdminMatching() {
-  const [eventId, setEventId] = useState("");
-  const [matches, setMatches] = useState([]);
+  const API = process.env.REACT_APP_API_URL;
 
-  const handleClickMatch = async () => {
-    console.log("You pressed the button. Nothing will happen here, but check the back end.")
-    try {
-      const eventId = "1";
-      await axios.get(`${API}/users/match-users/${eventId}`);
-    }
-    catch (error){
-      console.log(error)
-      console.error(error)
-    }
-  };
-    
-  return (
-    <div className='admin admin-matching'>
-      <p>Title: AdminMatching</p>
+  function AdminMatching() {
+    const [eventId, setEventId] = useState("");
+    const [matches, setMatches] = useState([]);
 
-      {/* I want the administrator to be able to enter any event number they want.  */}
+    const handleClickMatch = async () => {
+      console.log("You pressed the button. Nothing will happen here, but check the back end.")
+      try {
+        if (!eventId) {
+          console.error('There has to be an event ID');
+          return;
+        }
+        // this API request fetches matched users for the specified event ID
+        const response = await axios.get(`${API}/users/match-users/${eventId}`);
+        setMatches(response.data);
+        console.log('Matched users:', response.data);
+      } catch (error){
+        // console.log(error)
+        console.error('Error matching users:', error)
+          // Do we need to Handle the error, e.g., show an error message to the user
+      }
+    };
+
+    const handleEventIdChange = (event) => {
+      setEventId(event.target.value);
+    };
       
-      <p>Button:</p>
-      <button className='admin matching button' onClick={handleClickMatch}>
-        Match users for this event
-      </button>
-      <p>Last line</p>
-    </div>
-  )
-}
+    return (
+      <div className='admin admin-matching'>
+        <h2>Matching Page</h2>
 
-export default AdminMatching
+        {/* I want the administrator to be able to enter any event number they want.  */}
+        <hr/>
+        <label>
+          Event ID:
+          <input type='text' value={eventId} onChange={handleEventIdChange} id='input-event-id' />
+        </label>
+        
+        <hr className='hidden-hr'/>
+        <button className='admin matching button' onClick={handleClickMatch}>
+          Match users for this event
+        </button>
+        <hr/>
+      </div>
+    )
+  }
+
+  export default AdminMatching

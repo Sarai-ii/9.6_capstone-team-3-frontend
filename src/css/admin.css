@@ -1,6 +1,50 @@
 
+.admin hr {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    width: 30%;
+    border-width: 3px;
+}
+
+.admin h2 {
+    padding-top: 4px;
+}
+
+.admin h1 {
+    margin-top: 1%;
+}
+
+
+.hidden-hr {
+    display: block;
+    margin-top: .1em;
+    margin-bottom: .1em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    width: 0%;
+    border-width: 0px;
+}
+
 .admin {
     font: raleway
+}
+
+.admin-link-list{
+    list-style-type: none;
+}
+
+.admin-link-list li {
+    margin-bottom: 10px;
+}
+
+#input-event-id {
+    width: 80px;
+    margin-left: 5px;
 }
 
 

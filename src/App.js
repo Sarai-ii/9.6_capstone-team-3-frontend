@@ -21,6 +21,7 @@ import TermsOfService from "./pages/TermsOfService";
 import Users from './pages/usersIndex';
 import AllEvents from './pages/AllEvents';
 import AllMessages from "./pages/MessagesIndex";
+import Administration from "./pages/Administration";
 import AdminMatching from "./pages/AdminMatching";
 
 // COMPONENTS
@@ -131,9 +132,10 @@ function App() {
               element={user? <EventSignUp userData={userData} userId={userId}/> : <LoginModal />} />
 
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/admin" element={ <Administration /> } />
+            <Route path="/admin/make-matches" element={ <AdminMatching /> } />
             <Route path="/message-match" element={ <MessageMatch /> } />
             <Route path="/message-proof" element={ <MessageProof /> } />
-            <Route path="/admin/make-matches" element={ <AdminMatching /> } />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>
