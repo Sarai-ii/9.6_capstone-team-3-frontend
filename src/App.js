@@ -18,10 +18,11 @@ import Gallery from './pages/Gallery'
 import PageNotFound from "./pages/PageNotFound"
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
-import Users from './pages/usersIndex'
-import AllEvents from './pages/AllEvents'
-import ProofPage from "./pages/ProofPage"
-import AllMessages from "./pages/MessagesIndex"
+import Users from './pages/usersIndex';
+import AllEvents from './pages/AllEvents';
+import AllMessages from "./pages/MessagesIndex";
+import Administration from "./pages/Administration";
+import AdminMatching from "./pages/AdminMatching";
 
 // COMPONENTS
 import FAQ from './components/FAQ';
@@ -130,10 +131,15 @@ function App() {
               path="/events/:eventId/register/:userId" 
               element={user? <EventSignUp userData={userData} userId={userId}/> : <LoginModal />} />
 
+           
+            <Route path="/admin" element={ <Administration /> } />
+            <Route path="/admin/make-matches" element={ <AdminMatching /> } />
+
             <Route
               path="/gallery"
               element={<Gallery userUid={userUid} />} 
             />
+
             <Route path="/message-match" element={ <MessageMatch /> } />
             <Route path="/message-proof" element={ <MessageProof /> } />
             <Route path="*" element={<PageNotFound />} />
