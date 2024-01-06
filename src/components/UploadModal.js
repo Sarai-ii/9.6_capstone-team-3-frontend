@@ -1,10 +1,8 @@
-// UploadModal.js
 import React, { useState } from 'react';
-import Modal from 'react-modal';
-import { storageRef } from '../firebaseStorage'; // Updated import
+import { storageRef } from '../firebaseStorage'; 
 import { getStorage, ref, uploadBytes } from 'firebase/storage';
 
-Modal.setAppElement('#root');
+import "../css/Upload.css";
 
 const UploadModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,20 +58,29 @@ const UploadModal = () => {
 
   return (
     <div>
-      <button onClick={openModal}>Open Upload Modal</button>
-      <Modal
-        isOpen={isOpen}
-        onRequestClose={closeModal}
-        contentLabel="Upload Modal"
-        appElement={document.getElementById('root')}
-      >
-        <h2>Upload Modal</h2>
-        <input type="file" onChange={handleFileChange} />
-        <button onClick={handleUpload} disabled={isUploading}>
-          {isUploading ? 'Uploading...' : 'Upload'}
-        </button>
-        <button onClick={closeModal}>Close Modal</button>
-      </Modal>
+      <button id="upload-gift-button" onClick={openModal}>Upload Gift</button>
+      {isOpen && (
+        <div className="upload-modal-container">
+          <div className="upload-modal-content">
+          <span id='upload-close-container' className="upload-modal-close" onClick={closeModal}>
+                &times;
+              </span>
+            <div id="upload-modal-header">
+              <h2 className="upload-modal-title">Upload Modal</h2>
+            </div>
+            <div id="upload-form-container">
+              <input id="upload-input" type="file" onChange={handleFileChange} />
+              <button
+                id="upload-button"
+                onClick={handleUpload}
+                disabled={isUploading}
+              >
+                {isUploading ? 'Uploading...' : 'Upload'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
