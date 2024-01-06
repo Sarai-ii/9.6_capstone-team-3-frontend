@@ -226,7 +226,7 @@
     .navbar-links {
       display: flex;
       align-items: center;
-      margin-right: -32px;
+      margin-right: -30px;
     }
   
     #navbar-login,
@@ -235,3 +235,6 @@
     }
   }
   
+  #navbar-logout{
+
+  }

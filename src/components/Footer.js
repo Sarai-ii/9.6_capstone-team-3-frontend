@@ -49,7 +49,7 @@ function Footer({user}) {
                 // if there is no one logged in, show sign up button
                 <>
                 <p className="footer-call-to-action-description"></p>
-                <Link to="/signup"  className="button call-to-action-signup-link"> Sign Up for Free! </Link>
+                <Link to="/signup" id="main-signup-link" className="button call-to-action-signup-link"> Sign Up for Free! </Link>
                 </>
               ) : (
                 // if someone is logged in, hide the button

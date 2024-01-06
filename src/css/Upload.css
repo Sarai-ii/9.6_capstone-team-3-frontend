@@ -1,0 +1,191 @@
+
+.upload-modal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    max-width: 500px; 
+    width: 100%;
+    z-index: 1000; 
+    border-radius: 8px;
+  }
+  
+  .upload-modal-content {
+    background-color: white;
+    padding: 0px;
+    border-radius: 8px;
+    box-shadow: 10px 10px 1.8px .7px rgba(88, 24, 1, 0.2);
+    width: 100%;
+  }
+  
+
+
+
+  /* Upload Modal Header CSS */
+  #upload-modal-header {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    margin-bottom: 0rem;
+  }
+  
+  .upload-modal-title {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+    /* Upload Modal Sub Header CSS */
+  #upload-modal-subheader{
+    display: flex;
+    justify-content: center;
+    padding-top: 0px;
+    margin-bottom: 1rem;
+    }
+
+    #upload-modal-h3{
+        font-size: 1.2rem;
+        color: #333;  
+    }
+
+  /* Upload Modal Close Button CSS */
+  .upload-modal-close {
+        top: 5px;
+        cursor: pointer;
+        padding-top: 5px;
+        margin-right: 20px;
+        font-size: 30px;
+  }
+  
+  .upload-modal-close:hover {
+    color: #ff0000;
+  }
+  
+
+#upload-close-container{
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+      }
+      
+      
+
+
+
+
+  /* Upload Form Container CSS */
+  #upload-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    padding-bottom: 30px;
+  }
+  
+  /* Upload Form Input CSS */
+  #upload-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 0.5rem 0;
+    border-radius: 2.5px;
+    border: 1px solid #545454;
+  }
+  
+  /* Upload Button CSS */
+  #upload-button {
+    display: inline-block;
+    color: white;
+    background-color: #6474ed;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    min-width: 20px;
+  }
+
+  #upload-button:hover {
+    color: #6474ed;
+    background-color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid transparent; 
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  #upload-gift-button{
+    display: inline-block;
+    color: white;
+    background-color: #6474ed;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    min-width: 20px;
+  }
+
+  #upload-gift-button:hover{
+    color: #6474ed;
+    background-color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid transparent; 
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
+  
+  .upload-button-container{
+    padding-top: 20px;
+  }
+
+  #upload-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Loading Text CSS */
+  #upload-loading-text {
+    display: none;
+    margin-top: 10px;
+    color: #666;
+  }
+  
+  /* Error and Success Message CSS */
+  #upload-error-message,
+  #upload-success-message {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  #upload-error-message {
+    color: red;
+  }
+  
+  #upload-success-message {
+    color: green;
+  }
+  
+#upload-input{
+    padding-bottom: 40px;
+}
+  
+  /* Media Query for responsiveness */
+  @media (max-width: 768px) {
+    .upload-modal-container {
+      max-width: 100%;
+    }
+  }
+  
