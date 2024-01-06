@@ -29,7 +29,7 @@
     display: flex;
     justify-content: center;
     padding-top: 20px;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
   }
   
   .upload-modal-title {
@@ -37,9 +37,18 @@
     color: #333;
   }
   
+    /* Upload Modal Sub Header CSS */
+  #upload-modal-subheader{
+    display: flex;
+    justify-content: center;
+    padding-top: 0px;
+    margin-bottom: 1rem;
+    }
 
-
-
+    #upload-modal-h3{
+        font-size: 1.2rem;
+        color: #333;  
+    }
 
   /* Upload Modal Close Button CSS */
   .upload-modal-close {

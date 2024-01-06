@@ -66,7 +66,10 @@ const UploadModal = () => {
                 &times;
               </span>
             <div id="upload-modal-header">
-              <h2 className="upload-modal-title">Upload Modal</h2>
+              <h2 className="upload-modal-title">Upload Gift</h2>
+            </div>
+            <div id="upload-modal-subheader">
+            <h3 id="upload-modal-h3">Share the expreince of Happiness Exchange</h3>
             </div>
             <div id="upload-form-container">
               <input id="upload-input" type="file" onChange={handleFileChange} />
