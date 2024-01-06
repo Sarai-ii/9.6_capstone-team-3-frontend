@@ -70,6 +70,7 @@ const UploadModal = () => {
             </div>
             <div id="upload-form-container">
               <input id="upload-input" type="file" onChange={handleFileChange} />
+              <div className='upload-button-container'>
               <button
                 id="upload-button"
                 onClick={handleUpload}
@@ -77,6 +78,7 @@ const UploadModal = () => {
               >
                 {isUploading ? 'Uploading...' : 'Upload'}
               </button>
+              </div>
             </div>
           </div>
         </div>

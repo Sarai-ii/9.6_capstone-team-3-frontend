@@ -4,12 +4,12 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Center both vertically and horizontally */
-    max-width: 400px; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    max-width: 500px; 
     width: 100%;
-    z-index: 1000; /* Ensure the modal stays on top */
+    z-index: 1000; 
     border-radius: 8px;
   }
   
@@ -21,6 +21,13 @@
     width: 100%;
   }
   
+
+
+
+
+
+
+
   /* Upload Modal Header CSS */
   #upload-modal-header {
     display: flex;
@@ -34,6 +41,10 @@
     color: #333;
   }
   
+
+
+
+
   /* Upload Modal Close Button CSS */
   .upload-modal-close {
         top: 5px;
@@ -54,17 +65,7 @@
         justify-content: flex-end;
       }
       
-      .close {
-        top: 5px;
-        cursor: pointer;
-        padding-top: 5px;
-        margin-right: 20px;
-        font-size: 30px;
-      }
       
-      .close:hover {
-        color: #ff0000;
-      } 
 
 
 
@@ -141,6 +142,10 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
   
+  .upload-button-container{
+    padding-top: 20px;
+  }
+
   #upload-button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
