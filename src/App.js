@@ -37,6 +37,7 @@ import LoginModal from "./components/LoginModal";
 // import Header from './components/Header'
 import MessageMatch from "./components/MessageMatch";
 import MessageProof from "./components/MessageProof";
+import HowItWorks from "./pages/HowItWorks";
 
 
 function App() {
@@ -108,6 +109,7 @@ function App() {
           {/* <Header/> */}
           <Routes>
             <Route path="/" element={ <Home />} />
+            <Route path="/how-it-works" element = { <HowItWorks /> } />
             <Route path="/about" element = { <About /> } />
             <Route path="/faq" element = { <FAQ /> } />
             <Route path="/terms-of-service" element = {<TermsOfService/> } />
