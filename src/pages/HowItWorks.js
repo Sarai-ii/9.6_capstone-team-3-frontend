@@ -1,7 +1,7 @@
 import React from 'react';
 import "../css/HowItWorks.css";
 
-import homePageImage from "../images/home-container-image.svg"
+import questionImage from "../images/undraw_questions_re_1fy7.svg"
 
 
 
@@ -20,7 +20,7 @@ function HowItWorks() {
       </div>
       <h3 className="how-it-works-description">Welcome to Happiness Exchange, where the joy of gift-giving brings people together. Here's your guide to getting started:</h3>
       <div className="image-container">
-      <img src={homePageImage} alt="homepage-gift-image" />
+      <img src={questionImage} alt="homepage-gift-image" />
     </div>
     </div>
 
