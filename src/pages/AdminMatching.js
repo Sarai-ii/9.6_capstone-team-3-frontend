@@ -2,13 +2,17 @@
 
   import React, { useState } from 'react';
   import axios from 'axios';
+  import { useHistory } from 'react-router-dom'
+
   import '../css/admin.css';
+  import MessageMatch from '../components/MessageMatch';
 
   const API = process.env.REACT_APP_API_URL;
 
   function AdminMatching() {
     const [eventId, setEventId] = useState("");
     const [matches, setMatches] = useState([]);
+    const history = useHistory();   // Get the history object from react-router-dom
 
     const handleClickMatch = async () => {
       console.log("You pressed the button. Nothing will happen here, but check the back end.")
@@ -21,10 +25,14 @@
         const response = await axios.get(`${API}/users/match-users/${eventId}`);
         setMatches(response.data);
         console.log('Matched users:', response.data);
+
+        // Use history.push to navigate to the notification page
+        history.push('/notification');  // Replace '/notification' with the actual path of your notification page
+   
       } catch (error){
         // console.log(error)
         console.error('Error matching users:', error)
-          // Do we need to Handle the error, e.g., show an error message to the user
+          // Do we need to Handle the error, e.g., show an error message to the user?
       }
     };
 
