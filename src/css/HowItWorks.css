@@ -1,0 +1,98 @@
+#how-it-works-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: #6495ED;
+  padding-bottom: 3.5rem;
+}
+
+.text-container {
+  width: 40%;
+}
+
+#title-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#how-it-works-title {
+  font-size: 60px;
+  color: white;
+  text-align: left;
+  margin-bottom: 10px;
+  background: #6495ED;
+  padding-bottom: 30px;
+}
+
+#how-it-works-description {
+  font-size: 1.8rem;
+  color: white;
+  text-align: left;
+  margin-bottom: 20px;
+  max-width: 900px;
+}
+
+#image-container {
+  width: 60%;
+}
+
+#image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.how-it-works-step {
+  margin-bottom: 40px;
+}
+
+.step-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.step-description {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Optional: Add background or border styles for each step */
+.how-it-works-step:nth-child(even) {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+/* Optional: Style the container for even more visual appeal */
+.how-it-works-section {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+/* Optional: Style the text links for additional emphasis */
+.how-it-works-step a {
+  color: #6474ed;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.how-it-works-step a:hover {
+  color: #4d5fd1;
+}
+
