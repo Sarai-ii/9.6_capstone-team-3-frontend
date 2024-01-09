@@ -8,7 +8,7 @@ function Logo() {
   return <img src={logo} alt="ToFromLogo" />;
 }
 
-function NavBar({ handleLogout, user, userId }) {
+function NavBar({ handleLogout, user, userId, isAdmin }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -29,6 +29,11 @@ function NavBar({ handleLogout, user, userId }) {
           <Link to="/events" id="events-middle-link" className="navbar-middle-link">Events</Link>
           <Link to="/how-it-works" id="hiw-middle-link" className="navbar-middle-link">How it works</Link>
           <Link to="/about" id="about-middle-link" className="navbar-middle-link">About</Link>
+
+          {/* Render Admin link if the user is logged in and has admin status */}
+          {user && isAdmin && (
+            <Link to="/admin/exchanges" id="admin-middle-link" className="navbar-middle-link">Admin</Link>
+          )}
         </div>
       </div>
       <div id="navbar-links" className="navbar-links">

@@ -83,69 +83,65 @@ function App() {
     return () => unsubscribe()
   }, [API])
 
-  const userId = userData?.id; // Use optional chaining to handle potential null values
 
+  const userId = userData?.id;
+  const isAdmin = userData?.admin;
 
-  // const userId = userData ? userData.id : null 
   const handleLogout = async () => {
     try {
-      await auth.signOut()
-      console.log(user.displayName, `is logged out.`)
-      setUserData(null) // Clear user data
+      await auth.signOut();
+      console.log(user.displayName, `is logged out.`);
+      setUserData(null);
     } catch (error) {
-      console.error('Error during logout:', error)
+      console.error('Error during logout:', error);
     }
-  }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
+      <header className="App-header"></header>
       <Router>
-      <Navbar handleLogout={handleLogout} user={user} userId={userData?.id} />
-        {/* <button onClick={handleLogout}>Logout</button> */}
+      <Navbar handleLogout={handleLogout} user={user} userId={userData?.id} isAdmin={isAdmin} />
         <main>
-          {/* <Header/> */}
           <Routes>
-            <Route path="/" element={ <Home />} />
-            <Route path="/how-it-works" element = { <HowItWorks /> } />
-            <Route path="/about" element = { <About /> } />
-            <Route path="/faq" element = { <FAQ /> } />
-            <Route path="/terms-of-service" element = {<TermsOfService/> } />
-            <Route path="/privacy-policy" element = {<PrivacyPolicy/> } />
-            <Route path="/login" element={<Login userData={userData}  />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/login" element={<Login userData={userData} />} />
 
-            {/* USERS CRUD NEW-SHOW-EDIT-INDEX*/}
-            <Route path="/signup" element={<Signup userData={userData}/>} />
-            <Route path="/profile/:userId/messages" element={userData ? <AllMessages userData={userData}/> : <LoginModal />} />
-            {/* <Route path="/create-profile" element={<CreateProfile />} /> */}
-            <Route path="/profile/:userId" element={<Profile userData={userData}/>} />
-            <Route path="/profile/:userId/account-edit" element={<Account userData={userData}/>} />
+            <Route path="/signup" element={<Signup userData={userData} />} />
+            <Route path="/profile/:userId/messages" element={userData ? <AllMessages userData={userData} /> : <LoginModal />} />
+            <Route path="/profile/:userId" element={<Profile userData={userData} />} />
+            <Route path="/profile/:userId/account-edit" element={<Account userData={userData} />} />
             <Route path="/users/" element={<Users />} />
+            <Route path="/events" element={user ? <AllEvents userId={userId} userData={userData} /> : <Login />} />
+            <Route path="/events/:eventId/register/:userId" element={user ? <EventSignUp userData={userData} userId={userId} /> : <LoginModal />} />
 
-            {/* EVENTS CRUD NEW-SHOW-EDIT-INDEX*/}
-            <Route path="/events" element={user? <AllEvents userId = {userId} userData={userData}/> : <Login/>} /> 
-            {/* <Route path="/events/:eventId" element={<CurrentEvent />} /> */}
+            {isAdmin && (
+              <Route path="/admin" element={<Administration />} />
+            )}
 
-            {/* USER EVENTS NEW-SHOW-EDIT-INDEX*/}
-            <Route 
-              path="/events/:eventId/register/:userId" 
-              element={user? <EventSignUp userData={userData} userId={userId}/> : <LoginModal />} />
+            {isAdmin && (
+              <Route path="/admin/make-matches" element={<AdminMatching />} />
+            )}
 
-           
-            <Route path="/admin" element={ <Administration /> } />
-            <Route path="/admin/make-matches" element={ <AdminMatching /> } />
-            <Route path="/admin/exchanges" element={ <AdminExchanges /> } />
+            {isAdmin && (
+              <Route path="/admin/exchanges" element={<AdminExchanges />} />
+            )}
 
-            <Route path="/gallery" element={<Gallery userUid={userUid} />}/>
-
-            <Route path="/message-match" element={ <MessageMatch /> } />
-            <Route path="/message-proof" element={ <MessageProof /> } />
+            <Route path="/gallery" element={<Gallery userUid={userUid} />} />
+            <Route path="/message-match" element={<MessageMatch />} />
+            <Route path="/message-proof" element={<MessageProof />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>
         <Footer handleLogout={handleLogout} user={user} userId={userData?.id} />
       </Router>
     </div>
-  )
+  );
 }
+
 export default App;
