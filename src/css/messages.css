@@ -44,7 +44,11 @@ body{
 .address {
     margin: 0 30% 5%;
 }
-  
+ 
+.address-street-line {
+  margin-bottom: 0;
+}
+
 /* Add a footer-like style for the last paragraph */
 .message p:last-child {
     margin-top: 20px; 

@@ -1,8 +1,8 @@
   // AdminMatching.js
 
-  import React, { useState } from 'react';
+  import React, { useState, useEffect } from 'react';
   import axios from 'axios';
-  import { useHistory } from 'react-router-dom'
+  import { useNavigate } from 'react-router-dom'
 
   import '../css/admin.css';
   import MessageMatch from '../components/MessageMatch';
@@ -12,10 +12,27 @@
   function AdminMatching() {
     const [eventId, setEventId] = useState("");
     const [matches, setMatches] = useState([]);
-    const history = useHistory();   // Get the history object from react-router-dom
+    const [eventInfo, setEventInfo] = useState(null);
+    const navigate = useNavigate(); 
+
+    useEffect(() => {
+      // Fetching event info when eventId changes and is not empty
+      if (eventId) {
+        fetchEventInfo(eventId);
+      }
+    }, [eventId]);
+
+    const fetchEventInfo = async (id) => {
+      try {
+          const response = await axios.get(`${API}/events/${id}`); // doublecheck this endpoint
+          setEventInfo(response.data);
+      } catch (error) {
+          console.error('Error fetching event info:', error);
+      }
+  };
 
     const handleClickMatch = async () => {
-      console.log("You pressed the button. Nothing will happen here, but check the back end.")
+      console.log("You pressed the button. Nothing will happen here, but it will in the back end.")
       try {
         if (!eventId) {
           console.error('There has to be an event ID');
@@ -25,12 +42,8 @@
         const response = await axios.get(`${API}/users/match-users/${eventId}`);
         setMatches(response.data);
         console.log('Matched users:', response.data);
-
-        // Use history.push to navigate to the notification page
-        history.push('/notification');  // Replace '/notification' with the actual path of your notification page
-   
+        navigate('/notification');  // Replace '/notification' with the actual path of your notification page
       } catch (error){
-        // console.log(error)
         console.error('Error matching users:', error)
           // Do we need to Handle the error, e.g., show an error message to the user?
       }
@@ -43,19 +56,25 @@
     return (
       <div className='admin admin-matching'>
         <h2>Matching Page</h2>
-
         {/* I want the administrator to be able to enter any event number they want.  */}
         <hr/>
         <label>
           Event ID:
           <input type='text' value={eventId} onChange={handleEventIdChange} id='input-event-id' />
         </label>
-        
         <hr className='hidden-hr'/>
         <button className='admin matching button' onClick={handleClickMatch}>
           Match users for this event
         </button>
         <hr/>
+          {eventInfo && matches.map(match => (
+                  <MessageMatch 
+                      key={match.giver.id} 
+                      giver={match.giver} 
+                      receiver={match.receiver} 
+                      event={eventInfo} 
+                  />
+              ))}
       </div>
     )
   }
