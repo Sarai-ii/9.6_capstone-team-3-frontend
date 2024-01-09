@@ -50,7 +50,7 @@ function MessageProof() {
             Even if you are disappointed in your gift, your match went out of their way to think about what you might like and sent it to you. If you really can't think of anything nice to say, saying "Thanks for the gift" is perfectly accceptable. 
         </p>
         <p>
-            The one exception is if you received something inappropriate or against the rules. In that case, don't upload the picture and do let us know immediately at ResponseTeam@HappinessExchange.com.
+            The one exception is if you received something inappropriate or against the rules. In that case, don't upload the picture and do let us know immediately at HappinessExchangeTeam@protonmail.com.
         </p>
         <div id='upload-modal-button-in-message'>
           {/* Modal */}
