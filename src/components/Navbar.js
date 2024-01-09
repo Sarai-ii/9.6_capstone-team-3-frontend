@@ -32,7 +32,7 @@ function NavBar({ handleLogout, user, userId, isAdmin }) {
 
           {/* Render Admin link if the user is logged in and has admin status */}
           {user && isAdmin && (
-            <Link to="/admin/exchanges" id="admin-middle-link" className="navbar-middle-link">Admin</Link>
+            <Link to="/admin" id="admin-middle-link" className="navbar-middle-link">Admin</Link>
           )}
         </div>
       </div>

@@ -19,7 +19,7 @@
                 <Link to="/">Create Event (nothing here yet)</Link>               
             </li>
             <li>
-                <Link to="/">TBD 1</Link>
+                <Link to="/admin/exchanges">Exchanges</Link>
             </li>
             <li>
                 <Link to="/">TBD 2</Link>
