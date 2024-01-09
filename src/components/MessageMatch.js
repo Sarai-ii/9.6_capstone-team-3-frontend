@@ -33,7 +33,7 @@ function MessageMatch( {giver, receiver, event} ) {
     
         <p>The minimum spend is $50. This does not include shipping costs. </p>
         <p>
-            Important Dates: Your thoughtful gift should be on its way by the SHIPPING DEADLINE on <span className='bold'>January 10, 2024</span>. Once you've sent your gift, please click [HERE] to update us with the carrier, date, and tracking information.
+            Important Dates: Your thoughtful gift should be on its way by the SHIPPING DEADLINE on <span className='bold'>January 25, 2024</span>. Once you've sent your gift, please click [HERE] to update us with the carrier, date, and tracking information.
         </p>
         <p className='last-p-tag-in-div'></p>
     </div>
