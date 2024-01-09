@@ -4,7 +4,7 @@
   align-items: center;
   width: 100%;
   background: #6495ED;
-  padding-bottom: 3.5rem;
+  padding-bottom: 2.5rem;
 }
 
 
@@ -13,7 +13,8 @@
   flex-direction: column;
 }
 
-#how-it-works-title {
+
+.how-it-works-title-h1{
   font-size: 60px;
   color: white;
   text-align: left;
@@ -21,6 +22,7 @@
   background: #6495ED;
   padding-bottom: 30px;
   padding-top: 20px;
+  font-family: 'Montserrat';
 }
 
 #how-it-works-description {
@@ -32,7 +34,7 @@
 }
 
 #image-container {
-  width: 60%;
+  width: 40%;
 }
 
 #image-container img {

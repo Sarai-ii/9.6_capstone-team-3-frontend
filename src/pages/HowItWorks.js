@@ -8,7 +8,7 @@ function HowItWorks() {
     <div className="how-it-works-container">
       <div id="how-it-works-container" className="text-container">
         <div id="title-container" className="title-container">
-          <h1 id="how-it-works-title" className="how-it-works-title">
+          <h1 id="how-it-works-title-h1" className="how-it-works-title-h1">
             How It Works
           </h1>
           <h3 id="how-it-works-description" className="how-it-works-description">
