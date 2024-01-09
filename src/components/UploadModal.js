@@ -43,6 +43,8 @@ const UploadModal = () => {
     // Read and display a thumbnail preview of the selected image
     const reader = new FileReader();
     reader.onloadend = () => {
+      console.log('File read result:', reader.result); // Add this to check the file data URL
+
       setFileUrl(reader.result);
     };
     reader.readAsDataURL(file);
