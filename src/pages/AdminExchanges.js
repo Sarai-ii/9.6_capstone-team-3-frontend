@@ -117,7 +117,7 @@ function AdminExchanges() {
       </div>
 
       <div className="admin-section" id="admin-exchange-pairs-section">
-        <h3>User Pairs</h3>
+        <h3 className='pairs-h3'>User Pairs: For Exchanges</h3>
         {exchanges.map((exchange) => (
           <div key={exchange.id} className="admin-exchange-pairs">
             <h4>Exchange ID: {exchange.id}</h4>
