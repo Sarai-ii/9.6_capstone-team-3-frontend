@@ -15,18 +15,17 @@ const LoginModal = ({ openModal }) => {
         console.error("Username and password are required.");
         return;
       }
-  
+
       const userCredential = await signInWithEmailAndPassword(
         auth,
         username,
         password
-      ).then(() => window.location.reload() )
+      ).then(() => window.location.reload());
       const user = userCredential.user;
       const uid = user.uid;
-  
+
       setLoggedInUser(user);
       console.log("Logged in user:", user);
-  
     } catch (error) {
       console.error("Login Error:", error);
     }
@@ -56,7 +55,7 @@ const LoginModal = ({ openModal }) => {
   return (
     <div className="modal-container">
       <div className="modal-content">
-      <span id='close-container' className="close" onClick={openModal}>
+        <span id='close-container' className="close" onClick={openModal}>
           &times;
         </span>
         {loggedInUser ? (
@@ -80,27 +79,33 @@ const LoginModal = ({ openModal }) => {
               <h3 className="login-h3">Login</h3>
             </div>
             <form className="form-container">
-              <div id='login-input-contianer'>
-              <label className="username-label">
-                {/* Email: */}
-                <input
-                  className="username-input"
-                  type="email"
-                  placeholder="Enter your email"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </label>
-              <label className="password-login">
-                {/* Password: */}
-                <input
-                  className="password-input"
-                  type="password"
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </label>
+              <div id='login-input-container'>
+                <label className="username-label">
+                  {/* Email: */}
+                  <input
+                    className="username-input"
+                    type="email"
+                    placeholder="Enter your email"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
+                </label>
+                <label className="password-login">
+                  {/* Password: */}
+                  <input
+                    className="password-input"
+                    type="password"
+                    placeholder="Enter your password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    onKeyPress={(e) => {
+                      // Check if Enter key is pressed
+                      if (e.key === 'Enter') {
+                        handleLogin();
+                      }
+                    }}
+                  />
+                </label>
               </div>
               <div className="button-container">
                 <button
