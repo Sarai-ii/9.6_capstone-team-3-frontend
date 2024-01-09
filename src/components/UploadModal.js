@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { storageRef } from "../firebaseStorage";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import axios from "axios";
 
 import "../css/Upload.css";
@@ -25,6 +25,7 @@ const UploadModal = () => {
     setTitle("");
     setBlurb("");
     setFileUrl(null);  //reset thumbnail preview
+    setAltText("");
   };
 
   const handleFileChange = (event) => {
@@ -125,7 +126,7 @@ const UploadModal = () => {
               </h3> */}
             </div>
             <div id="upload-form-container">
-              <div className="upload-input-container">
+              <div className="upload-input-container title-568">
                 <label>Title*</label>
                 <input
                   type="text"
@@ -136,7 +137,7 @@ const UploadModal = () => {
                   required
                 />
               </div>
-              <div className="upload-input-container">
+              <div className="upload-input-container description-568">
                 <label>Thoughts on your gift*</label>
                 <textarea
                   id="picture-description"
@@ -149,8 +150,10 @@ const UploadModal = () => {
                   onChange={handleFileChange}
                 />
               </div>
-              <div className="upload-input-container">
-                <label htmlFor="altText">Alt Text</label>
+              <div className="upload-input-container alt-text-568">
+                <label htmlFor="altText">
+                  Alt Text - Describe the image briefly to help users with visual impairments understand what it shows.
+                </label>
                 <textarea
                   id="altText"
                   placeholder="Enter Alt Text"
@@ -158,6 +161,13 @@ const UploadModal = () => {
                   onChange={handleAltTextChange} 
                 />
               </div>
+              
+              {selectedFile && (
+              <div className='thumbnail'>
+                <h2>Thumbnail Preview:</h2>
+                <img src={fileUrl} alt={altText || "Image preview"} className="thumbnail-image" />
+                </div>
+                )}
               <div className="upload-button-container">
                 <button
                   id="upload-button"
