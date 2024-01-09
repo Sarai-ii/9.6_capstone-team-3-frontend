@@ -21,6 +21,7 @@ function HowItWorks() {
         </div>
       </div>
 
+        <div id="how-it-works-step-container" >
       <section className="how-it-works-step">
         <h3 className="step-title">Register and Create Your Profile</h3>
         <p className="step-description">
@@ -104,6 +105,7 @@ function HowItWorks() {
           important events within the community.
         </p>
       </section>
+      </div>
     </div>
   );
 }

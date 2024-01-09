@@ -141,15 +141,22 @@ h1 {
 
 
 
-
-
-
 .how-it-works-title {
   font-size: 46px;
   padding-top: 10rem;
   padding-bottom: 5rem;
   background-color: #e8effc;
   font-family: 'Montserrat';
+  text-decoration: none;
+}
+
+.how-it-works-title:hover{
+  color: #276be5;
+  transform: translateY(-2px);
+}
+
+#how-it-works-link{
+  text-decoration: none;
 }
 
 .how-it-works-container {

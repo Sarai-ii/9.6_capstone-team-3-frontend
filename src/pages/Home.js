@@ -33,7 +33,10 @@ function Home() {
     </div>
   </div>
 
-  <h1 className="how-it-works-title">How it Works</h1>
+  
+  <Link id="how-it-works-link" to="/how-it-works">
+            <h1 className='how-it-works-title'>How it Works</h1>
+          </Link>
 
   <div className="how-it-works-container">
     <section className="how-it-works">
