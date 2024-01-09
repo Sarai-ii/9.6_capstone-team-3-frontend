@@ -12,7 +12,8 @@ function FullGallery({ previewMode }) {
     const fetchPicturePosts = async () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/pictures`);
-        setPicturePosts(response.data);
+        const sortedPicturePosts = response.data.sort((a, b) => new Date(b.upload_date) - new Date(a.upload_date));
+        setPicturePosts(sortedPicturePosts);
       } catch (error) {
         console.error('Error fetching picture posts:', error);
       }
@@ -79,3 +80,4 @@ function FullGallery({ previewMode }) {
 }
 
 export default FullGallery;
+
