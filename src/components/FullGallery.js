@@ -12,7 +12,7 @@ function FullGallery({ previewMode }) {
     const fetchPicturePosts = async () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/pictures`);
-        setPicturePosts(response.data.reverse()); // Reverse the order here
+        setPicturePosts(response.data.reverse()); 
       } catch (error) {
         console.error('Error fetching picture posts:', error);
       }

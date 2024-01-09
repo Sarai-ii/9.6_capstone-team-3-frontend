@@ -1,4 +1,3 @@
-
 // DEPENDENCIES
 import axios from "axios"
 import React, { useEffect, useState } from "react"
@@ -8,7 +7,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import './App.css'
 // API
 const API = process.env.REACT_APP_API_URL
-
 // PAGES
 import About from './pages/About'
 import Home from './pages/Home'
@@ -23,7 +21,7 @@ import AllEvents from './pages/AllEvents';
 import AllMessages from "./pages/MessagesIndex";
 import Administration from "./pages/Administration";
 import AdminMatching from "./pages/AdminMatching";
-
+import AdminExchanges from "./pages/AdminExchanges";
 // COMPONENTS
 import FAQ from './components/FAQ';
 import Navbar from './components/Navbar'
@@ -136,11 +134,9 @@ function App() {
            
             <Route path="/admin" element={ <Administration /> } />
             <Route path="/admin/make-matches" element={ <AdminMatching /> } />
+            <Route path="/admin/exchanges" element={ <AdminExchanges /> } />
 
-            <Route
-              path="/gallery"
-              element={<Gallery userUid={userUid} />} 
-            />
+            <Route path="/gallery" element={<Gallery userUid={userUid} />}/>
 
             <Route path="/message-match" element={ <MessageMatch /> } />
             <Route path="/message-proof" element={ <MessageProof /> } />
