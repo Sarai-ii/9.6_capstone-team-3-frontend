@@ -39,8 +39,9 @@ function MessageProof() {
 
   return (
     <div className="message">
-        {/* <h1>logo here?</h1> */}
         <h2>Time to add a picture of the gift you received to the gallery!</h2>
+        <div className='message-after-header message-top-no-greeting'>
+        {/* add greeting here? --check--*/}
         <p> Adding your picture lets us know that your match did their job. You will be given an opportunity to leave a little note describing your gift and/or thoughts. Our aim is to spread joy!</p>
         
         <p>Please don't leave a negative note. </p>
@@ -71,6 +72,7 @@ function MessageProof() {
         <p>Best Regards,</p>
         
         <p>Happiness Exchange</p>    
+        </div>
     </div>
   )
 }
