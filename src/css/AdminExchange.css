@@ -1,0 +1,56 @@
+/* AdminExchanges.css */
+
+.admin-exchanges-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-section {
+    margin-top: 20px;
+}
+
+.admin-exchanges-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.admin-exchanges-table th, .admin-exchanges-table td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: left;
+}
+
+.admin-exchanges-table th {
+    background-color: #f2f2f2;
+}
+
+.admin-events-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.admin-events-list li {
+    border: 1px solid #dee2e6;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.admin-action-button {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+    padding: 8px 15px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.admin-action-button:hover {
+    background-color: #0056b3;
+}
