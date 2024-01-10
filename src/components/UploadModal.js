@@ -3,7 +3,7 @@ import { storageRef } from "../firebaseStorage";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import axios from "axios";
 
-import "../css/Upload.css";
+import "../css/uploadModal.css";
 
 //Modal.setAppElement('#root'); //this is so accessibility readers can read the modal
 
@@ -77,8 +77,8 @@ const UploadModal = () => {
 
       // Now you can use the downloadURL to make a POST request to your backend
       const picturePostData = {
-        pictures_post_title: title, //this is a required field and should not have a default value
-        pictures_post_blurb: blurb, //this is a required field and should not have a default value
+        pictures_post_title: title, 
+        pictures_post_blurb: blurb, 
         pictures_post_URL: downloadURL,
         alt_text: altText || "No alt text provided",
         likes_count: 0,
@@ -106,77 +106,77 @@ const UploadModal = () => {
 
   return (
     <div>
-      <button id="upload-gift-button" onClick={openModal}>
-        Upload Picture of Gift
-      </button>
-      {isOpen && (
-        <div className="upload-modal-container">
-          <div className="upload-modal-content">
-            <span
-              id="upload-close-container"
-              className="upload-modal-close"
-              onClick={closeModal}
+  <button id="upload-button" onClick={openModal}>
+    Upload Pic
+  </button>
+  {isOpen && (
+    <div className="upload-modal-container">
+      <div className={`upload-modal-content${fileUrl ? ' with-thumbnail' : ''}`}>
+        <span
+          id="upload-close-container"
+          className="upload-modal-close"
+          onClick={closeModal}
+        >
+          &times;
+        </span>
+        <div id="upload-modal-header">
+          <h2 className="upload-modal-title">Share the Exchange!</h2>
+        </div>
+        <div id="upload-form-container">
+          <div className="upload-input-container title-568">
+            <label>Title:</label>
+            <input
+              type="text"
+              id="picture-title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
+          </div>
+          <div className="upload-input-container">
+            <label>Comments:</label>
+            <textarea
+              id="picture-description"
+              value={blurb}
+              onChange={(e) => setBlurb(e.target.value)}
+            ></textarea>
+            <div id="file-thumbnail-container">
+            <input
+              id="upload-input"
+              type="file"
+              onChange={handleFileChange}
+            />
+                      {selectedFile && (
+            <div className='thumbnail'>
+              <img src={fileUrl} alt={altText || "Image preview"} className="thumbnail-image" />
+            </div>
+          )}
+          </div>
+          </div>
+          <div className="upload-input-container">
+            <label htmlFor="altText">
+              Alt Text - For Visually Impaired
+            </label>
+            <textarea
+              id="altText"
+              value={altText}
+              onChange={handleAltTextChange} 
+            />
+          </div>
+          <div className="upload-button-container">
+            <button
+              id="upload-button"
+              onClick={handleUpload}
+              disabled={isUploading}
             >
-              &times;
-            </span>
-            <div id="upload-modal-header">
-              <h2 className="upload-modal-title">Share the Exchange!</h2>
-            </div>
-            <div id="upload-form-container">
-              <div className="upload-input-container title-568">
-                <label>Title (required)</label>
-                <input
-                  type="text"
-                  id="picture-title"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="upload-input-container description-568">
-                <label>Thoughts on your gift (required)</label>
-                <textarea
-                  id="picture-description"
-                  value={blurb}
-                  onChange={(e) => setBlurb(e.target.value)}
-                ></textarea>
-                <input
-                  id="upload-input"
-                  type="file"
-                  onChange={handleFileChange}
-                />
-              </div>
-              <div className="upload-input-container alt-text-568">
-                <label htmlFor="altText">
-                  Alt Text - Describe the image briefly to help users with visual impairments understand what it shows.
-                </label>
-                <textarea
-                  id="altText"
-                  value={altText}
-                  onChange={handleAltTextChange} 
-                />
-              </div>
-              
-              {selectedFile && (
-              <div className='thumbnail'>
-                <h2>Thumbnail Preview:</h2>
-                <img src={fileUrl} alt={altText || "Image preview"} className="thumbnail-image" />
-                </div>
-                )}
-              <div className="upload-button-container">
-                <button
-                  id="upload-button"
-                  onClick={handleUpload}
-                  disabled={isUploading}
-                >
-                  {isUploading ? "Uploading..." : "Upload"}
-                </button>
-              </div>
-            </div>
+              {isUploading ? "Uploading..." : "Upload"}
+            </button>
           </div>
         </div>
-      )}
+      </div>
     </div>
+  )}
+</div>
   );
 };
 
