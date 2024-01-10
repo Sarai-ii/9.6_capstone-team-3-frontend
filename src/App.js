@@ -119,18 +119,12 @@ function App() {
             <Route path="/users/" element={<Users />} />
             <Route path="/events" element={user ? <AllEvents userId={userId} userData={userData} /> : <Login />} />
             <Route path="/events/:eventId/register/:userId" element={user ? <EventSignUp userData={userData} userId={userId} /> : <LoginModal />} />
+            <Route path="/Userexchanges" element={<UserExchanges userId={userId} />} />
 
-            {isAdmin && (
-              <Route path="/admin" element={<Administration />} />
-            )}
 
-            {isAdmin && (
-              <Route path="/admin/make-matches" element={<AdminMatching />} />
-            )}
-
-            {isAdmin && (
-              <Route path="/admin/exchanges" element={<AdminExchanges />} />
-            )}
+            {isAdmin && (<Route path="/admin" element={<Administration />} />)}
+            {isAdmin && (<Route path="/admin/make-matches" element={<AdminMatching />} />)}
+            {isAdmin && (<Route path="/admin/exchanges" element={<AdminExchanges />} />)}
 
             <Route path="/gallery" element={<Gallery userUid={userUid} />} />
             <Route path="/message-match" element={<MessageMatch />} />
