@@ -22,6 +22,7 @@ import AllMessages from "./pages/MessagesIndex";
 import Administration from "./pages/Administration";
 import AdminMatching from "./pages/AdminMatching";
 import AdminExchanges from "./pages/AdminExchanges";
+import UserExchanges from "./pages/UserExchanges";
 // COMPONENTS
 import FAQ from './components/FAQ';
 import Navbar from './components/Navbar'
@@ -119,23 +120,19 @@ function App() {
             <Route path="/users/" element={<Users />} />
             <Route path="/events" element={user ? <AllEvents userId={userId} userData={userData} /> : <Login />} />
             <Route path="/events/:eventId/register/:userId" element={user ? <EventSignUp userData={userData} userId={userId} /> : <LoginModal />} />
-
-            {isAdmin && (
-              <Route path="/admin" element={<Administration />} />
-            )}
-
-            {isAdmin && (
-              <Route path="/admin/make-matches" element={<AdminMatching />} />
-            )}
-
-            {isAdmin && (
-              <Route path="/admin/exchanges" element={<AdminExchanges />} />
-            )}
+            <Route path="/Userexchanges" element={<UserExchanges userId={userId} />} />
+            
+            {/* Admin Routes */}
+            {isAdmin && (<Route path="/admin" element={<Administration />} />)}
+            {isAdmin && (<Route path="/admin/make-matches" element={<AdminMatching />} />)}
+            {isAdmin && (<Route path="/admin/exchanges" element={<AdminExchanges />} />)}
 
             <Route path="/gallery" element={<Gallery userUid={userUid} />} />
-            <Route path="/message-match" element={<MessageMatch />} />
+            <Route path="/message-match" element={<MessageMatch userData={userData} userId={userId} />} />
             <Route path="/message-proof" element={<MessageProof />} />
             <Route path="*" element={<PageNotFound />} />
+
+
           </Routes>
         </main>
         <Footer handleLogout={handleLogout} user={user} userId={userData?.id} />
