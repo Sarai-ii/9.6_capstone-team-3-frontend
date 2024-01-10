@@ -23,12 +23,12 @@
   
 
 
-
   /* Upload Modal Header CSS */
   #upload-modal-header h2{
     display: flex;
     justify-content: center;
     padding-top: 20px;
+    padding-bottom: 10px;;
     margin-bottom: 0rem;
 
   }
@@ -149,6 +149,8 @@
   }
   
   .upload-button-container{
+    display: flex;
+    justify-content: center;
     padding-top: 20px;
   }
 
@@ -188,34 +190,8 @@
   max-height: 200px;
 }
 
-
-/* For the pop up information box related to alt text. */
-.info-box {
-  position: relative;
-  display: inline-block;
-  margin-left: 8px;
-}
-
-.info-text {
-  visibility: hidden;
-  width: 250px;
-  background-color: #333;
-  color: #fff;
-  text-align: left;
-  border-radius: 4px;
-  padding: 8px;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -125px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.info-box:hover .info-text {
-  visibility: visible;
-  opacity: 1;
+.upload-input-container {
+  padding-top: 15px;
 }
 
   /* Media Query for responsiveness */

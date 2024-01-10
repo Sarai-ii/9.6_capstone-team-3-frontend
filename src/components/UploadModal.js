@@ -120,27 +120,21 @@ const UploadModal = () => {
               &times;
             </span>
             <div id="upload-modal-header">
-              <h2 className="upload-modal-title">Show everyone what you got!</h2>
-            </div>
-            <div id="upload-modal-subheader">
-              {/* <h3 id="upload-modal-h3">
-                Share the experience of Happiness Exchange
-              </h3> */}
+              <h2 className="upload-modal-title">Share the Exchange!</h2>
             </div>
             <div id="upload-form-container">
               <div className="upload-input-container title-568">
-                <label>Title*</label>
+                <label>Title (required)</label>
                 <input
                   type="text"
                   id="picture-title"
-                  placeholder="Enter Title"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   required
                 />
               </div>
               <div className="upload-input-container description-568">
-                <label>Thoughts on your gift*</label>
+                <label>Thoughts on your gift (required)</label>
                 <textarea
                   id="picture-description"
                   value={blurb}
@@ -158,7 +152,6 @@ const UploadModal = () => {
                 </label>
                 <textarea
                   id="altText"
-                  placeholder="Enter Alt Text"
                   value={altText}
                   onChange={handleAltTextChange} 
                 />
