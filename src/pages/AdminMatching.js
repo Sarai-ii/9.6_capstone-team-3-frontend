@@ -2,7 +2,6 @@
 
   import React, { useState, useEffect } from 'react';
   import axios from 'axios';
-  import { useNavigate } from 'react-router-dom'
 
   import '../css/admin.css';
   import MessageMatch from '../components/MessageMatch';
@@ -13,7 +12,6 @@
     const [eventId, setEventId] = useState("");
     const [matches, setMatches] = useState([]);
     const [eventInfo, setEventInfo] = useState(null);
-    const navigate = useNavigate(); 
 
     useEffect(() => {
       // Fetching event info when eventId changes and is not empty
@@ -42,7 +40,7 @@
         const response = await axios.get(`${API}/users/match-users/${eventId}`);
         setMatches(response.data);
         console.log('Matched users:', response.data);
-        navigate('/notification');  // Replace '/notification' with the actual path of your notification page
+
       } catch (error){
         console.error('Error matching users:', error)
           // Do we need to Handle the error, e.g., show an error message to the user?
@@ -67,14 +65,20 @@
           Match users for this event
         </button>
         <hr/>
-          {eventInfo && matches.map(match => (
-                  <MessageMatch 
-                      key={match.giver.id} 
-                      giver={match.giver} 
-                      receiver={match.receiver} 
-                      event={eventInfo} 
-                  />
-              ))}
+        {eventInfo && matches.map((match, index) => {
+          if (!match.giver || !match.receiver) {
+            return <p key={`error-${index}`}>Props did not pass for one of the matches.</p>;
+          }
+          return (
+            <MessageMatch 
+              key={match.giver.id} 
+              giver={match.giver} 
+              receiver={match.receiver} 
+              event={eventInfo} 
+            />
+          );
+        })}
+
       </div>
     )
   }
