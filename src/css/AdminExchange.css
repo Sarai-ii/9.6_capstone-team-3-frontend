@@ -1,26 +1,12 @@
-/* AdminExchanges.css */
-
-.admin-exchanges-container {
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .admin-section {
+#admin-exchange-pairs-section {
     margin-top: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
   }
   
-
-  .pairs-h3{
-    padding-top: 100px;
-  }
-
-
   .admin-exchanges-table {
     width: 100%;
     border-collapse: collapse;
@@ -37,6 +23,69 @@
   .admin-exchanges-table th {
     background-color: #f2f2f2;
   }
+  
+  .admin-exchange-pairs {
+    margin-top: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .admin-exchange-pairs h4 {
+    margin-bottom: 10px;
+  }
+  
+  .admin-exchange-pairs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .admin-exchange-pairs-table th,
+  .admin-exchange-pairs-table td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .admin-exchange-pairs-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .admin-exchange-pairs-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .admin-exchange-pair {
+    width: 200px; /* Adjust the width as needed */
+    margin: 10px;
+  }
+  
+  .admin-exchange-pair h4 {
+    margin-bottom: 10px;
+  }
+  
+  
+  .admin-exchange-pairs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .admin-exchange-pairs-table th,
+  .admin-exchange-pairs-table td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .admin-exchange-pairs-table th {
+    background-color: #f2f2f2;
+  }
+  
   
   .admin-events-list {
     list-style-type: none;
@@ -95,3 +144,7 @@
     background-color: #f2f2f2;
   }
   
+  .pairs-h3{
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }

@@ -115,9 +115,9 @@ function AdminExchanges() {
           </table>
         )}
       </div>
+      <h3 className='pairs-h3'>User Pairs: For Exchanges</h3>
 
-      <div className="admin-section" id="admin-exchange-pairs-section">
-        <h3 className='pairs-h3'>User Pairs: For Exchanges</h3>
+      <div className="admin-exchange-pairs-content" id="admin-exchange-pairs-section">
         {exchanges.map((exchange) => (
           <div key={exchange.id} className="admin-exchange-pairs">
             <h4>Exchange ID: {exchange.id}</h4>
