@@ -123,7 +123,9 @@ const UploadModal = () => {
           <h2 className="upload-modal-title">Share the Exchange!</h2>
         </div>
         <div id="upload-form-container">
-          <div className="upload-input-container title-568">
+
+<div id="input-fields-container ">
+          <div className="upload-input-container">
             <label>Title:</label>
             <input
               type="text"
@@ -163,6 +165,9 @@ const UploadModal = () => {
               onChange={handleAltTextChange} 
             />
           </div>
+
+          </div>
+
           <div className="upload-button-container">
             <button
               id="upload-button"

@@ -56,6 +56,10 @@
   color: #333;
 }
 
+#picture-description{
+  padding-bottom: 10px;
+}
+
 /* Upload Modal Close Button CSS */
 .upload-modal-close {
   top: 5px;
@@ -159,7 +163,6 @@
   font-weight: bold;
   transition: background-color 0.3s, color 0.3s;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  min-width: 20px;
 }
 
 #upload-button:hover {
