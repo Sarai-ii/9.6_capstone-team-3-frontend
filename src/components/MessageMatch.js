@@ -63,10 +63,10 @@ function MessageMatch( {giver, receiver, event} ) {
   )
 }
 
-MessageMatch.propTypes = {
-    giver: PropTypes.object.isRequired,
-    receiver: PropTypes.object.isRequired,
-    event: PropTypes.object.isRequired,
-};
+// MessageMatch.propTypes = {
+//     giver: PropTypes.object.isRequired,
+//     receiver: PropTypes.object.isRequired,
+//     event: PropTypes.object.isRequired,
+// };
 
 export default MessageMatch
