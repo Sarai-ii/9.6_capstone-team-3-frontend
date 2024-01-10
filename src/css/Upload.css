@@ -8,13 +8,15 @@
     left: 50%; 
     transform: translate(-50%, -50%); 
     max-width: 500px; 
+    max-height: 100vh;
+    overflow-y: auto; /* Enable vertical scrolling */
     width: 100%;
-    z-index: 1000; 
+    z-index: 100; 
     border-radius: 8px;
   }
   
   .upload-modal-content {
-    background-color: white;
+    background-color: #E8EFFC;
     padding: 0px;
     border-radius: 8px;
     box-shadow: 10px 10px 1.8px .7px rgba(88, 24, 1, 0.2);
@@ -23,13 +25,14 @@
   
 
 
-
   /* Upload Modal Header CSS */
-  #upload-modal-header {
+  #upload-modal-header h2{
     display: flex;
     justify-content: center;
     padding-top: 20px;
+    padding-bottom: 10px;;
     margin-bottom: 0rem;
+
   }
   
   .upload-modal-title {
@@ -57,6 +60,7 @@
         padding-top: 5px;
         margin-right: 20px;
         font-size: 30px;
+        color: #333;
   }
   
   .upload-modal-close:hover {
@@ -79,7 +83,6 @@
   #upload-form-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     padding: 20px;
     padding-bottom: 30px;
@@ -148,6 +151,8 @@
   }
   
   .upload-button-container{
+    display: flex;
+    justify-content: center;
     padding-top: 20px;
   }
 
@@ -181,7 +186,22 @@
 #upload-input{
     padding-bottom: 40px;
 }
-  
+ 
+.thumbnail {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.thumbnail-image {
+
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.upload-input-container {
+  padding-top: 15px;
+}
+
   /* Media Query for responsiveness */
   @media (max-width: 768px) {
     .upload-modal-container {
