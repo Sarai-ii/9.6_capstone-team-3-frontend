@@ -65,14 +65,20 @@
           Match users for this event
         </button>
         <hr/>
-          {eventInfo && matches.map(match => (
-                  <MessageMatch 
-                      key={match.giver.id} 
-                      giver={match.giver} 
-                      receiver={match.receiver} 
-                      event={eventInfo} 
-                  />
-              ))}
+        {eventInfo && matches.map((match, index) => {
+          if (!match.giver || !match.receiver) {
+            return <p key={`error-${index}`}>Props did not pass for one of the matches.</p>;
+          }
+          return (
+            <MessageMatch 
+              key={match.giver.id} 
+              giver={match.giver} 
+              receiver={match.receiver} 
+              event={eventInfo} 
+            />
+          );
+        })}
+
       </div>
     )
   }
