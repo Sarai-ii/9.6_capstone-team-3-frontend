@@ -107,7 +107,7 @@ const UploadModal = () => {
   return (
     <div>
   <button id="upload-button" onClick={openModal}>
-    Upload Pic
+    Upload
   </button>
   {isOpen && (
     <div className="upload-modal-container">
@@ -126,19 +126,20 @@ const UploadModal = () => {
 
 <div id="input-fields-container ">
           <div className="upload-input-container">
-            <label>Title:</label>
+
             <input
               type="text"
               id="picture-title"
+              placeholder="Title:"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
             />
           </div>
           <div className="upload-input-container">
-            <label>Comments:</label>
             <textarea
               id="picture-description"
+              placeholder="Comments:"
               value={blurb}
               onChange={(e) => setBlurb(e.target.value)}
             ></textarea>
@@ -157,10 +158,10 @@ const UploadModal = () => {
           </div>
           <div className="upload-input-container">
             <label htmlFor="altText">
-              Alt Text - For Visually Impaired
             </label>
             <textarea
               id="altText"
+              placeholder="Alt Text - For Visually Impaired:"
               value={altText}
               onChange={handleAltTextChange} 
             />
