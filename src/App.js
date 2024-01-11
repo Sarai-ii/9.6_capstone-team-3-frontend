@@ -22,13 +22,14 @@ import AllMessages from "./pages/MessagesIndex";
 import Administration from "./pages/Administration";
 import AdminMatching from "./pages/AdminMatching";
 import AdminExchanges from "./pages/AdminExchanges";
-import UserExchanges from "./pages/UserExchanges";
+import UEPage from "./pages/UEPage";
 // COMPONENTS
 import FAQ from './components/FAQ';
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Account from './components/AccountSettings'
 import Profile from './components/PublicProfiles'
+
 // import UserPictureForm from "./components/UserPictureForm"
 // import CurrentEvent from './components/CurrentEvent'
 import EventSignUp from "./components/EventSignup";
@@ -120,7 +121,7 @@ function App() {
             <Route path="/users/" element={<Users />} />
             <Route path="/events" element={user ? <AllEvents userId={userId} userData={userData} /> : <Login />} />
             <Route path="/events/:eventId/register/:userId" element={user ? <EventSignUp userData={userData} userId={userId} /> : <LoginModal />} />
-            <Route path="/Userexchanges" element={<UserExchanges userId={userId} />} />
+            <Route path="/Userexchanges" element={<UEPage userId={userId} />} />
             
             {/* Admin Routes */}
             {isAdmin && (<Route path="/admin" element={<Administration />} />)}
