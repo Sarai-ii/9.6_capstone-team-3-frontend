@@ -22,12 +22,12 @@ function NavBar({ handleLogout, user, userId, isAdmin }) {
   return (
     <nav className="navbar">
       <div className='navbar-middle-links-container'>
-        <Link to="/" className="navbar-logo">
+        <Link to="/" id="logo" className="navbar-logo">
           <Logo />
         </Link>
         <div id='navbar-middle-links'>
           <Link to="/events" id="events-middle-link" className="navbar-middle-link">Events</Link>
-          <Link to="/how-it-works" id="hiw-middle-link" className="navbar-middle-link">How it works</Link>
+          <Link to="/how-it-works" id="hiw-middle-link" className="navbar-middle-link">How it Works</Link>
           <Link to="/about" id="about-middle-link" className="navbar-middle-link">About</Link>
 
           {/* Render Admin link if the user is logged in and has admin status */}

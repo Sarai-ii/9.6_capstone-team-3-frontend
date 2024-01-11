@@ -2,7 +2,7 @@
   background: #6495ED;
   display: flex;
   justify-content: space-between;
-  padding: 9px;
+  padding: 1rem;
 
   min-height: 75px;
   align-items: center;
@@ -16,7 +16,8 @@
     background: none;
   }
   
-  .navbar-links {
+
+  #navbar-links {
     display: flex;
     align-items: center;
   }
@@ -182,59 +183,46 @@
     transition: background-color 0.3s, color 0.3s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
-  
 
-  @media only screen and (max-width: 851px) {
-    .navbar-middle-links-container {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-    }
-  
-    .navbar-logo {
-      order: -1; /* Move the logo to the left */
-      margin-left: -20px;
-    }
-  
-    #events-middle-link {
-      display: block;
-      margin-left: -211px;
-    }
-  
-    #hiw-middle-link,
-    #about-middle-link {
-      display: none;
-    }
-  
-    #navbar-links {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      margin-left: -300px;
-    }
-  
-    #navbar-singup {
-      display: none; /* Hide the Sign Up link */
-    }
-  
-    #navbar-profile-link {
-      display: none;
-    }
-  
-    .navbar-links {
-      display: flex;
-      align-items: center;
-      margin-right: -30px;
-    }
-  
-    #navbar-login,
-    #navbar-singup {
-      margin-left: -90px;
-    }
-  }
-  
-  #navbar-logout{
 
+/* Media Queries*/
+
+@media screen and (max-width: 768px) {
+  .navbar-middle-links-container {
+    flex-direction: column;
+    align-items: flex-start;
   }
+
+  #navbar-middle-links {
+    margin-top: 1rem; /* Add spacing between logo and middle links */
+  }
+
+  #navbar-links {
+    flex-direction: row; /* Display items in a row */
+    align-items: center; /* Center items for smaller screens */
+    justify-content: space-around; /* Add space around items for better spacing */
+    margin-top: 1rem; /* Add spacing between middle links and login/logout buttons */
+  }
+
+  .navbar-links {
+    margin-top: 1rem; /* Add spacing between middle links and login/logout buttons */
+  }
+
+  #navbar-links a,
+  #navbar-links button,
+  #navbar-signup {
+    margin: 5px; /* Adjust spacing between items */
+  }
+
+  #navbar-logout {
+    margin-top: 15px; /* Adjust spacing between logout button and other links */
+  }
+
+  .navbar-logo .navbar-middle-links-container  {
+    order: 1; 
+  }
+
+  .navbar-links  {
+    order: 2; /* Move the navbar-links container to the top */
+  }
+}
