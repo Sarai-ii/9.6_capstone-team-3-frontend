@@ -194,28 +194,28 @@
   }
 
   #navbar-middle-links {
-    margin-top: 1rem; /* Add spacing between logo and middle links */
+    margin-top: 1rem;
   }
 
   #navbar-links {
-    flex-direction: row; /* Display items in a row */
-    align-items: center; /* Center items for smaller screens */
-    justify-content: space-around; /* Add space around items for better spacing */
-    margin-top: 1rem; /* Add spacing between middle links and login/logout buttons */
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: space-around; 
+    margin-top: 1rem; 
   }
 
   .navbar-links {
-    margin-top: 1rem; /* Add spacing between middle links and login/logout buttons */
+    margin-top: 1rem; 
   }
 
   #navbar-links a,
   #navbar-links button,
   #navbar-signup {
-    margin: 5px; /* Adjust spacing between items */
+    margin: 5px; 
   }
 
   #navbar-logout {
-    margin-top: 15px; /* Adjust spacing between logout button and other links */
+    margin-top: 15px; 
   }
 
   .navbar-logo .navbar-middle-links-container  {
@@ -223,6 +223,6 @@
   }
 
   .navbar-links  {
-    order: 2; /* Move the navbar-links container to the top */
+    order: 2; 
   }
 }
