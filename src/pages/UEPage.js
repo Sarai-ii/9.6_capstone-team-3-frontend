@@ -1,12 +1,14 @@
-import React from 'react'
-import UserExchanges from "../components/UserExchanges";
+import React from 'react';
+import UserExchanges from '../components/UserExchanges';
 
-function UEPage() {
+function UEPage({ userId }) {
   return (
-    <div>UserExchanges
-      <UserExchanges/>
+    <div>
+      <h1>User Exchanges Page</h1>
+      {/* Pass userId to UserExchanges component */}
+      <UserExchanges userId={userId} />
     </div>
-  )
+  );
 }
 
-export default UEPage
+export default UEPage;

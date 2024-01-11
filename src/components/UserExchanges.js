@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import axios from 'axios'; 
 
 
 function UserExchanges({ userId }) {
   const [userExchanges, setUserExchanges] = useState([]);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const fetchUserExchanges = async () => {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/exchanges/users/${userId}`);
-        if (response.ok) {
-          const data = await response.json();
+        if (!userId) {
+          console.error('User ID is undefined');
+          return;
+        }
+  
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/exchanges/users/${userId}`);
+        console.log('Fetch User Exchanges Response:', response);
+  
+        if (response.status === 200) {
+          const data = response.data;
           setUserExchanges(data);
         } else {
           console.error('Failed to fetch user exchanges:', response.statusText);
@@ -22,9 +28,12 @@ function UserExchanges({ userId }) {
         setLoading(false);
       }
     };
-
+  
     fetchUserExchanges();
   }, [userId]);
+  
+  
+  
 
   const handleEditExchange = async (id, updatedData) => {
     try {
@@ -124,4 +133,3 @@ function UserExchanges({ userId }) {
 }
 
 export default UserExchanges;
-
