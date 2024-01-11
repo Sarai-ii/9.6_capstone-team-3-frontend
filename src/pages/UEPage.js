@@ -3,9 +3,7 @@ import UserExchanges from '../components/UserExchanges';
 
 function UEPage({ userId }) {
   return (
-    <div>
-      <h1>User Exchanges Page</h1>
-      {/* Pass userId to UserExchanges component */}
+    <div id="user-exchages-page">
       <UserExchanges userId={userId} />
     </div>
   );
