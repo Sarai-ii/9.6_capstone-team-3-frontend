@@ -29,6 +29,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Account from './components/AccountSettings'
 import Profile from './components/PublicProfiles'
+
 // import UserPictureForm from "./components/UserPictureForm"
 // import CurrentEvent from './components/CurrentEvent'
 import EventSignUp from "./components/EventSignup";

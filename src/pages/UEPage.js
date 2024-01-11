@@ -1,8 +1,11 @@
 import React from 'react'
+import UserExchanges from "../components/UserExchanges";
 
 function UEPage() {
   return (
-    <div>UserExchanges</div>
+    <div>UserExchanges
+      <UserExchanges/>
+    </div>
   )
 }
 
