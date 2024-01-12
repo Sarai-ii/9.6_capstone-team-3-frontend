@@ -137,9 +137,8 @@ export default function EventSignUp({ userData, userId }) {
             <label htmlFor="preferred_category">Considering the theme, specify the type or category of gift you are most eager to receive.</label>
             <input type="text" id="preferred_category" onChange={handleInputChange} value={userDataForEvents.preferred_category} placeholder='e.g., tech, fashion, books' required/>
             <br />
-            <label className="clothes" htmlFor="clothes" > If desired, 
-            <br />
-            <div className='clothing-sizes'>
+            <p className="size-prompt">If desired,</p>
+            <div className='clothing-sizes size-inputs'>
                 <label className='clothes-labels' htmlFor="shirt_size">Shirt Size:
                 <input type="text" id="shirt_size" onChange={handleInputChange} value={userDataForEvents.shirt_size} placeholder=' e.g., womens S'/>
                 </label>
@@ -151,7 +150,6 @@ export default function EventSignUp({ userData, userId }) {
                 </label>
             </div>
             <br />
-            </label>
             <label className="duplicate" htmlFor="duplicate">Are you open to receiving duplicate items or similar versions of those you already own? 
                 <select id="duplicate" value={selectedOption} onChange={handleOptionChange} required>
                     <option value=""></option>

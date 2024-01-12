@@ -506,14 +506,6 @@
 
 .event-signup-container {
     align-items: start;
-    /* background: linear-gradient(
-        to top, 
-        #E8EFFC 0%,
-        #A4C1F4 10%,
-        #09676f6d 35%,
-        #276BE5 60%, 
-        #0c2147 100%
-    ); */
     background-color: #A4C1F4;
     border: 1px solid #000;
     border-radius: 5px;
@@ -594,6 +586,17 @@
     /* width: 300px; */
     /* add to smaller screen to fix the collapse toggle issue with responsive design */
 }
+
+.size-prompt {
+    font-size: 1.5em; /* Adjust this value as needed to match your labels */
+}
+
+.size-inputs label, .size-inputs input {
+    margin-left: 20px; /* Adjust indentation as needed */
+}
+
+
+
 #shirt_size,
 #pants_size,
 #shoe_size{
