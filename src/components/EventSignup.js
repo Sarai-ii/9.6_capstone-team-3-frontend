@@ -2,8 +2,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
-import { auth } from '../firebaseConfig';
-// import { initializeApp } from 'firebase/app';
 
 // STYLING
 import "../css/Events.css"
@@ -30,7 +28,7 @@ export default function EventSignUp({ userData, userId }) {
         events_joined: [],
         // eventId:eventId 
     })
-    // I can't continue with updating values until I have a user authentication status or trigger - done
+
     //UPDATE
     const userEventRegistration = async (updatedUser) => {
         try {
@@ -120,42 +118,39 @@ export default function EventSignUp({ userData, userId }) {
         </div>
         {showDetails && (
             <div className="details-box">
-                <p><strong>WHY COMPLETE A QUESTIONAIRE? </strong>
+                <p><strong>WHY COMPLETE A QUESTIONNAIRE?</strong>
                     <br />
-                    You won't be matched if the form is not submitted. Please be as detailed as possible and accept the terms to ensure recieve/give a gift that best suits you and your match that adheres to our guidelines. </p>
+                    You can't be matched without the information on this form. Please be as detailed as possible and accept the terms to ensure you receive a gift that best suits you while adhering to our guidelines.</p>
             </div>
         )}
         
         <form className='signup-form'>
-            <label htmlFor="preferred_gift"> Considering the event theme, kindly specify the type of gift you desire most.</label>
-            <input type="text" id="preferred_gift" onChange={handleInputChange} value={userDataForEvents.preferred_gift} placeholder='e.g Travel Bag...' required/>
+            <label htmlFor="preferred_gift">Considering the event theme, kindly specify the gift you desire most.</label>
+            <input type="text" id="preferred_gift" onChange={handleInputChange} value={userDataForEvents.preferred_gift} placeholder='e.g., travel bag' required/>
             <br />
-            <label htmlFor="gifts_avoid"> Considering the event theme, kindly specify the type of gifts your match should avoid.</label>
-            <input type="text" id="gifts_avoid" onChange={handleInputChange} value={userDataForEvents.gifts_avoid} placeholder=' e.g "Can you avoid Cosmetics please.."' required/>
+            <label htmlFor="gifts_avoid"> Considering the theme, kindly specify the type of gifts your match should avoid.</label>
+            <input type="text" id="gifts_avoid" onChange={handleInputChange} value={userDataForEvents.gifts_avoid} placeholder='e.g., "No cosmetics please."' required/>
             <br />
-            {/* <label htmlFor="budget"> What's your spending cap?:</label>
-            <input type="number" id="budget" onChange={handleInputChange} value={userDataForEvents.budget} required/>
-            <br /> */}
             <label htmlFor="favorite_color"> What's your favorite color?</label>
-            <input type="text" id="favorite_color"  onChange={handleInputChange} value={userDataForEvents.favorite_color} placeholder='e.g Brown..' required/>
+            <input type="text" id="favorite_color"  onChange={handleInputChange} value={userDataForEvents.favorite_color} placeholder='e.g., brown' required/>
             <br />
-            <label htmlFor="preferred_category">Considering the theme, specify the type or category of gift you are most eager to receive?</label>
-            <input type="text" id="preferred_category" onChange={handleInputChange} value={userDataForEvents.preferred_category} placeholder='e.g Technology, Fashion, Books , etc...' required/>
+            <label htmlFor="preferred_category">Considering the theme, specify the type or category of gift you are most eager to receive.</label>
+            <input type="text" id="preferred_category" onChange={handleInputChange} value={userDataForEvents.preferred_category} placeholder='e.g., tech, fashion, books' required/>
             <br />
             <label className="clothes" htmlFor="clothes" > If desired, 
             <br />
                 <label className='clothes-labels' htmlFor="shirt_size">Shirt Size:
-                <input type="text" id="shirt_size" onChange={handleInputChange} value={userDataForEvents.shirt_size} placeholder=' e.g "Womens S"'/>
+                <input type="text" id="shirt_size" onChange={handleInputChange} value={userDataForEvents.shirt_size} placeholder=' e.g., "womens S"'/>
                 </label>
                 <label className='clothes-labels' htmlFor="pants_size">Pants Size:
-                <input type="text" id="pants_size" onChange={handleInputChange} value={userDataForEvents.pants_size} placeholder=' e.g "Womens M"' />
+                <input type="text" id="pants_size" onChange={handleInputChange} value={userDataForEvents.pants_size} placeholder=' e.g., "womens M"' />
                 </label>
                 <label className='clothes-labels' htmlFor="shoe_size">Shoes Size:
-                <input type="text" id="shoe_size" onChange={handleInputChange} value={userDataForEvents.shoe_size} placeholder=' e.g "Womens 5"'/>
+                <input type="text" id="shoe_size" onChange={handleInputChange} value={userDataForEvents.shoe_size} placeholder=' e.g., "womens 5"'/>
                 </label>
             <br />
             </label>
-            <label className="duplicate" htmlFor="duplicate"> Are you open to receiving duplicate items or similar versions of those you already own? 
+            <label className="duplicate" htmlFor="duplicate">Are you open to receiving duplicate items or similar versions of those you already own? 
                 <select id="duplicate" value={selectedOption} onChange={handleOptionChange} required>
                     <option value=""></option>
                     <option value="Yes">Yes</option>
