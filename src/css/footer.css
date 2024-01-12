@@ -179,6 +179,12 @@ text-decoration: none;
 }
 }
 
+@media (max-width:800px) {
+  .footer-content {
+    padding:40px 15px;
+  }
+}
+
 @media (min-width: 760px) {
 .footer-content {
     margin-left: auto;
