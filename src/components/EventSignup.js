@@ -138,7 +138,7 @@ export default function EventSignUp({ userData, userId }) {
             <input type="text" id="preferred_category" onChange={handleInputChange} value={userDataForEvents.preferred_category} placeholder='e.g., tech, fashion, books' required/>
             <br />
             <p className="size-prompt">If desired,</p>
-            <div className='clothing-sizes size-inputs'>
+            <div className='clothing-sizes size-inputs signup-form'>
                 <label className='clothes-labels' htmlFor="shirt_size">Shirt Size:
                 <input type="text" id="shirt_size" onChange={handleInputChange} value={userDataForEvents.shirt_size} placeholder=' e.g., womens S'/>
                 </label>

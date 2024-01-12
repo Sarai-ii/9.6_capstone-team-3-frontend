@@ -589,7 +589,9 @@
 
 .size-prompt {
     font-size: 1.5em; /* Adjust this value as needed to match your labels */
+    margin-top: 20px;
 }
+
 
 .size-inputs label, .size-inputs input {
     margin-left: 20px; /* Adjust indentation as needed */
