@@ -23,3 +23,7 @@ p, li, ul{
 .App {
   text-align: center;
 }
+
+#user-exchages-page{
+  margin: 40px;
+}
