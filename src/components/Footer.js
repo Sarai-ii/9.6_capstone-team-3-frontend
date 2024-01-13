@@ -14,20 +14,7 @@ function Footer({user}) {
           <div className='footer-content'>
           <div className="footer-content-column">
             <div className='footer-menu'>
-            <h2 className="footer-menu-name">Legal</h2>
-            <ul id="menu-legal" className="footer-menu-list">
-              <li className="menu-item menu-item-privacy-policy">
-                <Link to="/privacy-policy">Privacy Policy</Link>
-              </li>
-              <li className="menu-item">
-                <Link to="/terms-of-service">Terms of Service</Link>
-              </li>
-            </ul>
-          </div>
-          </div>
-          <div className="footer-content-column">
-            <div className="footer-menu">
-              <h2 className="footer-menu-name"> Quick Links</h2>
+            <h2 className="footer-menu-name"> Quick Links</h2>
               <ul id="menu-quick-links" className="footer-menu-list">
                 <li className="menu-item ">
                   <Link to="/about" >About Us</Link>
@@ -38,6 +25,20 @@ function Footer({user}) {
                   <Link to="/events">Events</Link>
                 </li>
               </ul>
+          </div>
+          </div>
+          <div className="footer-content-column">
+            <div className="footer-menu">
+            <h2 className="footer-menu-name">Legal</h2>
+            <ul id="menu-legal" className="footer-menu-list">
+              <li className="menu-item menu-item-privacy-policy">
+                <Link to="/privacy-policy">Privacy Policy</Link>
+              </li>
+              <li className="menu-item">
+                <Link to="/terms-of-service">Terms of Service</Link>
+              </li>
+            </ul>
+
             </div>
           </div>
           <div className='footer-content-column'>
