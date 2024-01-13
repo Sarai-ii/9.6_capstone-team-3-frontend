@@ -355,7 +355,7 @@
 }
 
 .collapse-details{
-    margin: 5px 100px 5px 100px;
+    margin: 5px 0px 5px 100px;
     min-height: 300px;
     width: 620px;
 }
@@ -596,14 +596,21 @@
     margin-top: 20px;
 }
 
-
 .size-inputs label, .size-inputs input {
     margin-left: 30px; /* Adjust indentation as needed */
 }
 
 #confirm-event-button{
     background-color: #ED6495;
+}
 
+.clothing-sizes{
+    display: ;
+    justify-content: space-between;
+}
+
+#clothing-sizes-container p{
+    margin-bottom: -10px;
 }
 
 #shirt_size,
@@ -614,7 +621,7 @@
     padding: 10px;
     margin: 5px;
     border: 1px solid #ccc;
-    font-size: smaller;
+    font-size: .75em;
 }
 
 #budget{
@@ -646,6 +653,12 @@
     font-weight: 500;
     margin: 5px 1px 5px 10px;
 }
+
+#event-rules-h3{
+    margin: 20px 5px 0 5px;
+
+}
+
 .rules-every{
     font-weight: 700;
     text-decoration: underline;
