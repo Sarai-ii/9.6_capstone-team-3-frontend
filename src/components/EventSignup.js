@@ -73,7 +73,7 @@ export default function EventSignUp({ userData, userId }) {
             // console.log(userDataForEvents)
 
             if (selectedOption === 'No') {
-                alert("Please be advised that we try our best to ensure gifts are based on the desires of the receiver, but sometimes there are chances of being gifted an item you already own. As this may not be desired, it is reality, and therefore we require that everyone who joins any event understands and accepts this possibility to be able to join. If you don't mind, please change your response to 'No'.")
+                alert("Although we try our best to ensure gifts are based on the desires of the receiver, there is a chance you will receive an item you already own; the person giving you your gift cannot know what you already own. Therefore, we require that everyone who joins any event understands and accepts this possibility. To move forward, please change your response to 'No'.")
                 setShowConfirmation(showConfirmation)
             } else if (selectedOption === 'Yes') {
                 // Update the state and get the updated user data
@@ -106,7 +106,7 @@ export default function EventSignUp({ userData, userId }) {
             <h1 className='welcome-2'></h1>
         </div>
         <div className='intro-container '>
-            <h2 className='section-header'>To join an event; please complete the form. </h2>
+            <h2 className='section-header'>To join an event; please complete this form. </h2>
             <span onClick={handleIconClick} className="question-mark-icon">
                 <svg xmlns="http://www.w3.org/2000/svg"  
                 className="bi bi-question-circle" 
@@ -124,7 +124,7 @@ export default function EventSignUp({ userData, userId }) {
             </div>
         )}
         
-        <form className='signup-form'>
+        <form className='signup-form' id='events-registration-form'>
             <label htmlFor="preferred_gift">Considering the event theme, kindly specify the gift you desire most.</label>
             <input type="text" id="preferred_gift" onChange={handleInputChange} value={userDataForEvents.preferred_gift} placeholder='e.g., travel bag' required/>
             <br />
@@ -182,9 +182,9 @@ export default function EventSignUp({ userData, userId }) {
           </div>
             <div className='terms-container'>
                 <label htmlFor="terms-checkbox" id='terms-text'>
-                <input type="checkbox" id="terms-checkbox" required />Do You Agree To The Terms?</label>
+                <input type="checkbox" id="terms-checkbox" required />I agree to the rules.</label>
                 <br />
-                <button className="confirm button" onClick={handleConfirmation} >Confirm</button>
+                <button className="confirm button" id='confirm-event-button' onClick={handleConfirmation} >Confirm</button>
             </div>
         </form>
             {showConfirmation && (

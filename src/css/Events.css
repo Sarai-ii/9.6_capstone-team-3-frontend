@@ -544,6 +544,10 @@
     padding: 10px;
 }
 
+#events-registration-form {
+    padding: 0 10%;
+}
+
 .signup-form{
     /* background-color:#E8EFFC; */
     color: #000;
@@ -594,16 +598,25 @@
 
 
 .size-inputs label, .size-inputs input {
-    margin-left: 20px; /* Adjust indentation as needed */
+    margin-left: 30px; /* Adjust indentation as needed */
 }
 
+#confirm-event-button{
+    background-color: #ED6495;
 
+}
 
 #shirt_size,
 #pants_size,
 #shoe_size{
     width: 200px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    font-size: smaller;
 }
+
 #budget{
     width: 70px;
 }
@@ -658,7 +671,7 @@
     align-items: center;
     align-content: center;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     /* margin-left: 80px; */
     margin: 10px;
     /* vertical-align: top; */
@@ -666,7 +679,7 @@
 #terms-checkbox{
     cursor: pointer;
     height: 20px;
-    /* padding: 10px; */
+    margin-right: 10px;
     /* vertical-align: top */
     width: 20px;
 }
