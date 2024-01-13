@@ -11,13 +11,9 @@ function About() {
   window.scrollTo(0,0);
   return (
     <div className='about container-fluid p-5'>
-      <h1 className='display-6'>Header for About Page</h1>
-      <div>
-        <h2>How Does It Work?</h2>
-      </div>
-      <br/>
+      <h1 className=''>Meet the Development Team</h1>
       <div className='developers'>
-        <h2 className='display-6'>App Developers</h2>
+        {/* <h2 className=''>App Developers</h2> */}
         <div className='individual-devs'>
           <img 
             src={JenniferPic} 
@@ -43,7 +39,10 @@ function About() {
           <p>Sarai Thomas is a software engineer and digital designer; she is also the lead on this project. Sarai has combined her background in business with her creativity skills to become the CEO and creative director of GLD RZÉ, a new luxery jewelry line.</p>
           <br/>
         </div>
+      </div>
+      <div className='developers-squares'>
 
+      </div>
         {/* <div>
             <h6>Credits</h6>
               <ul className='list credits-list'>
@@ -51,7 +50,6 @@ function About() {
                 <li>placeholder two</li>
               </ul>
         </div> */}
-      </div>
     </div>
   )
 }
