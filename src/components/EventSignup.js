@@ -2,8 +2,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
-import { auth } from '../firebaseConfig';
-// import { initializeApp } from 'firebase/app';
 
 // STYLING
 import "../css/Events.css"
@@ -30,7 +28,7 @@ export default function EventSignUp({ userData, userId }) {
         events_joined: [],
         // eventId:eventId 
     })
-    // I can't continue with updating values until I have a user authentication status or trigger - done
+
     //UPDATE
     const userEventRegistration = async (updatedUser) => {
         try {
@@ -75,7 +73,7 @@ export default function EventSignUp({ userData, userId }) {
             // console.log(userDataForEvents)
 
             if (selectedOption === 'No') {
-                alert("Please be advised that we try our best to ensure gifts are based on the desires of the receiver, but sometimes there are chances of being gifted an item you already own. As this may not be desired, it is reality, and therefore we require that everyone who joins any event understands and accepts this possibility to be able to join. If you don't mind, please change your response to 'No'.")
+                alert("Although we try our best to ensure gifts are based on the desires of the receiver, there is a chance you will receive an item you already own; the person giving you your gift cannot know what you already own. Therefore, we require that everyone who joins any event understands and accepts this possibility. To move forward, please change your response to 'No'.")
                 setShowConfirmation(showConfirmation)
             } else if (selectedOption === 'Yes') {
                 // Update the state and get the updated user data
@@ -104,11 +102,11 @@ export default function EventSignUp({ userData, userId }) {
     return (
         <div className='event-signup-container'>
         <div className=''>
-            <h1 className='welcome'>You're One Step Away From</h1>
-            <h1 className='welcome-2'>Making Someone Feel Special!</h1>
+            <h1 className='welcome'>You're One Step Away From Making Someone Feel Special!</h1>
+            <h1 className='welcome-2'></h1>
         </div>
         <div className='intro-container '>
-            <h2 className='section-header'>To join an event; please complete the form. </h2>
+            <h2 className='section-header'>To join an event; please complete this form. </h2>
             <span onClick={handleIconClick} className="question-mark-icon">
                 <svg xmlns="http://www.w3.org/2000/svg"  
                 className="bi bi-question-circle" 
@@ -120,42 +118,41 @@ export default function EventSignUp({ userData, userId }) {
         </div>
         {showDetails && (
             <div className="details-box">
-                <p><strong>WHY COMPLETE A QUESTIONAIRE? </strong>
+                <p><strong>WHY COMPLETE A QUESTIONNAIRE?</strong>
                     <br />
-                    You won't be matched if the form is not submitted. Please be as detailed as possible and accept the terms to ensure recieve/give a gift that best suits you and your match that adheres to our guidelines. </p>
+                    You can't be matched without the information on this form. Please be as detailed as possible and accept the terms to ensure you receive a gift that best suits you while adhering to our guidelines.</p>
             </div>
         )}
         
-        <form className='signup-form'>
-            <label htmlFor="preferred_gift"> Considering the event theme, kindly specify the type of gift you desire most.</label>
-            <input type="text" id="preferred_gift" onChange={handleInputChange} value={userDataForEvents.preferred_gift} placeholder='e.g Travel Bag...' required/>
+        <form className='signup-form' id='events-registration-form'>
+            <label htmlFor="preferred_gift">Considering the event theme, kindly specify the gift you desire most.</label>
+            <input type="text" id="preferred_gift" onChange={handleInputChange} value={userDataForEvents.preferred_gift} placeholder='e.g., travel bag' required/>
             <br />
-            <label htmlFor="gifts_avoid"> Considering the event theme, kindly specify the type of gifts your match should avoid.</label>
-            <input type="text" id="gifts_avoid" onChange={handleInputChange} value={userDataForEvents.gifts_avoid} placeholder=' e.g "Can you avoid Cosmetics please.."' required/>
+            <label htmlFor="gifts_avoid"> Considering the theme, kindly specify the type of gifts your match should avoid.</label>
+            <input type="text" id="gifts_avoid" onChange={handleInputChange} value={userDataForEvents.gifts_avoid} placeholder='e.g., No cosmetics please.' required/>
             <br />
-            {/* <label htmlFor="budget"> What's your spending cap?:</label>
-            <input type="number" id="budget" onChange={handleInputChange} value={userDataForEvents.budget} required/>
-            <br /> */}
             <label htmlFor="favorite_color"> What's your favorite color?</label>
-            <input type="text" id="favorite_color"  onChange={handleInputChange} value={userDataForEvents.favorite_color} placeholder='e.g Brown..' required/>
+            <input type="text" id="favorite_color"  onChange={handleInputChange} value={userDataForEvents.favorite_color} placeholder='e.g., brown' required/>
             <br />
-            <label htmlFor="preferred_category">Considering the theme, specify the type or category of gift you are most eager to receive?</label>
-            <input type="text" id="preferred_category" onChange={handleInputChange} value={userDataForEvents.preferred_category} placeholder='e.g Technology, Fashion, Books , etc...' required/>
+            <label htmlFor="preferred_category">Considering the theme, specify the type or category of gift you are most eager to receive.</label>
+            <input type="text" id="preferred_category" onChange={handleInputChange} value={userDataForEvents.preferred_category} placeholder='e.g., tech, fashion, books' required/>
             <br />
-            <label className="clothes" htmlFor="clothes" > If desired, 
+            {/* <div id='clothing-sizes-container'>
+                <p className="size-prompt">If desired,</p>
+                <div className='clothing-sizes size-inputs signup-form'>
+                    <label className='clothes-labels' htmlFor="shirt_size">Shirt Size:
+                    <input type="text" id="shirt_size" onChange={handleInputChange} value={userDataForEvents.shirt_size} placeholder=' e.g., womens S'/>
+                    </label>
+                    <label className='clothes-labels' htmlFor="pants_size">Pants Size:
+                    <input type="text" id="pants_size" onChange={handleInputChange} value={userDataForEvents.pants_size} placeholder=' e.g., womens M' />
+                    </label>
+                    <label className='clothes-labels' htmlFor="shoe_size">Shoes Size:
+                    <input type="text" id="shoe_size" onChange={handleInputChange} value={userDataForEvents.shoe_size} placeholder=' e.g., womens 5'/>
+                    </label>
+                </div> 
+            </div> */}
             <br />
-                <label className='clothes-labels' htmlFor="shirt_size">Shirt Size:
-                <input type="text" id="shirt_size" onChange={handleInputChange} value={userDataForEvents.shirt_size} placeholder=' e.g "Womens S"'/>
-                </label>
-                <label className='clothes-labels' htmlFor="pants_size">Pants Size:
-                <input type="text" id="pants_size" onChange={handleInputChange} value={userDataForEvents.pants_size} placeholder=' e.g "Womens M"' />
-                </label>
-                <label className='clothes-labels' htmlFor="shoe_size">Shoes Size:
-                <input type="text" id="shoe_size" onChange={handleInputChange} value={userDataForEvents.shoe_size} placeholder=' e.g "Womens 5"'/>
-                </label>
-            <br />
-            </label>
-            <label className="duplicate" htmlFor="duplicate"> Are you open to receiving duplicate items or similar versions of those you already own? 
+            <label className="duplicate" htmlFor="duplicate">Are you open to receiving duplicate items or similar versions of those you already own? 
                 <select id="duplicate" value={selectedOption} onChange={handleOptionChange} required>
                     <option value=""></option>
                     <option value="Yes">Yes</option>
@@ -165,31 +162,33 @@ export default function EventSignUp({ userData, userId }) {
             <br />
             <h3
             className="d-inline-flex gap-1 rules-h3"
+            id='event-rules-h3'
             data-bs-toggle="collapse" 
             data-bs-target="#collapseRulesForEvent" 
             // aria-expanded="false" 
             aria-controls="collapseRulesForEvent"
             >
-            Rules For <span className='rules-every'>EVERY</span> Event
+            See Rules For <span className='rules-every'>EVERY</span> Event
+            <span className="chevron-icon">&#9662;</span>
           </h3>
              <div className="collapse-container row">
             <div className="collapse collapse-details collapse-vertical col" id="collapseRulesForEvent">
               <div className="collapse-card">
               <ul className='rules-container'>
-                <li className='rules'>Failure to meet shipping and tracking deadlines or violation of any terms poses a risk of indefinite suspension following investigation by our team. Additionally, your assigned gift giver may choose to withhold their gift as an interim consequence.</li>
-                <li className='rules'>The fundamental principle of each event is "Secret Santa," meaning the person you are assigned to gift may differ from the one assigned to gift you.</li>
-                <li className='rules'>We <span className='rules-not'>strictly</span> prohibit derogatory, sexually explicit, or discriminatory actions, including hate speech, bullying, and racially insensitive comments or gifts. Maintaining a friendly and respectful environment is crucial, as our goal is to uplift and bring joy to everyone's lives.</li>
-                <li className='rules'>The minimum spending requirement ensures that everyone stays within a specified range when selecting gifts. Keep in mind that spending beyond the minimum is at the discretion of the gift giver and can vary.</li>
-                <li className='rules'>Under no circumstances are you allowed to contact other users to request gifts. <span className='rules-not'>NOR</span>, disclosing the details of the gift you've selected for your match before they've had a chance to open it is strictly prohibited!</li>
+                <li className='rules'>Failure to meet shipping and tracking deadlines or violation of any terms poses a risk of indefinite suspension following investigation by our team.</li>
+                <li className='rules'>The person receiving your gift is not the same person who is giving you a gift.</li>
+                <li className='rules'>We <span className='rules-not'>strictly</span> prohibit derogatory, sexually explicit, or discriminatory actions, including hate speech, bullying, and racially insensitive comments or gifts. Maintaining a friendly and respectful environment is crucial, as our goal is to uplift and bring happiness to everyone's lives.</li>
+                <li className='rules'>The minimum spending requirement ensures that no one feels cheated. Keep in mind that spending beyond the minimum is at the discretion of the gift giver and can vary.</li>
+                <li className='rules'>Under no circumstances are you allowed to contact other users to request gifts. Disclosing the details of the gift you've selected for your match before they've had a chance to open it is strictly prohibited!</li>
             </ul>
               </div>
             </div>
           </div>
             <div className='terms-container'>
                 <label htmlFor="terms-checkbox" id='terms-text'>
-                <input type="checkbox" id="terms-checkbox" required /> Do You Agree To The Terms? </label>
+                <input type="checkbox" id="terms-checkbox" required />I agree to the rules.</label>
                 <br />
-                <button className="confirm button" onClick={handleConfirmation} >Confirm</button>
+                <button className="confirm button" id='confirm-event-button' onClick={handleConfirmation} >Confirm</button>
             </div>
         </form>
             {showConfirmation && (

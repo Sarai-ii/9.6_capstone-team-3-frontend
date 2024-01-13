@@ -355,7 +355,7 @@
 }
 
 .collapse-details{
-    margin: 5px 100px 5px 100px;
+    margin: 5px 0px 5px 100px;
     min-height: 300px;
     width: 620px;
 }
@@ -506,14 +506,6 @@
 
 .event-signup-container {
     align-items: start;
-    /* background: linear-gradient(
-        to top, 
-        #E8EFFC 0%,
-        #A4C1F4 10%,
-        #09676f6d 35%,
-        #276BE5 60%, 
-        #0c2147 100%
-    ); */
     background-color: #A4C1F4;
     border: 1px solid #000;
     border-radius: 5px;
@@ -526,7 +518,6 @@
     height: auto;
 }
 .section-header{
-    color: #ED6495;
     font-size: 27px;
     margin: 20px;
 }
@@ -553,6 +544,10 @@
     padding: 10px;
 }
 
+#events-registration-form {
+    padding: 0 10%;
+}
+
 .signup-form{
     /* background-color:#E8EFFC; */
     color: #000;
@@ -570,7 +565,8 @@
     outline-color: #ED6495;
     padding: 10px;
     margin: 5px;
-    width: 300px;
+    margin-left: 30px;
+    width: 80%;
     /* height: 3%; */
     /* display: inline; */
 }
@@ -594,17 +590,49 @@
     /* width: 300px; */
     /* add to smaller screen to fix the collapse toggle issue with responsive design */
 }
+
+.size-prompt {
+    font-size: 1.5em; /* Adjust this value as needed to match your labels */
+    margin-top: 20px;
+}
+
+.size-inputs label, .size-inputs input {
+    margin-left: 30px; /* Adjust indentation as needed */
+}
+
+.clothing-labels{
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px; /* This creates space between flex items */
+    background-color: greenyellow;
+}
+
+.clothing-labels label {
+    margin-right: 10px; /* Adjust as needed */
+}
+
+
+#clothing-sizes-container p{
+    margin-bottom: -10px;
+}
+
 #shirt_size,
 #pants_size,
 #shoe_size{
     width: 200px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    font-size: .75em;
 }
+
 #budget{
     width: 70px;
 }
 
 .welcome, .welcome-2{
-    color:#fff;
+    color:#6474ED;
     display: inline;
     font-size: 47px;
     margin: 10px;
@@ -628,6 +656,12 @@
     font-weight: 500;
     margin: 5px 1px 5px 10px;
 }
+
+#event-rules-h3{
+    margin: 20px 5px 0 5px;
+    
+}
+
 .rules-every{
     font-weight: 700;
     text-decoration: underline;
@@ -653,7 +687,7 @@
     align-items: center;
     align-content: center;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     /* margin-left: 80px; */
     margin: 10px;
     /* vertical-align: top; */
@@ -661,7 +695,7 @@
 #terms-checkbox{
     cursor: pointer;
     height: 20px;
-    /* padding: 10px; */
+    margin-right: 10px;
     /* vertical-align: top */
     width: 20px;
 }
@@ -683,10 +717,13 @@
     width: auto;
 }
 
+#confirm-event-button{
+    background-color: #ED6495;
+}
 .conclusion{
     font-size: 20px;
     margin: 20px 2px 20px 2px;
-
+    
 }
 @media screen and (max-width: 800px) {
     .signup-form label, .duplicate{
