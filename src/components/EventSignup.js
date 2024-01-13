@@ -137,26 +137,20 @@ export default function EventSignUp({ userData, userId }) {
             <label htmlFor="preferred_category">Considering the theme, specify the type or category of gift you are most eager to receive.</label>
             <input type="text" id="preferred_category" onChange={handleInputChange} value={userDataForEvents.preferred_category} placeholder='e.g., tech, fashion, books' required/>
             <br />
-            <div id='clothing-sizes-container'>
+            {/* <div id='clothing-sizes-container'>
                 <p className="size-prompt">If desired,</p>
                 <div className='clothing-sizes size-inputs signup-form'>
-                    <div className='clothing-size-chunk'>
-                        <label className='clothes-labels' htmlFor="shirt_size">Shirt Size:
-                        <input type="text" id="shirt_size" onChange={handleInputChange} value={userDataForEvents.shirt_size} placeholder=' e.g., womens S'/>
-                        </label>
-                    </div>
-                    <div className='clothing-size-chunk'>
-                        <label className='clothes-labels' htmlFor="pants_size">Pants Size:
-                        <input type="text" id="pants_size" onChange={handleInputChange} value={userDataForEvents.pants_size} placeholder=' e.g., womens M' />
-                        </label>
-                    </div>
-                    <div className='clothing-size-chunk'>
-                        <label className='clothes-labels' htmlFor="shoe_size">Shoes Size:
-                        <input type="text" id="shoe_size" onChange={handleInputChange} value={userDataForEvents.shoe_size} placeholder=' e.g., womens 5'/>
-                        </label>
-                    </div>
+                    <label className='clothes-labels' htmlFor="shirt_size">Shirt Size:
+                    <input type="text" id="shirt_size" onChange={handleInputChange} value={userDataForEvents.shirt_size} placeholder=' e.g., womens S'/>
+                    </label>
+                    <label className='clothes-labels' htmlFor="pants_size">Pants Size:
+                    <input type="text" id="pants_size" onChange={handleInputChange} value={userDataForEvents.pants_size} placeholder=' e.g., womens M' />
+                    </label>
+                    <label className='clothes-labels' htmlFor="shoe_size">Shoes Size:
+                    <input type="text" id="shoe_size" onChange={handleInputChange} value={userDataForEvents.shoe_size} placeholder=' e.g., womens 5'/>
+                    </label>
                 </div> 
-            </div>
+            </div> */}
             <br />
             <label className="duplicate" htmlFor="duplicate">Are you open to receiving duplicate items or similar versions of those you already own? 
                 <select id="duplicate" value={selectedOption} onChange={handleOptionChange} required>

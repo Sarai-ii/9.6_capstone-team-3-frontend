@@ -600,14 +600,17 @@
     margin-left: 30px; /* Adjust indentation as needed */
 }
 
-#confirm-event-button{
-    background-color: #ED6495;
+.clothing-labels{
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px; /* This creates space between flex items */
+    background-color: greenyellow;
 }
 
-.clothing-sizes{
-    display: ;
-    justify-content: space-between;
+.clothing-labels label {
+    margin-right: 10px; /* Adjust as needed */
 }
+
 
 #clothing-sizes-container p{
     margin-bottom: -10px;
@@ -656,7 +659,7 @@
 
 #event-rules-h3{
     margin: 20px 5px 0 5px;
-
+    
 }
 
 .rules-every{
@@ -714,10 +717,13 @@
     width: auto;
 }
 
+#confirm-event-button{
+    background-color: #ED6495;
+}
 .conclusion{
     font-size: 20px;
     margin: 20px 2px 20px 2px;
-
+    
 }
 @media screen and (max-width: 800px) {
     .signup-form label, .duplicate{
