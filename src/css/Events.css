@@ -183,7 +183,7 @@
     font-size: 45px;
     font-weight: 500;
     margin: 40px 0 10px 0;
-    text-align: start;
+    text-align: center;
 }
 #current{
     font-size: 45px;
@@ -204,6 +204,7 @@
 
 .upcoming-container, .current-container{
     display: flex;
+    justify-content: center;
     list-style: none;
     margin: 4px;
     padding: 0;
