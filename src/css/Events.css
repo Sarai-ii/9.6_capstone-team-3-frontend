@@ -14,6 +14,11 @@
 -accent color 3
 */
 
+
+/* Changes to make. 1) slow down rotation. 2) change wording to Timeline */
+
+
+
 /* CLASSES FOUND IN UPCOMING EVENTS.JS */
 
 .upcoming-container {
@@ -70,7 +75,7 @@
     opacity: 0;
     background: rgba(0, 0, 0, 0.813);
     color: #fff;
-    transition: transform 0.3s ease;
+    transition: transform 0.8s ease;
     padding: 10px;
     transform: perspective(5000px) rotateY(-180deg);
   }
@@ -178,7 +183,7 @@
     font-size: 45px;
     font-weight: 500;
     margin: 40px 0 10px 0;
-    text-align: start;
+    text-align: center;
 }
 #current{
     font-size: 45px;
@@ -199,6 +204,7 @@
 
 .upcoming-container, .current-container{
     display: flex;
+    justify-content: center;
     list-style: none;
     margin: 4px;
     padding: 0;
