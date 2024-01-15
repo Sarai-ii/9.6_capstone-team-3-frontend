@@ -28,7 +28,7 @@ export default function UpcomingEvents({ upcomingEvents, filteredEvents, event }
     onMouseLeave={()=> setIsHovered(false)}>
       <div className={`upcoming-img-container ${isHovered ? 'hovered' : ''}`}>
         <div className="details-overlay">
-          <h2 className="details-UEHeader">Important Timeline/Scheduling</h2>
+          <h2 className="details-UEHeader">Event Timeline</h2>
           <span className="timeline-UE">Registration Period: </span>{signUpMinusTime[1]}/{signUpMinusTime[2]}/{year} - {close[1]}/{close[2]}/{year}
           <br />
           <span className="timeline-UE">Matching Date: </span>{matchDate[1]}/{matchDate[2]}/{year} 
