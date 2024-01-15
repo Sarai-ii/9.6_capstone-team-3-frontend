@@ -86,6 +86,7 @@ function UserExchanges({ userId }) {
           <thead>
             <tr>
               <th>Event ID</th>
+              <th>Giver ID</th>
               <th>Receiver ID</th>
               <th>Shipped Date</th>
               <th>Shipping Carrier</th>
@@ -99,6 +100,7 @@ function UserExchanges({ userId }) {
             {userExchanges.map((exchange) => (
               <tr key={exchange.id}>
                 <td>{exchange.event_id}</td>
+                <td>{exchange.giver_id}</td>
                 <td>{exchange.receiver_id}</td>
                 <td>{exchange.shipped_date}</td>
                 <td>{exchange.shipping_carrier}</td>
