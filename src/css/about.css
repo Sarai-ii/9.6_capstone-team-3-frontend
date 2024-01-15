@@ -1,40 +1,75 @@
 /* file name: about.css */
 
+#about-page {
+    display: flex;
+    justify-content: center;
+}
 
+.about {
+    max-width: 800px; /* Set a maximum width for the content */
+    text-align: left;
+    margin: 0 auto; /* Center the content */
+}
+
+#title {
+    text-align: center;
+	justify-content: center;
+	padding-bottom: 80px;
+}
+
+#github-link{
+	text-decoration: none;
+}
+
+#github-link:hover{
+	text-decoration: none;
+	color: #6474ed;
+}
 .dev-profile-pic {
     width: 100px;
     height: 100px;
     background-color: inherit;
 }
 
-.about {
-    text-align: left;
+.developers {
+    margin-top: 20px; /* Adjust as needed */
 }
 
+.developer {
+    font-weight: bold; /* Make developer names bold */
+    color: #09f; /* Change the color as needed */
+}
+
+.developers-squares {
+    /* Add styles for the developers-squares if needed */
+}
+
+p {
+    max-width: 100%; /* Make sure the text doesn't extend beyond its container */
+}
 
 .legal {
-	margin: 3% 10% 3% 8%;
-
+    margin: 3% 10% 3% 8%;
 }
 
-.legal li
- {
-	margin-left: 1%;
+.legal li {
+    margin-left: 1%;
 }
 
 .heading {
-	padding-top: 20px;
+    padding-top: 20px;
 }
 
 /* FAQ CSS */
 
 .faq {
     text-align: left;
-	margin-left: 8%;
-	padding-bottom: 4%;
-	h2 {
-		margin-top: 5%;
-	}
+    margin-left: 8%;
+    padding-bottom: 4%;
+}
+
+.faq h2 {
+    margin-top: 5%;
 }
 
 @keyframes bounce-rotate {
