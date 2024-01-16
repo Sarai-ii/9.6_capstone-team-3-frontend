@@ -38,7 +38,7 @@ function MessageProof() {
 
 
   return (
-    <div className="message">
+    <div id="message-page" className="message">
         <h2>Time to add a picture of the gift you received to the gallery!</h2>
         <div className='message-after-header message-top-no-greeting'>
         {/* add greeting here? --check--*/}

@@ -69,6 +69,14 @@ body{
   margin-bottom: 2%;
 }
 
+
+#upload-page.upload-modal-container {
+  max-height: 80vh; 
+  overflow-y: auto; 
+}
+
+
+
 /* Add a footer-like style for the last paragraph */
 .message p:last-child {
     margin-top: 20px; 
