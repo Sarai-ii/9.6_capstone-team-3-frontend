@@ -1,20 +1,22 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { storageRef } from "../firebaseStorage";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import axios from "axios";
 
 import "../css/uploadModal.css";
 
-//Modal.setAppElement('#root'); //this is so accessibility readers can read the modal
-
 const UploadModal = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
-  const [fileUrl, setFileUrl] = useState(null); 
+  const [fileUrl, setFileUrl] = useState(null);
   const [title, setTitle] = useState("");
   const [blurb, setBlurb] = useState("");
   const [altText, setAltText] = useState('');
   const [isUploading, setIsUploading] = useState(false);
+
+
+  const navigate = useNavigate();
 
   const MAX_FILE_SIZE_MB = 5; // Maximum file size in MB
   const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024;
@@ -24,7 +26,7 @@ const UploadModal = () => {
     setIsOpen(false);
     setTitle("");
     setBlurb("");
-    setFileUrl(null);  //reset thumbnail preview
+    setFileUrl(null);
     setAltText("");
   };
 
@@ -40,11 +42,9 @@ const UploadModal = () => {
 
     setSelectedFile(file);
 
-    // Read and display a thumbnail preview of the selected image
     const reader = new FileReader();
     reader.onloadend = () => {
-      console.log('File read result:', reader.result); // Add this to check the file data URL
-
+      console.log('File read result:', reader.result);
       setFileUrl(reader.result);
     };
     reader.readAsDataURL(file);
@@ -53,43 +53,38 @@ const UploadModal = () => {
   const handleAltTextChange = (event) => {
     setAltText(event.target.value);
   };
-  
+
   const handleUpload = async () => {
     if (!selectedFile) {
       console.log("Please choose a file to upload.");
       return;
     }
-
+  
     setIsUploading(true);
-
+  
     try {
       const fileName = `${Date.now()}_${selectedFile.name}`;
       const fileRef = ref(storageRef, fileName);
-
-      // Upload the file
+  
       const snapshot = await uploadBytes(fileRef, selectedFile);
-
-      // Get the download URL of the uploaded file
       const downloadURL = await getDownloadURL(fileRef);
-
+  
       console.log("File uploaded successfully:", snapshot);
       console.log("Download URL:", downloadURL);
-
-      // Now you can use the downloadURL to make a POST request to your backend
+  
       const picturePostData = {
-        pictures_post_title: title, 
-        pictures_post_blurb: blurb, 
+        pictures_post_title: title,
+        pictures_post_blurb: blurb,
         pictures_post_URL: downloadURL,
         alt_text: altText || "No alt text provided",
         likes_count: 0,
       };
-
-      //POST request to the backend
+  
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/pictures`,
         picturePostData
       );
-
+  
       if (response.data && response.data.success) {
         console.log("Upload success!", response.data);
       } else {
@@ -101,88 +96,85 @@ const UploadModal = () => {
     } finally {
       setIsUploading(false);
       closeModal();
+      navigate("/gallery");
     }
   };
+  
 
   return (
     <div>
-  <button id="upload-button" onClick={openModal}>
-    Upload
-  </button>
-  {isOpen && (
-    <div className="upload-modal-container">
-      <div className={`upload-modal-content${fileUrl ? ' with-thumbnail' : ''}`}>
-        <span
-          id="upload-close-container"
-          className="upload-modal-close"
-          onClick={closeModal}
-        >
-          &times;
-        </span>
-        <div id="upload-modal-header">
-          <h2 className="upload-modal-title">Share the Exchange!</h2>
-        </div>
-        <div id="upload-form-container">
-
-<div id="input-fields-container ">
-          <div className="upload-input-container">
-
-            <input
-              type="text"
-              id="picture-title"
-              placeholder="Title:"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              required
-            />
-          </div>
-          <div className="upload-input-container">
-            <textarea
-              id="picture-description"
-              placeholder="Comments:"
-              value={blurb}
-              onChange={(e) => setBlurb(e.target.value)}
-            ></textarea>
-            <div id="file-thumbnail-container">
-            <input
-              id="upload-input"
-              type="file"
-              onChange={handleFileChange}
-            />
-                      {selectedFile && (
-            <div className='thumbnail'>
-              <img src={fileUrl} alt={altText || "Image preview"} className="thumbnail-image" />
-            </div>
-          )}
-          </div>
-          </div>
-          <div className="upload-input-container">
-            <label htmlFor="altText">
-            </label>
-            <textarea
-              id="altText"
-              placeholder="Alt Text - For Visually Impaired:"
-              value={altText}
-              onChange={handleAltTextChange} 
-            />
-          </div>
-
-          </div>
-
-          <div className="upload-button-container">
-            <button
-              id="upload-button"
-              onClick={handleUpload}
-              disabled={isUploading}
+      <button id="upload-button" onClick={openModal}>
+        Upload
+      </button>
+      {isOpen && (
+        <div className="upload-modal-container">
+          <div className={`upload-modal-content${fileUrl ? ' with-thumbnail' : ''}`}>
+            <span
+              id="upload-close-container"
+              className="upload-modal-close"
+              onClick={closeModal}
             >
-              {isUploading ? "Uploading..." : "Upload"}
-            </button>
+              &times;
+            </span>
+            <div id="upload-modal-header">
+              <h2 className="upload-modal-title">Share the Exchange!</h2>
+            </div>
+            <div id="upload-form-container">
+              <div id="input-fields-container">
+                <div className="upload-input-container">
+                  <input
+                    type="text"
+                    id="picture-title"
+                    placeholder="Title:"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="upload-input-container">
+                  <textarea
+                    id="picture-description"
+                    placeholder="Comments:"
+                    value={blurb}
+                    onChange={(e) => setBlurb(e.target.value)}
+                  ></textarea>
+                  <div id="file-thumbnail-container">
+                    <input
+                      id="upload-input"
+                      type="file"
+                      onChange={handleFileChange}
+                    />
+                    {selectedFile && (
+                      <div className='thumbnail'>
+                        <img src={fileUrl} alt={altText || "Image preview"} className="thumbnail-image" />
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="upload-input-container">
+                  <label htmlFor="altText"></label>
+                  <textarea
+                    id="altText"
+                    placeholder="Alt Text - For Visually Impaired:"
+                    value={altText}
+                    onChange={handleAltTextChange} 
+                  />
+                </div>
+              </div>
+              <div className="upload-button-container">
+                <button
+                  id="upload-button"
+                  onClick={handleUpload}
+                  disabled={isUploading}
+                >
+                  {isUploading ? "Uploading..." : "Upload"}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
-  )}
-</div>
   );
 };
 
