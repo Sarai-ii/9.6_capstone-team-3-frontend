@@ -42,15 +42,12 @@ function MessageProof() {
         <h2>Time to add a picture of the gift you received to the gallery!</h2>
         <div className='message-after-header message-top-no-greeting'>
         {/* add greeting here? --check--*/}
-        <p> Adding your picture lets us know that your match did their job. You will be given an opportunity to leave a little note describing your gift and/or thoughts. Our aim is to spread joy!</p>
+        <p> Adding your picture lets us know that your match did their job. You will be given an opportunity to leave a little note describing your gift and/or thoughts.</p>
         
         <p>Please don't leave a negative note. </p>
         
         <p>
             Even if you are disappointed in your gift, your match went out of their way to think about what you might like and sent it to you. If you really can't think of anything nice to say, saying "Thanks for the gift" is perfectly accceptable. 
-        </p>
-        <p>
-            The one exception is if you received something inappropriate or against the rules. In that case, don't upload the picture and do let us know immediately at HappinessExchangeTeam@protonmail.com.
         </p>
         <div id='upload-modal-button-in-message'>
           {/* Modal */}
