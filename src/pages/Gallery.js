@@ -1,15 +1,16 @@
+// Gallery.js
 import React from 'react';
 import FullGallery from '../components/FullGallery';
 import UploadModal from '../components/UploadModal';
 
-import "../css/Gallery.css"
 
-function Gallery() {
+
+function Gallery({ previewMode }) {
   return (
     <div className='gallery'>
       <FullGallery />
       <div className='testing-pictures'>
-        <UploadModal />
+        {previewMode ? null : <UploadModal />}
       </div>
     </div>
   );
