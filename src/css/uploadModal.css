@@ -2,6 +2,20 @@
   padding-bottom: 15px;
 }
 
+.modal-open {
+  overflow: hidden; 
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
 .upload-modal-container {
   display: flex;
   align-items: center;
@@ -13,15 +27,28 @@
   min-width: 500px;
   width: 100%;
   z-index: 1000;
-  /* Ensure the modal stays on top */
+  border-radius: 8px;
+  overflow: auto; 
+}
+
+.upload-modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 500px;
+  width: 100%;
+  z-index: 1000; /* Ensure the modal stays on top */
   border-radius: 8px;
 }
 
 .upload-modal-content {
   background-color: white;
-  padding: 0px;
+  padding: 20px;
   border-radius: 8px;
-  box-shadow: 10px 10px 1.8px .7px rgba(88, 24, 1, 0.2);
+  box-shadow: 10px 10px 1.8px 0.7px rgba(88, 24, 1, 0.2);
+  position: relative; 
+  z-index: 1001;
 }
 
 /* Upload Modal Header CSS */
@@ -81,13 +108,13 @@
 
 /* Adjust the size of the modal with thumbnail */
 .upload-modal-content.with-thumbnail {
-  max-width: 700px; /* Set the desired width */
+  max-width: 700px; 
   max-height: 700px;
 }
 
 /* Adjust the size of the modal without thumbnail */
 .upload-modal-content:not(.with-thumbnail) {
-  max-width: 700px; /* Set the desired width */
+  max-width: 700px; 
   max-height: 700px;
 }
 
@@ -103,12 +130,12 @@
 .upload-input-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align items to the left */
+  align-items: flex-start;
   margin-bottom: 20px;
 }
 
 .upload-input {
-  width: 100%; /* Make the input full width */
+  width: 100%; 
   padding: 10px;
   margin: 0.5rem 0;
   border-radius: 2.5px;
@@ -119,12 +146,12 @@
 #file-thumbnail-container {
   display: flex;
   justify-content: space-between;
-  width: 100%; /* Ensure it takes the full width */
+  width: 100%; 
 }
 
 .thumbnail {
   text-align: center;
-  max-width: 100%; /* Adjust the max-width based on your design */
+  max-width: 100%; 
 }
 
 
