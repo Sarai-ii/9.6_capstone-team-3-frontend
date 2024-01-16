@@ -3,6 +3,8 @@ import React from 'react';
 import FullGallery from '../components/FullGallery';
 import UploadModal from '../components/UploadModal';
 
+
+
 function Gallery({ previewMode }) {
   return (
     <div className='gallery'>
