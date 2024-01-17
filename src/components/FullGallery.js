@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import heartIcon from '../images/heart.svg';
+import thumbIcon from '../images/thumbs-up.svg';
 
 import "../css/fullGallery.css";
 
@@ -72,8 +74,9 @@ function FullGallery({ previewMode }) {
                   {picturePost.pictures_post_title}
                 </h3>
                 <p>{picturePost.pictures_post_blurb}</p>
-                <div className="picture-card-details">
-                  <span>❤️ {picturePost.likes_count}</span>
+                <div className="likes-container">
+                  <span><img src={heartIcon} id="heartIcon" /> {picturePost.likes_count}</span>
+                  <div><button id="like-button"></button> <img src={thumbIcon} id="thumbIcon"/></div>
                 </div>
               </div>
             </div>

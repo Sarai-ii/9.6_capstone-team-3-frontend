@@ -14,6 +14,7 @@
 .picture-card-h1-container {
   text-align: center;
   width: 100%;
+
 }
 
 .picture-card-h1 {
@@ -43,17 +44,18 @@
   width: 300px;
   min-height: 400px;
   background-color: white; 
-  padding: 20px;
+  padding: 10px;
   margin: 20px;
   border-radius: 5px; 
   color: #333; 
   border: 1px solid #545454;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
   padding-bottom: 100px;
+  padding-top: 20px;
 }
 
 .picture-card-img {
-  width: 100%;
+  width: 90%;
   height: 70%;
   object-fit: cover;
   border-radius: 5px;
@@ -61,7 +63,9 @@
 }
 
 .picture-card:hover {
-  transform: scale(1.05);
+  /* transform: scale(1.05); */
+  box-shadow: 10px 10px 1.8px .7px rgba(88, 24, 1, 0.2);
+
 }
 
 .picture-card-overlay {
@@ -117,15 +121,62 @@
   font-family: 'Montserrat';
 }
 
-.picture-card-details {
-  margin-top: auto;
-  text-align: left;
+.likes-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto; /* Align to the bottom of the card */
+  padding: 10px;
+}
+
+#like-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 16px; 
+  height: 16px;  
+  margin-right: 20px;
+  margin-bottom: 11px;
+}
+
+
+#like-button:hover {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 16px; 
+  height: 16px;  
+  margin-right: 20px;
+  font-weight: bold;
+  color: #6474ed;
+
 }
 
 .picture-card-overlay p{
   text-align: left;
 }
 
-.picture-card-details p {
+.likes-container p {
   margin: 0; 
+}
+
+#heartIcon {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 25px; 
+  height: 30px; 
+  margin-right: 5px; 
+}
+
+#thumbIcon {
+  width: 25px;
+  height: 30px;
+  margin-right: 5px;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+#thumbIcon:hover {
+  transform: scale(1.2); 
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)); 
 }
