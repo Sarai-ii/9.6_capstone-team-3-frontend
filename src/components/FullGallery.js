@@ -37,6 +37,7 @@ function FullGallery({ previewMode }) {
 
   return (
     <div className='picture-card-container'>
+
       <div className='picture-card-h1-container'>
         {previewMode ? (
           <h1 id="picture-card-h1-title" className='picture-card-h1'>Preview of Previous Exchanges</h1>
@@ -61,20 +62,22 @@ function FullGallery({ previewMode }) {
                 <p>Likes: {picturePost.likes_count}</p>
               </div>
             </div>
-          ))
-        ) : (
-          <p>Loading...</p>
-        )}
-      </div>
-      <div className="show-more-less-container">
-        {visibleCards < picturePosts.length && (
-          <button className="show-button" onClick={handleShowMore}>Show More</button>
-        )}
-        {visibleCards > 4 && (
-          <button className="show-button" onClick={handleShowLess}>Show Less</button>
-        )}
-      </div>
+          </div>
+        ))
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
+    <div className="show-more-less-container">
+      {visibleCards < picturePosts.length && (
+        <button className="show-button" onClick={handleShowMore}>Show More</button>
+      )}
+      {visibleCards > 4 && (
+        <button className="show-button" onClick={handleShowLess}>Show Less</button>
+      )}
+    </div>
+  </div>
+  
   );
 }
 
