@@ -51,26 +51,26 @@ export default function CurrentEvent({event, userData, userId}) {
       </div>
       <div className="container">
         <div className="description-CE-container">
-          <h5 className="description-price-title"><span className="price-title">Minimum Spend:</span><span className="price">${event.minimum_spend}</span></h5>
-          <h5 className="description-event-title"> {event.title}: </h5>
+          <h5 className="description-event-title"> {event.title} </h5>
           <h5 className="description">{event.description}</h5>
-          <div className="collapse-container row">
+          <div className=" row">
             <div className="col">
               <div className="collapse-card">
-                <h2 className="details-CEheader">Important Timeline/Scheduling</h2>
+                <h2 className="details-CEheader">Event Timeline</h2>
                 <p className="details-CE">
                   <span className="timeline">Registration Period: </span>{signup[1]}/{signup[2]}/{year} - {close[1]}/{close[2]}/{year}
                   <br />
-                  <span className="timeline">Matching Date: </span>{match[1]}/{match[2]}/{year} 
+                  <span className="timeline">Match Date: </span>{match[1]}/{match[2]}/{year} 
                   <br />
                   <span className="timeline">Shipping Timeframe: </span>{match[1]}/{match[2]}/{year} - {ship[1]}/{ship[2]}/{year} 
                   <br/>
                   {deadline <= 0 ? (
                     <span className="deadline">EVENT CLOSED: {formatCountDown(deadline)}</span>
-                ) : (
-                  <span className="deadline">EVENT CLOSES: {formatCountDown(deadline)}</span>
-                )}
+                    ) : (
+                      <span className="deadline">EVENT CLOSES: {formatCountDown(deadline)}</span>
+                      )}
                 </p>
+                      <h5 className="description-price-title"><span className="price-title">Minimum Spend:</span><span className="price">${event.minimum_spend}</span></h5>
                 {deadline <= 0 ? (
                     <div className="join-container">
                     </div>
