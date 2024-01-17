@@ -9,6 +9,7 @@ import "../css/Events.css"
 const API = process.env.REACT_APP_API_URL;
 
 export default function EventSignUp({ userData, userId }) {
+    window.scrollTo(0,0);
     
     const { eventId } = useParams()
     // console.log('userId:', userId); // working 12/20
