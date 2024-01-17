@@ -76,21 +76,40 @@ function FullGallery({ previewMode }) {
               className={`picture-card ${
                 picturePost.showText ? "show-text" : ""
               }`}
-              onClick={() => handleCardClick(index)}
+              onClick={() => handleCardClick(index)} 
             >
-              <img
-                className="picture-card-img"
-                src={picturePost.pictures_post_url}
-                alt={picturePost.pictures_post_title}
-              />
-              <div className="picture-card-overlay">
-                <h3 className="picture-card-h3">
-                  {picturePost.pictures_post_title}
-                </h3>
-                <p>{picturePost.pictures_post_blurb}</p>
-                <div className="likes-container">
-                  <span><img src={heartIcon} id="heartIcon" /> {picturePost.likes_count}</span>
-                  <div><button id="like-button"></button> <img src={thumbIcon} id="thumbIcon"/></div>
+              <Link
+                to={`/picture-post/${picturePost.id}`} // This is passing the id in the URL
+                className="picture-card-link"
+              >
+                <img
+                  className="picture-card-img"
+                  src={picturePost.pictures_post_url}
+                  alt={picturePost.pictures_post_title}
+                />
+                <div className="picture-card-overlay">
+                  <h3 className="picture-card-h3">
+                    {picturePost.pictures_post_title}
+                  </h3>
+                  <div id="card-text">
+                    <p>{picturePost.pictures_post_blurb}</p>
+                  </div>
+                  <div className="likes-container">
+                    <span>
+                      <img src={heartIcon} id="heartIcon" /> {picturePost.likes_count}
+                    </span>
+                    <div>
+                      <button
+                        id="like-button"
+                        onClick={() => handleLikeClick(picturePost.id)}
+                      ></button>
+                      <img
+                        src={thumbIcon}
+                        id="thumbIcon"
+                        onClick={() => handleLikeClick(picturePost.id)}
+                      />
+                    </div>
+                  </div>
                 </div>
               </Link>
             </div>
