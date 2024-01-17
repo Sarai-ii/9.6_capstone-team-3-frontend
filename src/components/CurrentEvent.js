@@ -52,20 +52,10 @@ export default function CurrentEvent({event, userData, userId}) {
       <div className="container">
         <div className="description-CE-container">
           <h5 className="description-price-title"><span className="price-title">Minimum Spend:</span><span className="price">${event.minimum_spend}</span></h5>
-          <h5 className="description-price-title"><span className="price-title">Maximum Spend:</span><span className="price">${event.minimum_spend + 40} </span></h5>
           <h5 className="description-event-title"> {event.title}: </h5>
           <h5 className="description">{event.description}</h5>
-          <h2
-          className="collapse-toggle d-inline-flex gap-1"
-          data-bs-toggle="collapse" 
-          data-bs-target="#collapseCurrentEvents" 
-          // aria-expanded="false" 
-          aria-controls="collapseCurrentEvents"
-          >
-            Click For More Details About This Event
-          </h2>
           <div className="collapse-container row">
-            <div className="collapse collapse-details collapse-vertical col" id="collapseCurrentEvents">
+            <div className="col">
               <div className="collapse-card">
                 <h2 className="details-CEheader">Important Timeline/Scheduling</h2>
                 <p className="details-CE">

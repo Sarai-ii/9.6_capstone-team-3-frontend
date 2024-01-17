@@ -42,7 +42,7 @@ function FullGallery({ previewMode }) {
           <h1 id="picture-card-h1-title" className='picture-card-h1'>Preview of Previous Exchanges</h1>
         ) : (
           <Link className='picture-card-link' to="/gallery">
-            <h1 id="picture-card-h1-title" className='picture-card-h1'>Gift's Exchanged</h1>
+            <h1 id="picture-card-h1-title" className='picture-card-h1'>Gifts Exchanged</h1>
           </Link>
         )}
       </div>
