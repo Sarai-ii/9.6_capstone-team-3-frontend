@@ -83,11 +83,11 @@
     color:#ED6495
   }
   .timeline-UE {
-    color: #6474ED;
+    color: #ED6495;
     font-size: 20px;
   }
   .price-title-UE{
-    color: #6474ED;
+    color: #ED6495;
     font-size: 18px;
   }
   .price-UE{
@@ -320,7 +320,7 @@
     /* justify-content: center; */
     letter-spacing: .02em;
     /* margin: 10% 30% 10% 30%; */
-    /* padding: 35px; */
+    padding: 35px;
     text-align: center;
     word-spacing: 1px;
     /* width: 70%; */
@@ -339,13 +339,15 @@
 .description-price-title{
     font-weight: 400;
     letter-spacing: .06em;
+    padding-bottom: 10px;
 }
 .description-event-title{
     font-weight: 500;
+    font-size: larger;
     letter-spacing: .06em;
     margin-top: 15px;
     margin-left: 5px;
-    text-align: start;
+    /* text-align: start; */
 }
 .price-title{
     letter-spacing: .099em;
@@ -381,8 +383,9 @@
 
 .details-CEheader{
     color: #6474ED;
+    text-decoration: wavy;
     font-size: 50%;
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: .06em; 
     text-align: center;
     text-wrap:wrap;

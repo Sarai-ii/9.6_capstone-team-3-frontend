@@ -42,16 +42,12 @@ export default function AllEvents({ userData, userId }) {
 
   return (
     <div className="events-webpage-container">
-      {/* <header className="hero-img intro-container">
-        <h1 className="introduction">Begin your gift giving journey here. </h1>
-        <br/>
-      </header> */}
       <ul id= "current" className="current-container" >
       <h2 id='current' className="event-type">Live Event</h2>
         { 
         filteredEvents.map((event) => (
           <div className="">
-            <li><h3 className="event-title">{event.title}</h3></li>
+            <li><h2 className="event-title">{event.title}</h2></li>
             <CurrentEvent key={event.id} event = {event} userId={userId} />
           </div>
         ))}

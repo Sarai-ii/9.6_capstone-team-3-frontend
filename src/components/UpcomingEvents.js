@@ -31,14 +31,14 @@ export default function UpcomingEvents({ upcomingEvents, filteredEvents, event }
           <h2 className="details-UEHeader">Event Timeline</h2>
           <span className="timeline-UE">Registration Period: </span>{signUpMinusTime[1]}/{signUpMinusTime[2]}/{year} - {close[1]}/{close[2]}/{year}
           <br />
-          <span className="timeline-UE">Matching Date: </span>{matchDate[1]}/{matchDate[2]}/{year} 
+          
+          <div className="inline-display">
+            <span className="timeline-UE">Match Date: </span>
+            <span>{matchDate[1]}/{matchDate[2]}/{year}</span>
+          </div>
           <h5 className="description-price-title">
-            <span className="price-title-UE">Minimum Spend:</span>
+            <span className="price-title-UE">Minimum Spend: </span>
             <span className="price-UE">${event.minimum_spend}</span>
-          </h5>
-          <h5 className="description-price-title">
-            <span className="price-title-UE">Maximum Spend:</span>
-            <span className="price-UE">${event.minimum_spend + 40} </span>
           </h5>
         </div>
         <img

@@ -93,7 +93,7 @@ export default function Profile({user, userData}) {
   return (
     <div className='profile-container'>
       <div className='profile-header'>
-        <img className='cover-pic' src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFjZWJvb2slMjBjb3ZlcnxlbnwwfHwwfHx8MA%3D%3D"/>
+        <img className='cover-pic' src="https://firebasestorage.googleapis.com/v0/b/happiness-exchange-capstone.appspot.com/o/images%2FMozzy%2FBirdOnMoney.webp.jpg?alt=media&token=375def38-b425-4435-84e5-fca1f32bdf0a"/>
       </div>
       <div className='profile-content'>
         <section className='bio-container-left'>
