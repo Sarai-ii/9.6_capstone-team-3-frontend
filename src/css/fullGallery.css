@@ -58,7 +58,7 @@
   width: 90%;
   height: 70%;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 0px;
   /*border-radius: 10px 10px 0 0;  Rounded top corners */
 }
 
@@ -179,4 +179,8 @@
 #thumbIcon:hover {
   transform: scale(1.2); 
   filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)); 
+}
+
+#card-text{
+  color: #545454;
 }

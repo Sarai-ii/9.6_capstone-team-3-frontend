@@ -131,7 +131,7 @@ function App() {
             {isAdmin && (<Route path="/admin/exchanges" element={<AdminExchanges />} />)}
 
             <Route path="/gallery" element={<Gallery userUid={userUid} />} />
-            <Route path="/picture-post" element = {<IPPPage/>}/>
+            <Route path="/picture-post/:id" element={<IPPPage userUid={userUid} />} />
             <Route path="/message-match" element={<MessageMatch userData={userData} userId={userId} />} />
             <Route path="/message-proof" element={<MessageProof />} />
             <Route path="*" element={<PageNotFound />} />

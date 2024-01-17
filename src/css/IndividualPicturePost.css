@@ -1,0 +1,66 @@
+.individual-picture-post-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding-bottom: 40px;
+    margin: 100px;
+}
+
+.individual-picture-post{
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+    cursor: pointer;
+    width: 800px;
+    min-height: 400px;
+    background-color: white; 
+    padding: 10px;
+    margin: 20px;
+    border-radius: 5px; 
+    color: #333; 
+    border: 1px solid #545454;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    padding-bottom: 10px;
+    padding-top: 20px;
+
+}
+
+.individual-picture-post-img{
+    width: 90%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 5px; 
+}
+.individual-picture-card-h3 {
+    margin: 10px 0;
+    color: #ED6495;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-top: 20px;
+  }
+
+  #individual-card-text{
+    color: #545454;
+    margin: 40px;
+  }
+
+  #individual-likes-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: auto; 
+    padding: 10px;
+    margin: 60px;
+  }
+
+  .back-to-gallery-link{
+    color: white;
+    background-color: #6474ed;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid transparent; 
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  }
