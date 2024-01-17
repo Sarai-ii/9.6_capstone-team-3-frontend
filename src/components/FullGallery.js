@@ -73,7 +73,9 @@ function FullGallery({ previewMode }) {
                 <h3 className="picture-card-h3">
                   {picturePost.pictures_post_title}
                 </h3>
+                <div id="card-text">
                 <p>{picturePost.pictures_post_blurb}</p>
+                </div>
                 <div className="likes-container">
                   <span><img src={heartIcon} id="heartIcon" /> {picturePost.likes_count}</span>
                   <div><button id="like-button"></button> <img src={thumbIcon} id="thumbIcon"/></div>
