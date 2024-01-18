@@ -142,6 +142,36 @@ text-decoration: none;
 }
 
 
+#footer-main-events-link{
+  background: #ED6495;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+#footer-main-events-link:hover{
+  background: white;
+  color: #ED6495;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+
+#footer-button-container{
+  padding-right: 250px;
+  padding-top: 20px;
+}
+
 /* Media Query For different screens */
 @media (min-width:320px) and (max-width:599px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
 .footer-content {
