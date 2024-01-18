@@ -42,6 +42,7 @@
 #individual-card-text {
   color: #545454;
   margin: 40px;
+  flex: 1;
 }
 
 #individual-likes-container {
