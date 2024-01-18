@@ -26,13 +26,12 @@ function FullGallery({ previewMode }) {
   }, []);
 
   const handleCardClick = (index) => {
-    // Add logic for handling card click here
+
     console.log(`Card at index ${index} clicked!`);
   };
 
   const handleLikeClick = async (id) => {
     try {
-      // Make a PUT request to update likes
       const response = await axios.put(`${process.env.REACT_APP_API_URL}/pictures/${id}/like`);
       const updatedPicturePosts = [...picturePosts];
       const updatedIndex = updatedPicturePosts.findIndex(post => post.id === id);
@@ -44,7 +43,7 @@ function FullGallery({ previewMode }) {
       console.error('Error updating likes:', error);
     }
   };
-  
+
 
   const handleShowMore = () => {
     setVisibleCards(visibleCards + 4);
@@ -93,7 +92,7 @@ function FullGallery({ previewMode }) {
                     {picturePost.pictures_post_title}
                   </h3>
                   <div id="card-text">
-                    <p>{picturePost.pictures_post_blurb}</p>
+                    <p id="card-text-p">{picturePost.pictures_post_blurb}</p>
                   </div>
                   <div className="likes-container">
                     <span>
