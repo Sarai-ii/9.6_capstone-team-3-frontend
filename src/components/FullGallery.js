@@ -44,6 +44,7 @@ function FullGallery({ previewMode }) {
       console.error('Error updating likes:', error);
     }
   };
+  
 
   const handleShowMore = () => {
     setVisibleCards(visibleCards + 4);
