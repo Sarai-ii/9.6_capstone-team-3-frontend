@@ -121,7 +121,7 @@ const Signup = () => {
           </h2>
           <h3 id="signup-slogan-2">
             Where gift giving is fun and stress-free! Events are ongoing on a
-            seasonal basis
+            seasonal basis.
           </h3>
         </div>
       </div>

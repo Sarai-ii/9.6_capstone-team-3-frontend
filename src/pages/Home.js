@@ -23,7 +23,7 @@ function Home() {
       <h2 className="slogan">
         Bringing People Together Through Thoughtful Gestures
       </h2>
-      <h3 className="slogan-2">Join the Exchange of Happiness where gift giving is fun and stress-free! Events are hapening every month - sign up for free to join the fun</h3>
+      <h3 className="slogan-2">Join the Exchange of Happiness where gift giving is fun and stress-free! Events are happening every month &mdash; sign up for free to join the fun.</h3>
       <Link id="main-signup-link" className="homepage-signup-link" to="/signup">
         Signup Now!
       </Link>
