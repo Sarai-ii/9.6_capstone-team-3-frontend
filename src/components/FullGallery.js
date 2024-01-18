@@ -63,7 +63,7 @@ function FullGallery({ previewMode }) {
         ) : (
           <Link className="picture-card-link" to="/gallery">
             <h1 id="picture-card-h1-title" className="picture-card-h1">
-              Gift's Exchanged
+              Gifts Exchanged
             </h1>
           </Link>
         )}
