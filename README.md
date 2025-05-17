@@ -1,6 +1,6 @@
 # 🎁 Happiness Exchange
 
-**Happiness Exchange** Imagine you get a gift in the mail and you have no idea what it could be, meet Happiness Exchange. A themed gift-giving platform where strangers connect by joining Secret Santa-style events. Users create profiles, explore available and future events, and after joining are automatically matched to give and receive thoughtful gifts based on the event’s theme—all while maintaining the fun surprise of anonymity. Then after all is set and done, upload images of their gift to add to the apps gallery wall. 
+Imagine you get a gift in the mail and you have no idea what it could be, meet **Happiness Exchange**. A themed gift-giving platform where strangers connect by joining Secret Santa-style events. Users create profiles, explore available and future events, and after joining are automatically matched to give and receive thoughtful gifts based on the event’s theme—all while maintaining the fun surprise of anonymity. Then after all is set and done, upload images of their gift to add to the apps gallery wall. 
 
 Event participation, user matching, and gift logistics are securely managed through a backend database and custom-built event matching logic.
 
