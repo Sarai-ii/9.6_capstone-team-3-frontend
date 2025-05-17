@@ -65,7 +65,7 @@ Event participation, user matching, and gift logistics are securely managed thro
 ### Clone the Frontend Repo
 
 ```bash
-git clone https://github.com/your-username/happiness-exchange-frontend.git
-cd happiness-exchange-frontend
+git clone https://github.com/Sarai-ii/9.6_capstone-team-3-frontend/
+cd 9.6_capstone-team-3-frontend
 npm install
 npm start
